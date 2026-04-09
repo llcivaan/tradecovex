@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NinjaTrader Trade Copier: The Complete Guide for Prop Firm Traders (2026) | Tradecovex</title>
+<meta name="description" content="How NinjaTrader trade copiers actually work in 2026, what to look for, how to set one up across multiple prop firm accounts, and why the market is shifting toward copiers with built-in AI trade analysis.">
+<link rel="canonical" href="https://tradecovex.com/ninjatrader-trade-copier">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://tradecovex.com/ninjatrader-trade-copier#article","headline":"NinjaTrader Trade Copier: The Complete Guide for Prop Firm Traders (2026)","description":"How NinjaTrader trade copiers actually work in 2026, what to look for, how to set one up across multiple prop firm accounts, and why the market is shifting toward copiers with built-in AI trade analysis.","author":{"@type":"Organization","name":"Tradecovex"},"publisher":{"@type":"Organization","name":"Tradecovex","logo":{"@type":"ImageObject","url":"https://tradecovex.com/logo.png"}},"datePublished":"2026-04-08T00:00:00+00:00","dateModified":"2026-04-08T00:00:00+00:00","mainEntityOfPage":"https://tradecovex.com/ninjatrader-trade-copier","image":"https://tradecovex.com/og/ninjatrader-trade-copier.png"},{"@type":"FAQPage","@id":"https://tradecovex.com/ninjatrader-trade-copier#faq","mainEntity":[{"@type":"Question","name":"What is a NinjaTrader trade copier?","acceptedAnswer":{"@type":"Answer","text":"A NinjaTrader trade copier is software that replicates every trade placed on a lead account to one or more follower accounts connected to the same NinjaTrader desktop. For prop firm traders, it means placing one trade and having it execute simultaneously across multiple funded or evaluation accounts within milliseconds."}},{"@type":"Question","name":"Do NinjaTrader trade copiers work with Apex, Topstep and MyFundedFutures?","acceptedAnswer":{"@type":"Answer","text":"Yes. Any NinjaTrader copier that supports the Rithmic or Tradovate adapters will work with Apex Trader Funding, Topstep, MyFundedFutures, Tradeify and most other futures prop firms."}},{"@type":"Question","name":"How many accounts can a NinjaTrader trade copier handle?","acceptedAnswer":{"@type":"Answer","text":"Established copiers support anywhere from 20 to 100 follower accounts from a single lead. The real limit is usually the NinjaTrader desktop itself and the host machine's resources."}},{"@type":"Question","name":"What latency should a NinjaTrader trade copier achieve?","acceptedAnswer":{"@type":"Answer","text":"A well-built local NinjaTrader copier should replicate an order to follower accounts in under 10 milliseconds under normal conditions. Cloud-based copiers typically fall in the 40 to 200 millisecond range."}},{"@type":"Question","name":"Is using a trade copier against prop firm rules?","acceptedAnswer":{"@type":"Answer","text":"Copying your own trades across your own funded accounts is permitted by every major futures prop firm. What is not permitted is copying trades between different traders' accounts."}}]},{"@type":"SoftwareApplication","@id":"https://tradecovex.com/ninjatrader-trade-copier#software","name":"Tradecovex","applicationCategory":"FinanceApplication","operatingSystem":"Windows","offers":{"@type":"Offer","price":39,"priceCurrency":"USD"},"description":"NinjaTrader trade copier with integrated AI trade journal for prop firm futures traders."},{"@type":"VideoObject","@id":"https://tradecovex.com/ninjatrader-trade-copier#video1","name":"NinjaTrader Trade Copier Walkthrough","description":"Setting up a trade copier across multiple prop firm accounts on NinjaTrader.","thumbnailUrl":"https://img.youtube.com/vi/QFslKkiD2eU/maxresdefault.jpg","uploadDate":"2026-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/QFslKkiD2eU"},{"@type":"VideoObject","@id":"https://tradecovex.com/ninjatrader-trade-copier#video2","name":"NinjaTrader Multi-Account Setup","description":"How to connect multiple prop firm accounts to a single NinjaTrader desktop instance.","thumbnailUrl":"https://img.youtube.com/vi/UakOtQ7OoqI/maxresdefault.jpg","uploadDate":"2026-01-01T00:00:00+00:00","embedUrl":"https://www.youtube.com/embed/UakOtQ7OoqI"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://tradecovex.com/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://tradecovex.com/guides"},{"@type":"ListItem","position":3,"name":"NinjaTrader Trade Copier","item":"https://tradecovex.com/ninjatrader-trade-copier"}]}]}
+</script>
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:#0F172A;background:#fff;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+:root{--blue:#2563EB;--navy:#0F172A;--slate:#475569;--light:#F8FAFC;--border:#E2E8F0;--radius:10px}
+
+/* ── NAV ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 24px}
+.nav-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-logo{height:34px;width:auto}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{font-size:.9rem;font-weight:500;color:var(--slate);transition:color .2s}
+.nav-links a:hover{color:var(--navy)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 24px;border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-weight:600;font-size:.9rem;cursor:pointer;transition:all .18s;border:none;text-decoration:none}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-primary:hover{background:#1d4ed8;transform:translateY(-1px);box-shadow:0 4px 14px rgba(37,99,235,.35)}
+.btn-outline{background:transparent;color:var(--navy);border:2px solid var(--navy)}
+.btn-outline:hover{background:var(--navy);color:#fff}
+.btn-outline-white{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.4)}
+.btn-outline-white:hover{background:rgba(255,255,255,.1);border-color:#fff}
+.btn-lg{padding:15px 36px;font-size:1rem;border-radius:12px}
+
+/* ── ARTICLE HERO ── */
+.article-hero{padding:120px 24px 60px;position:relative;overflow:hidden;background:#fff}
+.article-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(37,99,235,.06) 0%,transparent 70%);pointer-events:none}
+.article-hero-inner{max-width:840px;margin:0 auto;position:relative}
+.crumbs{font-size:.78rem;color:#94A3B8;margin-bottom:22px;font-weight:500}
+.crumbs a{color:#94A3B8;transition:color .2s}
+.crumbs a:hover{color:var(--blue)}
+.crumbs span{margin:0 10px;opacity:.5}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:#EFF6FF;border:1px solid #BFDBFE;border-radius:100px;padding:6px 16px;font-size:.78rem;font-weight:600;color:var(--blue);letter-spacing:.06em;text-transform:uppercase;margin-bottom:22px}
+.eyebrow span{width:7px;height:7px;background:var(--blue);border-radius:50%;animation:blink 2s ease infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+h1{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(2.4rem,5vw,3.6rem);line-height:1.08;letter-spacing:-.03em;color:var(--navy);margin-bottom:22px}
+h1 .accent{color:var(--blue)}
+.standfirst{font-size:1.1rem;color:var(--slate);line-height:1.75;font-weight:300;margin-bottom:36px;max-width:720px}
+.meta-row{display:flex;gap:28px;flex-wrap:wrap;padding:20px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:44px}
+.meta-item{display:flex;align-items:center;gap:10px;font-size:.82rem;color:var(--slate)}
+.meta-item svg{width:16px;height:16px;stroke:var(--blue);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.meta-item strong{color:var(--navy);font-weight:600}
+
+/* ── ANSWER BOX ── */
+.answer-box{background:#EFF6FF;border:1px solid #BFDBFE;border-radius:14px;padding:32px 36px;position:relative}
+.answer-box .label{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px}
+.answer-box .label svg{width:14px;height:14px;stroke:var(--blue);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.answer-box p{font-size:1.08rem;line-height:1.7;color:var(--navy);font-weight:400}
+.answer-box p em{color:var(--blue);font-style:italic;font-weight:600}
+
+/* ── SECTIONS ── */
+.section{padding:80px 24px}
+.section-light{background:var(--light)}
+.section-tag{display:inline-block;font-size:.72rem;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px}
+h2{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(1.9rem,3.5vw,2.6rem);line-height:1.1;letter-spacing:-.025em;color:var(--navy);margin-bottom:24px}
+h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.3rem;color:var(--navy);margin:34px 0 12px;letter-spacing:-.015em}
+.container{max-width:840px;margin:0 auto}
+.container-wide{max-width:1120px;margin:0 auto}
+.prose p{font-size:1rem;color:var(--slate);line-height:1.85;font-weight:300;margin-bottom:22px}
+.prose p strong{color:var(--navy);font-weight:600}
+.prose p em{color:var(--navy);font-style:italic}
+
+/* ── FEATURE CARDS (from homepage) ── */
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+.features-grid.two{grid-template-columns:repeat(2,1fr)}
+.feature-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:30px;transition:all .22s}
+.feature-card:hover{border-color:#BFDBFE;box-shadow:0 8px 28px rgba(37,99,235,.1);transform:translateY(-2px)}
+.feature-icon{width:42px;height:42px;background:#EFF6FF;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.feature-icon svg{width:20px;height:20px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.feature-card h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.1rem;color:var(--navy);margin:0 0 8px}
+.feature-card p{font-size:.88rem;color:var(--slate);line-height:1.65;font-weight:300}
+
+/* ── PULL QUOTE ── */
+.pullquote{background:var(--navy);color:#fff;border-radius:16px;padding:56px 48px;margin:64px auto;max-width:840px;position:relative;overflow:hidden}
+.pullquote::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;background:radial-gradient(circle,rgba(37,99,235,.25) 0%,transparent 70%);pointer-events:none}
+.pullquote .mark{font-family:'Barlow Semi Condensed',sans-serif;font-size:5rem;line-height:.5;color:var(--blue);margin-bottom:20px;font-weight:800;display:block}
+.pullquote p{font-family:'Barlow Semi Condensed',sans-serif;font-size:1.7rem;line-height:1.3;font-weight:700;letter-spacing:-.02em;margin-bottom:18px;color:#fff;position:relative}
+.pullquote cite{font-style:normal;font-size:.78rem;color:#94A3B8;font-weight:600;text-transform:uppercase;letter-spacing:.1em}
+
+/* ── VIDEO ── */
+.video{margin:48px 0;max-width:840px}
+.video-wrap{position:relative;padding-bottom:56.25%;height:0;background:var(--navy);border-radius:14px;overflow:hidden;box-shadow:0 12px 40px rgba(15,23,42,.15);border:1px solid var(--border)}
+.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.video-caption{display:flex;align-items:center;gap:10px;font-size:.78rem;color:#94A3B8;margin-top:14px;font-weight:500}
+.video-caption svg{width:14px;height:14px;stroke:var(--blue);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ── STEPS ── */
+.steps{margin:40px 0;counter-reset:step}
+.step{display:grid;grid-template-columns:56px 1fr;gap:24px;padding:28px 0;border-top:1px solid var(--border);counter-increment:step}
+.step:last-child{border-bottom:1px solid var(--border)}
+.step-num{font-family:'Barlow Semi Condensed',sans-serif;font-size:1.3rem;font-weight:800;color:var(--blue);background:#EFF6FF;border:1px solid #BFDBFE;width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center}
+.step-num::before{content:"0" counter(step)}
+.step-content h3{margin:0 0 8px;font-size:1.15rem}
+.step-content p{margin:0;font-size:.92rem;color:var(--slate);line-height:1.7;font-weight:300}
+
+/* ── DATA TABLE ── */
+.data-table-wrap{overflow-x:auto;border-radius:14px;border:1px solid var(--border);box-shadow:0 2px 16px rgba(0,0,0,.06);margin:40px 0}
+.data-table{width:100%;border-collapse:collapse;font-size:.875rem;min-width:600px;background:#fff}
+.data-table th{padding:16px 20px;text-align:left;font-weight:600;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;background:#F1F5F9;color:var(--slate);border-bottom:1px solid var(--border)}
+.data-table th.num{text-align:right}
+.data-table td{padding:16px 20px;border-bottom:1px solid var(--border);color:var(--slate);vertical-align:middle;font-weight:300}
+.data-table td.num{text-align:right;font-variant-numeric:tabular-nums}
+.data-table td:first-child{font-weight:500;color:var(--navy)}
+.data-table tr:last-child td{border-bottom:none}
+.data-table tr.tc-row td{background:#EFF6FF;color:var(--navy);font-weight:600}
+.data-table tr.tc-row td:first-child{color:var(--blue)}
+.data-table tr.tc-row td:first-child::before{content:"★ ";color:var(--blue)}
+
+/* ── CTA BANNER (matches homepage waitlist style) ── */
+.cta-banner{background:var(--navy);border-radius:16px;padding:64px 48px;margin:80px auto;max-width:1120px;text-align:center;position:relative;overflow:hidden}
+.cta-banner::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(37,99,235,.2) 0%,transparent 70%);pointer-events:none}
+.cta-banner::after{content:'';position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(37,99,235,.15) 0%,transparent 70%);pointer-events:none}
+.cta-banner-inner{position:relative;z-index:1;max-width:620px;margin:0 auto}
+.cta-banner .section-tag{color:#60A5FA;margin-bottom:12px}
+.cta-banner h2{color:#fff;margin-bottom:14px}
+.cta-banner p{font-size:1rem;color:#94A3B8;line-height:1.75;font-weight:300;margin-bottom:32px;max-width:520px;margin-left:auto;margin-right:auto}
+.cta-perks{display:flex;gap:20px;justify-content:center;margin-top:24px;flex-wrap:wrap}
+.cta-perk{display:flex;align-items:center;gap:7px;font-size:.8rem;color:#60A5FA;font-weight:500}
+.cta-perk::before{content:'✓';font-weight:700}
+
+/* ── FAQ (matches homepage) ── */
+.faq-list{max-width:740px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{width:100%;text-align:left;padding:22px 0;background:none;border:none;cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:16px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:1rem;color:var(--navy);line-height:1.4}
+.faq-icon{width:22px;height:22px;min-width:22px;border-radius:50%;border:1.5px solid var(--blue);display:flex;align-items:center;justify-content:center;transition:all .25s;margin-top:2px}
+.faq-icon svg{width:12px;height:12px;stroke:var(--blue);fill:none;stroke-width:2.5;stroke-linecap:round;transition:transform .25s}
+.faq-item.open .faq-icon{background:var(--blue)}
+.faq-item.open .faq-icon svg{stroke:#fff;transform:rotate(45deg)}
+.faq-a{display:none;padding:0 0 22px;font-size:.92rem;color:var(--slate);line-height:1.8;font-weight:300;max-width:640px}
+.faq-item.open .faq-a{display:block}
+
+/* ── RELATED ── */
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+.related-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:26px;transition:all .22s;display:block}
+.related-card:hover{border-color:#BFDBFE;box-shadow:0 8px 28px rgba(37,99,235,.1);transform:translateY(-2px)}
+.related-card .cat{display:inline-block;font-size:.68rem;font-weight:700;color:var(--blue);background:#EFF6FF;border:1px solid #BFDBFE;padding:4px 10px;border-radius:100px;margin-bottom:14px;text-transform:uppercase;letter-spacing:.08em}
+.related-card h4{font-family:'Barlow Semi Condensed',sans-serif;font-size:1.15rem;line-height:1.3;font-weight:700;color:var(--navy);letter-spacing:-.01em;margin-bottom:14px}
+.related-card .arrow{color:var(--blue);font-size:.82rem;font-weight:600}
+
+/* ── FOOTER (matches homepage) ── */
+.footer{background:#fff;border-top:1px solid var(--border);padding:56px 24px 32px}
+.footer-inner{max-width:1120px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:36px;padding-bottom:40px;border-bottom:1px solid var(--border);margin-bottom:28px}
+.footer-logo{height:28px;width:auto;margin-bottom:12px}
+.footer-tagline{font-size:.83rem;color:var(--slate);max-width:240px;line-height:1.65;margin-bottom:18px;font-weight:300}
+.footer-col h4{font-family:'Barlow Semi Condensed',sans-serif;font-size:.82rem;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px}
+.footer-col a{display:block;color:var(--slate);font-size:.85rem;margin-bottom:10px;transition:color .2s;font-weight:300}
+.footer-col a:hover{color:var(--blue)}
+.footer-bottom{font-size:.76rem;color:#94A3B8;line-height:1.7;font-weight:300}
+
+@media(max-width:900px){
+  .nav-links{display:none}
+  .features-grid{grid-template-columns:1fr}
+  .related-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .article-hero{padding:100px 20px 48px}
+  .section{padding:64px 20px}
+  .meta-row{gap:16px}
+  .answer-box{padding:26px 24px}
+  .answer-box p{font-size:1rem}
+  .pullquote{padding:40px 28px;margin:48px 20px}
+  .pullquote p{font-size:1.3rem}
+  .cta-banner{padding:48px 28px;margin:56px 20px}
+  .step{grid-template-columns:44px 1fr;gap:18px}
+}
+@media(max-width:640px){
+  .footer-top{grid-template-columns:1fr}
+  h1{font-size:2rem}
+  h2{font-size:1.7rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/"><img src="/logo.png" alt="Tradecovex" class="nav-logo"></a>
+    <ul class="nav-links">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/guides">Guides</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+    </ul>
+    <a href="/#waitlist" class="btn btn-primary">Join Waitlist</a>
+  </div>
+</nav>
+
+<!-- ARTICLE HERO -->
+<section class="article-hero">
+  <div class="article-hero-inner">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a><span>/</span><a href="/guides">Guides</a><span>/</span>NinjaTrader Trade Copier
+    </nav>
+
+    <div class="eyebrow"><span></span>Complete Guide · Updated April 2026</div>
+
+    <h1>NinjaTrader Trade Copier: The Complete Guide for <span class="accent">Prop Firm Traders</span></h1>
+
+    <p class="standfirst">How the best trade copiers actually work, what separates a good one from a liability, and why the category is quietly shifting toward copiers with built-in AI trade analysis.</p>
+
+    <div class="meta-row">
+      <div class="meta-item">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <span>Read time <strong>18 min</strong></span>
+      </div>
+      <div class="meta-item">
+        <svg viewBox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l7-3 7 3z"/></svg>
+        <span>Cluster <strong>Trade Copier</strong></span>
+      </div>
+      <div class="meta-item">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+        <span>Platform <strong>NinjaTrader</strong></span>
+      </div>
+      <div class="meta-item">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>For <strong>Prop Firm Traders</strong></span>
+      </div>
+    </div>
+
+    <div class="answer-box">
+      <div class="label">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+        Direct Answer
+      </div>
+      <p>A NinjaTrader trade copier replicates every order placed on a lead account to one or more follower accounts in milliseconds — essential infrastructure for prop firm traders running three or more funded evaluations simultaneously. The best copiers in 2026 combine sub-10 millisecond local latency with per-account risk controls and, increasingly, AI-driven trade analysis that tells you <em>why</em> your copied trades are working or failing — not just that they did.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 01 -->
+<section class="section">
+  <div class="container">
+    <span class="section-tag">01 · Definition</span>
+    <h2>What a NinjaTrader trade copier actually is</h2>
+    <div class="prose">
+      <p>A NinjaTrader trade copier is a piece of software — usually a NinjaTrader add-on, occasionally a cloud service — that listens for order events on one designated "lead" or "master" account and submits mirrored orders to one or more "follower" accounts at near-identical prices and times. When you place a long on MNQ from your lead account, the copier detects the fill and fires the same long into every follower account connected to your NinjaTrader desktop within milliseconds.</p>
+      <p>The core idea is almost trivially simple. The implementation is not. A working copier has to handle partial fills, order modifications, stop and target adjustments, rejected orders, slippage between instruments (mini vs. micro contract ratios), sudden disconnections, account liquidations, and the dozens of small edge cases that emerge the moment real money is moving through real brokers under real market conditions. This is why there are only four or five credible copiers in the NinjaTrader ecosystem despite the idea being twenty years old.</p>
+      <p>Copiers differ primarily on three dimensions: <strong>architecture</strong> (local NT8 add-on vs. cloud-based relay), <strong>execution mode</strong> (does it copy exact order types, or convert everything to market orders?), and <strong>risk layer</strong> (does it enforce per-account drawdowns and profit targets, or does it just replicate orders blindly?). A good copier makes deliberate choices on all three. A bad copier pretends those choices don't exist.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 02 -->
+<section class="section section-light">
+  <div class="container-wide">
+    <div class="container">
+      <span class="section-tag">02 · The Why</span>
+      <h2>Why prop firm traders need a copier in the first place</h2>
+      <div class="prose">
+        <p>The modern futures prop firm model has quietly reshaped what "retail trading" means. Ten years ago a funded trader was a rare animal. Today, a single trader routinely runs five, ten, sometimes twenty evaluation and funded accounts in parallel across Apex Trader Funding, Topstep, MyFundedFutures, Tradeify, BluSky, and half a dozen smaller firms. The math is rational: if your edge produces a 40 percent evaluation pass rate, running ten evaluations gives you far better expected throughput to funded status than running one at a time.</p>
+        <p>The problem is mechanical. You cannot click "buy" ten times in ten different accounts and expect the fills to be similar. By the time you've switched accounts and placed the third order, the first order's entry has already moved against you. The accounts drift. Win rates diverge. Some pass, some fail, and you can't tell whether the difference is skill, luck, or the three-second gap between order one and order ten. This is the exact problem the trade copier category exists to solve.</p>
+      </div>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <h3>Phase 1 — The Evaluation Runner</h3>
+        <p>A trader working through multiple Apex or Topstep evaluations simultaneously. The copier multiplies one passing strategy across every active evaluation, dramatically improving throughput to funded status.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div>
+        <h3>Phase 2 — The Funded Scaler</h3>
+        <p>A trader who has passed one or two funded accounts and is actively compounding them. Copying across funded accounts multiplies payouts from the same number of clicks and level of effort.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Phase 3 — The Payout Optimizer</h3>
+        <p>A trader running a large portfolio of funded accounts where the bottleneck is risk management across accounts with different drawdown parameters. The copier becomes load-bearing infrastructure.</p>
+      </div>
+    </div>
+    <div class="container" style="margin-top:40px">
+      <div class="prose">
+        <p>The trader who most needs a copier is the one in phase one, running three to five evaluations, because that is the phase with the highest failure rate and the most benefit from parallel execution. The trader who most <strong>values</strong> a copier is the one in phase three, because a missing trade on a funded account is not a missed evaluation fee but a missed payout.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 03 -->
+<section class="section">
+  <div class="container">
+    <span class="section-tag">03 · Architecture</span>
+    <h2>How trade copiers actually work under the hood</h2>
+    <div class="prose">
+      <p>Almost every credible NinjaTrader copier uses a master-follower architecture, but the mechanics vary in ways that matter. The basic flow: you designate one account as the master (sometimes called "lead" or "source"), you designate one or more accounts as followers, and the software listens for specific events on the master and submits corresponding orders to the followers.</p>
+      <p>The first real divergence is <strong>what event the copier listens for</strong>. Some copiers listen for order submissions — the moment you click buy, the copier fires orders into every follower simultaneously, before the master has even filled. Others listen for execution events — the copier waits until the master account actually fills, then submits market orders to followers. The execution-event model is slower by definition (usually by 200 to 800 milliseconds) but it is more reliable because you don't get into situations where the master rejects an order and the followers have all already filled.</p>
+      <p>The second divergence is <strong>what kind of order is sent to followers</strong>. The most common pattern is to convert every follower order to a market order regardless of what the master did. This simplifies rejection handling and guarantees fills but costs you exact order fidelity — if your master took a limit entry, your followers are market-buying at whatever the ask happens to be. Higher-end copiers support full order type replication, including limit orders, stops, targets, and ATM strategies, but this adds complexity to the rejection and modification logic.</p>
+      <p>The third divergence is <strong>how the copier handles different contract ratios</strong>. If your master is trading MES (the $5 micro) and your follower account has a larger size, you may want to translate one MES contract on the master into two MES contracts on the follower, or one full ES contract (ten times the size). This ratio scaling is a feature on every serious copier but the edge cases — partial fills at non-round ratios, for example — are not handled equally well by all of them.</p>
+    </div>
+    <div class="video">
+      <div class="video-wrap"><iframe src="https://www.youtube.com/embed/QFslKkiD2eU" title="NinjaTrader trade copier walkthrough" loading="lazy" allowfullscreen></iframe></div>
+      <div class="video-caption">
+        <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+        Video 01 — A walkthrough of a NinjaTrader trade copier setup across multiple prop firm accounts
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 04 -->
+<section class="section section-light">
+  <div class="container-wide">
+    <div class="container">
+      <span class="section-tag">04 · Requirements</span>
+      <h2>What to look for in a NinjaTrader copier in 2026</h2>
+      <div class="prose">
+        <p>The market has matured enough that every credible option hits a baseline of reliability. What separates a good copier from a great one in 2026 is a short list of features that were optional in 2022 and are now non-negotiable.</p>
+      </div>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <h3>Sub-10ms Local Latency</h3>
+        <p>A local NinjaTrader add-on should submit every follower order in under 10 milliseconds — closer to 2 milliseconds on a modern machine. Cloud-based copiers cannot match this.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg></div>
+        <h3>Per-Account Risk Enforcement</h3>
+        <p>A copier that understands each follower's drawdown buffer and position-sizes accordingly keeps the whole portfolio alive. Blind mirroring blows smaller accounts first.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
+        <h3>Prop Firm Compliance Awareness</h3>
+        <p>Every major prop firm has an account similarity rule and consistency rule. A good copier understands each firm's specific rules and works within them, not around them.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg></div>
+        <h3>Auto-Liquidation Safety Nets</h3>
+        <p>Follower accounts should hard-stop the moment a daily loss limit or trailing drawdown is hit. Not optional. A trader on a bad day cannot be trusted to manually disable a follower.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M9.66 17h4.67M12 3v1m6.36 1.64l-.7.7M21 12h-1M4 12H3m3.34-5.66l-.7-.7m2.82 9.9a5 5 0 117.07 0l-.54.55A3.37 3.37 0 0014 18.47V19a2 2 0 11-4 0v-.53c0-.9-.36-1.75-.99-2.39l-.54-.55z"/></svg></div>
+        <h3>AI Trade Analysis</h3>
+        <p>The 2026 inflection: copiers that don't just replicate trades but analyze them. The copier already sees every trade — that data is raw material for the best possible journal.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3"/></svg></div>
+        <h3>Canadian Data Residency</h3>
+        <p>Canadian hosting (AWS ca-central-1) provides clear jurisdictional protection and PIPEDA compliance without US Patriot Act exposure over trader credentials and data.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PULLQUOTE -->
+<div class="pullquote">
+  <span class="mark">"</span>
+  <p>A copier is the only piece of software in a trader's stack that sees every trade, across every account, in real time. That data is the raw material for the best possible trade journal.</p>
+  <cite>— The Tradecovex Thesis</cite>
+</div>
+
+<!-- SECTION 05 -->
+<section class="section">
+  <div class="container">
+    <span class="section-tag">05 · Setup</span>
+    <h2>How to set up NinjaTrader for multiple prop firm accounts</h2>
+    <div class="prose">
+      <p>Before any copier can copy anything, you need multiple prop firm accounts connected to a single NinjaTrader desktop instance. The steps are the same regardless of which copier you eventually run on top.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="step-num"></div><div class="step-content"><h3>Install NinjaTrader 8 on a VPS, not your laptop</h3><p>Running a multi-account copier on a home laptop is the single most common mistake. Every serious prop firm trader hosts NinjaTrader on a Windows VPS in a Chicago-area datacenter, as close as possible to CME's matching engines. This is not optional infrastructure. It is the floor.</p></div></div>
+      <div class="step"><div class="step-num"></div><div class="step-content"><h3>Collect broker credentials from each prop firm</h3><p>Each prop firm issues separate login credentials for each funded and evaluation account. Collect these, label them clearly by account size and status, and store them in a password manager. You will enter each set into NinjaTrader's Connections panel.</p></div></div>
+      <div class="step"><div class="step-num"></div><div class="step-content"><h3>Add each account as a separate connection in NinjaTrader</h3><p>Open NinjaTrader's Connections window, click New, and create one Rithmic or Tradovate connection per account. Label each connection descriptively — "Apex 50K #1", "Topstep 50K Combine". Avoid generic labels because once you have five accounts you will lose track during a fast-moving session.</p></div></div>
+      <div class="step"><div class="step-num"></div><div class="step-content"><h3>Verify each account connects cleanly before combining them</h3><p>Connect each account one at a time and verify you can see the correct balance, buying power, and position data. The most common copier setup failure is not a copier failure at all — it is a misconfigured broker connection that was never tested in isolation.</p></div></div>
+      <div class="step"><div class="step-num"></div><div class="step-content"><h3>Connect all accounts simultaneously and designate the master</h3><p>Once each account has been verified in isolation, connect them all at once. NinjaTrader should show one connection per account, all in green "Connected" status. Designate one account as your master and mark the rest as followers inside your copier configuration.</p></div></div>
+      <div class="step"><div class="step-num"></div><div class="step-content"><h3>Run a single live-market test trade before scaling</h3><p>The first real trade is a test. Pick the smallest possible position (one MES contract) at a quiet moment. Place the order on the master. Watch every follower for confirmation. Only after this round-trip works cleanly should you resume normal trading.</p></div></div>
+    </div>
+    <div class="video">
+      <div class="video-wrap"><iframe src="https://www.youtube.com/embed/UakOtQ7OoqI" title="NinjaTrader multi-account setup" loading="lazy" allowfullscreen></iframe></div>
+      <div class="video-caption">
+        <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+        Video 02 — Connecting multiple accounts to a single NinjaTrader desktop instance
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 06 -->
+<section class="section section-light">
+  <div class="container">
+    <span class="section-tag">06 · Landscape</span>
+    <h2>The NinjaTrader trade copier market in 2026</h2>
+    <div class="prose">
+      <p>The category has consolidated around five serious options. This is an honest overview, not a sales pitch. Tradecovex is one of them, and we will tell you where the others are stronger.</p>
+    </div>
+    <div class="data-table-wrap">
+      <table class="data-table">
+        <thead><tr><th>Copier</th><th>Architecture</th><th class="num">Latency</th><th>Risk Layer</th><th>AI Analysis</th></tr></thead>
+        <tbody>
+          <tr><td>Replikanto</td><td>Local NT8</td><td class="num">~8 ms</td><td>Follower Guard</td><td>None</td></tr>
+          <tr><td>Affordable Indicators (DAA)</td><td>Local NT8</td><td class="num">~6 ms</td><td>Dashboard Suite</td><td>None</td></tr>
+          <tr><td>ETP Trade Copier</td><td>Local NT8</td><td class="num">~5 ms</td><td>Minimal</td><td>Planned</td></tr>
+          <tr><td>Tradesyncer</td><td>Cloud relay</td><td class="num">~90 ms</td><td>Basic caps</td><td>Shallow</td></tr>
+          <tr class="tc-row"><td>Tradecovex</td><td>Local NT8</td><td class="num">&lt;10 ms</td><td>Per-account</td><td>Built-in</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="prose">
+      <p><strong>Replikanto</strong> is the most widely used NinjaTrader copier and has been for years. It is the safe, conservative choice for traders who want a battle-tested tool with a large user community. Its Follower Guard feature is genuinely useful for monitoring sync state across accounts. The weakness is that it is essentially a copier and nothing else — there is no analytical layer, no AI component, and no insight into whether your copied trades are any good. For traders who already have a strong edge and just need reliable mirroring, it remains an excellent choice.</p>
+      <p><strong>Affordable Indicators' Duplicate Account Actions</strong> (sold as part of the Accounts Dashboard Suite) is the value play. One-time lifetime license, deep risk management integration, and strong NinjaTrader-native feel. For traders who dislike subscription pricing and want a tool they buy once and own, this is the strongest option. The limitation is that it is a copier plus risk dashboard — not an analysis tool.</p>
+      <p><strong>ETP Trade Copier</strong> is the speed specialist. At roughly 5 milliseconds of replication latency, it is the fastest option we have measured. For scalpers running tick-level strategies where every millisecond matters, this advantage is real. The trade-off is feature depth — ETP is deliberately minimal.</p>
+      <p><strong>Tradesyncer</strong> is the cloud-native option. It markets heavily to traders who want a copier without installing anything on a local machine. The architectural trade-off is latency — cloud relays cannot match local NT8 add-ons on execution speed.</p>
+      <p><strong>Tradecovex</strong> is a local NT8 copier with sub-10 millisecond latency, per-account risk enforcement, and a built-in AI trade journal that analyzes every copied trade in real time. The AI is the deliberate differentiator. Every other tool on this list leaves trade analysis as a separate problem the trader has to solve with a second tool. We think that gap is worth closing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 07 -->
+<section class="section">
+  <div class="container">
+    <span class="section-tag">07 · The Gap</span>
+    <h2>What most trade copiers leave unsolved</h2>
+    <div class="prose">
+      <p>If you buy any of the four tools listed above, you will have solved the replication problem. Your trades will mirror across your accounts. Your risk will be enforced. Your fills will be tight. What you will not have solved is the question every prop firm trader eventually asks: <em>why are my trades working when they work, and why are they failing when they fail?</em></p>
+      <p>The standard answer in the category for the last decade has been "use a trade journal." The journal is a separate tool — TraderSync, TradeZella, Edgewonk, Tradervue — and the trader is expected to manually log each trade, tag it, review it weekly, and draw conclusions. The problem with this workflow is that it fails at the exact moment a trader needs it most. Prop firm traders running five accounts with a copier are executing 40 to 80 trades a day. Nobody manually logs 80 trades a day. They log the first dozen, stop, tell themselves they'll catch up on the weekend, and never do. The journal becomes an artifact of good intentions, not a decision-making tool.</p>
+      <p>The structural answer is not "try harder" or "use better tags." It is to recognize that the copier already has every piece of information a journal needs — the entry, the exit, the instrument, the timestamp, the account, the size, the outcome — in real time, on every account, without any manual input from the trader. The only thing missing is the analysis layer on top. That is the category shift we believe is coming, and it is the problem Tradecovex is built to solve.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 08 -->
+<section class="section section-light">
+  <div class="container">
+    <span class="section-tag">08 · Pricing</span>
+    <h2>What NinjaTrader copiers actually cost</h2>
+    <div class="prose">
+      <p>Pricing in the category runs from roughly $150 one-time (Affordable Indicators lifetime license) to roughly $149 per month for the top tier of Tradesyncer. The spread is wide, but the useful signal in the pricing is not the headline number — it is what is bundled with it.</p>
+    </div>
+    <div class="data-table-wrap">
+      <table class="data-table">
+        <thead><tr><th>Product</th><th class="num">Entry</th><th class="num">Top Tier</th><th>Model</th><th>Journal Included</th></tr></thead>
+        <tbody>
+          <tr><td>Affordable Indicators</td><td class="num">$175</td><td class="num">$275</td><td>One-time</td><td>No</td></tr>
+          <tr><td>Replikanto</td><td class="num">$149/yr</td><td class="num">$299/yr</td><td>Annual</td><td>No</td></tr>
+          <tr><td>ETP Trade Copier</td><td class="num">$89/mo</td><td class="num">$189/mo</td><td>Monthly</td><td>No</td></tr>
+          <tr><td>Tradesyncer</td><td class="num">$49/mo</td><td class="num">$149/mo</td><td>Monthly</td><td>Shallow</td></tr>
+          <tr class="tc-row"><td>Tradecovex</td><td class="num">$39/mo</td><td class="num">$129/mo</td><td>Monthly</td><td>AI-powered</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="prose">
+      <p>The headline observation: Tradecovex is the lowest entry-tier monthly subscription in the category and the only one that includes a full AI-driven trade journal at every tier. For a trader currently paying a copier subscription plus a separate journal subscription (TraderSync at $29 to $79 per month is the typical pair), the combined bill today is $78 to $228 per month. Tradecovex consolidates that into a single $39 to $129 subscription. The economic argument is the same as the product argument — the copier and the journal should not be two separate tools with two separate bills.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<div class="cta-banner">
+  <div class="cta-banner-inner">
+    <span class="section-tag">Join the Waitlist</span>
+    <h2>See what your copied trades are really telling you</h2>
+    <p>Tradecovex is the only NinjaTrader trade copier with a built-in AI trade journal. Every copied trade, analyzed automatically, across every prop account. Be first in line at launch.</p>
+    <a href="/#waitlist" class="btn btn-primary btn-lg">Join the Waitlist</a>
+    <div class="cta-perks">
+      <span class="cta-perk">7-day free trial</span>
+      <span class="cta-perk">No credit card</span>
+      <span class="cta-perk">Launch pricing locked for life</span>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 09 -->
+<section class="section">
+  <div class="container">
+    <span class="section-tag">09 · FAQ</span>
+    <h2>Frequently asked questions</h2>
+    <div class="faq-list" style="margin-top:40px">
+      <div class="faq-item">
+        <button class="faq-q"><span>What is a NinjaTrader trade copier?</span><span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a">A NinjaTrader trade copier is software that replicates every trade placed on a lead account to one or more follower accounts connected to the same NinjaTrader desktop. For prop firm traders, it means placing one trade and having it execute simultaneously across multiple funded or evaluation accounts within milliseconds.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Do NinjaTrader trade copiers work with Apex, Topstep, and MyFundedFutures?</span><span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a">Yes. Any NinjaTrader copier that supports the Rithmic or Tradovate adapters will work with Apex Trader Funding, Topstep, MyFundedFutures, Tradeify, and most other futures prop firms, because those firms route accounts through one of those two clearing connections.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>How many accounts can a NinjaTrader trade copier handle?</span><span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a">Established copiers support anywhere from 20 to 100 follower accounts from a single lead. The real limit is usually the NinjaTrader desktop itself and the host machine's resources, not the copier software. Traders running more than 10 accounts should host on a dedicated VPS near CME's Chicago matching engines.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>What latency should a NinjaTrader trade copier achieve?</span><span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a">A well-built local NinjaTrader copier should replicate an order to follower accounts in under 10 milliseconds under normal conditions. Cloud-based copiers typically fall in the 40 to 200 millisecond range depending on the architecture and the physical distance between the cloud servers and the broker's gateway.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Is using a trade copier against prop firm rules?</span><span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a">Copying your own trades across your own funded accounts is permitted by every major futures prop firm. What is not permitted is copying trades between different traders' accounts, or using a copier to mask group trading activity. Always read the specific prop firm's terms of service, especially around account similarity rules and consistency requirements.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RELATED -->
+<section class="section section-light">
+  <div class="container-wide">
+    <div class="container">
+      <span class="section-tag">Continue Reading</span>
+      <h2>Related guides</h2>
+    </div>
+    <div class="related-grid">
+      <a href="/guides/copy-trades-apex-trader-funding" class="related-card">
+        <span class="cat">Trade Copier</span>
+        <h4>How to Copy Trades Across Multiple Apex Accounts</h4>
+        <span class="arrow">Read guide →</span>
+      </a>
+      <a href="/guides/trade-copier-latency" class="related-card">
+        <span class="cat">Trade Copier</span>
+        <h4>Trade Copier Latency Explained</h4>
+        <span class="arrow">Read guide →</span>
+      </a>
+      <a href="/guides/ai-trading-journal" class="related-card">
+        <span class="cat">AI Journal</span>
+        <h4>AI Trading Journal for Futures Traders</h4>
+        <span class="arrow">Read guide →</span>
+      </a>
+      <a href="/guides/trading-metrics-futures" class="related-card">
+        <span class="cat">AI Journal</span>
+        <h4>The 12 Metrics Every Futures Trader Must Track</h4>
+        <span class="arrow">Read guide →</span>
+      </a>
+      <a href="/compare/tradecovex-vs-tradesyncer" class="related-card">
+        <span class="cat">Comparison</span>
+        <h4>Tradecovex vs Tradesyncer</h4>
+        <span class="arrow">Compare →</span>
+      </a>
+      <a href="/compare/tradecovex-vs-replikanto" class="related-card">
+        <span class="cat">Comparison</span>
+        <h4>Tradecovex vs Replikanto</h4>
+        <span class="arrow">Compare →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <img src="/logo.png" alt="Tradecovex" class="footer-logo">
+        <p class="footer-tagline">The only NinjaTrader trade copier with a built-in AI journal. Copy trades across all your prop accounts and let the AI tell you why.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="/#features">Features</a>
+        <a href="/#how">How It Works</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#waitlist">Join Waitlist</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="/guides">All guides</a>
+        <a href="/compare">Compare</a>
+        <a href="/#faq">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="/terms">Terms of Service</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/risk">Risk Disclosure</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      Trading futures involves substantial risk of loss and is not suitable for all investors. Past performance is not indicative of future results. Tradecovex is a software tool for trade copying and analysis and does not provide investment advice, trade recommendations, or portfolio management. All trading decisions are the sole responsibility of the trader. © 2026 Tradecovex. Built in Ontario, Canada. Hosted in Canada.
+    </div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(o => o.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+</script>
+
+</body>
+</html>
