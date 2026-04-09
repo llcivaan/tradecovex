@@ -1,0 +1,8 @@
+# Tradecovex robots.txt
+# Allows all search engine crawlers full access
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://tradecovex.com/sitemap.xml

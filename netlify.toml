@@ -1,0 +1,51 @@
+# Netlify configuration for Tradecovex marketing site
+# Enables pretty URLs, sets security headers, and configures caching
+
+[build]
+  publish = "."
+
+# Enable pretty URLs - strip .html extension automatically
+# /guides/ninjatrader-trade-copier instead of /guides/ninjatrader-trade-copier.html
+[build.processing]
+  skip_processing = false
+
+[build.processing.html]
+  pretty_urls = true
+
+# Security headers applied to all pages
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# Cache static assets aggressively
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.ico"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Redirects: handle the .html versions of guide pages
+# So if anyone links to the .html version, they get redirected to the clean URL
+[[redirects]]
+  from = "/guides/*.html"
+  to = "/guides/:splat"
+  status = 301
+  force = true
