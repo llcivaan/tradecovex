@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>NinjaTrader 8 Setup Guide for Prop Firm Traders (2026)</title>
+<meta name="description" content="Step-by-step NinjaTrader 8 setup for prop firm futures traders in 2026. Rithmic connection, Tradovate setup, ATM strategies, bracket orders, and the exact configuration that works with Apex, Topstep, and MyFundedFutures.">
+<link rel="canonical" href="https://tradecovex.com/guides/ninjatrader-8-setup">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NinjaTrader 8 Setup Guide for Prop Firm Traders (2026)">
+<meta property="og:description" content="Step-by-step NinjaTrader 8 setup for prop firm futures traders in 2026. Rithmic connection, Tradovate setup, ATM strategies, bracket orders, and the exact configuration that works with Apex, Topstep, and MyFundedFutures.">
+<meta property="og:url" content="https://tradecovex.com/guides/ninjatrader-8-setup">
+<meta property="og:image" content="https://tradecovex.com/logo.png">
+<meta property="og:site_name" content="Tradecovex">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NinjaTrader 8 Setup Guide for Prop Firm Traders (2026)">
+<meta name="twitter:description" content="Step-by-step NinjaTrader 8 setup for prop firm futures traders in 2026. Rithmic connection, Tradovate setup, ATM strategies, bracket orders, and the exact configuration that works with Apex, Topstep, and MyFundedFutures.">
+<meta name="twitter:image" content="https://tradecovex.com/logo.png">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="author" content="Tradecovex / IVAAN INC">
+<link rel="icon" type="image/png" href="/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://tradecovex.com/guides/ninjatrader-8-setup#article",
+      "headline": "NinjaTrader 8 Setup Guide for Prop Firm Traders (2026)",
+      "description": "Step-by-step NinjaTrader 8 setup for prop firm futures traders in 2026. Rithmic connection, Tradovate setup, ATM strategies, bracket orders, and the exact configuration that works with Apex, Topstep, and MyFundedFutures.",
+      "image": "https://tradecovex.com/logo.png",
+      "datePublished": "2026-04-09T00:00:00+00:00",
+      "dateModified": "2026-04-09T00:00:00+00:00",
+      "author": {
+        "@type": "Organization",
+        "name": "Tradecovex",
+        "url": "https://tradecovex.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Tradecovex",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://tradecovex.com/logo.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://tradecovex.com/guides/ninjatrader-8-setup"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://tradecovex.com/guides/ninjatrader-8-setup#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is NinjaTrader 8 free for prop firm traders?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "NinjaTrader 8 is free to use for chart analysis, backtesting, and simulated trading. For live trading, you need a data feed (usually $25 to $60 per month depending on exchange) and a broker connection. When you use NinjaTrader with a prop firm, the prop firm typically covers the data fees for you, so the effective cost to a prop firm trader is zero. You do not need to pay for a NinjaTrader license unless you want the full version with additional features."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which broker does my prop firm use \u2014 Rithmic or Tradovate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Apex Trader Funding offers both Rithmic and Tradovate. Topstep uses TopstepX (their own platform) plus offers Rithmic for NinjaTrader users. MyFundedFutures uses Rithmic primarily. Most traders on NinjaTrader 8 use Rithmic because it has better depth-of-market data and is considered more reliable for futures. Tradovate is easier to set up initially but Rithmic is more common among experienced traders. Your prop firm will tell you which to pick when you purchase the evaluation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need a VPS to run NinjaTrader 8 for prop firm trading?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You do not need a VPS unless your home internet is unreliable or you want your computer to keep trading while you are away. Most prop firm traders run NinjaTrader on their own desktop or laptop during active trading hours and that is completely fine. A VPS becomes useful if you are running automated strategies that need to be on 24/5, or if you want to minimize network latency by placing the VPS physically close to the exchange data center in Chicago. For manual trading from your own desk, skip the VPS."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I set up a bracket order in NinjaTrader 8 for an Apex account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Go to Tools \u2192 ATM Strategy \u2192 New. Set the Stop Loss in ticks (e.g. 20 ticks for NQ), set the Profit Target in ticks (e.g. 40 ticks for a 2:1 reward:risk), give the strategy a name like 'NQ Bracket 20/40', save it. Then on your chart DOM or SuperDOM, select this ATM strategy from the dropdown before placing any order. Every order you submit will now auto-attach the stop and target. Since Apex 4.0 requires mandatory brackets as of March 2026, this setup is mandatory for Apex trading."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I run multiple NinjaTrader 8 instances on the same computer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Technically yes but it is not recommended. NinjaTrader 8 can be run with multiple instances by using the -clearCache startup parameter, but it doubles your RAM usage, adds confusion about which instance is which, and creates risk of trading on the wrong instance. The cleaner solution for multi-account trading is to run one NinjaTrader instance and use a trade copier to distribute trades from one lead account to multiple follower accounts. This is specifically why trade copiers exist."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What do I do if NinjaTrader 8 keeps disconnecting from my broker?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The most common causes are unstable internet, firewall blocking NinjaTrader's connections, antivirus software flagging it, or an expired data subscription. Check your internet stability first by running a continuous ping to 8.8.8.8. If your ping is stable, check your Windows firewall and add NinjaTrader as an exception. If that does not fix it, verify your data subscription is current by logging into your broker's web portal. Persistent disconnect issues on a live prop firm account are a real risk because you cannot manage positions if you are disconnected \u2014 consider a VPS if the problem continues."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://tradecovex.com/#software",
+      "name": "Tradecovex",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Windows, macOS",
+      "description": "NinjaTrader trade copier with built-in AI journal that automatically analyzes every copied trade.",
+      "url": "https://tradecovex.com",
+      "offers": {
+        "@type": "Offer",
+        "price": 0,
+        "priceCurrency": "USD",
+        "description": "7-day free trial \u2014 Launch pricing locked for life"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://tradecovex.com/guides/ninjatrader-8-setup#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://tradecovex.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://tradecovex.com/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "NinjaTrader 8 Setup Guide",
+          "item": "https://tradecovex.com/guides/ninjatrader-8-setup"
+        }
+      ]
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://tradecovex.com/guides/ninjatrader-8-setup#video",
+      "name": "NinjaTrader 8 setup walkthrough",
+      "description": "A step-by-step walkthrough of installing and configuring NinjaTrader 8 for futures trading with a prop firm broker.",
+      "thumbnailUrl": "https://i.ytimg.com/vi/iz_pFzhNEkA/maxresdefault.jpg",
+      "uploadDate": "2026-01-01T00:00:00+00:00",
+      "contentUrl": "https://www.youtube.com/watch?v=iz_pFzhNEkA",
+      "embedUrl": "https://www.youtube.com/embed/iz_pFzhNEkA"
+    }
+  ]
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:#0F172A;background:#fff;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+:root{
+  --blue:#2563EB;
+  --blue-dark:#1d4ed8;
+  --navy:#0A1628;
+  --slate:#4B5E7A;
+  --slate-light:#64748B;
+  --light:#F0F4FF;
+  --border:#DDE3EF;
+  --radius:12px;
+  --shadow-sm:0 1px 3px rgba(10,22,40,.08),0 1px 2px rgba(10,22,40,.06);
+  --shadow-md:0 4px 16px rgba(10,22,40,.1),0 2px 6px rgba(10,22,40,.06);
+  --shadow-lg:0 12px 40px rgba(10,22,40,.14),0 4px 12px rgba(10,22,40,.08);
+}
+
+/* NAV — matches homepage exactly */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px}
+.nav-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav-logo{height:40px;width:auto}
+.nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+.nav-links a{font-size:.88rem;font-weight:600;color:var(--slate);transition:color .2s;letter-spacing:.01em}
+.nav-links a:hover{color:var(--navy)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 26px;border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;transition:all .18s;border:none;text-decoration:none;letter-spacing:.01em}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 2px 8px rgba(37,99,235,.3)}
+.btn-primary:hover{background:var(--blue-dark);transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,99,235,.4)}
+.btn-outline{background:transparent;color:var(--navy);border:2px solid #C4CEDD}
+.btn-outline:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn-outline-white{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35)}
+.btn-outline-white:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.btn-lg{padding:16px 38px;font-size:.98rem;border-radius:14px}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;transition:all .25s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:20px 24px;z-index:199;flex-direction:column;gap:0;box-shadow:var(--shadow-lg)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{display:block;padding:14px 0;font-size:1rem;font-weight:600;color:var(--slate);border-bottom:1px solid var(--border)}
+.mobile-menu a.btn{margin-top:16px;width:100%;border-bottom:none;justify-content:center}
+
+/* HERO — adapted for guide pages */
+.guide-hero{padding:140px 24px 60px;text-align:center;position:relative;overflow:hidden;background:#fff}
+.guide-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 90% 60% at 50% -10%,rgba(37,99,235,.08) 0%,transparent 65%);pointer-events:none}
+.guide-hero::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background-image:radial-gradient(circle at 1px 1px, rgba(37,99,235,.06) 1px, transparent 0);background-size:32px 32px;pointer-events:none;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 0%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 0%,transparent 70%)}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:100px;padding:7px 18px;font-size:.75rem;font-weight:700;color:var(--blue);letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px;position:relative;z-index:1}
+.hero-eyebrow span.dot{width:7px;height:7px;background:var(--blue);border-radius:50%;animation:blink 2s ease infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+h1{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(2.2rem,4.5vw,3.4rem);line-height:1.08;letter-spacing:-.03em;color:var(--navy);max-width:900px;margin:0 auto 24px;position:relative;z-index:1}
+h1 .accent{color:var(--blue)}
+.guide-meta{display:flex;justify-content:center;gap:24px;margin-bottom:20px;flex-wrap:wrap;font-size:.82rem;color:var(--slate-light);position:relative;z-index:1}
+.guide-meta span{display:inline-flex;align-items:center;gap:6px}
+.breadcrumb{font-size:.78rem;color:var(--slate-light);margin-bottom:24px;position:relative;z-index:1}
+.breadcrumb a{color:var(--blue);font-weight:600}
+.breadcrumb a:hover{text-decoration:underline}
+
+/* ANSWER BOX — featured snippet style */
+.answer-box{max-width:780px;margin:0 auto 50px;background:linear-gradient(135deg,#EFF6FF,#F0F4FF);border:2px solid #BFDBFE;border-radius:18px;padding:32px 36px;text-align:left;position:relative;z-index:1;box-shadow:var(--shadow-md)}
+.answer-box-label{display:inline-block;font-size:.68rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.14em;background:#fff;border:1.5px solid #BFDBFE;border-radius:100px;padding:5px 14px;margin-bottom:14px}
+.answer-box p{font-size:1.02rem;color:var(--navy);line-height:1.75;font-weight:500}
+.answer-box p strong{font-weight:700;color:var(--navy)}
+
+/* SHARED SECTION STYLES */
+.section{padding:80px 24px}
+.section-light{background:var(--light)}
+.section-tag{display:inline-block;font-size:.7rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.14em;margin-bottom:16px;background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:100px;padding:5px 14px}
+h2{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(1.7rem,3.2vw,2.4rem);line-height:1.12;letter-spacing:-.025em;color:var(--navy);margin-bottom:18px}
+h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.3rem;color:var(--navy);margin:32px 0 14px;letter-spacing:-.015em}
+h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08rem;color:var(--navy);margin:24px 0 10px;letter-spacing:-.01em}
+.container{max-width:880px;margin:0 auto}
+.container-wide{max-width:1120px;margin:0 auto}
+
+/* PROSE STYLES */
+.prose p{font-size:1rem;color:var(--slate);line-height:1.85;margin-bottom:20px}
+.prose p strong{color:var(--navy);font-weight:700}
+.prose ul,.prose ol{margin:16px 0 24px 22px;color:var(--slate);font-size:1rem;line-height:1.85}
+.prose li{margin-bottom:10px}
+.prose li strong{color:var(--navy);font-weight:700}
+.prose a{color:var(--blue);font-weight:600;border-bottom:1.5px solid rgba(37,99,235,.3);transition:border .2s}
+.prose a:hover{border-bottom-color:var(--blue)}
+.section-num{display:inline-block;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:.78rem;color:var(--blue);background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:8px;padding:4px 10px;margin-bottom:12px;letter-spacing:.06em}
+
+/* PULL QUOTE */
+.pull-quote{background:linear-gradient(135deg,#EFF6FF,#F0F4FF);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:24px 28px;margin:32px 0;font-family:'Barlow Semi Condensed',sans-serif;font-size:1.18rem;font-weight:600;color:var(--navy);line-height:1.55;letter-spacing:-.01em}
+
+/* CALLOUT BOXES */
+.callout{background:#fff;border:1.5px solid var(--border);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:22px 26px;margin:28px 0;box-shadow:var(--shadow-sm)}
+.callout-title{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1rem;color:var(--navy);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.callout p{font-size:.92rem;color:var(--slate);line-height:1.75;margin:0}
+.callout-warn{border-left-color:#DC2626;background:#FEF2F2}
+.callout-warn .callout-title{color:#991B1B}
+.callout-success{border-left-color:#16A34A;background:#F0FDF4}
+.callout-success .callout-title{color:#166534}
+
+/* FEATURE CARD GRID */
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin:32px 0}
+.feature-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:26px;transition:all .25s;box-shadow:var(--shadow-sm)}
+.feature-card:hover{border-color:#93C5FD;box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.feature-card-num{display:inline-block;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:.7rem;color:var(--blue);background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:6px;padding:3px 8px;margin-bottom:12px;letter-spacing:.06em}
+.feature-card h4{margin:0 0 10px;font-size:1.08rem}
+.feature-card p{font-size:.88rem;color:var(--slate);line-height:1.75;margin:0}
+
+/* DATA TABLE */
+.data-table-wrap{overflow-x:auto;border-radius:14px;border:1.5px solid var(--border);box-shadow:var(--shadow-md);margin:28px 0}
+.data-table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:580px;background:#fff}
+.data-table th{padding:14px 18px;text-align:left;font-weight:700;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;background:#F1F5F9;color:var(--slate);border-bottom:2px solid var(--border)}
+.data-table td{padding:13px 18px;border-bottom:1px solid var(--border);color:var(--slate);vertical-align:middle}
+.data-table tr:last-child td{border-bottom:none}
+.data-table tr.tc-row td{background:#EFF6FF;color:var(--navy);font-weight:600}
+.data-table tr.tc-row td:first-child::before{content:'★ ';color:var(--blue)}
+.data-table td.label{font-weight:600;color:var(--navy);background:#FAFBFF}
+.ck{color:#16A34A;font-weight:700}
+.cx{color:#DC2626;font-weight:700}
+.cm{color:#D97706;font-weight:600;font-size:.85rem}
+
+/* VIDEO EMBED */
+.video-wrap{max-width:780px;margin:36px auto;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-lg);background:var(--navy);position:relative;padding-bottom:56.25%;height:0}
+.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.video-caption{font-size:.82rem;color:var(--slate-light);text-align:center;margin-top:14px;font-style:italic}
+
+/* CTA BANNER */
+.cta-banner{background:linear-gradient(135deg,#0A1628,#0F2460,#1d4ed8);border-radius:18px;padding:56px 48px;margin:48px 0;text-align:center;position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
+.cta-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 100%,rgba(37,99,235,.25) 0%,transparent 65%);pointer-events:none}
+.cta-banner h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:1.85rem;color:#fff;margin:0 0 14px;letter-spacing:-.025em;position:relative;z-index:1}
+.cta-banner p{font-size:1rem;color:#93C5FD;max-width:540px;margin:0 auto 26px;line-height:1.7;position:relative;z-index:1}
+.cta-perks{display:flex;gap:22px;justify-content:center;margin-top:22px;flex-wrap:wrap;position:relative;z-index:1}
+.cta-perk{font-size:.78rem;color:#60A5FA;font-weight:600;display:inline-flex;align-items:center;gap:6px}
+.cta-perk::before{content:'✓';font-weight:800}
+
+/* FAQ */
+.faq-list{max-width:780px;margin:0 auto}
+.faq-item{border-bottom:1.5px solid var(--border)}
+.faq-q{width:100%;text-align:left;padding:22px 0;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.97rem;color:var(--navy);line-height:1.45;letter-spacing:-.01em}
+.faq-icon{width:24px;height:24px;min-width:24px;border-radius:50%;border:2px solid var(--blue);display:flex;align-items:center;justify-content:center;transition:all .25s;flex-shrink:0}
+.faq-icon svg{width:12px;height:12px;stroke:var(--blue);fill:none;stroke-width:2.5;stroke-linecap:round;transition:transform .25s}
+.faq-item.open .faq-icon{background:var(--blue)}
+.faq-item.open .faq-icon svg{stroke:#fff;transform:rotate(45deg)}
+.faq-a{display:none;padding:0 0 22px;font-size:.92rem;color:var(--slate);line-height:1.85;max-width:680px}
+.faq-item.open .faq-a{display:block}
+
+/* RELATED GUIDES */
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:30px}
+.related-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:24px;transition:all .25s;display:block;box-shadow:var(--shadow-sm)}
+.related-card:hover{border-color:#93C5FD;box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.related-tag{display:inline-block;font-size:.66rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.1em;background:#EFF6FF;border:1px solid #BFDBFE;border-radius:6px;padding:3px 8px;margin-bottom:12px}
+.related-card h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.02rem;color:var(--navy);margin:0 0 8px;line-height:1.35}
+.related-card p{font-size:.84rem;color:var(--slate);line-height:1.65;margin:0}
+
+/* FOOTER — matches homepage */
+.footer{background:#fff;border-top:1.5px solid var(--border);padding:60px 24px 36px}
+.footer-inner{max-width:1120px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1.5px solid var(--border);margin-bottom:30px}
+.footer-logo{height:48px;width:auto;margin-bottom:14px}
+.footer-tagline{font-size:.85rem;color:var(--slate);max-width:220px;line-height:1.7;margin-bottom:20px;font-weight:400}
+.footer-social{display:flex;gap:10px}
+.footer-social a{width:36px;height:36px;border:1.5px solid var(--border);border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--slate);transition:all .2s}
+.footer-social a:hover{border-color:var(--blue);color:var(--blue);background:#EFF6FF}
+.footer-social svg{width:16px;height:16px;fill:currentColor}
+.footer-col h4{font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:#94A3B8;margin:0 0 16px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;padding:0}
+.footer-col a{font-size:.875rem;color:var(--slate);transition:color .18s;font-weight:500}
+.footer-col a:hover{color:var(--navy)}
+.footer-aff{font-size:.82rem;color:var(--blue);font-weight:700}
+.footer-risk{background:var(--light);border:1.5px solid var(--border);border-radius:12px;padding:18px 22px;margin-bottom:16px;font-size:.75rem;color:#5B7399;line-height:1.75}
+.footer-risk strong{color:var(--slate);font-weight:700}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:6px}
+.footer-copy{font-size:.75rem;color:#94A3B8;font-weight:500}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .nav-links{display:none}
+  .nav-cta-desktop{display:none !important}
+  .hamburger{display:flex}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .feature-grid,.related-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .footer-top{grid-template-columns:1fr}
+  h1{font-size:2rem}
+  h2{font-size:1.6rem}
+  .answer-box{padding:24px 22px}
+  .cta-banner{padding:42px 28px}
+  .cta-banner h3{font-size:1.5rem}
+}
+
+
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" aria-label="Tradecovex home"><img src="/logo.png" alt="Tradecovex" class="nav-logo"></a>
+    <ul class="nav-links">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/guides/">Guides</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+    </ul>
+    <a href="/#waitlist" class="btn btn-primary nav-cta-desktop" style="display:inline-flex">Join Waitlist</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/#features">Features</a>
+  <a href="/guides/">Guides</a>
+  <a href="/#pricing">Pricing</a>
+  <a href="/#faq">FAQ</a>
+  <a href="/#waitlist" class="btn btn-primary">Join Waitlist</a>
+</div>
+
+<section class="guide-hero">
+  <div class="hero-eyebrow"><span class="dot"></span>SETUP GUIDE</div>
+  <p class="breadcrumb"><a href="/">Home</a> › <a href="/guides/">Guides</a> › NinjaTrader 8 Setup Guide</p>
+  <h1>NinjaTrader 8 Setup Guide for Prop Firm Traders</h1>
+  <div class="guide-meta">
+    <span>📅 Updated April 2026</span>
+    <span>⏱ 17 min read</span>
+    <span>✍ Tradecovex Team</span>
+  </div>
+  <div class="answer-box">
+    <span class="answer-box-label">Quick Answer</span>
+    <p>Setting up NinjaTrader 8 for prop firm trading takes about 45 minutes if you have your broker credentials ready. The core steps are: download NinjaTrader 8 from the official site, install it, create a connection to Rithmic or Tradovate (whichever your prop firm uses), add your prop firm account via the Connections window, set up an ATM strategy with bracket orders, configure your chart with a bracket template, and run a test trade on a simulated account before going live. This guide walks through every step with the specific settings that work for Apex 4.0, Topstep, and MyFundedFutures.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container prose">
+    <div class="video-wrap">
+  <iframe src="https://www.youtube.com/embed/iz_pFzhNEkA" title="NinjaTrader 8 setup walkthrough" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
+<p class="video-caption">A third-party NinjaTrader 8 setup walkthrough. Watch for visual context on the install steps before reading the guide below.</p>
+
+    
+<h2><span class="section-num">01</span>Before you install anything</h2>
+
+<p>Most NinjaTrader 8 setup tutorials assume you already have a prop firm account, a broker connection, and a vague idea of what you are doing. This guide assumes none of that. If you are setting up NinjaTrader 8 for the first time specifically to trade a prop firm evaluation, this guide walks through every step in the order you actually need to do them.</p>
+
+<p>You will need: a Windows 10 or 11 computer (NinjaTrader 8 is Windows-only), a prop firm evaluation or funded account already purchased, the login credentials your prop firm sent you, and about 45 minutes of uninterrupted time. If any of those are missing, stop here and get them first. Do not try to install NinjaTrader and then figure out which prop firm to sign up with — it is much easier to do it in the other order.</p>
+
+<div class="callout">
+  <strong>Mac users:</strong> NinjaTrader 8 does not run natively on macOS. Your options are to run Windows in a virtual machine (Parallels or VMware), use Boot Camp if you have an Intel Mac, or use a cloud Windows VPS. Apple Silicon Macs can run NinjaTrader through Parallels on Windows 11 ARM but performance varies. Most serious NinjaTrader traders on Mac end up buying a cheap Windows mini-PC as a dedicated trading machine — it is cleaner than fighting virtualization.
+</div>
+
+<h2><span class="section-num">02</span>Step 1 — Download and install NinjaTrader 8</h2>
+
+<ol>
+  <li>Go to <strong>ninjatrader.com</strong> and click Download NinjaTrader. Do not download from third-party sites.</li>
+  <li>Create a free NinjaTrader account during the download process. You need this account separately from your prop firm account. It is only used for NinjaTrader's own licensing and support.</li>
+  <li>Run the installer. Accept the default installation path unless you have a specific reason to change it.</li>
+  <li>Installation takes 3 to 10 minutes depending on your computer. Do not interrupt it.</li>
+  <li>When installation completes, launch NinjaTrader 8. You will see the Control Center window — this is the main hub for the application.</li>
+</ol>
+
+<p>Do not connect to any broker yet. First get the application running in its default state and familiarize yourself with the Control Center layout. The Control Center has tabs for Accounts, Orders, Strategies, Executions, and so on. Click through each tab once so you know where things are.</p>
+
+<h2><span class="section-num">03</span>Step 2 — Configure your broker connection (Rithmic or Tradovate)</h2>
+
+<p>Your prop firm will have sent you credentials for either Rithmic or Tradovate. The setup process is different for each.</p>
+
+<h3>Rithmic connection setup</h3>
+
+<ol>
+  <li>In the Control Center, click <strong>Connections → Configure</strong>.</li>
+  <li>Click <strong>Add</strong> and select <strong>Rithmic</strong> from the list.</li>
+  <li>Enter the system name exactly as your prop firm provided it. For Apex this is usually "Rithmic 01" or "Rithmic Paper Trading" depending on whether you are on evaluation or funded. Copy it exactly — a single wrong character will prevent connection.</li>
+  <li>Enter your Rithmic username and password (provided by your prop firm, not your prop firm login).</li>
+  <li>Set the data feed to match your prop firm's provided feed. Do not guess — use exactly what they sent you.</li>
+  <li>Click Save. The connection will appear in your Connections list.</li>
+</ol>
+
+<h3>Tradovate connection setup</h3>
+
+<ol>
+  <li>In the Control Center, click <strong>Connections → Configure</strong>.</li>
+  <li>Click <strong>Add</strong> and select <strong>Tradovate</strong> from the list.</li>
+  <li>Enter your Tradovate username and password.</li>
+  <li>Set the environment to Live (for funded accounts) or Demo (for evaluation). Your prop firm will tell you which.</li>
+  <li>Click Save.</li>
+</ol>
+
+<p>To connect, go to Control Center → Connections → click the connection name → click Connect. Within 5 to 30 seconds you should see the connection status change to Connected. If it fails, the most common causes are wrong credentials, wrong system name, firewall blocking the connection, or the broker feed being down temporarily. Double-check credentials first, then firewall, then try again in 5 minutes.</p>
+
+<h2><span class="section-num">04</span>Step 3 — Verify your account is loading</h2>
+
+<p>Once connected, click the Accounts tab in the Control Center. You should see your prop firm account listed with its starting balance. If you do not see it, the connection is authenticated but the account data has not loaded yet — wait 30 seconds and try clicking refresh. If the account still does not show, the prop firm may not have activated it yet (common on newly purchased evaluations — activation can take up to an hour).</p>
+
+<p>Verify three things before you do anything else:</p>
+
+<ul>
+  <li>The account name matches what your prop firm sent you</li>
+  <li>The starting balance is correct (50K, 100K, 150K, etc.)</li>
+  <li>The account is marked as Active</li>
+</ul>
+
+<h2><span class="section-num">05</span>Step 4 — Set up an ATM strategy for bracket orders</h2>
+
+<p>An ATM strategy in NinjaTrader 8 is a bracket template that automatically attaches a stop loss and profit target to every order you submit. Since Apex 4.0 requires mandatory bracket orders as of March 2026, this step is non-negotiable for Apex trading. Topstep and MyFundedFutures do not strictly require brackets but using them is still the right choice for risk management.</p>
+
+<ol>
+  <li>Go to <strong>Tools → ATM Strategy → New</strong>.</li>
+  <li>Give the strategy a descriptive name like "NQ Bracket 20/40" — this tells you the instrument and the stop/target in ticks.</li>
+  <li>Set <strong>Stop Loss (ticks)</strong> to your intended stop distance. For NQ, 20 ticks is a common starting point ($100 per contract). For ES, 8 ticks is common ($100 per contract). Adjust based on your own strategy.</li>
+  <li>Set <strong>Profit Target (ticks)</strong>. A 2:1 reward-to-risk ratio means if your stop is 20 ticks, your target is 40 ticks.</li>
+  <li>Leave Auto Reverse, Auto Chase, and other advanced options off for now. You can configure these later once you understand your own strategy.</li>
+  <li>Save the ATM strategy.</li>
+</ol>
+
+<p>Create a separate ATM strategy for every instrument you trade. Do not try to use one bracket for every contract — the tick sizes and dollar values are different and you will end up with inappropriate stops if you use a one-size-fits-all bracket.</p>
+
+<h2><span class="section-num">06</span>Step 5 — Configure your chart and order entry</h2>
+
+<p>Open a new chart by clicking <strong>New → Chart</strong>. In the instrument selector, search for your contract (for example, "NQ" for E-mini NASDAQ). Select the front-month contract — NinjaTrader will show you a list of contracts by expiration. Pick the one with the highest volume, which is almost always the nearest month.</p>
+
+<p>Set the time frame to match your trading style. Typical prop firm day traders use 1-minute, 5-minute, or 15-minute charts. There is no right answer — pick what you already use. The chart settings are not the important part of this guide.</p>
+
+<p>On the chart, open the <strong>Chart Trader</strong> panel (right-click the chart and select Chart Trader → Show, or press F11). This gives you the order entry interface on the side of the chart. At the top of the Chart Trader panel, there is a dropdown for ATM Strategy. Select the ATM strategy you created in the previous step. Every order you place from this chart will now auto-attach the bracket.</p>
+
+<p>Alternatively, you can use the SuperDOM window for order entry — right-click Control Center → New → SuperDOM, select your account and instrument, and select the ATM strategy from the SuperDOM's dropdown. SuperDOM is preferred by scalpers because it shows depth of market.</p>
+
+<h2><span class="section-num">07</span>Step 6 — Run a test trade on simulated first</h2>
+
+<p>Before you place a live trade on your prop firm account, switch to a simulated account and run one full round trip — entry, managed stop, exit — to verify everything works. NinjaTrader ships with a Sim101 account by default for exactly this purpose.</p>
+
+<ol>
+  <li>In the Control Center, click Accounts tab and confirm Sim101 is available.</li>
+  <li>On your chart or SuperDOM, change the account selector from your prop firm account to Sim101.</li>
+  <li>Place a small test order (1 contract) using your configured ATM strategy.</li>
+  <li>Verify the bracket attached — you should see the stop loss and profit target show up as orders in the Orders tab immediately after your entry fills.</li>
+  <li>Close the position manually (market exit) and verify everything cleared out properly.</li>
+</ol>
+
+<p>If any step of this test failed, do not trade live yet. Fix the problem on sim first. Common issues: bracket did not attach (ATM strategy not selected), stop is on the wrong side (inverted), order was rejected (wrong instrument or wrong account). Sim trading costs nothing to run and catches configuration errors before they become real-money problems.</p>
+
+<h2><span class="section-num">08</span>Step 7 — Switch to live and do your first real trade</h2>
+
+<p>Once the simulated test works end to end, switch your chart or SuperDOM to your actual prop firm account and place one small test trade on a liquid contract at a time of day with moderate volatility. Do not pick your first live trade at a news event or at the overnight open. Pick a calm moment.</p>
+
+<p>Take the trade, let the bracket manage it to either the stop or target, and watch the full lifecycle. Verify that your P&L updates correctly in the Accounts tab, that the trade closed without rule violations, and that your trailing drawdown (if applicable) shows the correct new value. Your first live trade is not about making money — it is about verifying the full round trip works on real infrastructure.</p>
+
+<h2><span class="section-num">09</span>Common setup errors and how to fix them</h2>
+
+<h3>"Order rejected — account not authorized"</h3>
+<p>Your prop firm has not activated the account on the broker side yet. Wait up to an hour on newly purchased evaluations. If it persists, contact the prop firm's support.</p>
+
+<h3>"Connection failed — authentication error"</h3>
+<p>Wrong credentials or wrong system name. Double-check the exact system name from your prop firm's welcome email. A common mistake is confusing "Rithmic 01" with "Rithmic Live" — they are different connections.</p>
+
+<h3>"Insufficient margin" on a legal trade size</h3>
+<p>The account is connected but the balance has not loaded yet. Wait 30 seconds and try again. If the problem persists, disconnect and reconnect the broker.</p>
+
+<h3>Chart shows no data</h3>
+<p>Your data subscription is not active, or you selected the wrong contract month. Verify the contract selector shows the front month (highest volume) and confirm your prop firm says data fees are included.</p>
+
+<h3>Bracket orders not auto-attaching</h3>
+<p>You forgot to select the ATM strategy in the Chart Trader or SuperDOM dropdown. The selector resets when you open a new chart — always verify it is set before placing an order.</p>
+
+<h2><span class="section-num">10</span>What to set up after the basics work</h2>
+
+<p>Once you can reliably place bracket orders on your prop firm account from NinjaTrader 8, the next pieces of infrastructure to add are:</p>
+
+<ul>
+  <li><strong>Multiple ATM strategies</strong> for different instruments and different market conditions (tight stops for chop, wider stops for trending days)</li>
+  <li><strong>A trade copier</strong> to distribute trades across multiple prop firm accounts simultaneously (this is how you scale income)</li>
+  <li><strong>An AI trade journal</strong> to capture every trade automatically and surface performance patterns you would not catch manually</li>
+  <li><strong>Risk management rules</strong> configured at the account level — daily loss limits you set on yourself below the prop firm's actual limit</li>
+  <li><strong>A backup plan</strong> for what happens if NinjaTrader crashes mid-trade (know how to call the broker desk and flatten positions)</li>
+</ul>
+
+<p>Tradecovex handles the copier, AI journal, and per-account risk management in one tool that plugs directly into your configured NinjaTrader 8 instance. Once your NinjaTrader setup is working correctly from this guide, adding Tradecovex on top is a 5-minute install that gives you multi-account copying, real-time AI pattern recognition, and 2026 prop firm rule awareness without any additional NinjaTrader configuration.</p>
+
+<h2><span class="section-num">11</span>The bottom line</h2>
+
+<p>NinjaTrader 8 is the default platform for serious futures prop firm traders in 2026 because of its speed, depth of market data, ATM strategy flexibility, and broad broker support. The setup process is not complicated if you do it in the right order: install first, connect broker second, configure ATM strategy third, test on sim fourth, go live fifth. Skip the sim test at your own risk — it costs you nothing and catches mistakes before they cost you an account.</p>
+
+<p>Most traders who get stuck during setup get stuck on the broker connection step because they entered credentials wrong or picked the wrong system name. If that happens to you, do not waste hours troubleshooting — message your prop firm's support with the exact error message and they will tell you what to fix. Prop firm support is generally responsive for setup questions because they want you to start trading as soon as possible.</p>
+
+
+    <div class="cta-banner">
+      <h3>Copy your trades automatically once your NinjaTrader is set up</h3>
+      <p>Tradecovex plugs directly into your configured NinjaTrader 8 instance and copies trades across every connected prop account. No extra setup, no separate VPS. Launch pricing locked for life.</p>
+      <a href="/#waitlist" class="btn btn-primary btn-lg">Join the Waitlist</a>
+      <div class="cta-perks">
+        <span class="cta-perk">7-day free trial</span>
+        <span class="cta-perk">No credit card required</span>
+        <span class="cta-perk">Launch pricing locked for life</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container">
+    <div style="text-align:center">
+      <span class="section-tag">Frequently Asked Questions</span>
+      <h2>Common questions about NinjaTrader 8 setup</h2>
+    </div>
+    <div class="faq-list" style="margin-top:40px">
+    <div class="faq-item">
+      <button class="faq-q">Is NinjaTrader 8 free for prop firm traders?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">NinjaTrader 8 is free to use for chart analysis, backtesting, and simulated trading. For live trading, you need a data feed (usually $25 to $60 per month depending on exchange) and a broker connection. When you use NinjaTrader with a prop firm, the prop firm typically covers the data fees for you, so the effective cost to a prop firm trader is zero. You do not need to pay for a NinjaTrader license unless you want the full version with additional features.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Which broker does my prop firm use — Rithmic or Tradovate?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Apex Trader Funding offers both Rithmic and Tradovate. Topstep uses TopstepX (their own platform) plus offers Rithmic for NinjaTrader users. MyFundedFutures uses Rithmic primarily. Most traders on NinjaTrader 8 use Rithmic because it has better depth-of-market data and is considered more reliable for futures. Tradovate is easier to set up initially but Rithmic is more common among experienced traders. Your prop firm will tell you which to pick when you purchase the evaluation.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Do I need a VPS to run NinjaTrader 8 for prop firm trading?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">You do not need a VPS unless your home internet is unreliable or you want your computer to keep trading while you are away. Most prop firm traders run NinjaTrader on their own desktop or laptop during active trading hours and that is completely fine. A VPS becomes useful if you are running automated strategies that need to be on 24/5, or if you want to minimize network latency by placing the VPS physically close to the exchange data center in Chicago. For manual trading from your own desk, skip the VPS.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How do I set up a bracket order in NinjaTrader 8 for an Apex account?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Go to Tools → ATM Strategy → New. Set the Stop Loss in ticks (e.g. 20 ticks for NQ), set the Profit Target in ticks (e.g. 40 ticks for a 2:1 reward:risk), give the strategy a name like 'NQ Bracket 20/40', save it. Then on your chart DOM or SuperDOM, select this ATM strategy from the dropdown before placing any order. Every order you submit will now auto-attach the stop and target. Since Apex 4.0 requires mandatory brackets as of March 2026, this setup is mandatory for Apex trading.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Can I run multiple NinjaTrader 8 instances on the same computer?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Technically yes but it is not recommended. NinjaTrader 8 can be run with multiple instances by using the -clearCache startup parameter, but it doubles your RAM usage, adds confusion about which instance is which, and creates risk of trading on the wrong instance. The cleaner solution for multi-account trading is to run one NinjaTrader instance and use a trade copier to distribute trades from one lead account to multiple follower accounts. This is specifically why trade copiers exist.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What do I do if NinjaTrader 8 keeps disconnecting from my broker?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">The most common causes are unstable internet, firewall blocking NinjaTrader's connections, antivirus software flagging it, or an expired data subscription. Check your internet stability first by running a continuous ping to 8.8.8.8. If your ping is stable, check your Windows firewall and add NinjaTrader as an exception. If that does not fix it, verify your data subscription is current by logging into your broker's web portal. Persistent disconnect issues on a live prop firm account are a real risk because you cannot manage positions if you are disconnected — consider a VPS if the problem continues.</div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-wide">
+    <div style="text-align:center">
+      <span class="section-tag">Related Guides</span>
+      <h2>Keep reading</h2>
+    </div>
+    <div class="related-grid">
+    <a href="/guides/ninjatrader-trade-copier" class="related-card">
+      <span class="related-tag">Pillar</span>
+      <h4>NinjaTrader Trade Copier Complete Guide</h4>
+      <p>Once NinjaTrader is set up, this is how to add a copier on top of it.</p>
+    </a>
+    <a href="/guides/copy-trades-apex-accounts" class="related-card">
+      <span class="related-tag">Apex</span>
+      <h4>Copy Trades Across Apex Accounts</h4>
+      <p>The multi-account workflow for scaling beyond one evaluation.</p>
+    </a>
+    <a href="/guides/trade-copier-latency" class="related-card">
+      <span class="related-tag">Technical</span>
+      <h4>Trade Copier Latency Explained</h4>
+      <p>Why local copiers on your NinjaTrader beat cloud relays on fills.</p>
+    </a>
+    <a href="/guides/pass-apex-evaluation" class="related-card">
+      <span class="related-tag">Apex</span>
+      <h4>How to Pass an Apex Evaluation (2026)</h4>
+      <p>What to do once your NinjaTrader is connected to your evaluation.</p>
+    </a>
+    <a href="/compare/apex-vs-topstep-vs-myfundedfutures" class="related-card">
+      <span class="related-tag">Comparison</span>
+      <h4>Apex vs Topstep vs MyFundedFutures</h4>
+      <p>Which firm to pick once your platform is ready.</p>
+    </a>
+    <a href="/guides/trailing-drawdown" class="related-card">
+      <span class="related-tag">Educational</span>
+      <h4>What is Trailing Drawdown?</h4>
+      <p>The mechanic you need to understand before your first live trade.</p>
+    </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="/"><img src="/logo.png" alt="Tradecovex" class="footer-logo"></a>
+        <p class="footer-tagline">The smartest trade copier for NinjaTrader — copy trades and let the AI tell you why.</p>
+        <div class="footer-social">
+          <a href="#" title="Twitter / X" aria-label="Twitter">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" title="YouTube" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#how">How It Works</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="/#waitlist">Join Waitlist</a></li>
+          <li><a href="/guides/">All Guides</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/#privacy">Privacy Policy</a></li>
+          <li><a href="/#terms">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Partners</h4>
+        <ul>
+          <li><a href="#" class="footer-aff">Affiliates — Earn $15–$45/signup</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-risk">
+      <strong>⚠ Risk Disclosure:</strong> Futures trading involves substantial risk of loss and is not suitable for all investors. You can lose more than your initial investment. Past performance is not indicative of future results. Tradecovex is a software tool — it does not provide investment advice and does not guarantee trading results. Use of a trade copier does not guarantee compliance with prop firm rules. All trading decisions are your responsibility. Only trade with capital you can afford to lose.
+    </div>
+    <div class="footer-risk" style="margin-top:10px">
+      <strong>No Investment Advice:</strong> Tradecovex is a software tool for trade copying and journaling. IVAAN INC is not registered as an investment adviser with the Ontario Securities Commission, CIRO, the SEC, or any other regulatory body. Nothing in Tradecovex — including the AI journal analysis feature — constitutes investment advice, financial advice, or a recommendation to buy or sell any security, futures contract, or other financial instrument. The AI journal provides analytical observations about your historical trading patterns for informational purposes only. All trading decisions are made solely by you.
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Tradecovex. All rights reserved. Built by IVAAN INC, Ontario, Canada.</span>
+      <span class="footer-copy">Canadian users served from Toronto · US users served from New York · PIPEDA compliant</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const hamburger=document.getElementById('hamburger');const mobileMenu=document.getElementById('mobile-menu');if(hamburger){hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');});}
+document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{q.parentElement.classList.toggle('open');});});
+</script>
+</body>
+</html>

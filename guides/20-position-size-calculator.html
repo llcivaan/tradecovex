@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>How to Calculate Position Size for Futures Trading (2026 Guide)</title>
+<meta name="description" content="The complete 2026 guide to calculating position size for futures trading. Tick values, risk per trade, account-size math, and the exact formulas for NQ, ES, MNQ, MES, and other major contracts. Includes worked examples.">
+<link rel="canonical" href="https://tradecovex.com/guides/position-size-calculator">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to Calculate Position Size for Futures Trading (2026 Guide)">
+<meta property="og:description" content="The complete 2026 guide to calculating position size for futures trading. Tick values, risk per trade, account-size math, and the exact formulas for NQ, ES, MNQ, MES, and other major contracts. Includes worked examples.">
+<meta property="og:url" content="https://tradecovex.com/guides/position-size-calculator">
+<meta property="og:image" content="https://tradecovex.com/logo.png">
+<meta property="og:site_name" content="Tradecovex">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to Calculate Position Size for Futures Trading (2026 Guide)">
+<meta name="twitter:description" content="The complete 2026 guide to calculating position size for futures trading. Tick values, risk per trade, account-size math, and the exact formulas for NQ, ES, MNQ, MES, and other major contracts. Includes worked examples.">
+<meta name="twitter:image" content="https://tradecovex.com/logo.png">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="author" content="Tradecovex / IVAAN INC">
+<link rel="icon" type="image/png" href="/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://tradecovex.com/guides/position-size-calculator#article",
+      "headline": "How to Calculate Position Size for Futures Trading (2026 Guide)",
+      "description": "The complete 2026 guide to calculating position size for futures trading. Tick values, risk per trade, account-size math, and the exact formulas for NQ, ES, MNQ, MES, and other major contracts. Includes worked examples.",
+      "image": "https://tradecovex.com/logo.png",
+      "datePublished": "2026-04-09T00:00:00+00:00",
+      "dateModified": "2026-04-09T00:00:00+00:00",
+      "author": {
+        "@type": "Organization",
+        "name": "Tradecovex",
+        "url": "https://tradecovex.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Tradecovex",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://tradecovex.com/logo.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://tradecovex.com/guides/position-size-calculator"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://tradecovex.com/guides/position-size-calculator#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the tick value of NQ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The E-mini NASDAQ-100 (NQ) has a tick size of 0.25 index points and a tick value of $5 per contract. That means every 0.25-point move in the NQ price is worth $5 per contract. A 1-point move is $20 per contract. A 100-point move is $2,000 per contract. Micro NASDAQ (MNQ) has the same tick size but a $0.50 tick value \u2014 one-tenth of the NQ value."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the tick value of ES?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The E-mini S&P 500 (ES) has a tick size of 0.25 index points and a tick value of $12.50 per contract. A 1-point move is $50 per contract. A 10-point move is $500 per contract. Micro S&P (MES) has the same tick size but a $1.25 tick value."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much should I risk per trade on a prop firm account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The standard recommendation is 1% to 2% of your drawdown buffer per trade \u2014 not 1% to 2% of the account balance. On a $50K Apex account with a $2,500 trailing drawdown, that is $25 to $50 per trade. This sounds tiny but it accounts for the fact that your real capital at risk is the drawdown buffer, not the full account size. Traders who risk 1% of the full account balance blow through their drawdown quickly because they are effectively risking 20% of their real capital per trade."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use the same position size for every trade?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can but you should not. Position size should scale with volatility and with your current drawdown buffer. Bigger stops require smaller position sizes to keep your dollar risk constant. Lower drawdown buffers require smaller positions to avoid blowing up on a bad trade. A fixed-size approach ignores both of these realities and is one of the most common reasons traders fail evaluations."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between fixed fractional and fixed dollar position sizing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fixed fractional sizing risks a fixed percentage of your account on every trade (e.g. 2% of $50K = $1,000 per trade). Fixed dollar sizing risks a fixed dollar amount regardless of account changes (e.g. $500 per trade regardless of whether the account is at $50K or $52K). Fixed fractional scales up as you win and down as you lose, which is mathematically optimal for long-term growth. Fixed dollar is simpler and easier to execute under pressure. For prop firm evaluations, a hybrid approach works best \u2014 fixed dollar within an evaluation, recalculated at the start of each new evaluation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does position sizing differ for scalping vs swing trading?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Scalping uses smaller stops (5 to 15 ticks) and correspondingly larger position sizes because the dollar risk per trade is low even with multiple contracts. Swing trading uses larger stops (30 to 100+ ticks) and smaller position sizes to keep the dollar risk within the same bounds. The math is the same \u2014 dollars at risk divided by tick distance times tick value \u2014 but the resulting contract count looks very different. A 10-tick scalp risking $200 on NQ is 4 contracts, while a 40-tick swing risking the same $200 is 1 contract."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://tradecovex.com/#software",
+      "name": "Tradecovex",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Windows, macOS",
+      "description": "NinjaTrader trade copier with built-in AI journal that automatically analyzes every copied trade.",
+      "url": "https://tradecovex.com",
+      "offers": {
+        "@type": "Offer",
+        "price": 0,
+        "priceCurrency": "USD",
+        "description": "7-day free trial \u2014 Launch pricing locked for life"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://tradecovex.com/guides/position-size-calculator#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://tradecovex.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://tradecovex.com/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Position Size Calculator",
+          "item": "https://tradecovex.com/guides/position-size-calculator"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:#0F172A;background:#fff;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+:root{
+  --blue:#2563EB;
+  --blue-dark:#1d4ed8;
+  --navy:#0A1628;
+  --slate:#4B5E7A;
+  --slate-light:#64748B;
+  --light:#F0F4FF;
+  --border:#DDE3EF;
+  --radius:12px;
+  --shadow-sm:0 1px 3px rgba(10,22,40,.08),0 1px 2px rgba(10,22,40,.06);
+  --shadow-md:0 4px 16px rgba(10,22,40,.1),0 2px 6px rgba(10,22,40,.06);
+  --shadow-lg:0 12px 40px rgba(10,22,40,.14),0 4px 12px rgba(10,22,40,.08);
+}
+
+/* NAV — matches homepage exactly */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px}
+.nav-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav-logo{height:40px;width:auto}
+.nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+.nav-links a{font-size:.88rem;font-weight:600;color:var(--slate);transition:color .2s;letter-spacing:.01em}
+.nav-links a:hover{color:var(--navy)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 26px;border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;transition:all .18s;border:none;text-decoration:none;letter-spacing:.01em}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 2px 8px rgba(37,99,235,.3)}
+.btn-primary:hover{background:var(--blue-dark);transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,99,235,.4)}
+.btn-outline{background:transparent;color:var(--navy);border:2px solid #C4CEDD}
+.btn-outline:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn-outline-white{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35)}
+.btn-outline-white:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.btn-lg{padding:16px 38px;font-size:.98rem;border-radius:14px}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;transition:all .25s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:20px 24px;z-index:199;flex-direction:column;gap:0;box-shadow:var(--shadow-lg)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{display:block;padding:14px 0;font-size:1rem;font-weight:600;color:var(--slate);border-bottom:1px solid var(--border)}
+.mobile-menu a.btn{margin-top:16px;width:100%;border-bottom:none;justify-content:center}
+
+/* HERO — adapted for guide pages */
+.guide-hero{padding:140px 24px 60px;text-align:center;position:relative;overflow:hidden;background:#fff}
+.guide-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 90% 60% at 50% -10%,rgba(37,99,235,.08) 0%,transparent 65%);pointer-events:none}
+.guide-hero::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background-image:radial-gradient(circle at 1px 1px, rgba(37,99,235,.06) 1px, transparent 0);background-size:32px 32px;pointer-events:none;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 0%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 0%,transparent 70%)}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:100px;padding:7px 18px;font-size:.75rem;font-weight:700;color:var(--blue);letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px;position:relative;z-index:1}
+.hero-eyebrow span.dot{width:7px;height:7px;background:var(--blue);border-radius:50%;animation:blink 2s ease infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+h1{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(2.2rem,4.5vw,3.4rem);line-height:1.08;letter-spacing:-.03em;color:var(--navy);max-width:900px;margin:0 auto 24px;position:relative;z-index:1}
+h1 .accent{color:var(--blue)}
+.guide-meta{display:flex;justify-content:center;gap:24px;margin-bottom:20px;flex-wrap:wrap;font-size:.82rem;color:var(--slate-light);position:relative;z-index:1}
+.guide-meta span{display:inline-flex;align-items:center;gap:6px}
+.breadcrumb{font-size:.78rem;color:var(--slate-light);margin-bottom:24px;position:relative;z-index:1}
+.breadcrumb a{color:var(--blue);font-weight:600}
+.breadcrumb a:hover{text-decoration:underline}
+
+/* ANSWER BOX — featured snippet style */
+.answer-box{max-width:780px;margin:0 auto 50px;background:linear-gradient(135deg,#EFF6FF,#F0F4FF);border:2px solid #BFDBFE;border-radius:18px;padding:32px 36px;text-align:left;position:relative;z-index:1;box-shadow:var(--shadow-md)}
+.answer-box-label{display:inline-block;font-size:.68rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.14em;background:#fff;border:1.5px solid #BFDBFE;border-radius:100px;padding:5px 14px;margin-bottom:14px}
+.answer-box p{font-size:1.02rem;color:var(--navy);line-height:1.75;font-weight:500}
+.answer-box p strong{font-weight:700;color:var(--navy)}
+
+/* SHARED SECTION STYLES */
+.section{padding:80px 24px}
+.section-light{background:var(--light)}
+.section-tag{display:inline-block;font-size:.7rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.14em;margin-bottom:16px;background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:100px;padding:5px 14px}
+h2{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(1.7rem,3.2vw,2.4rem);line-height:1.12;letter-spacing:-.025em;color:var(--navy);margin-bottom:18px}
+h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.3rem;color:var(--navy);margin:32px 0 14px;letter-spacing:-.015em}
+h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08rem;color:var(--navy);margin:24px 0 10px;letter-spacing:-.01em}
+.container{max-width:880px;margin:0 auto}
+.container-wide{max-width:1120px;margin:0 auto}
+
+/* PROSE STYLES */
+.prose p{font-size:1rem;color:var(--slate);line-height:1.85;margin-bottom:20px}
+.prose p strong{color:var(--navy);font-weight:700}
+.prose ul,.prose ol{margin:16px 0 24px 22px;color:var(--slate);font-size:1rem;line-height:1.85}
+.prose li{margin-bottom:10px}
+.prose li strong{color:var(--navy);font-weight:700}
+.prose a{color:var(--blue);font-weight:600;border-bottom:1.5px solid rgba(37,99,235,.3);transition:border .2s}
+.prose a:hover{border-bottom-color:var(--blue)}
+.section-num{display:inline-block;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:.78rem;color:var(--blue);background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:8px;padding:4px 10px;margin-bottom:12px;letter-spacing:.06em}
+
+/* PULL QUOTE */
+.pull-quote{background:linear-gradient(135deg,#EFF6FF,#F0F4FF);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:24px 28px;margin:32px 0;font-family:'Barlow Semi Condensed',sans-serif;font-size:1.18rem;font-weight:600;color:var(--navy);line-height:1.55;letter-spacing:-.01em}
+
+/* CALLOUT BOXES */
+.callout{background:#fff;border:1.5px solid var(--border);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:22px 26px;margin:28px 0;box-shadow:var(--shadow-sm)}
+.callout-title{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1rem;color:var(--navy);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.callout p{font-size:.92rem;color:var(--slate);line-height:1.75;margin:0}
+.callout-warn{border-left-color:#DC2626;background:#FEF2F2}
+.callout-warn .callout-title{color:#991B1B}
+.callout-success{border-left-color:#16A34A;background:#F0FDF4}
+.callout-success .callout-title{color:#166534}
+
+/* FEATURE CARD GRID */
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin:32px 0}
+.feature-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:26px;transition:all .25s;box-shadow:var(--shadow-sm)}
+.feature-card:hover{border-color:#93C5FD;box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.feature-card-num{display:inline-block;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:.7rem;color:var(--blue);background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:6px;padding:3px 8px;margin-bottom:12px;letter-spacing:.06em}
+.feature-card h4{margin:0 0 10px;font-size:1.08rem}
+.feature-card p{font-size:.88rem;color:var(--slate);line-height:1.75;margin:0}
+
+/* DATA TABLE */
+.data-table-wrap{overflow-x:auto;border-radius:14px;border:1.5px solid var(--border);box-shadow:var(--shadow-md);margin:28px 0}
+.data-table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:580px;background:#fff}
+.data-table th{padding:14px 18px;text-align:left;font-weight:700;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;background:#F1F5F9;color:var(--slate);border-bottom:2px solid var(--border)}
+.data-table td{padding:13px 18px;border-bottom:1px solid var(--border);color:var(--slate);vertical-align:middle}
+.data-table tr:last-child td{border-bottom:none}
+.data-table tr.tc-row td{background:#EFF6FF;color:var(--navy);font-weight:600}
+.data-table tr.tc-row td:first-child::before{content:'★ ';color:var(--blue)}
+.data-table td.label{font-weight:600;color:var(--navy);background:#FAFBFF}
+.ck{color:#16A34A;font-weight:700}
+.cx{color:#DC2626;font-weight:700}
+.cm{color:#D97706;font-weight:600;font-size:.85rem}
+
+/* VIDEO EMBED */
+.video-wrap{max-width:780px;margin:36px auto;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-lg);background:var(--navy);position:relative;padding-bottom:56.25%;height:0}
+.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.video-caption{font-size:.82rem;color:var(--slate-light);text-align:center;margin-top:14px;font-style:italic}
+
+/* CTA BANNER */
+.cta-banner{background:linear-gradient(135deg,#0A1628,#0F2460,#1d4ed8);border-radius:18px;padding:56px 48px;margin:48px 0;text-align:center;position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
+.cta-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 100%,rgba(37,99,235,.25) 0%,transparent 65%);pointer-events:none}
+.cta-banner h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:1.85rem;color:#fff;margin:0 0 14px;letter-spacing:-.025em;position:relative;z-index:1}
+.cta-banner p{font-size:1rem;color:#93C5FD;max-width:540px;margin:0 auto 26px;line-height:1.7;position:relative;z-index:1}
+.cta-perks{display:flex;gap:22px;justify-content:center;margin-top:22px;flex-wrap:wrap;position:relative;z-index:1}
+.cta-perk{font-size:.78rem;color:#60A5FA;font-weight:600;display:inline-flex;align-items:center;gap:6px}
+.cta-perk::before{content:'✓';font-weight:800}
+
+/* FAQ */
+.faq-list{max-width:780px;margin:0 auto}
+.faq-item{border-bottom:1.5px solid var(--border)}
+.faq-q{width:100%;text-align:left;padding:22px 0;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.97rem;color:var(--navy);line-height:1.45;letter-spacing:-.01em}
+.faq-icon{width:24px;height:24px;min-width:24px;border-radius:50%;border:2px solid var(--blue);display:flex;align-items:center;justify-content:center;transition:all .25s;flex-shrink:0}
+.faq-icon svg{width:12px;height:12px;stroke:var(--blue);fill:none;stroke-width:2.5;stroke-linecap:round;transition:transform .25s}
+.faq-item.open .faq-icon{background:var(--blue)}
+.faq-item.open .faq-icon svg{stroke:#fff;transform:rotate(45deg)}
+.faq-a{display:none;padding:0 0 22px;font-size:.92rem;color:var(--slate);line-height:1.85;max-width:680px}
+.faq-item.open .faq-a{display:block}
+
+/* RELATED GUIDES */
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:30px}
+.related-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:24px;transition:all .25s;display:block;box-shadow:var(--shadow-sm)}
+.related-card:hover{border-color:#93C5FD;box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.related-tag{display:inline-block;font-size:.66rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.1em;background:#EFF6FF;border:1px solid #BFDBFE;border-radius:6px;padding:3px 8px;margin-bottom:12px}
+.related-card h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.02rem;color:var(--navy);margin:0 0 8px;line-height:1.35}
+.related-card p{font-size:.84rem;color:var(--slate);line-height:1.65;margin:0}
+
+/* FOOTER — matches homepage */
+.footer{background:#fff;border-top:1.5px solid var(--border);padding:60px 24px 36px}
+.footer-inner{max-width:1120px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1.5px solid var(--border);margin-bottom:30px}
+.footer-logo{height:48px;width:auto;margin-bottom:14px}
+.footer-tagline{font-size:.85rem;color:var(--slate);max-width:220px;line-height:1.7;margin-bottom:20px;font-weight:400}
+.footer-social{display:flex;gap:10px}
+.footer-social a{width:36px;height:36px;border:1.5px solid var(--border);border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--slate);transition:all .2s}
+.footer-social a:hover{border-color:var(--blue);color:var(--blue);background:#EFF6FF}
+.footer-social svg{width:16px;height:16px;fill:currentColor}
+.footer-col h4{font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:#94A3B8;margin:0 0 16px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;padding:0}
+.footer-col a{font-size:.875rem;color:var(--slate);transition:color .18s;font-weight:500}
+.footer-col a:hover{color:var(--navy)}
+.footer-aff{font-size:.82rem;color:var(--blue);font-weight:700}
+.footer-risk{background:var(--light);border:1.5px solid var(--border);border-radius:12px;padding:18px 22px;margin-bottom:16px;font-size:.75rem;color:#5B7399;line-height:1.75}
+.footer-risk strong{color:var(--slate);font-weight:700}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:6px}
+.footer-copy{font-size:.75rem;color:#94A3B8;font-weight:500}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .nav-links{display:none}
+  .nav-cta-desktop{display:none !important}
+  .hamburger{display:flex}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .feature-grid,.related-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .footer-top{grid-template-columns:1fr}
+  h1{font-size:2rem}
+  h2{font-size:1.6rem}
+  .answer-box{padding:24px 22px}
+  .cta-banner{padding:42px 28px}
+  .cta-banner h3{font-size:1.5rem}
+}
+
+
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" aria-label="Tradecovex home"><img src="/logo.png" alt="Tradecovex" class="nav-logo"></a>
+    <ul class="nav-links">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/guides/">Guides</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+    </ul>
+    <a href="/#waitlist" class="btn btn-primary nav-cta-desktop" style="display:inline-flex">Join Waitlist</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/#features">Features</a>
+  <a href="/guides/">Guides</a>
+  <a href="/#pricing">Pricing</a>
+  <a href="/#faq">FAQ</a>
+  <a href="/#waitlist" class="btn btn-primary">Join Waitlist</a>
+</div>
+
+<section class="guide-hero">
+  <div class="hero-eyebrow"><span class="dot"></span>EDUCATIONAL</div>
+  <p class="breadcrumb"><a href="/">Home</a> › <a href="/guides/">Guides</a> › Position Size Calculator</p>
+  <h1>How to Calculate Position Size for Futures Trading</h1>
+  <div class="guide-meta">
+    <span>📅 Updated April 2026</span>
+    <span>⏱ 16 min read</span>
+    <span>✍ Tradecovex Team</span>
+  </div>
+  <div class="answer-box">
+    <span class="answer-box-label">Quick Answer</span>
+    <p>Position size for futures trading is calculated from three inputs: the dollar amount you are willing to risk on the trade, the tick distance from your entry to your stop loss, and the dollar value per tick of the contract you are trading. The formula is: contracts = dollars at risk divided by (stop distance in ticks times tick value). For NQ at $5 per tick with a 20-tick stop, risking $200 per trade means 200 divided by (20 × 5) = 2 contracts. Most prop firm traders blow accounts because they skip this math and size based on feel instead of numbers.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container prose">
+    
+
+    
+<h2><span class="section-num">01</span>Why position sizing is the most undervalued skill in futures trading</h2>
+
+<p>Most futures traders spend 80% of their learning time on entries and 20% on everything else. This is backwards. Entry timing matters but it is not what makes or breaks your account. Position sizing is. A great entry with bad sizing blows accounts. A mediocre entry with good sizing survives and compounds. The math is not complicated — most of what follows is arithmetic you learned in school — but almost no retail trader actually does it before every trade, and that gap is why most retail traders fail.</p>
+
+<p>This guide walks through the exact math, with worked examples on the most common futures contracts (NQ, ES, MNQ, MES, CL, GC), and shows how position sizing specifically interacts with prop firm drawdown rules to keep you alive during evaluations. If you are about to take your first prop firm evaluation and you have never calculated position size explicitly, read this guide before your first trade. It is the difference between passing in 15 days and blowing up on day 3.</p>
+
+<div class="callout">
+  <strong>The core formula:</strong> contracts = dollars at risk ÷ (stop distance in ticks × tick value). Memorize this. Every position-sizing decision on a futures account reduces to three inputs: how much you are willing to lose, how far away your stop is, and what the contract's tick is worth.
+</div>
+
+<h2><span class="section-num">02</span>The three inputs you need for every position-size decision</h2>
+
+<h3>Input 1 — Dollars at risk per trade</h3>
+
+<p>This is the maximum dollar amount you are willing to lose on a single trade if the stop hits. It is not "the max loss if everything goes wrong in the entire world." It is the max loss if the stop does what stops are supposed to do — take you out of the trade.</p>
+
+<p>For prop firm traders, the right way to calculate this is as a percentage of your drawdown buffer, not your account balance. On a $50K Apex account with a $2,500 trailing drawdown, your real capital at risk is $2,500 (that is the amount that can actually be lost before the account dies). Risking 1% of $2,500 per trade means risking $25. Risking 2% means $50. These numbers sound tiny but they are correct given what you can actually afford to lose.</p>
+
+<p>Compare this to the common mistake of risking 1% of the account balance: 1% of $50,000 is $500. At $500 per trade, you can only afford 5 stops before the drawdown is gone. That is one bad session. The "1% rule" that works for retail cash accounts is far too aggressive for prop firm accounts because the real capital at risk is a small fraction of the account size.</p>
+
+<h3>Input 2 — Stop distance in ticks</h3>
+
+<p>This is the number of ticks between your planned entry and your planned stop loss. You should know this number before you enter the trade, not discover it after. If you are trading a setup that has "adaptive" stops that you figure out in the moment, you cannot size the position correctly — you are effectively guessing at your dollar risk.</p>
+
+<p>Typical stop distances by trading style:</p>
+<ul>
+  <li><strong>Scalping:</strong> 5 to 15 ticks</li>
+  <li><strong>Intraday setup trading:</strong> 15 to 40 ticks</li>
+  <li><strong>Swing trading within a day:</strong> 40 to 100 ticks</li>
+  <li><strong>Overnight or multi-day holds:</strong> 100+ ticks</li>
+</ul>
+
+<h3>Input 3 — Tick value of the contract</h3>
+
+<p>This is the dollar value of one tick of movement on the specific contract you are trading. Different futures contracts have very different tick values, and this is the place where traders who switch contracts most commonly miscalculate their sizing.</p>
+
+<table class="data-table">
+  <thead>
+    <tr><th>Contract</th><th>Tick size</th><th>Tick value</th><th>Point value</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>NQ (E-mini NASDAQ)</td><td>0.25</td><td>$5.00</td><td>$20</td></tr>
+    <tr><td>MNQ (Micro NASDAQ)</td><td>0.25</td><td>$0.50</td><td>$2</td></tr>
+    <tr><td>ES (E-mini S&P 500)</td><td>0.25</td><td>$12.50</td><td>$50</td></tr>
+    <tr><td>MES (Micro S&P)</td><td>0.25</td><td>$1.25</td><td>$5</td></tr>
+    <tr><td>RTY (E-mini Russell 2000)</td><td>0.10</td><td>$5.00</td><td>$50</td></tr>
+    <tr><td>M2K (Micro Russell)</td><td>0.10</td><td>$0.50</td><td>$5</td></tr>
+    <tr><td>YM (E-mini Dow)</td><td>1.00</td><td>$5.00</td><td>$5</td></tr>
+    <tr><td>MYM (Micro Dow)</td><td>1.00</td><td>$0.50</td><td>$0.50</td></tr>
+    <tr><td>CL (Crude Oil)</td><td>0.01</td><td>$10.00</td><td>$1,000</td></tr>
+    <tr><td>GC (Gold)</td><td>0.10</td><td>$10.00</td><td>$100</td></tr>
+  </tbody>
+</table>
+
+<p>Notice the huge range: micro contracts (MNQ, MES, MYM, M2K) have tick values of $0.50 to $1.25, while standard contracts (NQ, ES, RTY) have tick values of $5 to $12.50, and commodity contracts (CL, GC) have tick values of $10 each. A trader who mentally sizes "2 contracts" without thinking about which contract they are trading is risking 10 to 25 times as much dollar capital when they accidentally trade NQ instead of MNQ.</p>
+
+<h2><span class="section-num">03</span>The formula and worked examples</h2>
+
+<h3>The formula</h3>
+
+<pre style="background:#f6f8fa;padding:20px;border-radius:8px;font-family:monospace;font-size:0.95rem;line-height:1.6;margin:20px 0">
+Contracts = Dollars at Risk ÷ (Stop Distance in Ticks × Tick Value)
+</pre>
+
+<p>That is it. Three inputs, one calculation, always rounded down to a whole number of contracts (you cannot trade fractional contracts).</p>
+
+<h3>Example 1 — NQ scalp, small prop firm account</h3>
+
+<ul>
+  <li>Account: Apex 50K Evaluation, $2,500 drawdown</li>
+  <li>Dollars at risk per trade: 2% of drawdown = $50</li>
+  <li>Stop distance: 10 ticks (typical scalp stop on NQ)</li>
+  <li>Tick value: $5.00 (NQ)</li>
+</ul>
+
+<p>Contracts = 50 ÷ (10 × 5) = 50 ÷ 50 = 1 contract</p>
+
+<p>One contract is the correct size for a 10-tick NQ scalp risking $50 on a 50K Apex account. If you tried to trade 2 contracts, you would be risking $100 per trade — 4% of your drawdown — which is too aggressive. After just 5 losing trades you would be halfway to blowing the account.</p>
+
+<h3>Example 2 — NQ intraday swing, larger prop firm account</h3>
+
+<ul>
+  <li>Account: Apex 150K, $4,500 drawdown</li>
+  <li>Dollars at risk per trade: 1.5% of drawdown = $67.50</li>
+  <li>Stop distance: 30 ticks</li>
+  <li>Tick value: $5.00 (NQ)</li>
+</ul>
+
+<p>Contracts = 67.50 ÷ (30 × 5) = 67.50 ÷ 150 = 0.45 contracts</p>
+
+<p>You cannot trade 0.45 contracts. Rounding down gives you 0 — the trade is too big for your risk tolerance on this account. Your options are: reduce the stop distance (take a tighter setup), increase your risk percentage (accept more aggressive sizing), or switch to micro contracts (MNQ instead of NQ).</p>
+
+<p>Switching to MNQ:</p>
+<ul>
+  <li>Same risk: $67.50</li>
+  <li>Same stop: 30 ticks</li>
+  <li>Tick value: $0.50 (MNQ instead of NQ)</li>
+</ul>
+
+<p>Contracts = 67.50 ÷ (30 × 0.50) = 67.50 ÷ 15 = 4.5 contracts, round to 4</p>
+
+<p>4 MNQ contracts is the right size for this setup. This is exactly why micro contracts exist — they let you take the same trade setups with appropriate risk on smaller accounts.</p>
+
+<h3>Example 3 — ES intraday, mid-size account</h3>
+
+<ul>
+  <li>Account: Apex 100K, $3,000 drawdown</li>
+  <li>Dollars at risk per trade: 2% of drawdown = $60</li>
+  <li>Stop distance: 6 ticks</li>
+  <li>Tick value: $12.50 (ES)</li>
+</ul>
+
+<p>Contracts = 60 ÷ (6 × 12.50) = 60 ÷ 75 = 0.8 contracts</p>
+
+<p>Round down to 0. The trade does not fit within your risk budget. ES's $12.50 tick value is too large for $60 risk on such a tight stop. Solution: switch to MES (tick value $1.25) and you can trade 8 contracts. Or accept a slightly higher dollar risk and take 1 ES contract at $75 risk per trade instead of $60. The math tells you which trade is actually available given your constraints.</p>
+
+<h3>Example 4 — CL (crude oil) scalp</h3>
+
+<ul>
+  <li>Account: Apex 50K, $2,500 drawdown</li>
+  <li>Dollars at risk per trade: 2% of drawdown = $50</li>
+  <li>Stop distance: 5 ticks</li>
+  <li>Tick value: $10.00 (CL)</li>
+</ul>
+
+<p>Contracts = 50 ÷ (5 × 10) = 50 ÷ 50 = 1 contract</p>
+
+<p>One CL contract fits. This shows how commodity contracts with high tick values ($10) still work for scalpers as long as the stop is tight. If you tried to take a 20-tick CL swing on the same account, the math would require $200 of risk (20 × $10 × 1 contract), which is far too much.</p>
+
+<h2><span class="section-num">04</span>The drawdown-adjusted sizing adjustment</h2>
+
+<p>The examples above assume your drawdown buffer is full — that is, you just started the evaluation and have the entire $2,500 (or $3,000, or $4,500) to work with. But during the evaluation, your actual buffer shrinks and grows based on your P&L. A good position sizing system scales down when the buffer is thin and scales up when the buffer is healthy.</p>
+
+<h3>The scaling rule</h3>
+
+<p>Recalculate your dollars-at-risk based on your current buffer, not your original buffer. If your original buffer was $2,500 and you are now sitting on $1,500 of remaining buffer (because you lost $1,000 over the last few sessions), your new 2% risk is 2% of $1,500 = $30, not $50.</p>
+
+<table class="data-table">
+  <thead>
+    <tr><th>Remaining buffer</th><th>Risk %</th><th>Dollars at risk</th><th>NQ 10-tick contracts</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>$2,500 (full)</td><td>2%</td><td>$50</td><td>1 NQ</td></tr>
+    <tr><td>$2,000</td><td>2%</td><td>$40</td><td>Less than 1 NQ — switch to MNQ</td></tr>
+    <tr><td>$1,500</td><td>2%</td><td>$30</td><td>MNQ only, 6 contracts</td></tr>
+    <tr><td>$1,000</td><td>2%</td><td>$20</td><td>MNQ only, 4 contracts</td></tr>
+    <tr><td>$500</td><td>2%</td><td>$10</td><td>Stop trading — buffer too thin</td></tr>
+  </tbody>
+</table>
+
+<p>This is the single most important insight in position sizing: your size should shrink as your buffer shrinks. Traders who keep the same size regardless of buffer state blow through the account because they are effectively risking a larger percentage of their real capital with every losing trade.</p>
+
+<h2><span class="section-num">05</span>The position sizing mistakes that blow accounts</h2>
+
+<h3>Mistake 1 — Sizing by feel instead of math</h3>
+
+<p>The single most common mistake. A trader takes "2 contracts because that feels right for this trade" with no calculation of what 2 contracts actually costs on the current setup. Sometimes they get lucky with small stops and survive. Sometimes they get unlucky with big stops and blow through the drawdown in one trade. Over many trades, feel-based sizing is mathematically equivalent to randomized sizing, which is equivalent to flipping coins with your drawdown buffer.</p>
+
+<h3>Mistake 2 — Sizing based on conviction</h3>
+
+<p>A trader feels "very confident" about a setup and sizes up from 1 to 3 contracts. The setup fails like 40% of setups do. Now the loss is 3x normal on a losing trade. Over time, conviction-based sizing loses money because your conviction is not well-calibrated to actual win probabilities. Nobody's is. The market does not care how confident you are. Size the same regardless of how sure you feel, and let the math determine outcomes.</p>
+
+<h3>Mistake 3 — Sizing up after wins</h3>
+
+<p>Three wins in a row. Trader feels unstoppable. Sizes up from 1 to 4 contracts. The fourth trade is a normal-probability trade but now it is losing 4x the normal amount. One loss wipes out the previous three wins. This is called "risk drift" and it is one of the most reliable ways to give back profits. The fix: never change size mid-evaluation regardless of how many wins or losses you have had.</p>
+
+<h3>Mistake 4 — Sizing down after losses (the opposite problem)</h3>
+
+<p>After two losses, a trader drops from 2 contracts to 1 to "reduce risk." The next 5 trades are winners. But they only won 1 contract each instead of 2, so the wins do not cover the earlier losses. The math worked against them because fear-based sizing cuts your upside during exactly the periods you need upside most. The fix: same as mistake 3 — never change size mid-session.</p>
+
+<h3>Mistake 5 — Not accounting for the commission and fees</h3>
+
+<p>On micro contracts especially, commissions and exchange fees can be a meaningful percentage of the tick value. A $0.50 MNQ tick with $1 round-trip commission per contract means you need to clear 2 ticks of profit before you break even on each contract. Traders who do not account for this think their setups work when they do not. Always include commissions in your position sizing math if you are trading micros. On standard contracts (NQ, ES) the commission impact is smaller relative to the tick value but still real.</p>
+
+<h2><span class="section-num">06</span>How to actually do this in practice</h2>
+
+<p>The calculation above looks like work. Nobody wants to do arithmetic before every trade. The practical solution is one of three approaches.</p>
+
+<h3>Approach 1 — Pre-calculate a sizing table for your setups</h3>
+
+<p>Before you start trading, work out the correct size for every setup you might take based on your current drawdown buffer. For example: "On a 10-tick NQ scalp, I take 1 contract. On a 20-tick NQ setup, I take micros only. On an ES 8-tick scalp, I take 1 contract at $100 risk." Tape this list next to your monitor. You never have to do math during the session — you just look at your list.</p>
+
+<h3>Approach 2 — Use a position sizing calculator</h3>
+
+<p>Many traders use a simple spreadsheet or web-based calculator where they input the dollars-at-risk and stop distance and get the contract count back. This works but requires you to stop and calculate before every trade, which can be slow during fast-moving markets.</p>
+
+<h3>Approach 3 — Automate it with per-account risk controls</h3>
+
+<p>The best approach is to use a tool that automatically calculates the correct position size based on your current drawdown buffer and intended stop. Tradecovex's per-account risk management does exactly this — you configure your risk rules once (e.g. "2% of current drawdown buffer, always") and the tool enforces the correct size on every order. You never have to do math during the session, and you cannot accidentally oversize because the system stops you.</p>
+
+<p>This is specifically why integrated copier plus risk management tools exist. Manual sizing is too error-prone during fast-moving sessions. Automated sizing based on current account state is the only reliable solution for traders running multiple prop firm accounts under 2026 rules.</p>
+
+<h2><span class="section-num">07</span>The bottom line</h2>
+
+<p>Position sizing is arithmetic, not strategy. The formula is the same for every trade: dollars at risk divided by stop distance in ticks times tick value. The only inputs that change are your current drawdown buffer (which determines your dollar risk) and the specific setup (which determines the stop distance).</p>
+
+<p>Traders who do this math on every trade consistently survive evaluations because they never take positions that are too big for the account. Traders who skip it consistently blow up because sooner or later they take one trade that is 5 to 10 times oversized for the buffer, hit the stop, and lose most of the drawdown on one trade.</p>
+
+<p>The good news: once you automate or pre-calculate your sizing, this stops being a conscious decision. It becomes part of the infrastructure that keeps you alive. The 30 minutes you spend setting up your sizing rules is probably the highest-ROI 30 minutes in your entire prop firm career.</p>
+
+
+    <div class="cta-banner">
+      <h3>Get per-account position sizing that adapts to your drawdown</h3>
+      <p>Tradecovex sizes positions automatically based on your current drawdown buffer on each connected account. No math required during the session. Launch pricing locked for life.</p>
+      <a href="/#waitlist" class="btn btn-primary btn-lg">Join the Waitlist</a>
+      <div class="cta-perks">
+        <span class="cta-perk">7-day free trial</span>
+        <span class="cta-perk">No credit card required</span>
+        <span class="cta-perk">Launch pricing locked for life</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container">
+    <div style="text-align:center">
+      <span class="section-tag">Frequently Asked Questions</span>
+      <h2>Common questions about position sizing</h2>
+    </div>
+    <div class="faq-list" style="margin-top:40px">
+    <div class="faq-item">
+      <button class="faq-q">What is the tick value of NQ?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">The E-mini NASDAQ-100 (NQ) has a tick size of 0.25 index points and a tick value of $5 per contract. That means every 0.25-point move in the NQ price is worth $5 per contract. A 1-point move is $20 per contract. A 100-point move is $2,000 per contract. Micro NASDAQ (MNQ) has the same tick size but a $0.50 tick value — one-tenth of the NQ value.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What is the tick value of ES?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">The E-mini S&P 500 (ES) has a tick size of 0.25 index points and a tick value of $12.50 per contract. A 1-point move is $50 per contract. A 10-point move is $500 per contract. Micro S&P (MES) has the same tick size but a $1.25 tick value.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How much should I risk per trade on a prop firm account?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">The standard recommendation is 1% to 2% of your drawdown buffer per trade — not 1% to 2% of the account balance. On a $50K Apex account with a $2,500 trailing drawdown, that is $25 to $50 per trade. This sounds tiny but it accounts for the fact that your real capital at risk is the drawdown buffer, not the full account size. Traders who risk 1% of the full account balance blow through their drawdown quickly because they are effectively risking 20% of their real capital per trade.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Can I use the same position size for every trade?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">You can but you should not. Position size should scale with volatility and with your current drawdown buffer. Bigger stops require smaller position sizes to keep your dollar risk constant. Lower drawdown buffers require smaller positions to avoid blowing up on a bad trade. A fixed-size approach ignores both of these realities and is one of the most common reasons traders fail evaluations.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What is the difference between fixed fractional and fixed dollar position sizing?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Fixed fractional sizing risks a fixed percentage of your account on every trade (e.g. 2% of $50K = $1,000 per trade). Fixed dollar sizing risks a fixed dollar amount regardless of account changes (e.g. $500 per trade regardless of whether the account is at $50K or $52K). Fixed fractional scales up as you win and down as you lose, which is mathematically optimal for long-term growth. Fixed dollar is simpler and easier to execute under pressure. For prop firm evaluations, a hybrid approach works best — fixed dollar within an evaluation, recalculated at the start of each new evaluation.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How does position sizing differ for scalping vs swing trading?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Scalping uses smaller stops (5 to 15 ticks) and correspondingly larger position sizes because the dollar risk per trade is low even with multiple contracts. Swing trading uses larger stops (30 to 100+ ticks) and smaller position sizes to keep the dollar risk within the same bounds. The math is the same — dollars at risk divided by tick distance times tick value — but the resulting contract count looks very different. A 10-tick scalp risking $200 on NQ is 4 contracts, while a 40-tick swing risking the same $200 is 1 contract.</div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-wide">
+    <div style="text-align:center">
+      <span class="section-tag">Related Guides</span>
+      <h2>Keep reading</h2>
+    </div>
+    <div class="related-grid">
+    <a href="/guides/trailing-drawdown" class="related-card">
+      <span class="related-tag">Pillar</span>
+      <h4>What is Trailing Drawdown?</h4>
+      <p>The mechanic that determines how much real capital you have at risk.</p>
+    </a>
+    <a href="/guides/futures-trading-metrics" class="related-card">
+      <span class="related-tag">Metrics</span>
+      <h4>12 Futures Trading Metrics Every Prop Trader Must Track</h4>
+      <p>The numbers that tell you if your sizing is working.</p>
+    </a>
+    <a href="/guides/pass-apex-evaluation" class="related-card">
+      <span class="related-tag">Apex</span>
+      <h4>How to Pass an Apex Evaluation</h4>
+      <p>Position sizing in the context of passing Apex specifically.</p>
+    </a>
+    <a href="/guides/stop-revenge-trading" class="related-card">
+      <span class="related-tag">Psychology</span>
+      <h4>How to Stop Revenge Trading</h4>
+      <p>The behavior that wrecks even perfectly-sized systems.</p>
+    </a>
+    <a href="/guides/ai-trading-journal" class="related-card">
+      <span class="related-tag">Pillar</span>
+      <h4>AI Trading Journal</h4>
+      <p>How an AI journal catches position-size drift automatically.</p>
+    </a>
+    <a href="/guides/best-times-day-trade-futures" class="related-card">
+      <span class="related-tag">Guide</span>
+      <h4>Best Times to Day Trade Futures</h4>
+      <p>Sizing by time of day because volatility varies.</p>
+    </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="/"><img src="/logo.png" alt="Tradecovex" class="footer-logo"></a>
+        <p class="footer-tagline">The smartest trade copier for NinjaTrader — copy trades and let the AI tell you why.</p>
+        <div class="footer-social">
+          <a href="#" title="Twitter / X" aria-label="Twitter">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" title="YouTube" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#how">How It Works</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="/#waitlist">Join Waitlist</a></li>
+          <li><a href="/guides/">All Guides</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/#privacy">Privacy Policy</a></li>
+          <li><a href="/#terms">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Partners</h4>
+        <ul>
+          <li><a href="#" class="footer-aff">Affiliates — Earn $15–$45/signup</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-risk">
+      <strong>⚠ Risk Disclosure:</strong> Futures trading involves substantial risk of loss and is not suitable for all investors. You can lose more than your initial investment. Past performance is not indicative of future results. Tradecovex is a software tool — it does not provide investment advice and does not guarantee trading results. Use of a trade copier does not guarantee compliance with prop firm rules. All trading decisions are your responsibility. Only trade with capital you can afford to lose.
+    </div>
+    <div class="footer-risk" style="margin-top:10px">
+      <strong>No Investment Advice:</strong> Tradecovex is a software tool for trade copying and journaling. IVAAN INC is not registered as an investment adviser with the Ontario Securities Commission, CIRO, the SEC, or any other regulatory body. Nothing in Tradecovex — including the AI journal analysis feature — constitutes investment advice, financial advice, or a recommendation to buy or sell any security, futures contract, or other financial instrument. The AI journal provides analytical observations about your historical trading patterns for informational purposes only. All trading decisions are made solely by you.
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Tradecovex. All rights reserved. Built by IVAAN INC, Ontario, Canada.</span>
+      <span class="footer-copy">Canadian users served from Toronto · US users served from New York · PIPEDA compliant</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const hamburger=document.getElementById('hamburger');const mobileMenu=document.getElementById('mobile-menu');if(hamburger){hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');});}
+document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{q.parentElement.classList.toggle('open');});});
+</script>
+</body>
+</html>
