@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tradecovex — Trade Copier + AI Journal for NinjaTrader</title>
+<meta name="description" content="The only NinjaTrader trade copier with a built-in AI journal. Copy trades across all your prop accounts and let the AI tell you exactly why they're working or failing.">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:#0F172A;background:#fff;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+:root{--blue:#2563EB;--navy:#0F172A;--slate:#475569;--light:#F8FAFC;--border:#E2E8F0;--radius:10px}
+
+/* ── NAV ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 24px}
+.nav-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-logo{height:34px;width:auto}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+.nav-links a{font-size:.9rem;font-weight:500;color:var(--slate);transition:color .2s}
+.nav-links a:hover{color:var(--navy)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 24px;border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-weight:600;font-size:.9rem;cursor:pointer;transition:all .18s;border:none;text-decoration:none}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-primary:hover{background:#1d4ed8;transform:translateY(-1px);box-shadow:0 4px 14px rgba(37,99,235,.35)}
+.btn-outline{background:transparent;color:var(--navy);border:2px solid var(--navy)}
+.btn-outline:hover{background:var(--navy);color:#fff}
+.btn-outline-white{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.4)}
+.btn-outline-white:hover{background:rgba(255,255,255,.1);border-color:#fff}
+.btn-lg{padding:15px 36px;font-size:1rem;border-radius:12px}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;transition:all .25s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:20px 24px;z-index:199;flex-direction:column;gap:0;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{display:block;padding:14px 0;font-size:1rem;font-weight:500;color:var(--slate);border-bottom:1px solid var(--border)}
+.mobile-menu a.btn{margin-top:16px;width:100%;border-bottom:none;justify-content:center}
+
+/* ── HERO ── */
+.hero{padding:148px 24px 90px;text-align:center;position:relative;overflow:hidden;background:#fff}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(37,99,235,.06) 0%,transparent 70%);pointer-events:none}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:#EFF6FF;border:1px solid #BFDBFE;border-radius:100px;padding:6px 16px;font-size:.78rem;font-weight:600;color:var(--blue);letter-spacing:.06em;text-transform:uppercase;margin-bottom:28px}
+.hero-eyebrow span{width:7px;height:7px;background:var(--blue);border-radius:50%;animation:blink 2s ease infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+h1{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(2.6rem,5.5vw,4rem);line-height:1.08;letter-spacing:-.03em;color:var(--navy);max-width:840px;margin:0 auto 22px}
+h1 .accent{color:var(--blue)}
+.hero-sub{font-size:1.05rem;color:var(--slate);max-width:620px;margin:0 auto 40px;line-height:1.8;font-weight:300}
+.hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
+.hero-note{font-size:.82rem;color:#64748B;letter-spacing:.01em}
+.hero-note span{margin:0 8px;opacity:.4}
+
+/* ── PROOF BAR ── */
+.proof{background:var(--light);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:20px 24px}
+.proof-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:center}
+.proof-label{font-size:.75rem;font-weight:600;color:#94A3B8;text-transform:uppercase;letter-spacing:.08em;white-space:nowrap}
+.proof-pills{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.proof-pill{background:#fff;border:1px solid var(--border);border-radius:100px;padding:5px 14px;font-size:.8rem;font-weight:500;color:var(--slate)}
+
+/* ── PAIN ── */
+.pain{background:var(--navy);padding:80px 24px;text-align:center}
+.pain-inner{max-width:680px;margin:0 auto}
+.pain-inner p{font-size:1.1rem;color:#94A3B8;line-height:1.9;font-weight:300;font-style:italic}
+.pain-inner p strong{color:#fff;font-weight:500;font-style:normal}
+.pain-cta{font-size:1.15rem;color:#fff;font-weight:600;margin-top:28px;display:block;letter-spacing:-.01em}
+.pain-arrow{margin:24px auto 0;width:2px;height:48px;background:linear-gradient(180deg,rgba(37,99,235,.6),transparent);position:relative}
+.pain-arrow::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);border-left:6px solid transparent;border-right:6px solid transparent;border-top:8px solid rgba(37,99,235,.4)}
+
+/* ── SHARED SECTION STYLES ── */
+.section{padding:96px 24px}
+.section-light{background:var(--light)}
+.section-center{text-align:center}
+.section-tag{display:inline-block;font-size:.72rem;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px}
+h2{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(1.9rem,3.5vw,2.7rem);line-height:1.1;letter-spacing:-.025em;color:var(--navy);margin-bottom:14px}
+.section-sub{font-size:1rem;color:var(--slate);max-width:520px;margin:0 auto 56px;line-height:1.7;font-weight:300}
+.container{max-width:1120px;margin:0 auto}
+
+/* ── FEATURES ── */
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.feature-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:30px;transition:all .22s}
+.feature-card:hover{border-color:#BFDBFE;box-shadow:0 8px 28px rgba(37,99,235,.1);transform:translateY(-2px)}
+.feature-icon{width:42px;height:42px;background:#EFF6FF;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.feature-icon svg{width:20px;height:20px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.feature-card h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.1rem;color:var(--navy);margin-bottom:8px}
+.feature-card p{font-size:.88rem;color:var(--slate);line-height:1.65}
+
+/* ── HOW IT WORKS ── */
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;position:relative;margin-top:8px}
+.how-connector{position:absolute;top:40px;left:calc(33.33% - 16px);right:calc(33.33% - 16px);height:2px;background:linear-gradient(90deg,var(--blue),#60A5FA);border-radius:1px}
+.how-step{text-align:center;padding:0 12px}
+.how-num{width:80px;height:80px;background:var(--blue);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Barlow Semi Condensed',sans-serif;font-size:2rem;font-weight:800;margin:0 auto 22px;position:relative;z-index:1;box-shadow:0 4px 16px rgba(37,99,235,.3)}
+.how-step h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.15rem;color:var(--navy);margin-bottom:10px}
+.how-step p{font-size:.88rem;color:var(--slate);line-height:1.7}
+
+/* ── TESTIMONIALS ── */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.testi-card{background:#fff;border:2px dashed var(--border);border-radius:14px;padding:32px;display:flex;flex-direction:column;align-items:flex-start;gap:16px}
+.testi-avatar{width:44px;height:44px;border-radius:50%;background:#EFF6FF;border:2px solid #BFDBFE;display:flex;align-items:center;justify-content:center;font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.1rem;color:var(--blue)}
+.testi-quote{font-size:.9rem;color:#94A3B8;line-height:1.7;font-style:italic;flex:1}
+.testi-name{font-size:.85rem;font-weight:600;color:#CBD5E1}
+.testi-type{font-size:.76rem;color:#94A3B8}
+.testi-badge{display:inline-block;font-size:.7rem;font-weight:600;color:var(--blue);background:#EFF6FF;border:1px solid #BFDBFE;border-radius:100px;padding:3px 10px;margin-top:4px}
+
+/* ── COMPARISON ── */
+.compare-wrap{overflow-x:auto;border-radius:14px;border:1px solid var(--border);box-shadow:0 2px 16px rgba(0,0,0,.06)}
+.compare-table{width:100%;border-collapse:collapse;font-size:.875rem;min-width:600px}
+.compare-table th{padding:16px 20px;text-align:left;font-weight:600;font-size:.78rem;letter-spacing:.04em;text-transform:uppercase}
+.compare-table th:first-child{background:#F1F5F9;color:var(--slate)}
+.compare-table th.tc-head{background:var(--blue);color:#fff;text-align:center}
+.compare-table th.other-head{background:var(--navy);color:rgba(255,255,255,.7);text-align:center}
+.compare-table td{padding:13px 20px;border-bottom:1px solid var(--border);color:var(--slate);vertical-align:middle}
+.compare-table td.feature-label{font-weight:500;color:var(--navy);background:#FAFAFA}
+.compare-table td.tc-col{background:#EFF6FF;text-align:center;font-weight:600;color:var(--navy)}
+.compare-table td.other-col{text-align:center;color:var(--slate)}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table tr:hover td.feature-label{background:#F1F5F9}
+.compare-table tr:hover td.tc-col{background:#DBEAFE}
+.ck{color:#16A34A;font-size:1.1rem}
+.cx{color:#DC2626;font-size:1.1rem}
+.cm{color:#D97706;font-size:.8rem;font-weight:500}
+.price-highlight{font-family:'Barlow Semi Condensed',sans-serif;font-size:1.2rem;font-weight:800;color:var(--blue)}
+.price-other{font-family:'Barlow Semi Condensed',sans-serif;font-size:1rem;font-weight:600;color:var(--slate)}
+
+/* ── PRICING ── */
+.launch-banner{background:linear-gradient(135deg,#1E3A8A,#2563EB);border-radius:14px;padding:20px 28px;margin-bottom:28px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.launch-banner-text{color:#fff}
+.launch-banner-text strong{font-family:'Barlow Semi Condensed',sans-serif;font-size:1.1rem;font-weight:700;display:block;margin-bottom:4px}
+.launch-banner-text span{font-size:.85rem;color:#BFDBFE}
+.launch-counter{text-align:center}
+.launch-counter-num{font-family:'Barlow Semi Condensed',sans-serif;font-size:2.4rem;font-weight:800;color:#fff;line-height:1}
+.launch-counter-label{font-size:.7rem;color:#93C5FD;text-transform:uppercase;letter-spacing:.1em;margin-top:2px}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:22px}
+.price-card{background:#fff;border:2px solid var(--border);border-radius:16px;padding:34px 28px;position:relative;transition:border-color .2s}
+.price-card.featured{border-color:var(--blue);box-shadow:0 8px 32px rgba(37,99,235,.14)}
+.price-pop-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--blue);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 16px;border-radius:100px;white-space:nowrap}
+.price-plan{font-size:.75rem;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
+.price-amount{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:3.2rem;color:var(--navy);letter-spacing:-.03em;line-height:1}
+.price-amount sup{font-size:1.2rem;font-weight:700;vertical-align:super;margin-right:1px}
+.price-period{font-size:.8rem;color:#94A3B8;margin-bottom:6px}
+.price-annual{font-size:.76rem;color:#64748B;background:var(--light);border-radius:6px;padding:4px 10px;display:inline-block;margin-bottom:14px}
+.price-desc{font-size:.83rem;color:var(--slate);margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid var(--border)}
+.price-features{list-style:none;margin-bottom:22px;display:flex;flex-direction:column;gap:0}
+.price-features li{font-size:.83rem;color:var(--slate);padding:6px 0;display:flex;align-items:flex-start;gap:9px;border-bottom:1px solid #F1F5F9}
+.price-features li:last-child{border-bottom:none}
+.price-features li::before{content:'';display:block;width:15px;height:15px;min-width:15px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='8' fill='%23EFF6FF'/%3E%3Cpath d='M5 8l2 2 4-4' stroke='%232563EB' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;margin-top:2px}
+.price-cta-wrap{display:flex;flex-direction:column;gap:8px}
+.price-trial-line{font-size:.74rem;color:#94A3B8;text-align:center}
+.price-b2b{background:#fff;border:2px solid var(--border);border-radius:16px;padding:30px 36px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.price-b2b h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:1.3rem;color:var(--navy);margin-bottom:6px}
+.price-b2b p{font-size:.87rem;color:var(--slate)}
+.price-b2b-range{font-family:'Barlow Semi Condensed',sans-serif;font-size:1.5rem;font-weight:800;color:var(--navy);white-space:nowrap}
+.price-footer-note{text-align:center;font-size:.8rem;color:#94A3B8;margin-top:20px;line-height:1.7}
+
+/* ── FAQ ── */
+.faq-list{max-width:740px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{width:100%;text-align:left;padding:20px 0;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:.95rem;color:var(--navy);line-height:1.4}
+.faq-icon{width:22px;height:22px;min-width:22px;border-radius:50%;border:1.5px solid var(--blue);display:flex;align-items:center;justify-content:center;transition:all .25s}
+.faq-icon svg{width:12px;height:12px;stroke:var(--blue);fill:none;stroke-width:2.5;stroke-linecap:round;transition:transform .25s}
+.faq-item.open .faq-icon{background:var(--blue)}
+.faq-item.open .faq-icon svg{stroke:#fff;transform:rotate(45deg)}
+.faq-a{display:none;padding:0 0 20px;font-size:.9rem;color:var(--slate);line-height:1.8;max-width:640px}
+.faq-item.open .faq-a{display:block}
+
+/* ── WAITLIST ── */
+.waitlist{background:var(--navy);padding:96px 24px;text-align:center}
+.waitlist h2{color:#fff;margin-bottom:12px}
+.waitlist .section-sub{color:#64748B;max-width:560px}
+.wl-form{display:flex;gap:10px;max-width:500px;margin:0 auto 14px;flex-wrap:wrap}
+.wl-form input[type=email]{flex:1;min-width:220px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:14px 18px;color:#fff;font-family:'DM Sans',sans-serif;font-size:.95rem;outline:none;transition:border .2s}
+.wl-form input[type=email]:focus{border-color:rgba(37,99,235,.8)}
+.wl-form input::placeholder{color:rgba(255,255,255,.25)}
+.casl-row{display:flex;align-items:flex-start;gap:10px;max-width:500px;margin:0 auto 10px;text-align:left}
+.casl-row input[type=checkbox]{width:16px;height:16px;min-width:16px;accent-color:var(--blue);margin-top:3px;cursor:pointer}
+.casl-row label{font-size:.77rem;color:#475569;line-height:1.55}
+.casl-row a{color:#64748B;text-decoration:underline}
+.wl-note{font-size:.74rem;color:#334155;margin-top:6px}
+.wl-perks{display:flex;gap:20px;justify-content:center;margin-top:24px;flex-wrap:wrap}
+.wl-perk{display:flex;align-items:center;gap:7px;font-size:.8rem;color:#60A5FA;font-weight:500}
+.wl-perk::before{content:'✓';font-weight:700}
+
+/* ── FOOTER ── */
+.footer{background:#fff;border-top:1px solid var(--border);padding:56px 24px 32px}
+.footer-inner{max-width:1120px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:36px;padding-bottom:40px;border-bottom:1px solid var(--border);margin-bottom:28px}
+.footer-logo{height:28px;width:auto;margin-bottom:12px}
+.footer-tagline{font-size:.83rem;color:var(--slate);max-width:200px;line-height:1.65;margin-bottom:18px}
+.footer-social{display:flex;gap:10px}
+.footer-social a{width:32px;height:32px;border:1px solid var(--border);border-radius:7px;display:flex;align-items:center;justify-content:center;color:var(--slate);transition:all .2s}
+.footer-social a:hover{border-color:var(--blue);color:var(--blue)}
+.footer-social svg{width:15px;height:15px;fill:currentColor}
+.footer-col h4{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#94A3B8;margin-bottom:14px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.footer-col a{font-size:.85rem;color:var(--slate);transition:color .18s}
+.footer-col a:hover{color:var(--navy)}
+.footer-aff{font-size:.82rem;color:var(--blue);font-weight:500}
+.footer-risk{background:var(--light);border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin-bottom:22px;font-size:.74rem;color:#64748B;line-height:1.7}
+.footer-risk strong{color:var(--slate)}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.footer-copy{font-size:.76rem;color:#94A3B8}
+
+/* ── AFFILIATES PAGE ── */
+.aff-page{display:none;padding:100px 24px 80px;background:#fff}
+.aff-page.active{display:block}
+.main-content{display:block}
+.main-content.hidden{display:none}
+.aff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:48px 0}
+.aff-earn-card{background:var(--light);border:1px solid var(--border);border-radius:14px;padding:32px;text-align:center}
+.aff-earn-amount{font-family:'Barlow Semi Condensed',sans-serif;font-size:2.4rem;font-weight:800;color:var(--blue);line-height:1;margin-bottom:6px}
+.aff-earn-plan{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--slate);margin-bottom:4px}
+.aff-earn-note{font-size:.82rem;color:#94A3B8}
+.aff-form{max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+.aff-form input,.aff-form select,.aff-form textarea{background:var(--light);border:1px solid var(--border);border-radius:var(--radius);padding:13px 16px;font-family:'DM Sans',sans-serif;font-size:.92rem;color:var(--navy);outline:none;transition:border .2s;width:100%}
+.aff-form input:focus,.aff-form select:focus,.aff-form textarea:focus{border-color:var(--blue)}
+.aff-form textarea{resize:vertical;min-height:100px}
+
+/* ── ANIMATIONS ── */
+.fade-up{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
+.fade-up.visible{opacity:1;transform:none}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .features-grid,.pricing-grid,.how-grid,.testi-grid{grid-template-columns:1fr}
+  .how-connector{display:none}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .aff-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .nav-cta-desktop{display:none !important}
+  .hamburger{display:flex}
+}
+@media(max-width:640px){
+  .footer-top{grid-template-columns:1fr}
+  .price-b2b{flex-direction:column}
+  h1{font-size:2.2rem}
+  .launch-banner{flex-direction:column;text-align:center}
+  .wl-perks{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ NAV ═══════════════════ -->
+<nav class="nav" id="main-nav">
+  <div class="nav-inner">
+    <a href="#" onclick="showMain()"><img src="data:image/png;base64,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AKCz0EFFTdRf5cTdAuPqfqfRcy+YNiN7uL7jdbBRVdXIAHyvZ952hob169uy9JD/ABdGWos8aDdUlhLjj/3z/A5kvgzVcdjxNef89DpY1eKLILDR3m3v66ariEjPkfLT9Qdg/ULoL4LDZrXYreKC0UUVHShxeIo99IJ9SvvXi7dm9+H9XPGe8Hchu2rd2ERFjLBERAEREAREQBERAEREAREQBERAEREAREQBERAZ25UscXJ3iNosOmmkhoLPbRLWvj116OnkN32G+uIfTZKt/AOPsUwVlSMctxpn1XSJ5HzOke8N3obcTodz6aVN8wVV64u5yj5IpqF1baLtTtp6sDsNhrWuj3+y7UbHgn1IPwVY2N84cbXqnY839ltmI+9BXsMTm/7X6h/JxXb1UNRPT1qnLr2rr188/ic+mVUbZ78KWfP08sFkKr+QuD8SzXKJ8huNVc6arnhbHI2lkY1jnNHS156mk70APXXYKTDkjj4jf+WuP/8A5CL/APah+f8APeEY/bpRZq6O/XMtIhhptmIO9i+T06fw2f71p6WrWQs+hi039xnunRKP0jWCEeEy3Px7kHN8bqyHVVJ0RFwHZwjke0uH0O2n81pFUX4XcXyFlZfc/wAnilgrL47+pZIzoe9pcXvkLfZpPT0j4HxpXor/ABaanqpPOXxn3xyV0UXGlLHr/UIiLmm2EREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREB+Fwo6O4UctFX0sFXTSt6ZIZow9jx8EHsVAa7hDi6skdJJisUbnHf9TUzRgfgGvA/krFRZa77av9OTXs8FJ1wn9ZJlXR8A8Wsdt1gmkHw6vn1/J4UmxrjfBccnZUWfF7dBOzuyZ0fmyNPyHv2R+RUrRZJ6zUTWJTbXuysaKovKivyCIi1jKEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQH//2Q==" alt="Tradecovex" class="nav-logo"></a>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a href="#waitlist" class="btn btn-primary nav-cta-desktop" style="display:inline-flex">Join Waitlist</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#features" onclick="closeMenu()">Features</a>
+  <a href="#how" onclick="closeMenu()">How It Works</a>
+  <a href="#pricing" onclick="closeMenu()">Pricing</a>
+  <a href="#faq" onclick="closeMenu()">FAQ</a>
+  <a href="#waitlist" class="btn btn-primary" onclick="closeMenu()">Join Waitlist</a>
+</div>
+
+<!-- ═══════════════════ MAIN CONTENT ═══════════════════ -->
+<div class="main-content" id="main-content">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow"><span></span>NinjaTrader · Futures · Launching Soon</div>
+  <h1>Copy Trades Across All Your <span class="accent">Prop Accounts.</span> Let the AI Tell You Why.</h1>
+  <p class="hero-sub">The only NinjaTrader trade copier with a built-in AI journal. Every trade is automatically captured and analyzed — your daily review becomes a 5-minute insight check, not a 2-hour spreadsheet session.</p>
+  <div class="hero-ctas">
+    <a href="#waitlist" class="btn btn-primary btn-lg">Join the Waitlist</a>
+    <a href="#how" class="btn btn-outline btn-lg">See How It Works</a>
+  </div>
+  <p class="hero-note">7-day free trial<span>·</span>No credit card required<span>·</span>Launch pricing locked for life</p>
+</section>
+
+<!-- PROOF BAR -->
+<div class="proof">
+  <div class="proof-inner">
+    <span class="proof-label">Built for traders on</span>
+    <div class="proof-pills">
+      <span class="proof-pill">Apex Trader Funding</span>
+      <span class="proof-pill">Topstep</span>
+      <span class="proof-pill">MyFundedFutures</span>
+      <span class="proof-pill">NinjaTrader</span>
+    </div>
+  </div>
+</div>
+
+<!-- PAIN -->
+<div class="pain">
+  <div class="pain-inner fade-up">
+    <p>You are copying trades manually across <strong>3, 4, 5 accounts</strong>. You are failing challenges and you do not know exactly why. You are keeping a journal in a spreadsheet that takes 20 minutes a night — or you have <strong>given up journaling entirely</strong>. Meanwhile the same mistakes keep costing you.</p>
+    <strong class="pain-cta">There is a better way.</strong>
+  </div>
+  <div class="pain-arrow"></div>
+</div>
+
+<!-- FEATURES -->
+<section class="section section-light section-center" id="features">
+  <div class="container">
+    <span class="section-tag fade-up">What it does</span>
+    <h2 class="fade-up">Everything you need. Nothing you don't.</h2>
+    <p class="section-sub fade-up">Copy trades. Analyze performance. Understand what's working. All automatic.</p>
+    <div class="features-grid">
+      <div class="feature-card fade-up">
+        <div class="feature-icon"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></div>
+        <h3>One-Click Trade Copying</h3>
+        <p>Copy every trade from your lead account to all your prop accounts simultaneously. No delays, no missed entries, no manual work.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <h3>AI Journal — Automatic</h3>
+        <p>Every copied trade is captured and analyzed instantly. No manual logging. The journal builds itself while you trade.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div>
+        <h3>Pattern Recognition</h3>
+        <p>The AI identifies exactly which behaviours are costing you challenges — time of day, session length, risk patterns — and tells you what to fix.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+        <h3>Multi-Account Dashboard</h3>
+        <p>One unified view across all your prop accounts. Real-time P&amp;L, performance stats, and drawdown tracking in one place.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Risk Management Controls</h3>
+        <p>Daily drawdown protection, position limits, and loss caps across every account. Auto-pause copying when thresholds are hit.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <h3>Zero Manual Input</h3>
+        <p>From execution to AI insight — the entire workflow is automated. You trade, Tradecovex handles everything else.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section section-center" id="how">
+  <div class="container">
+    <span class="section-tag fade-up">Setup in minutes</span>
+    <h2 class="fade-up">Set up in 5 minutes. Insights from day one.</h2>
+    <p class="section-sub fade-up">Three steps. Then it runs itself — no VPS, no local software, no manual work.</p>
+    <div class="how-grid">
+      <div class="how-connector"></div>
+      <div class="how-step fade-up">
+        <div class="how-num">1</div>
+        <h3>Connect Your Accounts</h3>
+        <p>Link your NinjaTrader lead account and all your follower prop accounts. Cloud-based — no local software or VPS needed. Takes about 5 minutes.</p>
+      </div>
+      <div class="how-step fade-up">
+        <div class="how-num">2</div>
+        <h3>Trade From Your Lead Account</h3>
+        <p>Execute your trades exactly as normal on your lead account. Nothing changes about how you trade. Tradecovex runs silently in the background.</p>
+      </div>
+      <div class="how-step fade-up">
+        <div class="how-num">3</div>
+        <h3>The AI Journal Does the Rest</h3>
+        <p>Every trade copies instantly to all follower accounts. The AI captures and analyzes everything. Your daily review is waiting — patterns, mistakes, and exactly what to fix.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section section-light section-center" id="testimonials">
+  <div class="container">
+    <span class="section-tag fade-up">Beta is now open</span>
+    <h2 class="fade-up">Be one of the first traders in.</h2>
+    <p class="section-sub fade-up" style="max-width:580px">We are onboarding our first beta traders now. Get full free access, shape the product with your feedback, and lock in founding member pricing before we raise prices.</p>
+    <div class="testi-grid fade-up">
+      <div class="testi-card" style="border:1px solid var(--border);background:#fff;align-items:center;text-align:center;padding:36px 28px">
+        <div style="width:52px;height:52px;background:#EFF6FF;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:8px">Full Free Access</h3>
+        <p style="font-size:.87rem;color:var(--slate);line-height:1.65">Every feature unlocked from day one. No restrictions, no paywalls during beta.</p>
+      </div>
+      <div class="testi-card" style="border:2px solid var(--blue);background:#fff;align-items:center;text-align:center;padding:36px 28px">
+        <div style="width:52px;height:52px;background:#EFF6FF;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linecap:round stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h3 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:8px">Shape the Product</h3>
+        <p style="font-size:.87rem;color:var(--slate);line-height:1.65">Your feedback directly influences what gets built. Beta traders have a direct line to the founder.</p>
+      </div>
+      <div class="testi-card" style="border:1px solid var(--border);background:#fff;align-items:center;text-align:center;padding:36px 28px">
+        <div style="width:52px;height:52px;background:#EFF6FF;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        </div>
+        <h3 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:8px">Lock In Launch Pricing</h3>
+        <p style="font-size:.87rem;color:var(--slate);line-height:1.65">Beta members keep their founding rate for life when we raise prices at public launch.</p>
+      </div>
+    </div>
+    <div style="margin-top:36px">
+      <a href="#waitlist" class="btn btn-primary btn-lg">Join Beta — It's Free</a>
+      <p style="font-size:.78rem;color:#94A3B8;margin-top:12px">No credit card required · 7-day free trial · Cancel anytime</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="section section-center" id="compare">
+  <div class="container">
+    <span class="section-tag fade-up">How we compare</span>
+    <h2 class="fade-up">The only platform with both.</h2>
+    <p class="section-sub fade-up">Every competitor does one or the other. Tradecovex is the only NinjaTrader tool that combines a trade copier with deep AI journaling — at a lower price.</p>
+    <div class="compare-wrap fade-up">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th style="border-radius:13px 0 0 0">Feature</th>
+            <th class="tc-head">Tradecovex</th>
+            <th class="other-head">TradeSyncer</th>
+            <th class="other-head">TraderSync</th>
+            <th class="other-head" style="border-radius:0 13px 0 0">Replikanto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="feature-label">Trade Copier</td>
+            <td class="tc-col"><span class="ck">✓</span></td>
+            <td class="other-col"><span class="ck">✓</span></td>
+            <td class="other-col"><span class="cx">✗</span></td>
+            <td class="other-col"><span class="ck">✓</span></td>
+          </tr>
+          <tr>
+            <td class="feature-label">AI Journal</td>
+            <td class="tc-col"><span class="ck">✓</span> Deep AI</td>
+            <td class="other-col"><span class="cm">Basic only</span></td>
+            <td class="other-col"><span class="ck">✓</span></td>
+            <td class="other-col"><span class="cx">✗</span></td>
+          </tr>
+          <tr>
+            <td class="feature-label">Auto Trade Capture</td>
+            <td class="tc-col"><span class="ck">✓</span> Automatic</td>
+            <td class="other-col"><span class="ck">✓</span></td>
+            <td class="other-col"><span class="cm">Manual import</span></td>
+            <td class="other-col"><span class="cx">✗</span></td>
+          </tr>
+          <tr>
+            <td class="feature-label">Cloud-Based</td>
+            <td class="tc-col"><span class="ck">✓</span></td>
+            <td class="other-col"><span class="ck">✓</span></td>
+            <td class="other-col"><span class="ck">✓</span></td>
+            <td class="other-col"><span class="cx">✗</span> Local only</td>
+          </tr>
+          <tr>
+            <td class="feature-label">NinjaTrader Native</td>
+            <td class="tc-col"><span class="ck">✓</span></td>
+            <td class="other-col"><span class="ck">✓</span></td>
+            <td class="other-col"><span class="cx">✗</span></td>
+            <td class="other-col"><span class="ck">✓</span></td>
+          </tr>
+          <tr>
+            <td class="feature-label">Free Trial</td>
+            <td class="tc-col"><span class="ck">✓</span> 7 days</td>
+            <td class="other-col">7 days</td>
+            <td class="other-col">7 days</td>
+            <td class="other-col"><span class="cx">✗</span></td>
+          </tr>
+          <tr>
+            <td class="feature-label" style="border-bottom:none">Entry Price</td>
+            <td class="tc-col" style="border-bottom:none"><span class="price-highlight">$19/mo</span></td>
+            <td class="other-col" style="border-bottom:none"><span class="price-other">$49/mo</span></td>
+            <td class="other-col" style="border-bottom:none"><span class="price-other">$29.95/mo</span></td>
+            <td class="other-col" style="border-bottom:none"><span class="price-other">~$250 once</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section section-light section-center" id="pricing">
+  <div class="container">
+    <span class="section-tag fade-up">Pricing</span>
+    <h2 class="fade-up">Simple, transparent pricing</h2>
+    <p class="section-sub fade-up">Start with a free 7-day trial. No credit card required. These are launch prices — early members keep their rate locked when we raise prices.</p>
+
+    <div class="launch-banner fade-up">
+      <div class="launch-banner-text">
+        <strong>🚀 Launch Pricing — Lock In Your Rate</strong>
+        <span>These are our introductory prices. When we raise prices, early members keep their rate locked for life.</span>
+      </div>
+      <div class="launch-counter">
+        <div style="font-size:2rem;line-height:1;margin-bottom:4px">🔒</div>
+        <div style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1rem;font-weight:700;color:#fff;letter-spacing:-.01em">Rate locked for life</div>
+        <div class="launch-counter-label">for early members</div>
+      </div>
+    </div>
+
+    <div class="pricing-grid">
+
+      <!-- STARTER -->
+      <div class="price-card fade-up">
+        <div class="price-plan">Starter</div>
+        <div class="price-amount"><sup>$</sup>19</div>
+        <div class="price-period">per month</div>
+        <div class="price-annual">$168/yr · $14/mo · save 26%</div>
+        <div class="price-desc">Solo trader — up to 20 prop accounts</div>
+        <ul class="price-features">
+          <li>Trade copying up to 20 accounts</li>
+          <li>AI journal — lead account auto-capture</li>
+          <li>Basic AI pattern insights (weekly)</li>
+          <li>Basic performance stats</li>
+          <li>Time-of-day breakdown</li>
+          <li>Basic mistake pattern detection</li>
+          <li>Daily review summary</li>
+          <li>CSV / Excel trade import</li>
+          <li>30-day AI insight history</li>
+          <li>Drawdown tracker</li>
+          <li>Real-time P&amp;L dashboard</li>
+          <li>Basic follower sync alerts</li>
+          <li>Email support</li>
+        </ul>
+        <div class="price-cta-wrap">
+          <a href="#waitlist" class="btn btn-outline" style="width:100%;justify-content:center">Join Waitlist</a>
+          <p class="price-trial-line">7-day free trial · No credit card required</p>
+        </div>
+      </div>
+
+      <!-- PRO -->
+      <div class="price-card featured fade-up">
+        <div class="price-pop-badge">Most Popular</div>
+        <div class="price-plan">Pro</div>
+        <div class="price-amount"><sup>$</sup>39</div>
+        <div class="price-period">per month</div>
+        <div class="price-annual">$348/yr · $29/mo · save 26%</div>
+        <div class="price-desc">Active trader — up to 40 prop accounts</div>
+        <ul class="price-features">
+          <li>Everything in Starter</li>
+          <li>Trade copying up to 40 accounts</li>
+          <li>Daily AI pattern insights</li>
+          <li>Full behavioural analysis</li>
+          <li>Advanced mistake pattern detection</li>
+          <li>6-month AI insight history</li>
+          <li>Daily drawdown protection (auto-pause)</li>
+          <li>Prop firm challenge tracker</li>
+          <li>Custom threshold alerts</li>
+          <li>Economic news alerts in dashboard</li>
+          <li>Prop firm news and updates</li>
+          <li>Full follower sync monitoring</li>
+          <li>Data export (CSV)</li>
+          <li>Email + Discord support</li>
+        </ul>
+        <div class="price-cta-wrap">
+          <a href="#waitlist" class="btn btn-primary" style="width:100%;justify-content:center">Join Waitlist</a>
+          <p class="price-trial-line">7-day free trial · No credit card required</p>
+        </div>
+      </div>
+
+      <!-- ELITE -->
+      <div class="price-card fade-up">
+        <div class="price-plan">Elite</div>
+        <div class="price-amount"><sup>$</sup>79</div>
+        <div class="price-period">per month</div>
+        <div class="price-annual">$708/yr · $59/mo · save 25%</div>
+        <div class="price-desc">Professional traders &amp; signal providers — up to 100 accounts</div>
+        <ul class="price-features">
+          <li>Everything in Pro</li>
+          <li>Trade copying up to 100 accounts</li>
+          <li>Real-time AI pattern insights</li>
+          <li>Unlimited AI insight history</li>
+          <li>AI chat — ask about your trade history</li>
+          <li>Market-moving news feed</li>
+          <li>Priority support — same day response</li>
+          <li>Onboarding call included</li>
+        </ul>
+        <div class="price-cta-wrap">
+          <a href="#waitlist" class="btn btn-outline" style="width:100%;justify-content:center">Join Waitlist</a>
+          <p class="price-trial-line">7-day free trial · No credit card required</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- B2B -->
+    <div class="price-b2b fade-up">
+      <div>
+        <h3>B2B &amp; White Label</h3>
+        <p>For prop firms and trading communities. Custom build, your brand, your users. Contact us to discuss.</p>
+      </div>
+      <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+        <div class="price-b2b-range">$500 – $5,000<span style="font-size:.9rem;font-weight:400;color:var(--slate)">/mo</span></div>
+        <a href="/cdn-cgi/l/email-protection#afdcdadfdfc0dddbefdbddcecbcaccc0d9cad781ccc0c2" style="font-size:.88rem;color:var(--blue);font-weight:500"><span class="__cf_email__" data-cfemail="4c3f393c3c233e380c383e2d28292f233a2934622f2321">[email&#160;protected]</span></a>
+      </div>
+    </div>
+
+    <p class="price-footer-note">All plans include a 7-day free trial. No credit card required. Cancel anytime.<br>Launch pricing locked for life for all early members.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section-center" id="faq">
+  <div class="container">
+    <span class="section-tag fade-up">FAQ</span>
+    <h2 class="fade-up">Common Questions</h2>
+    <p class="section-sub fade-up">Everything you need to know before you sign up.</p>
+    <div class="faq-list fade-up">
+
+      <div class="faq-item">
+        <button class="faq-q">Is there a free trial?<div class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></button>
+        <div class="faq-a">Yes. Every plan includes a full 7-day free trial with complete access to all features. No credit card required. You get everything from day one so you can see exactly what the AI finds in your trades before you pay anything.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">Which NinjaTrader brokers are supported?<div class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></button>
+        <div class="faq-a">Tradecovex works with all major NinjaTrader-compatible brokers and data feeds including Rithmic and CQG. Full broker compatibility list will be published before beta opens. Email <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="cdbeb8bdbda2bfb98db9bfaca9a8aea2bba8b5e3aea2a0">[email&#160;protected]</a> if you have a specific broker in mind.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">Does this work with Apex Trader Funding, Topstep, and MyFundedFutures?<div class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></button>
+        <div class="faq-a">Yes. Tradecovex is built specifically for prop firm traders. It works with all NinjaTrader-compatible prop firms including Apex Trader Funding, Topstep, and MyFundedFutures.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">Does this work with Rithmic and CQG data feeds?<div class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></button>
+        <div class="faq-a">Yes. Both Rithmic and CQG connections are fully supported. These are the two most common data connections for NinjaTrader futures traders and both work natively with Tradecovex.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">Is my broker login stored securely?<div class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></button>
+        <div class="faq-a">Yes. All broker credentials are encrypted at rest and in transit at all times. They are never stored in plain text under any circumstances. Data is hosted on Canadian and US servers in compliance with PIPEDA.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">What happens if my lead account hits a drawdown limit?<div class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></button>
+        <div class="faq-a">On Pro and Elite plans, daily drawdown protection automatically pauses copying to all follower accounts when your threshold is hit. On Starter, you receive an immediate alert. You remain in control of each account's risk parameters independently.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">Is this cloud-based or does it run on my machine?<div class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></button>
+        <div class="faq-a">Fully cloud-based. Unlike Replikanto, you do not need a local machine or VPS running at all times. Your accounts stay synced even if your computer is off.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">What is the AI journal?<div class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></button>
+        <div class="faq-a">Every trade you place on your lead account is automatically captured and analyzed by the AI. It identifies patterns — what time of day you are most profitable, what mistakes are costing you challenges, and exactly what to change. Your daily review goes from a 2-hour spreadsheet session to a 5-minute insight check.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">Can I import my historical trades?<div class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></button>
+        <div class="faq-a">Yes. You can upload a CSV or Excel file of your historical trade data to populate the journal with past trades before going live. This lets the AI start building insights from your trading history immediately.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WAITLIST -->
+<section class="waitlist" id="waitlist">
+  <div class="container">
+    <span class="section-tag fade-up" style="color:#60A5FA">Early Access</span>
+    <h2 class="fade-up">Lock in launch pricing before it goes up.</h2>
+    <p class="section-sub fade-up">Every account starts with a free 7-day trial. No card needed. These are our launch prices — early members keep their rate locked for life when we raise prices.</p>
+
+    <form class="wl-form" id="waitlist-form" action="https://formspree.io/f/xykbakbb" method="POST">
+      <input type="email" id="waitlist-email" name="email" placeholder="your@email.com" required>
+      <button type="submit" class="btn btn-primary">Join Waitlist</button>
+    </form>
+
+    <div class="casl-row">
+      <input type="checkbox" id="casl-consent" name="casl_consent" required>
+      <label for="casl-consent">I agree to receive product updates and launch information from Tradecovex. You can unsubscribe at any time. View our <a href="#" onclick="showPrivacy();return false" style="color:#60A5FA;text-decoration:underline">Privacy Policy</a>.</label>
+    </div>
+    <p class="wl-note">No spam. Unsubscribe anytime. Canadian data storage.</p>
+
+    <div class="wl-perks">
+      <span class="wl-perk">7-day free trial at launch</span>
+      <span class="wl-perk">No credit card required</span>
+      <span class="wl-perk">Launch pricing locked for life</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <img src="data:image/png;base64,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AKCz0EFFTdRf5cTdAuPqfqfRcy+YNiN7uL7jdbBRVdXIAHyvZ952hob169uy9JD/ABdGWos8aDdUlhLjj/3z/A5kvgzVcdjxNef89DpY1eKLILDR3m3v66ariEjPkfLT9Qdg/ULoL4LDZrXYreKC0UUVHShxeIo99IJ9SvvXi7dm9+H9XPGe8Hchu2rd2ERFjLBERAEREAREQBERAEREAREQBERAEREAREQBERAZ25UscXJ3iNosOmmkhoLPbRLWvj116OnkN32G+uIfTZKt/AOPsUwVlSMctxpn1XSJ5HzOke8N3obcTodz6aVN8wVV64u5yj5IpqF1baLtTtp6sDsNhrWuj3+y7UbHgn1IPwVY2N84cbXqnY839ltmI+9BXsMTm/7X6h/JxXb1UNRPT1qnLr2rr188/ic+mVUbZ78KWfP08sFkKr+QuD8SzXKJ8huNVc6arnhbHI2lkY1jnNHS156mk70APXXYKTDkjj4jf+WuP/8A5CL/APah+f8APeEY/bpRZq6O/XMtIhhptmIO9i+T06fw2f71p6WrWQs+hi039xnunRKP0jWCEeEy3Px7kHN8bqyHVVJ0RFwHZwjke0uH0O2n81pFUX4XcXyFlZfc/wAnilgrL47+pZIzoe9pcXvkLfZpPT0j4HxpXor/ABaanqpPOXxn3xyV0UXGlLHr/UIiLmm2EREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREB+Fwo6O4UctFX0sFXTSt6ZIZow9jx8EHsVAa7hDi6skdJJisUbnHf9TUzRgfgGvA/krFRZa77av9OTXs8FJ1wn9ZJlXR8A8Wsdt1gmkHw6vn1/J4UmxrjfBccnZUWfF7dBOzuyZ0fmyNPyHv2R+RUrRZJ6zUTWJTbXuysaKovKivyCIi1jKEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQH//2Q==" alt="Tradecovex" class="footer-logo">
+        <p class="footer-tagline">The smartest trade copier for NinjaTrader — copy trades and let the AI tell you why.</p>
+        <div class="footer-social">
+          <a href="#" title="Twitter / X" aria-label="Twitter">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" title="YouTube" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <a href="#" title="Discord" aria-label="Discord">
+            <svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#how">How It Works</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#waitlist">Join Waitlist</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#" onclick="showPrivacy();return false">Privacy Policy</a></li>
+          <li><a href="#" onclick="showTerms();return false">Terms of Service</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#05767075756a7771457177646160666a73607d2b666a68"><span class="__cf_email__" data-cfemail="50232520203f2224102422313435333f2635287e333f3d">[email&#160;protected]</span></a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Partners</h4>
+        <ul>
+          <li><a href="#" class="footer-aff" onclick="showAffiliates();return false">Affiliates — Earn $15–$45/signup</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-risk">
+      <strong>⚠ Risk Disclosure:</strong> Futures trading involves substantial risk of loss and is not suitable for all investors. You can lose more than your initial investment. Past performance is not indicative of future results. Tradecovex is a software tool — it does not provide investment advice and does not guarantee trading results. Use of a trade copier does not guarantee compliance with prop firm rules. All trading decisions are your responsibility. Only trade with capital you can afford to lose.
+    </div>
+    <div class="footer-risk" style="margin-top:10px">
+      <strong>No Investment Advice:</strong> Tradecovex is a software tool for trade copying and journaling. IVAAN INC is not registered as an investment adviser with the Ontario Securities Commission, CIRO, the SEC, or any other regulatory body. Nothing in Tradecovex — including the AI journal analysis feature — constitutes investment advice, financial advice, or a recommendation to buy or sell any security, futures contract, or other financial instrument. The AI journal provides analytical observations about your historical trading patterns for informational purposes only. All trading decisions are made solely by you.
+    </div>
+
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Tradecovex. All rights reserved. Built by IVAAN INC, Ontario, Canada.</span>
+      <span class="footer-copy">Data hosted in Canada and USA · PIPEDA compliant · Canadian users served from Toronto</span>
+    </div>
+  </div>
+</footer>
+
+</div><!-- /main-content -->
+
+<!-- ═══════════════════ AI CONSENT MODAL ═══════════════════ -->
+<div id="ai-consent-modal" style="display:none;position:fixed;inset:0;background:rgba(15,23,42,0.7);z-index:9999;align-items:center;justify-content:center;padding:24px">
+  <div style="background:#fff;border-radius:16px;padding:40px;max-width:520px;width:100%;position:relative;box-shadow:0 24px 64px rgba(0,0,0,.25)">
+    <button onclick="closeAIConsent()" style="position:absolute;top:16px;right:16px;background:none;border:none;cursor:pointer;color:#94A3B8;font-size:1.4rem;line-height:1">×</button>
+    <div style="width:44px;height:44px;background:#EFF6FF;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:20px">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 110 20 10 10 0 010-20z"/><path d="M12 8v4M12 16h.01"/></svg>
+    </div>
+    <h3 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.4rem;font-weight:700;color:#0F172A;margin-bottom:16px">Enable AI Journal Analysis</h3>
+    <p style="font-size:.9rem;color:#475569;line-height:1.7;margin-bottom:12px">When AI journal analysis is enabled, anonymized summaries of your trading statistics are sent to Anthropic's Claude API for pattern analysis. Here is what that means in plain language:</p>
+    <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:10px;padding:18px 20px;margin-bottom:20px;font-size:.85rem;color:#475569;line-height:1.7">
+      <p style="margin-bottom:8px"><strong style="color:#0F172A">What is sent:</strong> Aggregated statistics about your trading patterns (win rate, average hold time, performance by session, drawdown patterns).</p>
+      <p style="margin-bottom:8px"><strong style="color:#0F172A">Not sent:</strong> Your raw trade records, broker account numbers, or any personally identifying information.</p>
+      <p style="margin-bottom:8px"><strong style="color:#0F172A">Who processes it:</strong> Anthropic. Their commercial API terms prohibit using your data to train AI models.</p>
+      <p><strong style="color:#0F172A">Your control:</strong> You can disable this feature at any time in Settings → Journal → AI Analysis. Disabling it immediately stops any further data transmission to Anthropic.</p>
+    </div>
+    <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;margin-bottom:24px;font-size:.88rem;color:#475569;line-height:1.5">
+      <input type="checkbox" id="ai-consent-check" style="margin-top:2px;flex-shrink:0;width:16px;height:16px;accent-color:#2563EB">
+      I understand that anonymized trading summaries will be sent to Anthropic's API for analysis, and I consent to this processing.
+    </label>
+    <div style="display:flex;gap:12px">
+      <button id="ai-consent-accept" disabled onclick="" style="flex:1;padding:13px;background:#2563EB;color:#fff;border:none;border-radius:10px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:.95rem;cursor:pointer;opacity:.5;transition:opacity .2s" onmouseover="if(!this.disabled)this.style.background='#1d4ed8'" onmouseout="this.style.background='#2563EB'">Accept</button>
+      <button onclick="closeAIConsent()" style="flex:1;padding:13px;background:transparent;color:#0F172A;border:2px solid #E2E8F0;border-radius:10px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:.95rem;cursor:pointer">Not now</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════ PRIVACY POLICY PAGE ═══════════════════ -->
+<div id="privacy-page" style="display:none;padding:100px 24px 80px;background:#fff">
+  <div class="container" style="max-width:760px">
+    <a href="#" onclick="showMainFromLegal();return false" style="display:inline-flex;align-items:center;gap:8px;font-size:.85rem;color:var(--blue);font-weight:500;margin-bottom:36px">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Back to Tradecovex
+    </a>
+    <h1 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:2.2rem;font-weight:800;color:var(--navy);margin-bottom:8px">Privacy Policy</h1>
+    <p style="font-size:.85rem;color:#94A3B8;margin-bottom:40px">Last updated: April 2026</p>
+
+    <p style="font-size:.95rem;color:var(--slate);line-height:1.8;margin-bottom:32px">IVAAN INC (operating as Tradecovex) is committed to protecting your personal information. This policy explains what data we collect, how we use it, where it is stored, and what rights you have over it.</p>
+
+    <h2 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:12px">Who we are</h2>
+    <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px">IVAAN INC is a federally incorporated company based in Toronto, Ontario, Canada. We operate the Tradecovex trade copier and AI journal software. Our privacy contact is support@tradecovex.com.</p>
+
+    <h2 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:12px">What we collect</h2>
+    <ul style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px;padding-left:20px">
+      <li style="margin-bottom:8px">Your email address and account credentials, collected at signup.</li>
+      <li style="margin-bottom:8px">Trade data: fills, prices, quantities, instruments, and timestamps generated by the Tradecovex copier running on your machine. This data is transmitted from the copier to our servers and stored on your behalf to power the dashboard and journal features.</li>
+      <li style="margin-bottom:8px">Account configuration: your copier settings, follower account configuration, and trading rules. Account identifiers are pseudonymized — we store an internal reference code, not your raw broker account number.</li>
+      <li style="margin-bottom:8px">Copier status events: connection status, drift events, and heartbeat pings used to display your copier's live status in the dashboard.</li>
+      <li style="margin-bottom:8px">Billing information: handled entirely by Stripe, our payment processor. We never see or store your credit card number.</li>
+    </ul>
+
+    <h2 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:12px">What we do not collect</h2>
+    <ul style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px;padding-left:20px">
+      <li style="margin-bottom:8px">Broker login credentials. The copier operates through NinjaTrader's API and never sees your broker username, password, or session token. We do not have access to your broker account.</li>
+      <li style="margin-bottom:8px">Your real name (not required to use the product).</li>
+      <li style="margin-bottom:8px">Your IP address in association with trade data.</li>
+      <li style="margin-bottom:8px">Any data you do not explicitly provide or generate through use of the product.</li>
+    </ul>
+
+    <h2 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:12px">Where your data is stored</h2>
+    <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px">All Tradecovex customer data is stored on AWS servers in Montreal, Canada (AWS ca-central-1 region). Your data never leaves Canadian jurisdiction. Data is encrypted at rest and in transit.</p>
+
+    <h2 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:12px">How we use your data</h2>
+    <ul style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px;padding-left:20px">
+      <li style="margin-bottom:8px">To operate the trade copier and display your trading dashboard and journal.</li>
+      <li style="margin-bottom:8px">To provide AI-powered journal analysis when you have opted in to that feature (see AI Features section below).</li>
+      <li style="margin-bottom:8px">To send you product and account communications you have consented to receive.</li>
+      <li style="margin-bottom:8px">We do not sell your data. We do not use your data for advertising. We do not share it with third parties except as described in this policy.</li>
+    </ul>
+
+    <h2 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:12px">Third parties who process your data</h2>
+    <ul style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px;padding-left:20px">
+      <li style="margin-bottom:8px"><strong>AWS (Amazon Web Services):</strong> hosts our servers in Montreal, Canada. AWS processes data under their standard data processing agreement.</li>
+      <li style="margin-bottom:8px"><strong>Stripe:</strong> processes subscription payments. Stripe operates under PCI-DSS compliance. We do not share trade data with Stripe.</li>
+      <li style="margin-bottom:8px"><strong>Anthropic:</strong> processes anonymized trading summaries when you opt in to AI journal analysis. Raw trade data and account identifiers are not transmitted to Anthropic. Anthropic's commercial API terms prohibit using your data to train their models.</li>
+    </ul>
+
+    <h2 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:12px">AI features</h2>
+    <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px">When you enable AI journal analysis, anonymized statistical summaries of your trading patterns are sent to Anthropic's Claude API. This is an optional feature that is off by default. Before enabling it for the first time, you will be shown a specific consent prompt. You can disable AI analysis at any time in your account settings, after which no further data is sent to Anthropic.</p>
+
+    <h2 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:12px">Your rights</h2>
+    <ul style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px;padding-left:20px">
+      <li style="margin-bottom:8px"><strong>Right to access:</strong> you can request a full export of all data we hold about you at any time by emailing support@tradecovex.com or using the Export Data option in your account settings.</li>
+      <li style="margin-bottom:8px"><strong>Right to deletion:</strong> you can request permanent deletion of your account and all associated data at any time. We will complete deletion within 30 days of a written request. Use the Delete Account option in your account settings or email support@tradecovex.com.</li>
+      <li style="margin-bottom:8px"><strong>Right to correct:</strong> if any information we hold about you is inaccurate, contact us and we will correct it.</li>
+      <li style="margin-bottom:8px"><strong>Right to withdraw consent:</strong> if you have consented to any data processing (such as AI journal analysis or marketing emails), you can withdraw that consent at any time without affecting the legality of processing that took place before withdrawal.</li>
+    </ul>
+
+    <h2 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:12px">Data retention</h2>
+    <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px">We retain your data for as long as your account is active. If you cancel your subscription, we retain your data for 90 days to allow for reactivation. After 90 days, all trade data, account configuration, and status history is permanently deleted. Billing records are retained as required by Canadian tax law.</p>
+
+    <h2 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:12px">Data breaches</h2>
+    <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px">If a breach of your personal data occurs that poses a real risk of significant harm, we will notify you and the Office of the Privacy Commissioner of Canada within 72 hours of becoming aware of the breach.</p>
+
+    <h2 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:12px">Applicable law</h2>
+    <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px">This policy is governed by the Personal Information Protection and Electronic Documents Act (PIPEDA), Canada's federal privacy law. Customers in California have additional rights under the California Consumer Privacy Act (CCPA). Customers in the European Union have additional rights under the General Data Protection Regulation (GDPR). To exercise any rights under these laws, contact support@tradecovex.com.</p>
+
+    <h2 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:12px">Changes to this policy</h2>
+    <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px">We will notify you by email if we make material changes to this policy. The current version is always available at tradecovex.com/privacy.</p>
+
+    <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:10px;padding:20px 24px;font-size:.88rem;color:#64748B">
+      Contact for privacy questions: <a href="mailto:support@tradecovex.com" style="color:var(--blue)">support@tradecovex.com</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════ TERMS OF SERVICE PAGE ═══════════════════ -->
+<div id="terms-page" style="display:none;padding:100px 24px 80px;background:#fff">
+  <div class="container" style="max-width:760px">
+    <a href="#" onclick="showMainFromLegal();return false" style="display:inline-flex;align-items:center;gap:8px;font-size:.85rem;color:var(--blue);font-weight:500;margin-bottom:36px">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Back to Tradecovex
+    </a>
+    <h1 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:2.2rem;font-weight:800;color:var(--navy);margin-bottom:8px">Terms of Service</h1>
+    <p style="font-size:.85rem;color:#94A3B8;margin-bottom:40px">Last updated: April 2026</p>
+
+    <p style="font-size:.95rem;color:var(--slate);line-height:1.8;margin-bottom:32px">These Terms of Service govern your use of Tradecovex, operated by IVAAN INC, Toronto, Ontario, Canada. By creating an account, you agree to these terms.</p>
+
+    <h2 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:12px">1. What Tradecovex is</h2>
+    <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px">Tradecovex is a software tool for trade copying and journaling. It executes the trading instructions you configure. It is not a financial adviser, investment adviser, broker, dealer, or portfolio manager. It does not provide investment advice. It does not make trading decisions on your behalf.</p>
+
+    <h2 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:12px">2. No guarantee of results</h2>
+    <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px">Use of Tradecovex does not guarantee profitable trading, passing prop firm challenges, funded account retention, or any specific trading outcome. Past performance shown in the journal is informational only and is not indicative of future results.</p>
+
+    <h2 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:12px">3. Your responsibility</h2>
+    <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px">You are solely responsible for your trading decisions and their outcomes. You are responsible for complying with the terms and rules of any prop firm, broker, or exchange you trade with. You are responsible for ensuring that your use of Tradecovex does not violate any prop firm rules, broker agreements, or applicable law. Tradecovex makes no representation about whether the use of a trade copier is permitted by any specific prop firm.</p>
+
+    <h2 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:12px">4. Limitation of liability</h2>
+    <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:12px">To the maximum extent permitted by applicable law, IVAAN INC is not liable for: trading losses of any kind; failure to fill orders; missed trades; broker outages; NinjaTrader failures; network interruptions; data loss; or any direct, indirect, incidental, consequential, or punitive damages arising from your use of Tradecovex.</p>
+    <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px">If, despite the above, IVAAN INC is found liable for any claim, our maximum liability to you is limited to the amount you paid for your Tradecovex subscription in the 30 calendar days immediately preceding the event giving rise to the claim.</p>
+
+    <h2 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:12px">5. Software only — not investment advice</h2>
+    <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px">Nothing in Tradecovex, including the AI journal analysis feature, constitutes investment advice, financial advice, a recommendation to buy or sell any security or futures contract, or a solicitation to trade. The AI journal provides analytical observations about your historical trading patterns. All trading decisions are yours alone.</p>
+
+    <h2 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:12px">6. Account security</h2>
+    <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px">You are responsible for keeping your Tradecovex account credentials secure. You must notify us immediately at support@tradecovex.com if you believe your account has been compromised. You are responsible for all activity that occurs under your account.</p>
+
+    <h2 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:12px">7. Acceptable use</h2>
+    <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px">You may not use Tradecovex to: violate any applicable law or regulation; interfere with or disrupt the service; attempt to gain unauthorised access to any system or data; use the service for any purpose other than your own personal trading management.</p>
+
+    <h2 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:12px">8. Subscriptions and billing</h2>
+    <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px">Subscriptions are billed monthly or annually in advance. You may cancel at any time. Cancellation takes effect at the end of the current billing period. Refunds are not provided for partial billing periods except where required by applicable consumer protection law.</p>
+
+    <h2 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:12px">9. Service availability</h2>
+    <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px">We aim for high availability but do not guarantee uninterrupted service. The copier is designed to continue operating using its last known configuration if the backend is temporarily unavailable. We are not liable for losses arising from service interruptions.</p>
+
+    <h2 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:12px">10. Governing law</h2>
+    <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px">These terms are governed by the laws of the Province of Ontario and the federal laws of Canada applicable therein. Any disputes shall be resolved in the courts of Toronto, Ontario.</p>
+
+    <h2 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:12px">11. Changes to these terms</h2>
+    <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:32px">We will notify you by email at least 14 days before making material changes to these terms. Continued use of the service after changes take effect constitutes acceptance of the new terms.</p>
+
+    <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:10px;padding:20px 24px;font-size:.88rem;color:#64748B">
+      Contact: <a href="mailto:support@tradecovex.com" style="color:var(--blue)">support@tradecovex.com</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════ AFFILIATES PAGE ═══════════════════ -->
+<div class="aff-page" id="aff-page">
+  <div class="container">
+    <a href="#" onclick="showMain();return false" style="display:inline-flex;align-items:center;gap:8px;font-size:.85rem;color:var(--blue);font-weight:500;margin-bottom:36px">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Back to Tradecovex
+    </a>
+
+    <div class="section-center" style="margin-bottom:0">
+      <span class="section-tag">Affiliate Program</span>
+      <h2>Earn $15–$45 per signup</h2>
+      <p style="font-size:1rem;color:var(--slate);max-width:520px;margin:14px auto 0;line-height:1.7;font-weight:300">Share Tradecovex with your audience. Earn a one-time commission for every trader who signs up through your link. Your audience gets their first month free.</p>
+    </div>
+
+    <div class="aff-grid">
+      <div class="aff-earn-card">
+        <div class="aff-earn-plan">Starter Plan</div>
+        <div class="aff-earn-amount">$15</div>
+        <div class="aff-earn-note">per signup · one-time</div>
+      </div>
+      <div class="aff-earn-card" style="border-color:#BFDBFE;background:#EFF6FF">
+        <div class="aff-earn-plan" style="color:var(--blue)">Pro Plan</div>
+        <div class="aff-earn-amount">$25</div>
+        <div class="aff-earn-note">per signup · one-time</div>
+      </div>
+      <div class="aff-earn-card">
+        <div class="aff-earn-plan">Elite Plan</div>
+        <div class="aff-earn-amount">$45</div>
+        <div class="aff-earn-note">per signup · one-time</div>
+      </div>
+    </div>
+
+    <div style="background:var(--light);border:1px solid var(--border);border-radius:14px;padding:28px 32px;margin-bottom:48px;display:grid;grid-template-columns:1fr 1fr;gap:24px">
+      <div>
+        <h3 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:8px">What your audience gets</h3>
+        <p style="font-size:.88rem;color:var(--slate);line-height:1.7">Every trader who signs up through your affiliate link gets their <strong>first month free</strong> — on top of the standard 7-day free trial. No credit card required to get started.</p>
+      </div>
+      <div>
+        <h3 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:8px">How it works</h3>
+        <p style="font-size:.88rem;color:var(--slate);line-height:1.7">Apply below. We review within 48 hours. Approved affiliates get a unique tracking link and a simple dashboard to track signups and earnings.</p>
+      </div>
+    </div>
+
+    <div style="max-width:560px;margin:0 auto">
+      <h3 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:24px;text-align:center">Apply to become an affiliate</h3>
+      <form class="aff-form" action="https://formspree.io/f/xgopbopb" method="POST">
+        <input type="hidden" name="form_type" value="affiliate_application">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Your email address" required>
+        <input type="url" name="channel_url" placeholder="Your platform or channel URL (YouTube, Twitter, Discord, etc.)" required>
+        <select name="audience_size" required>
+          <option value="" disabled selected>Estimated audience size</option>
+          <option>Under 500</option>
+          <option>500–2,000</option>
+          <option>2,000–10,000</option>
+          <option>10,000–50,000</option>
+          <option>50,000+</option>
+        </select>
+        <textarea name="message" placeholder="Tell us a bit about your audience and content (optional)"></textarea>
+        <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center">Submit Application</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ── Scroll animations (IntersectionObserver)
+const fadeEls = document.querySelectorAll('.fade-up');
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  fadeEls.forEach(el => observer.observe(el));
+} else {
+  fadeEls.forEach(el => el.classList.add('visible'));
+}
+
+// ── FAQ accordion
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(o => o.classList.remove('open'));
+    document.querySelectorAll('.faq-a').forEach(a => a.style.display = 'none');
+    if (!isOpen) {
+      item.classList.add('open');
+      item.querySelector('.faq-a').style.display = 'block';
+    }
+  });
+});
+
+// ── Page switchers
+function showPrivacy() {
+  document.getElementById('main-content').classList.add('hidden');
+  document.getElementById('aff-page').classList.remove('active');
+  document.getElementById('privacy-page').style.display = 'block';
+  document.getElementById('terms-page').style.display = 'none';
+  window.scrollTo(0,0);
+}
+function showTerms() {
+  document.getElementById('main-content').classList.add('hidden');
+  document.getElementById('aff-page').classList.remove('active');
+  document.getElementById('privacy-page').style.display = 'none';
+  document.getElementById('terms-page').style.display = 'block';
+  window.scrollTo(0,0);
+}
+function showMainFromLegal() {
+  document.getElementById('main-content').classList.remove('hidden');
+  document.getElementById('privacy-page').style.display = 'none';
+  document.getElementById('terms-page').style.display = 'none';
+  window.scrollTo(0,0);
+}
+
+// ── AI Consent Modal
+function openAIConsent() {
+  document.getElementById('ai-consent-modal').style.display = 'flex';
+}
+function closeAIConsent() {
+  document.getElementById('ai-consent-modal').style.display = 'none';
+}
+const aiConsentCheck = document.getElementById('ai-consent-check');
+const aiConsentAccept = document.getElementById('ai-consent-accept');
+if (aiConsentCheck && aiConsentAccept) {
+  aiConsentCheck.addEventListener('change', () => {
+    aiConsentAccept.disabled = !aiConsentCheck.checked;
+  });
+  aiConsentAccept.addEventListener('click', () => {
+    closeAIConsent();
+    // TODO: persist consent with timestamp to user record
+  });
+}
+</script>
+</body>
+</html> ── Hamburger
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+function closeMenu() {
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+}
+document.addEventListener('click', e => {
+  if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }
+});
+
+// ── Page switching
+function showAffiliates() {
+  document.getElementById('main-content').classList.add('hidden');
+  document.getElementById('aff-page').classList.add('active');
+  window.scrollTo(0,0);
+}
+function showMain() {
+  document.getElementById('main-content').classList.remove('hidden');
+  document.getElementById('aff-page').classList.remove('active');
+  window.scrollTo(0,0);
+}
+
+//
