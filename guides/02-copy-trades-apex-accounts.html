@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>How to Copy Trades Across Multiple Apex Trader Funding Accounts (2026)</title>
+<meta name="description" content="Complete 2026 guide to copying trades across multiple Apex Trader Funding accounts on NinjaTrader. Covers Apex 4.0 rules, bracket orders, EOD vs Intraday, and the 50% consistency rule.">
+<link rel="canonical" href="https://tradecovex.com/guides/copy-trades-apex-accounts">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to Copy Trades Across Multiple Apex Trader Funding Accounts (2026)">
+<meta property="og:description" content="Complete 2026 guide to copying trades across multiple Apex Trader Funding accounts on NinjaTrader. Covers Apex 4.0 rules, bracket orders, EOD vs Intraday, and the 50% consistency rule.">
+<meta property="og:url" content="https://tradecovex.com/guides/copy-trades-apex-accounts">
+<meta property="og:image" content="https://tradecovex.com/logo.png">
+<meta property="og:site_name" content="Tradecovex">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to Copy Trades Across Multiple Apex Trader Funding Accounts (2026)">
+<meta name="twitter:description" content="Complete 2026 guide to copying trades across multiple Apex Trader Funding accounts on NinjaTrader. Covers Apex 4.0 rules, bracket orders, EOD vs Intraday, and the 50% consistency rule.">
+<meta name="twitter:image" content="https://tradecovex.com/logo.png">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="author" content="Tradecovex / IVAAN INC">
+<link rel="icon" type="image/png" href="/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://tradecovex.com/guides/copy-trades-apex-accounts#article",
+      "headline": "How to Copy Trades Across Multiple Apex Trader Funding Accounts (2026)",
+      "description": "Complete 2026 guide to copying trades across multiple Apex Trader Funding accounts on NinjaTrader. Covers Apex 4.0 rules, bracket orders, EOD vs Intraday, and the 50% consistency rule.",
+      "image": "https://tradecovex.com/logo.png",
+      "datePublished": "2026-04-09T00:00:00+00:00",
+      "dateModified": "2026-04-09T00:00:00+00:00",
+      "author": {
+        "@type": "Organization",
+        "name": "Tradecovex",
+        "url": "https://tradecovex.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Tradecovex",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://tradecovex.com/logo.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://tradecovex.com/guides/copy-trades-apex-accounts"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://tradecovex.com/guides/copy-trades-apex-accounts#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How many Apex accounts can I copy trades across at once?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Apex allows up to 20 evaluation accounts per trader, though most funded traders run 5 to 10 accounts simultaneously because that is the practical ceiling for managing drawdowns and consistency rules. A trade copier lets you execute on the lead account once and have the order replicate to every linked follower account in milliseconds."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need bracket orders on every Apex account since the March 2026 rule change?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Since March 1, 2026, Apex Trader Funding requires every trade on Rithmic and Tradovate accounts to have a bracket order attached \u2014 a stop loss and a take profit \u2014 or the order will be rejected at submission. Any copier you use must submit complete bracket orders on every follower account, not just market entries."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the Apex 50% consistency rule and how does it affect copied trades?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The 50% consistency rule applies in the Performance Account (funded) phase only. No single trading day can account for more than 50% of your total profit. If you copy identical trades across 5 accounts and one big day generates most of your profit on all 5, you will trigger the rule on every account at once. This is why per-account size variation matters."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use EOD trailing and Intraday trailing accounts at the same time?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. As of Apex 4.0 (March 2026), you choose the drawdown type at purchase \u2014 End of Day trailing drawdown or Intraday trailing drawdown \u2014 and you can mix both types in a single portfolio. The copier has to respect that each account has its own rule set and cannot blindly copy without accounting for per-account drawdown state."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the safest way to scale from 1 Apex account to 5 or more?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Scale in steps of 1 to 2 accounts at a time over several weeks. Add the new account on the copier, run it in parallel for 5 trading days while watching for copier latency, order rejection, and drawdown drift. Only then add the next. Jumping from 1 to 5 accounts in a single week is the most common reason traders blow multiple evaluations at once."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://tradecovex.com/#software",
+      "name": "Tradecovex",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Windows, macOS",
+      "description": "NinjaTrader trade copier with built-in AI journal that automatically analyzes every copied trade.",
+      "url": "https://tradecovex.com",
+      "offers": {
+        "@type": "Offer",
+        "price": 0,
+        "priceCurrency": "USD",
+        "description": "7-day free trial \u2014 Launch pricing locked for life"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://tradecovex.com/guides/copy-trades-apex-accounts#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://tradecovex.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://tradecovex.com/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Copy Trades Across Apex Accounts",
+          "item": "https://tradecovex.com/guides/copy-trades-apex-accounts"
+        }
+      ]
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://tradecovex.com/guides/copy-trades-apex-accounts#video",
+      "name": "Multi-account Apex trader setup on NinjaTrader",
+      "description": "A funded Apex trader walking through their multi-account copier setup for prop firm trading on NinjaTrader.",
+      "thumbnailUrl": "https://i.ytimg.com/vi/uhT2FD-kL7o/maxresdefault.jpg",
+      "uploadDate": "2026-01-01T00:00:00+00:00",
+      "contentUrl": "https://www.youtube.com/watch?v=uhT2FD-kL7o",
+      "embedUrl": "https://www.youtube.com/embed/uhT2FD-kL7o"
+    }
+  ]
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:#0F172A;background:#fff;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+:root{
+  --blue:#2563EB;
+  --blue-dark:#1d4ed8;
+  --navy:#0A1628;
+  --slate:#4B5E7A;
+  --slate-light:#64748B;
+  --light:#F0F4FF;
+  --border:#DDE3EF;
+  --radius:12px;
+  --shadow-sm:0 1px 3px rgba(10,22,40,.08),0 1px 2px rgba(10,22,40,.06);
+  --shadow-md:0 4px 16px rgba(10,22,40,.1),0 2px 6px rgba(10,22,40,.06);
+  --shadow-lg:0 12px 40px rgba(10,22,40,.14),0 4px 12px rgba(10,22,40,.08);
+}
+
+/* NAV — matches homepage exactly */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px}
+.nav-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav-logo{height:40px;width:auto}
+.nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+.nav-links a{font-size:.88rem;font-weight:600;color:var(--slate);transition:color .2s;letter-spacing:.01em}
+.nav-links a:hover{color:var(--navy)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 26px;border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;transition:all .18s;border:none;text-decoration:none;letter-spacing:.01em}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 2px 8px rgba(37,99,235,.3)}
+.btn-primary:hover{background:var(--blue-dark);transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,99,235,.4)}
+.btn-outline{background:transparent;color:var(--navy);border:2px solid #C4CEDD}
+.btn-outline:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn-outline-white{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35)}
+.btn-outline-white:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.btn-lg{padding:16px 38px;font-size:.98rem;border-radius:14px}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;transition:all .25s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:20px 24px;z-index:199;flex-direction:column;gap:0;box-shadow:var(--shadow-lg)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{display:block;padding:14px 0;font-size:1rem;font-weight:600;color:var(--slate);border-bottom:1px solid var(--border)}
+.mobile-menu a.btn{margin-top:16px;width:100%;border-bottom:none;justify-content:center}
+
+/* HERO — adapted for guide pages */
+.guide-hero{padding:140px 24px 60px;text-align:center;position:relative;overflow:hidden;background:#fff}
+.guide-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 90% 60% at 50% -10%,rgba(37,99,235,.08) 0%,transparent 65%);pointer-events:none}
+.guide-hero::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background-image:radial-gradient(circle at 1px 1px, rgba(37,99,235,.06) 1px, transparent 0);background-size:32px 32px;pointer-events:none;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 0%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 0%,transparent 70%)}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:100px;padding:7px 18px;font-size:.75rem;font-weight:700;color:var(--blue);letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px;position:relative;z-index:1}
+.hero-eyebrow span.dot{width:7px;height:7px;background:var(--blue);border-radius:50%;animation:blink 2s ease infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+h1{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(2.2rem,4.5vw,3.4rem);line-height:1.08;letter-spacing:-.03em;color:var(--navy);max-width:900px;margin:0 auto 24px;position:relative;z-index:1}
+h1 .accent{color:var(--blue)}
+.guide-meta{display:flex;justify-content:center;gap:24px;margin-bottom:20px;flex-wrap:wrap;font-size:.82rem;color:var(--slate-light);position:relative;z-index:1}
+.guide-meta span{display:inline-flex;align-items:center;gap:6px}
+.breadcrumb{font-size:.78rem;color:var(--slate-light);margin-bottom:24px;position:relative;z-index:1}
+.breadcrumb a{color:var(--blue);font-weight:600}
+.breadcrumb a:hover{text-decoration:underline}
+
+/* ANSWER BOX — featured snippet style */
+.answer-box{max-width:780px;margin:0 auto 50px;background:linear-gradient(135deg,#EFF6FF,#F0F4FF);border:2px solid #BFDBFE;border-radius:18px;padding:32px 36px;text-align:left;position:relative;z-index:1;box-shadow:var(--shadow-md)}
+.answer-box-label{display:inline-block;font-size:.68rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.14em;background:#fff;border:1.5px solid #BFDBFE;border-radius:100px;padding:5px 14px;margin-bottom:14px}
+.answer-box p{font-size:1.02rem;color:var(--navy);line-height:1.75;font-weight:500}
+.answer-box p strong{font-weight:700;color:var(--navy)}
+
+/* SHARED SECTION STYLES */
+.section{padding:80px 24px}
+.section-light{background:var(--light)}
+.section-tag{display:inline-block;font-size:.7rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.14em;margin-bottom:16px;background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:100px;padding:5px 14px}
+h2{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(1.7rem,3.2vw,2.4rem);line-height:1.12;letter-spacing:-.025em;color:var(--navy);margin-bottom:18px}
+h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.3rem;color:var(--navy);margin:32px 0 14px;letter-spacing:-.015em}
+h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08rem;color:var(--navy);margin:24px 0 10px;letter-spacing:-.01em}
+.container{max-width:880px;margin:0 auto}
+.container-wide{max-width:1120px;margin:0 auto}
+
+/* PROSE STYLES */
+.prose p{font-size:1rem;color:var(--slate);line-height:1.85;margin-bottom:20px}
+.prose p strong{color:var(--navy);font-weight:700}
+.prose ul,.prose ol{margin:16px 0 24px 22px;color:var(--slate);font-size:1rem;line-height:1.85}
+.prose li{margin-bottom:10px}
+.prose li strong{color:var(--navy);font-weight:700}
+.prose a{color:var(--blue);font-weight:600;border-bottom:1.5px solid rgba(37,99,235,.3);transition:border .2s}
+.prose a:hover{border-bottom-color:var(--blue)}
+.section-num{display:inline-block;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:.78rem;color:var(--blue);background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:8px;padding:4px 10px;margin-bottom:12px;letter-spacing:.06em}
+
+/* PULL QUOTE */
+.pull-quote{background:linear-gradient(135deg,#EFF6FF,#F0F4FF);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:24px 28px;margin:32px 0;font-family:'Barlow Semi Condensed',sans-serif;font-size:1.18rem;font-weight:600;color:var(--navy);line-height:1.55;letter-spacing:-.01em}
+
+/* CALLOUT BOXES */
+.callout{background:#fff;border:1.5px solid var(--border);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:22px 26px;margin:28px 0;box-shadow:var(--shadow-sm)}
+.callout-title{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1rem;color:var(--navy);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.callout p{font-size:.92rem;color:var(--slate);line-height:1.75;margin:0}
+.callout-warn{border-left-color:#DC2626;background:#FEF2F2}
+.callout-warn .callout-title{color:#991B1B}
+.callout-success{border-left-color:#16A34A;background:#F0FDF4}
+.callout-success .callout-title{color:#166534}
+
+/* FEATURE CARD GRID */
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin:32px 0}
+.feature-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:26px;transition:all .25s;box-shadow:var(--shadow-sm)}
+.feature-card:hover{border-color:#93C5FD;box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.feature-card-num{display:inline-block;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:.7rem;color:var(--blue);background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:6px;padding:3px 8px;margin-bottom:12px;letter-spacing:.06em}
+.feature-card h4{margin:0 0 10px;font-size:1.08rem}
+.feature-card p{font-size:.88rem;color:var(--slate);line-height:1.75;margin:0}
+
+/* DATA TABLE */
+.data-table-wrap{overflow-x:auto;border-radius:14px;border:1.5px solid var(--border);box-shadow:var(--shadow-md);margin:28px 0}
+.data-table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:580px;background:#fff}
+.data-table th{padding:14px 18px;text-align:left;font-weight:700;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;background:#F1F5F9;color:var(--slate);border-bottom:2px solid var(--border)}
+.data-table td{padding:13px 18px;border-bottom:1px solid var(--border);color:var(--slate);vertical-align:middle}
+.data-table tr:last-child td{border-bottom:none}
+.data-table tr.tc-row td{background:#EFF6FF;color:var(--navy);font-weight:600}
+.data-table tr.tc-row td:first-child::before{content:'★ ';color:var(--blue)}
+.data-table td.label{font-weight:600;color:var(--navy);background:#FAFBFF}
+.ck{color:#16A34A;font-weight:700}
+.cx{color:#DC2626;font-weight:700}
+.cm{color:#D97706;font-weight:600;font-size:.85rem}
+
+/* VIDEO EMBED */
+.video-wrap{max-width:780px;margin:36px auto;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-lg);background:var(--navy);position:relative;padding-bottom:56.25%;height:0}
+.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.video-caption{font-size:.82rem;color:var(--slate-light);text-align:center;margin-top:14px;font-style:italic}
+
+/* CTA BANNER */
+.cta-banner{background:linear-gradient(135deg,#0A1628,#0F2460,#1d4ed8);border-radius:18px;padding:56px 48px;margin:48px 0;text-align:center;position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
+.cta-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 100%,rgba(37,99,235,.25) 0%,transparent 65%);pointer-events:none}
+.cta-banner h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:1.85rem;color:#fff;margin:0 0 14px;letter-spacing:-.025em;position:relative;z-index:1}
+.cta-banner p{font-size:1rem;color:#93C5FD;max-width:540px;margin:0 auto 26px;line-height:1.7;position:relative;z-index:1}
+.cta-perks{display:flex;gap:22px;justify-content:center;margin-top:22px;flex-wrap:wrap;position:relative;z-index:1}
+.cta-perk{font-size:.78rem;color:#60A5FA;font-weight:600;display:inline-flex;align-items:center;gap:6px}
+.cta-perk::before{content:'✓';font-weight:800}
+
+/* FAQ */
+.faq-list{max-width:780px;margin:0 auto}
+.faq-item{border-bottom:1.5px solid var(--border)}
+.faq-q{width:100%;text-align:left;padding:22px 0;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.97rem;color:var(--navy);line-height:1.45;letter-spacing:-.01em}
+.faq-icon{width:24px;height:24px;min-width:24px;border-radius:50%;border:2px solid var(--blue);display:flex;align-items:center;justify-content:center;transition:all .25s;flex-shrink:0}
+.faq-icon svg{width:12px;height:12px;stroke:var(--blue);fill:none;stroke-width:2.5;stroke-linecap:round;transition:transform .25s}
+.faq-item.open .faq-icon{background:var(--blue)}
+.faq-item.open .faq-icon svg{stroke:#fff;transform:rotate(45deg)}
+.faq-a{display:none;padding:0 0 22px;font-size:.92rem;color:var(--slate);line-height:1.85;max-width:680px}
+.faq-item.open .faq-a{display:block}
+
+/* RELATED GUIDES */
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:30px}
+.related-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:24px;transition:all .25s;display:block;box-shadow:var(--shadow-sm)}
+.related-card:hover{border-color:#93C5FD;box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.related-tag{display:inline-block;font-size:.66rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.1em;background:#EFF6FF;border:1px solid #BFDBFE;border-radius:6px;padding:3px 8px;margin-bottom:12px}
+.related-card h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.02rem;color:var(--navy);margin:0 0 8px;line-height:1.35}
+.related-card p{font-size:.84rem;color:var(--slate);line-height:1.65;margin:0}
+
+/* FOOTER — matches homepage */
+.footer{background:#fff;border-top:1.5px solid var(--border);padding:60px 24px 36px}
+.footer-inner{max-width:1120px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1.5px solid var(--border);margin-bottom:30px}
+.footer-logo{height:48px;width:auto;margin-bottom:14px}
+.footer-tagline{font-size:.85rem;color:var(--slate);max-width:220px;line-height:1.7;margin-bottom:20px;font-weight:400}
+.footer-social{display:flex;gap:10px}
+.footer-social a{width:36px;height:36px;border:1.5px solid var(--border);border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--slate);transition:all .2s}
+.footer-social a:hover{border-color:var(--blue);color:var(--blue);background:#EFF6FF}
+.footer-social svg{width:16px;height:16px;fill:currentColor}
+.footer-col h4{font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:#94A3B8;margin:0 0 16px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;padding:0}
+.footer-col a{font-size:.875rem;color:var(--slate);transition:color .18s;font-weight:500}
+.footer-col a:hover{color:var(--navy)}
+.footer-aff{font-size:.82rem;color:var(--blue);font-weight:700}
+.footer-risk{background:var(--light);border:1.5px solid var(--border);border-radius:12px;padding:18px 22px;margin-bottom:16px;font-size:.75rem;color:#5B7399;line-height:1.75}
+.footer-risk strong{color:var(--slate);font-weight:700}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:6px}
+.footer-copy{font-size:.75rem;color:#94A3B8;font-weight:500}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .nav-links{display:none}
+  .nav-cta-desktop{display:none !important}
+  .hamburger{display:flex}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .feature-grid,.related-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .footer-top{grid-template-columns:1fr}
+  h1{font-size:2rem}
+  h2{font-size:1.6rem}
+  .answer-box{padding:24px 22px}
+  .cta-banner{padding:42px 28px}
+  .cta-banner h3{font-size:1.5rem}
+}
+
+
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" aria-label="Tradecovex home"><img src="/logo.png" alt="Tradecovex" class="nav-logo"></a>
+    <ul class="nav-links">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/guides/">Guides</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+    </ul>
+    <a href="/#waitlist" class="btn btn-primary nav-cta-desktop" style="display:inline-flex">Join Waitlist</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/#features">Features</a>
+  <a href="/guides/">Guides</a>
+  <a href="/#pricing">Pricing</a>
+  <a href="/#faq">FAQ</a>
+  <a href="/#waitlist" class="btn btn-primary">Join Waitlist</a>
+</div>
+
+<section class="guide-hero">
+  <div class="hero-eyebrow"><span class="dot"></span>APEX TRADER FUNDING GUIDE</div>
+  <p class="breadcrumb"><a href="/">Home</a> › <a href="/guides/">Guides</a> › Copy Trades Across Apex Accounts</p>
+  <h1>How to Copy Trades Across Multiple Apex Trader Funding Accounts</h1>
+  <div class="guide-meta">
+    <span>📅 Updated April 2026</span>
+    <span>⏱ 14 min read</span>
+    <span>✍ Tradecovex Team</span>
+  </div>
+  <div class="answer-box">
+    <span class="answer-box-label">Quick Answer</span>
+    <p>To copy trades across multiple Apex Trader Funding accounts on NinjaTrader in 2026, you need a copier that can fan out a single order on your lead account into simultaneous bracket orders on every follower account (Apex 4.0 requires brackets on every trade since March 2026). The copier must respect each account's own drawdown type — EOD trailing or Intraday trailing — and must not cause identical entry, exit, and sizing across every account, or you will trigger the 50% consistency rule in the funded phase.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container prose">
+    <div class="video-wrap">
+  <iframe src="https://www.youtube.com/embed/uhT2FD-kL7o" title="Multi-account Apex trader setup on NinjaTrader" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
+<p class="video-caption">A real multi-account Apex setup walkthrough. Useful context before reading the full guide below.</p>
+
+    
+<h2><span class="section-num">01</span>What changed in March 2026 (Apex 4.0) and why it matters for copying trades</h2>
+
+<p>On March 1, 2026, Apex Trader Funding rolled out the largest rule overhaul in the company's history, commonly referred to as Apex 4.0. If you are planning to copy trades across multiple Apex accounts in 2026, you are copying under a completely different rule set than what every YouTube video from 2024 and 2025 describes. This is the single biggest source of confusion we see from traders right now.</p>
+
+<p>Here is what actually changed, in plain terms:</p>
+
+<ul>
+  <li><strong>Two account types, chosen at purchase.</strong> Every Apex evaluation account is now either an End of Day (EOD) Trailing Drawdown account or an Intraday Trailing Drawdown account. You pick at checkout and cannot switch later on that account.</li>
+  <li><strong>Mandatory bracket orders.</strong> Every order placed on Rithmic or Tradovate under Apex must be submitted with a stop loss and a take profit attached. Bare market orders or bare limit orders will be rejected at the broker layer before they ever hit the exchange.</li>
+  <li><strong>Six legacy rules removed.</strong> The old 30% MAE rule, the 5:1 risk-reward restriction, the one-direction trading restriction, and three other friction points are gone for accounts purchased after March 1, 2026.</li>
+  <li><strong>50% consistency rule softened.</strong> The old 30% consistency rule in the evaluation phase is gone entirely. A 50% consistency rule now applies, but only in the Performance Account (funded) phase.</li>
+  <li><strong>6% profit target, no minimum days.</strong> You can pass an evaluation in a single trading day on Apex 4.0 if your trade works — though obviously this is not the approach we recommend.</li>
+</ul>
+
+<div class="callout callout-warning">
+  <strong>Legacy accounts are different.</strong> If you purchased an Apex account before March 1, 2026, it is still running under the old rule set (sometimes called "Apex 3.0"). Mixed portfolios of legacy and 4.0 accounts are common and cause real problems for traders using a copier that does not track each account's rule state separately.
+</div>
+
+<p>The practical upshot for copying trades: your copier cannot treat every Apex account the same anymore. Each account has its own drawdown type, its own rule set, and its own state. Blindly mirroring a trade from a lead account to five followers without respecting those differences is the fastest way to blow multiple accounts on the same day.</p>
+
+<h2><span class="section-num">02</span>The difference between EOD trailing and Intraday trailing — and why your copier has to know</h2>
+
+<p>The drawdown type you chose at purchase determines how aggressively your account can blow up during a losing trade. This is not a minor technicality. On a $100,000 Apex account, choosing EOD vs Intraday changes your effective risk budget by thousands of dollars per session.</p>
+
+<h3>EOD trailing drawdown</h3>
+
+<p>With EOD trailing, your trailing drawdown threshold only updates at the end of each trading day based on your closing balance. During the trading session, you can take a large unrealized drawdown on an open position without tripping the trailing threshold, as long as you close the day at or above the threshold level. There is, however, a separate Daily Loss Limit on EOD accounts — $1,500 on a $100K account — that will flat your positions automatically if you hit it intraday.</p>
+
+<h3>Intraday trailing drawdown</h3>
+
+<p>With Intraday trailing, the drawdown threshold updates in real time based on your unrealized peak. If you have an open position showing +$500 and then give back $2,500, the trailing threshold moved with the peak and has now been violated. The tradeoff is that Intraday accounts have no Daily Loss Limit — so in theory you can lose more in a single session, but only if you never go green on the day.</p>
+
+<div class="callout">
+  <strong>What a copier has to do with this:</strong> If you are running three EOD accounts and two Intraday accounts under the same lead, the copier cannot submit the same hold-through-the-drawdown trade the same way on all five. The two Intraday accounts will trip their trailing threshold while the three EOD accounts are still perfectly fine. A copier that respects per-account drawdown type will let you define different exit behavior for different account types. A naive copier will just blow your Intraday accounts while you wonder what happened.</div>
+
+<h2><span class="section-num">03</span>Mandatory bracket orders — what your copier must now do on every trade</h2>
+
+<p>This is the technical change that has caused the most chaos since March 2026. Every Apex account on Rithmic or Tradovate now rejects any order that does not have a bracket attached at submission time. A bracket is a three-leg order: the entry, the stop loss, and the take profit. Submitting just the entry leg on its own will fail at the broker layer before it reaches the exchange.</p>
+
+<p>For a copier, this means:</p>
+
+<ol>
+  <li><strong>Every copied order must be submitted as an OCO (One Cancels Other) bracket.</strong> You cannot copy a bare entry and then try to add the stop and target afterward — there is a window during which the order exists without a stop, and Apex will reject it.</li>
+  <li><strong>The stop and target offsets must be pre-configured per account.</strong> If your lead account uses a 10-tick stop and a 20-tick target, every follower account must submit the same offsets as part of the same order. A copier that submits the entry first and then tries to attach protection will fail.</li>
+  <li><strong>Scaling out and scaling in becomes more complex.</strong> If you add to a winning position, the addition must also be a bracket order, and your copier has to know how to merge that into the existing position on every follower account.</li>
+</ol>
+
+<p>Most older trade copiers were built before this rule existed. If you are using a copier that has not been updated since 2024, there is a good chance it still submits bare entries and relies on a separate stop-submission workflow — which now fails on Apex. This is one of the most common support tickets we see.</p>
+
+<h2><span class="section-num">04</span>The 50% consistency rule and how it silently kills multi-account traders</h2>
+
+<p>This one deserves its own section because it is the rule that catches the most multi-account traders off guard. The 50% consistency rule states that in the Performance Account (funded) phase, no single trading day can represent more than 50% of your total profit on that account at the time of payout.</p>
+
+<p>If you have $10,000 in profit on a funded Apex account and your best day was $6,000, that day is 60% of your total — you cannot withdraw until you add enough additional profitable days to bring that percentage below 50%. On a single account, this is manageable. On five funded accounts copied from the same lead, it is a trap.</p>
+
+<p>Here is the scenario that burns people: you are running five funded Apex accounts. You have one incredible day — a news play worked, or a breakout ran, or whatever — and that day produces 60% of the profit on all five accounts simultaneously. Now you have the consistency rule triggered on all five accounts at the same time. Your payouts are locked until you grind out enough smaller winning days to bring the ratio back down on every account. This is not a hypothetical; it is the most common reason multi-account Apex traders have delayed payouts.</p>
+
+<div class="pull-quote">The 50% consistency rule is not a copier problem you can solve in the copier itself. It is a problem you solve by varying size per account, varying exit timing, and by thinking about the portfolio as five independent histories, not one shared history.</div>
+
+<h3>How to structure per-account sizing to reduce consistency-rule risk</h3>
+
+<ul>
+  <li><strong>Stagger your account sizes.</strong> If you are trading five accounts, use five different size multipliers on the copier — not all 1.0x. Something like 0.6x, 0.8x, 1.0x, 1.2x, 1.4x across the five accounts means a big day produces different absolute profits on each one, which distributes the consistency exposure.</li>
+  <li><strong>Stagger your exit points.</strong> If your lead account exits at +20 ticks, set half your follower accounts to exit at +15 and half at +25. This creates a natural variation in per-account P&L.</li>
+  <li><strong>Do not copy every single trade to every single account.</strong> Consider turning one or two follower accounts off during your best setups to preserve consistency-rule headroom, and leaving them on for your more average setups.</li>
+  <li><strong>Take payouts as soon as you qualify.</strong> Holding profit in a funded account beyond the payout threshold just increases the denominator the consistency rule is measured against, which makes a future big day more dangerous. Take the money and reset.</li>
+</ul>
+
+<h2><span class="section-num">05</span>The 7-step setup for copying trades across multiple Apex accounts</h2>
+
+<p>This is the exact sequence we walk traders through when they are setting up a fresh multi-Apex workflow in NinjaTrader. Follow it in order.</p>
+
+<ol>
+  <li><strong>Decide your lead account.</strong> Your lead should be the most stable account you have — typically your first funded account or the evaluation account with the most padding. Never make a brand new evaluation account your lead, because every trade you place will also hit that account and you will start it off with copier-induced slippage.</li>
+  <li><strong>Connect every account to NinjaTrader.</strong> Every Apex account has to be live in the NinjaTrader Control Center before the copier can see it. Rithmic and Tradovate connections both work — pick one per account at signup and stick with it.</li>
+  <li><strong>Set per-account size multipliers.</strong> Use the staggered sizing described above. Write them down on paper first, then enter them into the copier. Traders who set this up in a hurry always regret it.</li>
+  <li><strong>Set per-account bracket templates.</strong> Each account needs a default stop and target offset configured in the copier. These can match your lead account or can vary per account for consistency-rule distribution.</li>
+  <li><strong>Run a 10-trade dry run on micros.</strong> Before you trade real contracts on your prop accounts, place 10 small micro-contract trades through the copier and watch the fills. Confirm every account receives the order, that the brackets attach correctly, and that the exits fire on all accounts. If any one account is misbehaving, stop and fix it before you size up.</li>
+  <li><strong>Monitor the first live session end-to-end.</strong> Your first real trading session with a multi-account copier should be a single watching-the-screen session. Do not plan to place 20 trades. Place 3 or 4 and verify every fill on every account before you relax.</li>
+  <li><strong>Log every trade in the AI journal from day one.</strong> Every trade across every account should flow into your trade journal automatically. Do not plan to "start journaling once it is working" — the first week is exactly when you need the data most.</li>
+</ol>
+
+<h2><span class="section-num">06</span>What the AI journal tells you that a spreadsheet cannot</h2>
+
+<p>The whole point of running multiple Apex accounts with a copier is to scale your profit without scaling your workload. The problem is that when you scale from one account to five, your trade history also scales by 5x — and no human can meaningfully review 50 trades a day by hand. This is where an AI journal earns its keep on a multi-account copier specifically.</p>
+
+<p>A well-built AI journal attached to your copier will tell you things that are invisible in a spreadsheet:</p>
+
+<ul>
+  <li><strong>Per-account drift.</strong> Even when you copy the exact same trade to five accounts, small differences in fill price, latency, and stop execution produce different P&L per account over time. The AI flags which account is consistently underperforming the lead and tells you why — usually it is latency or partial fills.</li>
+  <li><strong>Time-of-day expectancy.</strong> Most traders have a best hour and a worst hour that they have never looked at. The AI computes expectancy per hour across all accounts and shows you which hour is actually printing money and which hour is quietly bleeding you out.</li>
+  <li><strong>Revenge trading detection.</strong> If your P&L profile on a losing day shows the classic revenge pattern — bigger size, tighter stops, faster entries after a loss — the AI tags those trades and flags the day. On one account you might not notice. Across five accounts, the loss is five times bigger, and you need to know immediately.</li>
+  <li><strong>Consistency-rule drift.</strong> The AI tracks your trailing 30-day profit distribution per account and warns you when any account is approaching the 50% consistency threshold before you get burned at payout time.</li>
+</ul>
+
+<h2><span class="section-num">07</span>Common mistakes traders make in their first week running multiple Apex accounts</h2>
+
+<p>In no particular order, the mistakes we see most often from traders setting up multi-account Apex copiers for the first time:</p>
+
+<ul>
+  <li><strong>Scaling from 1 account to 5 in a single day.</strong> You do not yet know if your copier is reliable on your setup. Add accounts one or two at a time over a couple of weeks.</li>
+  <li><strong>Using identical size on every account.</strong> Creates maximum correlation and maximum consistency-rule exposure. Vary your sizes.</li>
+  <li><strong>Not testing the stop-out behavior before real trading.</strong> You do not know how a copier handles a stopout until you see one live. Test it on micros first.</li>
+  <li><strong>Copying to a brand new evaluation account without letting it settle.</strong> The first day of an evaluation account is the most dangerous day — you have zero padding. Do not make a day-one account a copier follower.</li>
+  <li><strong>Assuming the copier handles news and daily loss limit flatting.</strong> It does not. You still need to be at the screen. A copier is not autopilot.</li>
+  <li><strong>Ignoring the journal for the first week.</strong> The first week is the week you need the journal most — it is when your copier setup is still wrong in some subtle way that only shows up in the data.</li>
+</ul>
+
+<h2><span class="section-num">08</span>Putting it all together</h2>
+
+<p>Copying trades across multiple Apex Trader Funding accounts on NinjaTrader in 2026 is a genuine edge if you set it up correctly. You earn more per trade, you spread execution risk across multiple broker connections, and you give yourself multiple chances at big payouts from the same setup.</p>
+
+<p>It is also a genuine risk if you set it up wrong. A naive copier running five identical trades on five identical accounts is a machine for blowing five accounts at the same time instead of one. The difference between the two outcomes is whether your copier respects Apex 4.0's rule set, whether you vary your sizing for consistency-rule distribution, and whether you have an AI journal watching every trade across every account so you catch drift before it costs you a payout.</p>
+
+<p>Tradecovex was built specifically to handle the post-March-2026 Apex environment. Every copied order is submitted as a complete bracket order. Per-account size and exit variation is built in at the copier layer, not bolted on. The AI journal runs on every trade on every account automatically. And the entire system is local to your machine, not routed through a third-party cloud relay — which means when it matters most, your orders fire in milliseconds, not seconds.</p>
+
+
+    <div class="cta-banner">
+      <h3>Run your Apex accounts from one NinjaTrader window</h3>
+      <p>Tradecovex copies every trade to all your Apex accounts with correct brackets, per-account risk, and an AI journal that analyzes every copied trade. Launch pricing locked for life.</p>
+      <a href="/#waitlist" class="btn btn-primary btn-lg">Join the Waitlist</a>
+      <div class="cta-perks">
+        <span class="cta-perk">7-day free trial</span>
+        <span class="cta-perk">No credit card required</span>
+        <span class="cta-perk">Launch pricing locked for life</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container">
+    <div style="text-align:center">
+      <span class="section-tag">Frequently Asked Questions</span>
+      <h2>Common questions about copying trades across Apex accounts</h2>
+    </div>
+    <div class="faq-list" style="margin-top:40px">
+    <div class="faq-item">
+      <button class="faq-q">How many Apex accounts can I copy trades across at once?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Apex allows up to 20 evaluation accounts per trader, though most funded traders run 5 to 10 accounts simultaneously because that is the practical ceiling for managing drawdowns and consistency rules. A trade copier lets you execute on the lead account once and have the order replicate to every linked follower account in milliseconds.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Do I need bracket orders on every Apex account since the March 2026 rule change?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Yes. Since March 1, 2026, Apex Trader Funding requires every trade on Rithmic and Tradovate accounts to have a bracket order attached — a stop loss and a take profit — or the order will be rejected at submission. Any copier you use must submit complete bracket orders on every follower account, not just market entries.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What is the Apex 50% consistency rule and how does it affect copied trades?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">The 50% consistency rule applies in the Performance Account (funded) phase only. No single trading day can account for more than 50% of your total profit. If you copy identical trades across 5 accounts and one big day generates most of your profit on all 5, you will trigger the rule on every account at once. This is why per-account size variation matters.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Can I use EOD trailing and Intraday trailing accounts at the same time?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Yes. As of Apex 4.0 (March 2026), you choose the drawdown type at purchase — End of Day trailing drawdown or Intraday trailing drawdown — and you can mix both types in a single portfolio. The copier has to respect that each account has its own rule set and cannot blindly copy without accounting for per-account drawdown state.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What is the safest way to scale from 1 Apex account to 5 or more?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Scale in steps of 1 to 2 accounts at a time over several weeks. Add the new account on the copier, run it in parallel for 5 trading days while watching for copier latency, order rejection, and drawdown drift. Only then add the next. Jumping from 1 to 5 accounts in a single week is the most common reason traders blow multiple evaluations at once.</div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-wide">
+    <div style="text-align:center">
+      <span class="section-tag">Related Guides</span>
+      <h2>Keep reading</h2>
+    </div>
+    <div class="related-grid">
+    <a href="/guides/ninjatrader-trade-copier" class="related-card">
+      <span class="related-tag">Pillar</span>
+      <h4>NinjaTrader Trade Copier — Complete Guide</h4>
+      <p>The full pillar guide to trade copiers on NinjaTrader for prop firm futures traders.</p>
+    </a>
+    <a href="/guides/trade-copier-latency" class="related-card">
+      <span class="related-tag">Technical</span>
+      <h4>Trade Copier Latency Explained</h4>
+      <p>Why milliseconds matter when you are copying trades across multiple prop firm accounts.</p>
+    </a>
+    <a href="/guides/ai-trading-journal" class="related-card">
+      <span class="related-tag">Pillar</span>
+      <h4>AI Trading Journal for Futures Traders</h4>
+      <p>How AI actually reviews the trades your copier places on every account.</p>
+    </a>
+    <a href="/guides/futures-trading-metrics" class="related-card">
+      <span class="related-tag">Educational</span>
+      <h4>12 Futures Trading Metrics You Must Track</h4>
+      <p>The numbers that tell you whether your multi-account strategy is actually working.</p>
+    </a>
+    <a href="/guides/pass-topstep-combine" class="related-card">
+      <span class="related-tag">Prop Firm</span>
+      <h4>How to Pass a Topstep Combine in 2026</h4>
+      <p>If you also run Topstep accounts alongside Apex, start here.</p>
+    </a>
+    <a href="/guides/stop-revenge-trading" class="related-card">
+      <span class="related-tag">Psychology</span>
+      <h4>How to Stop Revenge Trading</h4>
+      <p>The #1 reason multi-account traders blow every account on the same day.</p>
+    </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="/"><img src="/logo.png" alt="Tradecovex" class="footer-logo"></a>
+        <p class="footer-tagline">The smartest trade copier for NinjaTrader — copy trades and let the AI tell you why.</p>
+        <div class="footer-social">
+          <a href="#" title="Twitter / X" aria-label="Twitter">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" title="YouTube" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#how">How It Works</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="/#waitlist">Join Waitlist</a></li>
+          <li><a href="/guides/">All Guides</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/#privacy">Privacy Policy</a></li>
+          <li><a href="/#terms">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Partners</h4>
+        <ul>
+          <li><a href="#" class="footer-aff">Affiliates — Earn $15–$45/signup</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-risk">
+      <strong>⚠ Risk Disclosure:</strong> Futures trading involves substantial risk of loss and is not suitable for all investors. You can lose more than your initial investment. Past performance is not indicative of future results. Tradecovex is a software tool — it does not provide investment advice and does not guarantee trading results. Use of a trade copier does not guarantee compliance with prop firm rules. All trading decisions are your responsibility. Only trade with capital you can afford to lose.
+    </div>
+    <div class="footer-risk" style="margin-top:10px">
+      <strong>No Investment Advice:</strong> Tradecovex is a software tool for trade copying and journaling. IVAAN INC is not registered as an investment adviser with the Ontario Securities Commission, CIRO, the SEC, or any other regulatory body. Nothing in Tradecovex — including the AI journal analysis feature — constitutes investment advice, financial advice, or a recommendation to buy or sell any security, futures contract, or other financial instrument. The AI journal provides analytical observations about your historical trading patterns for informational purposes only. All trading decisions are made solely by you.
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Tradecovex. All rights reserved. Built by IVAAN INC, Ontario, Canada.</span>
+      <span class="footer-copy">Canadian users served from Toronto · US users served from New York · PIPEDA compliant</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const hamburger=document.getElementById('hamburger');const mobileMenu=document.getElementById('mobile-menu');if(hamburger){hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');});}
+document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{q.parentElement.classList.toggle('open');});});
+</script>
+</body>
+</html>
