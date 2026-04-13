@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>The Psychology of Losing Streaks — How to Trade Through a Drawdown (2026)</title>
+<meta name="description" content="What actually happens in your head during a trading losing streak, why 'trade through it' is terrible advice on prop firm accounts, the real math of expected loss runs, and the four-step reset that works.">
+<link rel="canonical" href="https://tradecovex.com/guides/trading-losing-streaks">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Psychology of Losing Streaks — How to Trade Through a Drawdown (2026)">
+<meta property="og:description" content="What actually happens in your head during a trading losing streak, why 'trade through it' is terrible advice on prop firm accounts, the real math of expected loss runs, and the four-step reset that works.">
+<meta property="og:url" content="https://tradecovex.com/guides/trading-losing-streaks">
+<meta property="og:image" content="https://tradecovex.com/logo.png">
+<meta property="og:site_name" content="Tradecovex">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Psychology of Losing Streaks — How to Trade Through a Drawdown (2026)">
+<meta name="twitter:description" content="What actually happens in your head during a trading losing streak, why 'trade through it' is terrible advice on prop firm accounts, the real math of expected loss runs, and the four-step reset that works.">
+<meta name="twitter:image" content="https://tradecovex.com/logo.png">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="author" content="Tradecovex / IVAAN INC">
+<link rel="icon" type="image/png" href="/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://tradecovex.com/guides/trading-losing-streaks#article",
+      "headline": "The Psychology of Losing Streaks \u2014 How to Trade Through a Drawdown (2026)",
+      "description": "What actually happens in your head during a trading losing streak, why 'trade through it' is terrible advice on prop firm accounts, the real math of expected loss runs, and the four-step reset that works.",
+      "image": "https://tradecovex.com/logo.png",
+      "datePublished": "2026-04-09T00:00:00+00:00",
+      "dateModified": "2026-04-09T00:00:00+00:00",
+      "author": {
+        "@type": "Organization",
+        "name": "Tradecovex",
+        "url": "https://tradecovex.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Tradecovex",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://tradecovex.com/logo.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://tradecovex.com/guides/trading-losing-streaks"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://tradecovex.com/guides/trading-losing-streaks#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How long is a normal losing streak for a positive-edge strategy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Longer than most traders think. For a 50% win rate setup, there is roughly a 79% chance of seeing at least one run of 7 losses in a row within 200 trades. For a 40% win rate setup \u2014 which can still be very profitable if your average winner is larger than your average loser \u2014 a 10-loss run in 200 trades is around 60% likely. If you trade most sessions of the year, you will see these runs. They are not broken-system evidence. They are what the tail of your distribution actually looks like in the wild."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I keep trading during a losing streak or step away?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Depends on whether your process is still intact. If you are still executing the same setups at the same size at the same session length, the streak is probably variance and you can keep trading, ideally smaller. If any of those three things has drifted, you are no longer having a losing streak. You are watching yourself break your own rules in slow motion, which is the cue to flatten and stop for the day. Not quit for a week. Just done for today, back at half size tomorrow."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I tell variance from a genuinely broken system?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You cannot tell from 8 bad trades. Nobody can. A broken system shows up as a sustained drop in win rate across a sample of 50 to 100 trades, not as one rough week. If the setups you rode for three months are suddenly converting at half the old rate, that is worth investigating. If you had a bad Tuesday, that is just Tuesday. The mistake is trying to diagnose your strategy from inside the emotional state the drawdown put you in, which is the worst possible vantage point."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does size drift happen during losing streaks?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because your emotional system is trying to end the discomfort as fast as possible, and a larger winning trade would end it faster than a smaller one. The story you tell yourself usually sounds reasonable \u2014 'this setup is better than the last three,' or 'I've figured out what I was doing wrong.' That is not analysis. It is rationalization working backward from the urge to size up. The only reliable defence is a pre-committed rule that cuts size after three consecutive losses and refuses to restore it until you put together six clean trades at the smaller size."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the fastest way to reset psychologically after a bad streak?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Reduced size plus a real process review. Small size takes the emotional stakes off the next few trades, which is what lets you actually execute rather than stress-trade. The process review, ideally with a journal open in front of you, separates 'I lost money' from 'I lost process.' Most streaks are mostly variance with one or two real mistakes hiding inside. Once you can point at the mistakes specifically and say what would have been different, the next session feels a lot less heavy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does a losing streak hit differently on a prop firm account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, and this is the part most traders underweight. On a live account, a 6-loss streak at normal size is a painful day. On a prop account where you have worked your trailing drawdown floor up close to your current balance, the same streak can be an account-ending event. Every dollar you lose in a drawdown is worth more in rule terms because it eats a bigger share of your remaining cushion. Position sizing on prop accounts has to be a function of distance to the floor, not of how confident you feel about the next trade."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://tradecovex.com/#software",
+      "name": "Tradecovex",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Windows, macOS",
+      "description": "NinjaTrader trade copier with built-in AI journal that automatically analyzes every copied trade.",
+      "url": "https://tradecovex.com",
+      "offers": {
+        "@type": "Offer",
+        "price": 0,
+        "priceCurrency": "USD",
+        "description": "7-day free trial \u2014 Launch pricing locked for life"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://tradecovex.com/guides/trading-losing-streaks#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://tradecovex.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://tradecovex.com/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Trading Through Losing Streaks",
+          "item": "https://tradecovex.com/guides/trading-losing-streaks"
+        }
+      ]
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://tradecovex.com/guides/trading-losing-streaks#video",
+      "name": "Trading through a losing streak \u2014 practitioner view",
+      "description": "A walkthrough of how experienced traders handle consecutive losses without blowing up their accounts.",
+      "thumbnailUrl": "https://i.ytimg.com/vi/w5h7XsG76wE/maxresdefault.jpg",
+      "uploadDate": "2026-01-01T00:00:00+00:00",
+      "contentUrl": "https://www.youtube.com/watch?v=w5h7XsG76wE",
+      "embedUrl": "https://www.youtube.com/embed/w5h7XsG76wE"
+    }
+  ]
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:#0F172A;background:#fff;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+:root{
+  --blue:#2563EB;
+  --blue-dark:#1d4ed8;
+  --navy:#0A1628;
+  --slate:#4B5E7A;
+  --slate-light:#64748B;
+  --light:#F0F4FF;
+  --border:#DDE3EF;
+  --radius:12px;
+  --shadow-sm:0 1px 3px rgba(10,22,40,.08),0 1px 2px rgba(10,22,40,.06);
+  --shadow-md:0 4px 16px rgba(10,22,40,.1),0 2px 6px rgba(10,22,40,.06);
+  --shadow-lg:0 12px 40px rgba(10,22,40,.14),0 4px 12px rgba(10,22,40,.08);
+}
+
+/* NAV — matches homepage exactly */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px}
+.nav-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav-logo{height:40px;width:auto}
+.nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+.nav-links a{font-size:.88rem;font-weight:600;color:var(--slate);transition:color .2s;letter-spacing:.01em}
+.nav-links a:hover{color:var(--navy)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 26px;border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;transition:all .18s;border:none;text-decoration:none;letter-spacing:.01em}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 2px 8px rgba(37,99,235,.3)}
+.btn-primary:hover{background:var(--blue-dark);transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,99,235,.4)}
+.btn-outline{background:transparent;color:var(--navy);border:2px solid #C4CEDD}
+.btn-outline:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn-outline-white{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35)}
+.btn-outline-white:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.btn-lg{padding:16px 38px;font-size:.98rem;border-radius:14px}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;transition:all .25s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:20px 24px;z-index:199;flex-direction:column;gap:0;box-shadow:var(--shadow-lg)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{display:block;padding:14px 0;font-size:1rem;font-weight:600;color:var(--slate);border-bottom:1px solid var(--border)}
+.mobile-menu a.btn{margin-top:16px;width:100%;border-bottom:none;justify-content:center}
+
+/* HERO — adapted for guide pages */
+.guide-hero{padding:140px 24px 60px;text-align:center;position:relative;overflow:hidden;background:#fff}
+.guide-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 90% 60% at 50% -10%,rgba(37,99,235,.08) 0%,transparent 65%);pointer-events:none}
+.guide-hero::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background-image:radial-gradient(circle at 1px 1px, rgba(37,99,235,.06) 1px, transparent 0);background-size:32px 32px;pointer-events:none;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 0%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 0%,transparent 70%)}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:100px;padding:7px 18px;font-size:.75rem;font-weight:700;color:var(--blue);letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px;position:relative;z-index:1}
+.hero-eyebrow span.dot{width:7px;height:7px;background:var(--blue);border-radius:50%;animation:blink 2s ease infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+h1{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(2.2rem,4.5vw,3.4rem);line-height:1.08;letter-spacing:-.03em;color:var(--navy);max-width:900px;margin:0 auto 24px;position:relative;z-index:1}
+h1 .accent{color:var(--blue)}
+.guide-meta{display:flex;justify-content:center;gap:24px;margin-bottom:20px;flex-wrap:wrap;font-size:.82rem;color:var(--slate-light);position:relative;z-index:1}
+.guide-meta span{display:inline-flex;align-items:center;gap:6px}
+.breadcrumb{font-size:.78rem;color:var(--slate-light);margin-bottom:24px;position:relative;z-index:1}
+.breadcrumb a{color:var(--blue);font-weight:600}
+.breadcrumb a:hover{text-decoration:underline}
+
+/* ANSWER BOX — featured snippet style */
+.answer-box{max-width:780px;margin:0 auto 50px;background:linear-gradient(135deg,#EFF6FF,#F0F4FF);border:2px solid #BFDBFE;border-radius:18px;padding:32px 36px;text-align:left;position:relative;z-index:1;box-shadow:var(--shadow-md)}
+.answer-box-label{display:inline-block;font-size:.68rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.14em;background:#fff;border:1.5px solid #BFDBFE;border-radius:100px;padding:5px 14px;margin-bottom:14px}
+.answer-box p{font-size:1.02rem;color:var(--navy);line-height:1.75;font-weight:500}
+.answer-box p strong{font-weight:700;color:var(--navy)}
+
+/* SHARED SECTION STYLES */
+.section{padding:80px 24px}
+.section-light{background:var(--light)}
+.section-tag{display:inline-block;font-size:.7rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.14em;margin-bottom:16px;background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:100px;padding:5px 14px}
+h2{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(1.7rem,3.2vw,2.4rem);line-height:1.12;letter-spacing:-.025em;color:var(--navy);margin-bottom:18px}
+h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.3rem;color:var(--navy);margin:32px 0 14px;letter-spacing:-.015em}
+h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08rem;color:var(--navy);margin:24px 0 10px;letter-spacing:-.01em}
+.container{max-width:880px;margin:0 auto}
+.container-wide{max-width:1120px;margin:0 auto}
+
+/* PROSE STYLES */
+.prose p{font-size:1rem;color:var(--slate);line-height:1.85;margin-bottom:20px}
+.prose p strong{color:var(--navy);font-weight:700}
+.prose ul,.prose ol{margin:16px 0 24px 22px;color:var(--slate);font-size:1rem;line-height:1.85}
+.prose li{margin-bottom:10px}
+.prose li strong{color:var(--navy);font-weight:700}
+.prose a{color:var(--blue);font-weight:600;border-bottom:1.5px solid rgba(37,99,235,.3);transition:border .2s}
+.prose a:hover{border-bottom-color:var(--blue)}
+.section-num{display:inline-block;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:.78rem;color:var(--blue);background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:8px;padding:4px 10px;margin-bottom:12px;letter-spacing:.06em}
+
+/* PULL QUOTE */
+.pull-quote{background:linear-gradient(135deg,#EFF6FF,#F0F4FF);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:24px 28px;margin:32px 0;font-family:'Barlow Semi Condensed',sans-serif;font-size:1.18rem;font-weight:600;color:var(--navy);line-height:1.55;letter-spacing:-.01em}
+
+/* CALLOUT BOXES */
+.callout{background:#fff;border:1.5px solid var(--border);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:22px 26px;margin:28px 0;box-shadow:var(--shadow-sm)}
+.callout-title{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1rem;color:var(--navy);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.callout p{font-size:.92rem;color:var(--slate);line-height:1.75;margin:0}
+.callout-warn{border-left-color:#DC2626;background:#FEF2F2}
+.callout-warn .callout-title{color:#991B1B}
+.callout-success{border-left-color:#16A34A;background:#F0FDF4}
+.callout-success .callout-title{color:#166534}
+
+/* FEATURE CARD GRID */
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin:32px 0}
+.feature-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:26px;transition:all .25s;box-shadow:var(--shadow-sm)}
+.feature-card:hover{border-color:#93C5FD;box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.feature-card-num{display:inline-block;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:.7rem;color:var(--blue);background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:6px;padding:3px 8px;margin-bottom:12px;letter-spacing:.06em}
+.feature-card h4{margin:0 0 10px;font-size:1.08rem}
+.feature-card p{font-size:.88rem;color:var(--slate);line-height:1.75;margin:0}
+
+/* DATA TABLE */
+.data-table-wrap{overflow-x:auto;border-radius:14px;border:1.5px solid var(--border);box-shadow:var(--shadow-md);margin:28px 0}
+.data-table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:580px;background:#fff}
+.data-table th{padding:14px 18px;text-align:left;font-weight:700;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;background:#F1F5F9;color:var(--slate);border-bottom:2px solid var(--border)}
+.data-table td{padding:13px 18px;border-bottom:1px solid var(--border);color:var(--slate);vertical-align:middle}
+.data-table tr:last-child td{border-bottom:none}
+.data-table tr.tc-row td{background:#EFF6FF;color:var(--navy);font-weight:600}
+.data-table tr.tc-row td:first-child::before{content:'★ ';color:var(--blue)}
+.data-table td.label{font-weight:600;color:var(--navy);background:#FAFBFF}
+.ck{color:#16A34A;font-weight:700}
+.cx{color:#DC2626;font-weight:700}
+.cm{color:#D97706;font-weight:600;font-size:.85rem}
+
+/* VIDEO EMBED */
+.video-wrap{max-width:780px;margin:36px auto;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-lg);background:var(--navy);position:relative;padding-bottom:56.25%;height:0}
+.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.video-caption{font-size:.82rem;color:var(--slate-light);text-align:center;margin-top:14px;font-style:italic}
+
+/* CTA BANNER */
+.cta-banner{background:linear-gradient(135deg,#0A1628,#0F2460,#1d4ed8);border-radius:18px;padding:56px 48px;margin:48px 0;text-align:center;position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
+.cta-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 100%,rgba(37,99,235,.25) 0%,transparent 65%);pointer-events:none}
+.cta-banner h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:1.85rem;color:#fff;margin:0 0 14px;letter-spacing:-.025em;position:relative;z-index:1}
+.cta-banner p{font-size:1rem;color:#93C5FD;max-width:540px;margin:0 auto 26px;line-height:1.7;position:relative;z-index:1}
+.cta-perks{display:flex;gap:22px;justify-content:center;margin-top:22px;flex-wrap:wrap;position:relative;z-index:1}
+.cta-perk{font-size:.78rem;color:#60A5FA;font-weight:600;display:inline-flex;align-items:center;gap:6px}
+.cta-perk::before{content:'✓';font-weight:800}
+
+/* FAQ */
+.faq-list{max-width:780px;margin:0 auto}
+.faq-item{border-bottom:1.5px solid var(--border)}
+.faq-q{width:100%;text-align:left;padding:22px 0;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.97rem;color:var(--navy);line-height:1.45;letter-spacing:-.01em}
+.faq-icon{width:24px;height:24px;min-width:24px;border-radius:50%;border:2px solid var(--blue);display:flex;align-items:center;justify-content:center;transition:all .25s;flex-shrink:0}
+.faq-icon svg{width:12px;height:12px;stroke:var(--blue);fill:none;stroke-width:2.5;stroke-linecap:round;transition:transform .25s}
+.faq-item.open .faq-icon{background:var(--blue)}
+.faq-item.open .faq-icon svg{stroke:#fff;transform:rotate(45deg)}
+.faq-a{display:none;padding:0 0 22px;font-size:.92rem;color:var(--slate);line-height:1.85;max-width:680px}
+.faq-item.open .faq-a{display:block}
+
+/* RELATED GUIDES */
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:30px}
+.related-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:24px;transition:all .25s;display:block;box-shadow:var(--shadow-sm)}
+.related-card:hover{border-color:#93C5FD;box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.related-tag{display:inline-block;font-size:.66rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.1em;background:#EFF6FF;border:1px solid #BFDBFE;border-radius:6px;padding:3px 8px;margin-bottom:12px}
+.related-card h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.02rem;color:var(--navy);margin:0 0 8px;line-height:1.35}
+.related-card p{font-size:.84rem;color:var(--slate);line-height:1.65;margin:0}
+
+/* FOOTER — matches homepage */
+.footer{background:#fff;border-top:1.5px solid var(--border);padding:60px 24px 36px}
+.footer-inner{max-width:1120px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1.5px solid var(--border);margin-bottom:30px}
+.footer-logo{height:48px;width:auto;margin-bottom:14px}
+.footer-tagline{font-size:.85rem;color:var(--slate);max-width:220px;line-height:1.7;margin-bottom:20px;font-weight:400}
+.footer-social{display:flex;gap:10px}
+.footer-social a{width:36px;height:36px;border:1.5px solid var(--border);border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--slate);transition:all .2s}
+.footer-social a:hover{border-color:var(--blue);color:var(--blue);background:#EFF6FF}
+.footer-social svg{width:16px;height:16px;fill:currentColor}
+.footer-col h4{font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:#94A3B8;margin:0 0 16px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;padding:0}
+.footer-col a{font-size:.875rem;color:var(--slate);transition:color .18s;font-weight:500}
+.footer-col a:hover{color:var(--navy)}
+.footer-aff{font-size:.82rem;color:var(--blue);font-weight:700}
+.footer-risk{background:var(--light);border:1.5px solid var(--border);border-radius:12px;padding:18px 22px;margin-bottom:16px;font-size:.75rem;color:#5B7399;line-height:1.75}
+.footer-risk strong{color:var(--slate);font-weight:700}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:6px}
+.footer-copy{font-size:.75rem;color:#94A3B8;font-weight:500}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .nav-links{display:none}
+  .nav-cta-desktop{display:none !important}
+  .hamburger{display:flex}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .feature-grid,.related-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .footer-top{grid-template-columns:1fr}
+  h1{font-size:2rem}
+  h2{font-size:1.6rem}
+  .answer-box{padding:24px 22px}
+  .cta-banner{padding:42px 28px}
+  .cta-banner h3{font-size:1.5rem}
+}
+
+
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" aria-label="Tradecovex home"><img src="/logo.png" alt="Tradecovex" class="nav-logo"></a>
+    <ul class="nav-links">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/guides/">Guides</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+    </ul>
+    <a href="/#waitlist" class="btn btn-primary nav-cta-desktop" style="display:inline-flex">Join Waitlist</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/#features">Features</a>
+  <a href="/guides/">Guides</a>
+  <a href="/#pricing">Pricing</a>
+  <a href="/#faq">FAQ</a>
+  <a href="/#waitlist" class="btn btn-primary">Join Waitlist</a>
+</div>
+
+<section class="guide-hero">
+  <div class="hero-eyebrow"><span class="dot"></span>TRADER PSYCHOLOGY</div>
+  <p class="breadcrumb"><a href="/">Home</a> › <a href="/guides/">Guides</a> › Trading Through Losing Streaks</p>
+  <h1>The Psychology of Losing Streaks — How to Trade Through a Drawdown</h1>
+  <div class="guide-meta">
+    <span>📅 Updated April 2026</span>
+    <span>⏱ 15 min read</span>
+    <span>✍ Tradecovex Team</span>
+  </div>
+  <div class="answer-box">
+    <span class="answer-box-label">Quick Answer</span>
+    <p>A losing streak is a run of losses longer than your nervous system can sit with. That is the whole problem. Any positive-edge strategy will, at some point, print 6, 8, even 10 losses in a row — not because the system broke, but because that is how variance actually looks when you zoom in. The losses do not kill accounts. What kills accounts is what you do in the middle of the streak. You start sizing up to 'make it back,' you take setups you wouldn't normally touch, you extend the session because stopping now feels like locking in the loss. On a prop firm account with trailing drawdown, that behavioural response is what converts a recoverable dip into a blown eval. The fix is rarely 'trade through it at full size.' Usually it is cut size, end the session early, and get back to process on the next one.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container prose">
+    <div class="video-wrap">
+  <iframe src="https://www.youtube.com/embed/w5h7XsG76wE" title="Trading through a losing streak — practitioner view" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
+<p class="video-caption">A third-party video on trading losing streaks. Watch for context before reading the guide below.</p>
+
+    
+<h2><span class="section-num">01</span>The losses are not the problem</h2>
+
+<p>If you have been trading long enough to care about an article like this, you already know what a losing streak feels like. The first loss is a loss. By the fourth you are checking the chart differently. By the seventh you are a different trader than the one who started the day, and you did not notice the handoff.</p>
+
+<p>Here is the thing almost nobody says out loud. The losses themselves are cheap. They are the cost of being in business. A trader with a 50% win rate and a 1.4 average R running at plan will have many days where they lose four trades in a row and still be long-run profitable, so long as the four losses are the kind of trades their system actually produces. The problem is what happens somewhere between loss four and loss seven. That is where the account dies.</p>
+
+<p>This page is about that middle. It is also about the math underneath, because the math is something most traders carry a wrong intuition about and it drives most of the bad decisions.</p>
+
+<h2><span class="section-num">02</span>How long a normal streak actually runs</h2>
+
+<p>Quick test. You have a strategy with a 50% win rate. You take 200 trades this year. What is the chance that somewhere in those 200 trades, you will see at least one run of 7 losses in a row?</p>
+
+<p>Most traders guess 10 to 30 percent. The real number is around 79 percent.</p>
+
+<div class="data-table-wrap">
+<table class="data-table">
+<thead><tr><th>Trades taken</th><th>5 losses in a row</th><th>7 in a row</th><th>10 in a row</th></tr></thead>
+<tbody>
+<tr><td class="label">50 trades</td><td>80%</td><td>28%</td><td>5%</td></tr>
+<tr><td class="label">200 trades</td><td>99%+</td><td>79%</td><td>18%</td></tr>
+<tr><td class="label">500 trades</td><td>99%+</td><td>99%</td><td>43%</td></tr>
+<tr><td class="label">1,000 trades</td><td>99%+</td><td>99%+</td><td>69%</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Drop the win rate to 40 percent, which is what plenty of breakout and mean-reversion traders run, and 10-loss streaks in a year become a coin flip. These are not rare events. They are routine features of the distribution you are trading.</p>
+
+<p>I want you to sit with that for a second, because it reshapes the whole thing. The streak is not evidence that you are doing something wrong. It is evidence that you are operating a strategy with variance, which is the only kind of strategy that exists. A system with no losing streaks is a system with no variance, and a system with no variance does not exist at realistic win rates.</p>
+
+<p>When your internal alarm starts screaming at loss four, it is screaming at a number that shows up all the time. That is not wisdom. It is miscalibration.</p>
+
+<h2><span class="section-num">03</span>The four stages, as they actually happen</h2>
+
+<p>I have watched a lot of losing streaks. Mine, other traders' over their shoulder, playback in journals. They all follow the same shape. Not approximately — the same shape.</p>
+
+<h3>Stage 1, losses 1 to 3. You are fine.</h3>
+
+<p>The first three losses do not register. They feel like normal trading noise. You take the next setup the same way you would have without them. This is correct. The only thing to watch for at stage 1 is underreaction in the rare case when the losses are an actual signal (regime change, a setup that has stopped working) because at stage 1 you will miss that signal too.</p>
+
+<h3>Stage 2, losses 4 to 6. You start editing.</h3>
+
+<p>Now you notice. The internal monologue shifts from "that was a chop" to "something is off." You still take setups, but the way you take them changes. Slightly earlier entry on one. Slightly wider stop on another. Skipping one that looks a bit shaky. You are not breaking rules. You are bending them, a few degrees at a time, and each bend feels defensible.</p>
+
+<p>Execution quality during stage 2 is worse than stage 1 even though the trader feels more careful. That is the trap. Careful-feeling is not the same as careful-executing. You are layering extra judgment on top of a system that was designed to work without that judgment, and the extra judgment is being sourced from a stressed version of you.</p>
+
+<h3>Stage 3, losses 7 to 9. The rewrite.</h3>
+
+<p>Now the rules go. Size goes up because "this next setup is obvious." You take a setup off your playbook entirely because the playbook "is not working today." Session extends past your normal stop time because the loss on the books is too painful to walk away from. The rationalizations stack up fast and each one sounds like strategy.</p>
+
+<p>This is where accounts die. Not from the streak itself, but from the trader deciding, somewhere in here, that they are smarter than their plan. On a prop eval this is the hour that blown accounts get blown.</p>
+
+<h3>Stage 4. Flat, done, or broken.</h3>
+
+<p>You either hit a pre-committed stop and end up flat for the day, or the account hits the trailing floor and ends itself, or you finally walk away exhausted. Stage 4 is often the most useful stage because it forces the stop that should have happened in stage 2. Traders who learn to reach stage 4 fast, by having a hard daily loss cap that fires automatically, do significantly better over time than traders who grind through all four stages every time.</p>
+
+<h2><span class="section-num">04</span>Why 'trade through it' is bad advice here</h2>
+
+<p>"Trade through the drawdown" is one of those lines that keeps getting repeated in trading books, and it is mostly wrong for day traders on prop firm accounts. The advice comes from long-horizon portfolio management, where "trade through it" means do not liquidate your book and book the loss. It does not mean keep firing full-size into a streak while your nervous system is compromised.</p>
+
+<p>For a prop firm day trader, trading through a late-stage streak at full size is actively dangerous. Three things are all happening at the same time.</p>
+
+<ul>
+  <li>Your account is closer to the <a href="/guides/trailing-drawdown">trailing drawdown floor</a>. Each dollar lost now removes a larger share of your remaining cushion than the dollars you lost at the start of the streak.</li>
+  <li>Your process is degraded. Every study of discretionary traders under drawdown stress shows execution quality falls. Your realized win rate during the streak is worse than your lifetime average, not equal to it.</li>
+  <li>Your next entry is carrying meaning it should not be carrying. It is no longer just the next trade. It is the trade that makes it back. Trades loaded with that meaning almost always take worse entries and ignore exits.</li>
+</ul>
+
+<p>Any one of those is a reason to size down. All three at once is a reason to stop for the session. The traders who run long careers, and I mean actual multi-year careers, not the guys you see posting screenshots for six months, do not trade through late streaks. They interrupt them.</p>
+
+<div class="callout callout-warn">
+  <strong>A rule worth pre-committing to:</strong> three consecutive losses in a session, size gets cut in half. Five consecutive losses, you are done for the day. Not as a punishment. As capital preservation based on the honest read that you are not the same trader in loss five as you were in loss one.
+</div>
+
+<h2><span class="section-num">05</span>The prop account math most traders miss</h2>
+
+<p>On a 50K Apex eval with a 2,500 trailing drawdown, the floor starts at 47,500. Say you trade well for two weeks and work the balance up to 52,300. Your trailing floor is now 49,800. Your distance to the floor is 2,500, same as day one.</p>
+
+<p>Now a streak hits. You average around 400 dollars of loss per trade. Six in a row, executed cleanly, at plan size. Balance drops to 49,900.</p>
+
+<p>That is 100 dollars above the floor.</p>
+
+<p>One more normal trade, and the account is gone. You did not oversize. You did not break a rule. You took six trades that your backtest says should happen somewhere in any normal month, and the account is done. This is the specific shape of prop firm risk that most new traders do not feel in their bones until it happens to them once.</p>
+
+<p>It is also why the standard advice to "size consistently across all conditions" is wrong on prop accounts. Your size has to be a function of your distance to the floor, not of your conviction about the next setup. 400 dollars of risk per trade is fine with a 2,500 cushion. It is reckless with an 800 cushion. The math does not care about how you feel about the trade.</p>
+
+<h2><span class="section-num">06</span>The reset protocol</h2>
+
+<p>When you catch yourself past stage 2, do not try to fix the next trade. Run the protocol instead. It is short.</p>
+
+<h3>Flatten and stop. Not after one more. Now.</h3>
+
+<p>Close the platform. If you cannot trust yourself to leave the platform closed, physically leave the room. The cost is whatever upside you miss in the rest of the session. The value is everything you do not lose in the next four trades your nervous system is already lining up.</p>
+
+<p>This is the hardest step. Every part of you will argue against it. None of those arguments are coming from your strategic mind. They are coming from the part that wants to stop feeling this way, which is the part that cost you the last four trades.</p>
+
+<h3>Write the trades up from memory, then check the record</h3>
+
+<p>Before you open your journal, write out what you remember about each losing trade. Setup, entry, what you were thinking. Then compare to what actually happened. The gap is the diagnostic.</p>
+
+<p>If memory matches the record — clean setups, stops where you said, exits at plan — the streak was variance. Frustrating, but not your fault. If memory is systematically cleaner than the record — you remember a tight stop that was actually wider, a better entry than you actually got — your process drifted during the streak and you did not notice. Different problem, different fix.</p>
+
+<h3>Next session, half size</h3>
+
+<p>Not the session after. The next one. At half your normal risk per trade. The point is not to make it back. The point is to prove the process is intact at a stake small enough that another few losses do not restart the spiral.</p>
+
+<p>Half size feels small and unsatisfying. That feeling is correct. The feeling of wanting to go back to full size tomorrow is coming from the same system that ran you into stage 3 yesterday. It does not get a vote yet.</p>
+
+<h3>Restore size after six clean trades</h3>
+
+<p>Clean does not mean winning. It means executed correctly. Six consecutive trades where the setup was on the playbook, the size was at half, the stop was at plan, and the exit happened at plan. If you cannot string six of those together, the problem is not the streak. The problem is something deeper in your execution, and you should stay at half size until you can.</p>
+
+<h2><span class="section-num">07</span>What long-career traders actually do</h2>
+
+<p>Here is what I will not tell you. I will not tell you that experienced traders are better at willpower, or more emotionally regulated, or that they have some deeper acceptance of variance. Some of them do. Most of them do not. What they almost all have is boring infrastructure.</p>
+
+<p>They have a rule that cuts size after three losses. They have a daily loss cap that flattens the account and closes the platform. They have a session end time that is a clock time, not a feeling. They have a journal that flags the streak at loss four, not at loss nine. None of this is heroic. All of it is the same stuff that sounds boring in a blog post and saves your account in practice.</p>
+
+<p>The real shift over a career is not that the streaks stop hurting. They always hurt. It is that the trader builds more and more of the response out of the hot moment and into the cold infrastructure, until the streak can happen and the account is completely fine because the rules caught it before the trader had a chance to ruin it.</p>
+
+<p>Every trader who lasts figures this out. A lot of them figure it out the hard way. There is no prize for being the last one to learn it.</p>
+
+
+    <div class="cta-banner">
+      <h3>See your losing streak before it becomes a blown account</h3>
+      <p>Tradecovex's AI journal flags loss-streak patterns as they happen — size drift, setup drift, session overrun — and shows you which of your bad days were variance and which were process collapse. Launch pricing locked for life.</p>
+      <a href="/#waitlist" class="btn btn-primary btn-lg">Join the Waitlist</a>
+      <div class="cta-perks">
+        <span class="cta-perk">7-day free trial</span>
+        <span class="cta-perk">No credit card required</span>
+        <span class="cta-perk">Launch pricing locked for life</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container">
+    <div style="text-align:center">
+      <span class="section-tag">Frequently Asked Questions</span>
+      <h2>Common questions about trading losing streaks</h2>
+    </div>
+    <div class="faq-list" style="margin-top:40px">
+    <div class="faq-item">
+      <button class="faq-q">How long is a normal losing streak for a positive-edge strategy?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Longer than most traders think. For a 50% win rate setup, there is roughly a 79% chance of seeing at least one run of 7 losses in a row within 200 trades. For a 40% win rate setup — which can still be very profitable if your average winner is larger than your average loser — a 10-loss run in 200 trades is around 60% likely. If you trade most sessions of the year, you will see these runs. They are not broken-system evidence. They are what the tail of your distribution actually looks like in the wild.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Should I keep trading during a losing streak or step away?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Depends on whether your process is still intact. If you are still executing the same setups at the same size at the same session length, the streak is probably variance and you can keep trading, ideally smaller. If any of those three things has drifted, you are no longer having a losing streak. You are watching yourself break your own rules in slow motion, which is the cue to flatten and stop for the day. Not quit for a week. Just done for today, back at half size tomorrow.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How do I tell variance from a genuinely broken system?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">You cannot tell from 8 bad trades. Nobody can. A broken system shows up as a sustained drop in win rate across a sample of 50 to 100 trades, not as one rough week. If the setups you rode for three months are suddenly converting at half the old rate, that is worth investigating. If you had a bad Tuesday, that is just Tuesday. The mistake is trying to diagnose your strategy from inside the emotional state the drawdown put you in, which is the worst possible vantage point.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Why does size drift happen during losing streaks?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Because your emotional system is trying to end the discomfort as fast as possible, and a larger winning trade would end it faster than a smaller one. The story you tell yourself usually sounds reasonable — 'this setup is better than the last three,' or 'I've figured out what I was doing wrong.' That is not analysis. It is rationalization working backward from the urge to size up. The only reliable defence is a pre-committed rule that cuts size after three consecutive losses and refuses to restore it until you put together six clean trades at the smaller size.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What is the fastest way to reset psychologically after a bad streak?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Reduced size plus a real process review. Small size takes the emotional stakes off the next few trades, which is what lets you actually execute rather than stress-trade. The process review, ideally with a journal open in front of you, separates 'I lost money' from 'I lost process.' Most streaks are mostly variance with one or two real mistakes hiding inside. Once you can point at the mistakes specifically and say what would have been different, the next session feels a lot less heavy.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Does a losing streak hit differently on a prop firm account?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Yes, and this is the part most traders underweight. On a live account, a 6-loss streak at normal size is a painful day. On a prop account where you have worked your trailing drawdown floor up close to your current balance, the same streak can be an account-ending event. Every dollar you lose in a drawdown is worth more in rule terms because it eats a bigger share of your remaining cushion. Position sizing on prop accounts has to be a function of distance to the floor, not of how confident you feel about the next trade.</div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-wide">
+    <div style="text-align:center">
+      <span class="section-tag">Related Guides</span>
+      <h2>Keep reading</h2>
+    </div>
+    <div class="related-grid">
+    <a href="/guides/stop-revenge-trading" class="related-card">
+      <span class="related-tag">Psychology</span>
+      <h4>How to Stop Revenge Trading</h4>
+      <p>The behaviour that turns a normal losing streak into a blown account.</p>
+    </a>
+    <a href="/guides/trailing-drawdown" class="related-card">
+      <span class="related-tag">Prop Rules</span>
+      <h4>What is Trailing Drawdown?</h4>
+      <p>Why the same loss costs more on a prop eval than it does live.</p>
+    </a>
+    <a href="/guides/build-trading-discipline" class="related-card">
+      <span class="related-tag">Psychology</span>
+      <h4>How to Build Trading Discipline</h4>
+      <p>The rule infrastructure that lets you survive bad streaks without deciding to.</p>
+    </a>
+    <a href="/guides/self-sabotage-before-passing" class="related-card">
+      <span class="related-tag">Psychology</span>
+      <h4>Why Traders Self-Sabotage Before Passing</h4>
+      <p>The specific drawdown pattern that happens at 90% completion.</p>
+    </a>
+    <a href="/guides/futures-trading-metrics" class="related-card">
+      <span class="related-tag">Metrics</span>
+      <h4>12 Metrics Every Prop Trader Must Track</h4>
+      <p>The numbers that let you separate noise from an actual problem.</p>
+    </a>
+    <a href="/guides/ai-trading-journal" class="related-card">
+      <span class="related-tag">Journal</span>
+      <h4>AI Trading Journal Guide</h4>
+      <p>Automated pattern detection for size drift, setup drift, and streak behaviour.</p>
+    </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="/"><img src="/logo.png" alt="Tradecovex" class="footer-logo"></a>
+        <p class="footer-tagline">The smartest trade copier for NinjaTrader — copy trades and let the AI tell you why.</p>
+        <div class="footer-social">
+          <a href="#" title="Twitter / X" aria-label="Twitter">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" title="YouTube" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#how">How It Works</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="/#waitlist">Join Waitlist</a></li>
+          <li><a href="/guides/">All Guides</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/#privacy">Privacy Policy</a></li>
+          <li><a href="/#terms">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Partners</h4>
+        <ul>
+          <li><a href="#" class="footer-aff">Affiliates — Earn $15–$45/signup</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-risk">
+      <strong>⚠ Risk Disclosure:</strong> Futures trading involves substantial risk of loss and is not suitable for all investors. You can lose more than your initial investment. Past performance is not indicative of future results. Tradecovex is a software tool — it does not provide investment advice and does not guarantee trading results. Use of a trade copier does not guarantee compliance with prop firm rules. All trading decisions are your responsibility. Only trade with capital you can afford to lose.
+    </div>
+    <div class="footer-risk" style="margin-top:10px">
+      <strong>No Investment Advice:</strong> Tradecovex is a software tool for trade copying and journaling. IVAAN INC is not registered as an investment adviser with the Ontario Securities Commission, CIRO, the SEC, or any other regulatory body. Nothing in Tradecovex — including the AI journal analysis feature — constitutes investment advice, financial advice, or a recommendation to buy or sell any security, futures contract, or other financial instrument. The AI journal provides analytical observations about your historical trading patterns for informational purposes only. All trading decisions are made solely by you.
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Tradecovex. All rights reserved. Built by IVAAN INC, Ontario, Canada.</span>
+      <span class="footer-copy">Canadian users served from Toronto · US users served from New York · PIPEDA compliant</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const hamburger=document.getElementById('hamburger');const mobileMenu=document.getElementById('mobile-menu');if(hamburger){hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');});}
+document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{q.parentElement.classList.toggle('open');});});
+</script>
+</body>
+</html>
