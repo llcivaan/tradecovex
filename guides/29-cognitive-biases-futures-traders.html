@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>The 10 Cognitive Biases That Destroy Futures Traders (2026)</title>
+<meta name="description" content="Loss aversion, anchoring to your entry price, sunk cost fallacy, recency bias, and seven other cognitive biases that quietly wreck prop firm futures accounts — each explained with a concrete trading example and the specific rule that defuses it.">
+<link rel="canonical" href="https://tradecovex.com/guides/cognitive-biases-futures-traders">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The 10 Cognitive Biases That Destroy Futures Traders (2026)">
+<meta property="og:description" content="Loss aversion, anchoring to your entry price, sunk cost fallacy, recency bias, and seven other cognitive biases that quietly wreck prop firm futures accounts — each explained with a concrete trading example and the specific rule that defuses it.">
+<meta property="og:url" content="https://tradecovex.com/guides/cognitive-biases-futures-traders">
+<meta property="og:image" content="https://tradecovex.com/logo.png">
+<meta property="og:site_name" content="Tradecovex">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The 10 Cognitive Biases That Destroy Futures Traders (2026)">
+<meta name="twitter:description" content="Loss aversion, anchoring to your entry price, sunk cost fallacy, recency bias, and seven other cognitive biases that quietly wreck prop firm futures accounts — each explained with a concrete trading example and the specific rule that defuses it.">
+<meta name="twitter:image" content="https://tradecovex.com/logo.png">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="author" content="Tradecovex / IVAAN INC">
+<link rel="icon" type="image/png" href="/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://tradecovex.com/guides/cognitive-biases-futures-traders#article",
+      "headline": "The 10 Cognitive Biases That Destroy Futures Traders (2026)",
+      "description": "Loss aversion, anchoring to your entry price, sunk cost fallacy, recency bias, and seven other cognitive biases that quietly wreck prop firm futures accounts \u2014 each explained with a concrete trading example and the specific rule that defuses it.",
+      "image": "https://tradecovex.com/logo.png",
+      "datePublished": "2026-04-09T00:00:00+00:00",
+      "dateModified": "2026-04-09T00:00:00+00:00",
+      "author": {
+        "@type": "Organization",
+        "name": "Tradecovex",
+        "url": "https://tradecovex.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Tradecovex",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://tradecovex.com/logo.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://tradecovex.com/guides/cognitive-biases-futures-traders"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://tradecovex.com/guides/cognitive-biases-futures-traders#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can you actually train yourself out of cognitive biases?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Partially. The research on debiasing is mixed \u2014 raw willpower and self-awareness produce small effects that do not hold up well under pressure. What holds up is infrastructure that removes the decision from the moment the bias would fire. You cannot reliably notice loss aversion in real time and correct for it. You can pre-commit to a stop that the platform enforces before loss aversion gets a vote. Most successful long-term traders do not have fewer biases than everyone else. They have more rules."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which cognitive bias costs traders the most money?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is a tie between loss aversion and sunk cost fallacy, and the two often work together. Loss aversion makes you refuse to close a losing trade at the plan stop ('let me give it a little more room'). Sunk cost fallacy then makes you refuse to close it at a wider stop ('I've already lost this much, I have to see it through'). Together they turn what should have been a 1R loss into a 3R or 4R loss. This exact pattern \u2014 stop widening into a bigger loss \u2014 is responsible for a disproportionate share of blown prop evals."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the hot hand fallacy real or is it just variance?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In most trading contexts it is variance dressed up as skill. A trader who wins three in a row and decides they are 'in the zone' and sizes up is making a decision based on a pattern that does not exist \u2014 three wins in a row is entirely consistent with random sequencing of a 50% win rate strategy. That said, there is some research suggesting very short-term streakiness exists in certain market conditions (auto-correlated momentum). The problem is that retail traders using this to justify sizing up are almost always wrong about which case they are in, and the cost of the mistake is asymmetric."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I tell recency bias from legitimate pattern recognition?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "By sample size. Recency bias is giving disproportionate weight to the last few trades \u2014 your last three losses make the whole strategy feel broken, or your last three wins make it feel bulletproof. Legitimate pattern recognition requires a sample large enough to separate signal from noise, which for most discretionary strategies is 50 to 100 trades minimum. If you are making a decision about your strategy based on fewer than 20 trades, you are almost certainly running on recency bias, not on data."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does a trading journal actually help with biases?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, but only if the journal is structured to expose the bias, not just to log trades. A raw list of trades with entries and exits does not help much. A journal that asks you to tag the emotional state at entry, the deviation from plan, the reasoning in your own words, and the outcome relative to expectation gives you the data to see the bias pattern over time. When the journal shows you that 70% of your oversized trades came after a win streak, overconfidence bias stops being an abstract concept and starts being something you can point at in your own numbers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is narrative fallacy the same as 'telling yourself a story' about a trade?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Close, but the specific trading version has a twist. Narrative fallacy is your brain constructing a coherent story from the facts available so that the outcome feels inevitable in retrospect. In trading it often shows up as post-hoc reasoning \u2014 after a winning trade, you attribute the win to your analysis even if the same analysis on a different day would have produced a loss. This feels harmless but it is expensive because it reinforces execution habits based on outcome, not on process. A trader who wins a bad trade and credits their edge will take more bad trades. The fix is to grade trades on whether they were executed correctly, not on whether they won."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://tradecovex.com/#software",
+      "name": "Tradecovex",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Windows, macOS",
+      "description": "NinjaTrader trade copier with built-in AI journal that automatically analyzes every copied trade.",
+      "url": "https://tradecovex.com",
+      "offers": {
+        "@type": "Offer",
+        "price": 0,
+        "priceCurrency": "USD",
+        "description": "7-day free trial \u2014 Launch pricing locked for life"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://tradecovex.com/guides/cognitive-biases-futures-traders#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://tradecovex.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://tradecovex.com/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Cognitive Biases That Destroy Traders",
+          "item": "https://tradecovex.com/guides/cognitive-biases-futures-traders"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:#0F172A;background:#fff;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+:root{
+  --blue:#2563EB;
+  --blue-dark:#1d4ed8;
+  --navy:#0A1628;
+  --slate:#4B5E7A;
+  --slate-light:#64748B;
+  --light:#F0F4FF;
+  --border:#DDE3EF;
+  --radius:12px;
+  --shadow-sm:0 1px 3px rgba(10,22,40,.08),0 1px 2px rgba(10,22,40,.06);
+  --shadow-md:0 4px 16px rgba(10,22,40,.1),0 2px 6px rgba(10,22,40,.06);
+  --shadow-lg:0 12px 40px rgba(10,22,40,.14),0 4px 12px rgba(10,22,40,.08);
+}
+
+/* NAV — matches homepage exactly */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px}
+.nav-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav-logo{height:40px;width:auto}
+.nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+.nav-links a{font-size:.88rem;font-weight:600;color:var(--slate);transition:color .2s;letter-spacing:.01em}
+.nav-links a:hover{color:var(--navy)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 26px;border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;transition:all .18s;border:none;text-decoration:none;letter-spacing:.01em}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 2px 8px rgba(37,99,235,.3)}
+.btn-primary:hover{background:var(--blue-dark);transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,99,235,.4)}
+.btn-outline{background:transparent;color:var(--navy);border:2px solid #C4CEDD}
+.btn-outline:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn-outline-white{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35)}
+.btn-outline-white:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.btn-lg{padding:16px 38px;font-size:.98rem;border-radius:14px}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;transition:all .25s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:20px 24px;z-index:199;flex-direction:column;gap:0;box-shadow:var(--shadow-lg)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{display:block;padding:14px 0;font-size:1rem;font-weight:600;color:var(--slate);border-bottom:1px solid var(--border)}
+.mobile-menu a.btn{margin-top:16px;width:100%;border-bottom:none;justify-content:center}
+
+/* HERO — adapted for guide pages */
+.guide-hero{padding:140px 24px 60px;text-align:center;position:relative;overflow:hidden;background:#fff}
+.guide-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 90% 60% at 50% -10%,rgba(37,99,235,.08) 0%,transparent 65%);pointer-events:none}
+.guide-hero::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background-image:radial-gradient(circle at 1px 1px, rgba(37,99,235,.06) 1px, transparent 0);background-size:32px 32px;pointer-events:none;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 0%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 0%,transparent 70%)}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:100px;padding:7px 18px;font-size:.75rem;font-weight:700;color:var(--blue);letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px;position:relative;z-index:1}
+.hero-eyebrow span.dot{width:7px;height:7px;background:var(--blue);border-radius:50%;animation:blink 2s ease infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+h1{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(2.2rem,4.5vw,3.4rem);line-height:1.08;letter-spacing:-.03em;color:var(--navy);max-width:900px;margin:0 auto 24px;position:relative;z-index:1}
+h1 .accent{color:var(--blue)}
+.guide-meta{display:flex;justify-content:center;gap:24px;margin-bottom:20px;flex-wrap:wrap;font-size:.82rem;color:var(--slate-light);position:relative;z-index:1}
+.guide-meta span{display:inline-flex;align-items:center;gap:6px}
+.breadcrumb{font-size:.78rem;color:var(--slate-light);margin-bottom:24px;position:relative;z-index:1}
+.breadcrumb a{color:var(--blue);font-weight:600}
+.breadcrumb a:hover{text-decoration:underline}
+
+/* ANSWER BOX — featured snippet style */
+.answer-box{max-width:780px;margin:0 auto 50px;background:linear-gradient(135deg,#EFF6FF,#F0F4FF);border:2px solid #BFDBFE;border-radius:18px;padding:32px 36px;text-align:left;position:relative;z-index:1;box-shadow:var(--shadow-md)}
+.answer-box-label{display:inline-block;font-size:.68rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.14em;background:#fff;border:1.5px solid #BFDBFE;border-radius:100px;padding:5px 14px;margin-bottom:14px}
+.answer-box p{font-size:1.02rem;color:var(--navy);line-height:1.75;font-weight:500}
+.answer-box p strong{font-weight:700;color:var(--navy)}
+
+/* SHARED SECTION STYLES */
+.section{padding:80px 24px}
+.section-light{background:var(--light)}
+.section-tag{display:inline-block;font-size:.7rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.14em;margin-bottom:16px;background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:100px;padding:5px 14px}
+h2{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(1.7rem,3.2vw,2.4rem);line-height:1.12;letter-spacing:-.025em;color:var(--navy);margin-bottom:18px}
+h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.3rem;color:var(--navy);margin:32px 0 14px;letter-spacing:-.015em}
+h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08rem;color:var(--navy);margin:24px 0 10px;letter-spacing:-.01em}
+.container{max-width:880px;margin:0 auto}
+.container-wide{max-width:1120px;margin:0 auto}
+
+/* PROSE STYLES */
+.prose p{font-size:1rem;color:var(--slate);line-height:1.85;margin-bottom:20px}
+.prose p strong{color:var(--navy);font-weight:700}
+.prose ul,.prose ol{margin:16px 0 24px 22px;color:var(--slate);font-size:1rem;line-height:1.85}
+.prose li{margin-bottom:10px}
+.prose li strong{color:var(--navy);font-weight:700}
+.prose a{color:var(--blue);font-weight:600;border-bottom:1.5px solid rgba(37,99,235,.3);transition:border .2s}
+.prose a:hover{border-bottom-color:var(--blue)}
+.section-num{display:inline-block;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:.78rem;color:var(--blue);background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:8px;padding:4px 10px;margin-bottom:12px;letter-spacing:.06em}
+
+/* PULL QUOTE */
+.pull-quote{background:linear-gradient(135deg,#EFF6FF,#F0F4FF);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:24px 28px;margin:32px 0;font-family:'Barlow Semi Condensed',sans-serif;font-size:1.18rem;font-weight:600;color:var(--navy);line-height:1.55;letter-spacing:-.01em}
+
+/* CALLOUT BOXES */
+.callout{background:#fff;border:1.5px solid var(--border);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:22px 26px;margin:28px 0;box-shadow:var(--shadow-sm)}
+.callout-title{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1rem;color:var(--navy);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.callout p{font-size:.92rem;color:var(--slate);line-height:1.75;margin:0}
+.callout-warn{border-left-color:#DC2626;background:#FEF2F2}
+.callout-warn .callout-title{color:#991B1B}
+.callout-success{border-left-color:#16A34A;background:#F0FDF4}
+.callout-success .callout-title{color:#166534}
+
+/* FEATURE CARD GRID */
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin:32px 0}
+.feature-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:26px;transition:all .25s;box-shadow:var(--shadow-sm)}
+.feature-card:hover{border-color:#93C5FD;box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.feature-card-num{display:inline-block;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:.7rem;color:var(--blue);background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:6px;padding:3px 8px;margin-bottom:12px;letter-spacing:.06em}
+.feature-card h4{margin:0 0 10px;font-size:1.08rem}
+.feature-card p{font-size:.88rem;color:var(--slate);line-height:1.75;margin:0}
+
+/* DATA TABLE */
+.data-table-wrap{overflow-x:auto;border-radius:14px;border:1.5px solid var(--border);box-shadow:var(--shadow-md);margin:28px 0}
+.data-table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:580px;background:#fff}
+.data-table th{padding:14px 18px;text-align:left;font-weight:700;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;background:#F1F5F9;color:var(--slate);border-bottom:2px solid var(--border)}
+.data-table td{padding:13px 18px;border-bottom:1px solid var(--border);color:var(--slate);vertical-align:middle}
+.data-table tr:last-child td{border-bottom:none}
+.data-table tr.tc-row td{background:#EFF6FF;color:var(--navy);font-weight:600}
+.data-table tr.tc-row td:first-child::before{content:'★ ';color:var(--blue)}
+.data-table td.label{font-weight:600;color:var(--navy);background:#FAFBFF}
+.ck{color:#16A34A;font-weight:700}
+.cx{color:#DC2626;font-weight:700}
+.cm{color:#D97706;font-weight:600;font-size:.85rem}
+
+/* VIDEO EMBED */
+.video-wrap{max-width:780px;margin:36px auto;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-lg);background:var(--navy);position:relative;padding-bottom:56.25%;height:0}
+.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.video-caption{font-size:.82rem;color:var(--slate-light);text-align:center;margin-top:14px;font-style:italic}
+
+/* CTA BANNER */
+.cta-banner{background:linear-gradient(135deg,#0A1628,#0F2460,#1d4ed8);border-radius:18px;padding:56px 48px;margin:48px 0;text-align:center;position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
+.cta-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 100%,rgba(37,99,235,.25) 0%,transparent 65%);pointer-events:none}
+.cta-banner h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:1.85rem;color:#fff;margin:0 0 14px;letter-spacing:-.025em;position:relative;z-index:1}
+.cta-banner p{font-size:1rem;color:#93C5FD;max-width:540px;margin:0 auto 26px;line-height:1.7;position:relative;z-index:1}
+.cta-perks{display:flex;gap:22px;justify-content:center;margin-top:22px;flex-wrap:wrap;position:relative;z-index:1}
+.cta-perk{font-size:.78rem;color:#60A5FA;font-weight:600;display:inline-flex;align-items:center;gap:6px}
+.cta-perk::before{content:'✓';font-weight:800}
+
+/* FAQ */
+.faq-list{max-width:780px;margin:0 auto}
+.faq-item{border-bottom:1.5px solid var(--border)}
+.faq-q{width:100%;text-align:left;padding:22px 0;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.97rem;color:var(--navy);line-height:1.45;letter-spacing:-.01em}
+.faq-icon{width:24px;height:24px;min-width:24px;border-radius:50%;border:2px solid var(--blue);display:flex;align-items:center;justify-content:center;transition:all .25s;flex-shrink:0}
+.faq-icon svg{width:12px;height:12px;stroke:var(--blue);fill:none;stroke-width:2.5;stroke-linecap:round;transition:transform .25s}
+.faq-item.open .faq-icon{background:var(--blue)}
+.faq-item.open .faq-icon svg{stroke:#fff;transform:rotate(45deg)}
+.faq-a{display:none;padding:0 0 22px;font-size:.92rem;color:var(--slate);line-height:1.85;max-width:680px}
+.faq-item.open .faq-a{display:block}
+
+/* RELATED GUIDES */
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:30px}
+.related-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:24px;transition:all .25s;display:block;box-shadow:var(--shadow-sm)}
+.related-card:hover{border-color:#93C5FD;box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.related-tag{display:inline-block;font-size:.66rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.1em;background:#EFF6FF;border:1px solid #BFDBFE;border-radius:6px;padding:3px 8px;margin-bottom:12px}
+.related-card h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.02rem;color:var(--navy);margin:0 0 8px;line-height:1.35}
+.related-card p{font-size:.84rem;color:var(--slate);line-height:1.65;margin:0}
+
+/* FOOTER — matches homepage */
+.footer{background:#fff;border-top:1.5px solid var(--border);padding:60px 24px 36px}
+.footer-inner{max-width:1120px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1.5px solid var(--border);margin-bottom:30px}
+.footer-logo{height:48px;width:auto;margin-bottom:14px}
+.footer-tagline{font-size:.85rem;color:var(--slate);max-width:220px;line-height:1.7;margin-bottom:20px;font-weight:400}
+.footer-social{display:flex;gap:10px}
+.footer-social a{width:36px;height:36px;border:1.5px solid var(--border);border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--slate);transition:all .2s}
+.footer-social a:hover{border-color:var(--blue);color:var(--blue);background:#EFF6FF}
+.footer-social svg{width:16px;height:16px;fill:currentColor}
+.footer-col h4{font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:#94A3B8;margin:0 0 16px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;padding:0}
+.footer-col a{font-size:.875rem;color:var(--slate);transition:color .18s;font-weight:500}
+.footer-col a:hover{color:var(--navy)}
+.footer-aff{font-size:.82rem;color:var(--blue);font-weight:700}
+.footer-risk{background:var(--light);border:1.5px solid var(--border);border-radius:12px;padding:18px 22px;margin-bottom:16px;font-size:.75rem;color:#5B7399;line-height:1.75}
+.footer-risk strong{color:var(--slate);font-weight:700}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:6px}
+.footer-copy{font-size:.75rem;color:#94A3B8;font-weight:500}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .nav-links{display:none}
+  .nav-cta-desktop{display:none !important}
+  .hamburger{display:flex}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .feature-grid,.related-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .footer-top{grid-template-columns:1fr}
+  h1{font-size:2rem}
+  h2{font-size:1.6rem}
+  .answer-box{padding:24px 22px}
+  .cta-banner{padding:42px 28px}
+  .cta-banner h3{font-size:1.5rem}
+}
+
+
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" aria-label="Tradecovex home"><img src="/logo.png" alt="Tradecovex" class="nav-logo"></a>
+    <ul class="nav-links">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/guides/">Guides</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+    </ul>
+    <a href="/#waitlist" class="btn btn-primary nav-cta-desktop" style="display:inline-flex">Join Waitlist</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/#features">Features</a>
+  <a href="/guides/">Guides</a>
+  <a href="/#pricing">Pricing</a>
+  <a href="/#faq">FAQ</a>
+  <a href="/#waitlist" class="btn btn-primary">Join Waitlist</a>
+</div>
+
+<section class="guide-hero">
+  <div class="hero-eyebrow"><span class="dot"></span>TRADER PSYCHOLOGY</div>
+  <p class="breadcrumb"><a href="/">Home</a> › <a href="/guides/">Guides</a> › Cognitive Biases That Destroy Traders</p>
+  <h1>The 10 Cognitive Biases That Destroy Futures Traders</h1>
+  <div class="guide-meta">
+    <span>📅 Updated April 2026</span>
+    <span>⏱ 16 min read</span>
+    <span>✍ Tradecovex Team</span>
+  </div>
+  <div class="answer-box">
+    <span class="answer-box-label">Quick Answer</span>
+    <p>Cognitive biases are systematic errors in judgment that show up the same way in almost everyone. In trading they are expensive because they run silently — you do not feel biased while you are being biased, which is the entire point of a bias. For futures day traders specifically, ten biases do most of the damage: loss aversion, anchoring to your entry price, sunk cost fallacy, confirmation bias, recency bias, overconfidence after wins, the hot hand fallacy, the gambler's fallacy, illusion of control, and narrative fallacy. Each has a concrete shape in live trading and each has a specific rule that defuses it. Reading this list once is not enough. Printing it and taping it next to your screen so you can run the checklist during sessions — that starts to help.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container prose">
+    
+
+    
+<h2><span class="section-num">01</span>Why biases matter for traders specifically</h2>
+
+<p>A cognitive bias is a systematic error in judgment that shows up across almost everybody. It is not a personality flaw. It is not a sign you are a weak-minded trader. It is the default operating system of the human brain, shaped by millions of years of evolution for environments that bear almost no resemblance to a futures chart.</p>
+
+<p>The reason biases are expensive in trading is that they run silently. You do not feel biased while you are being biased. By the time you can see the bias, you have already taken the trade it made you take, and the account is already smaller. This is fundamentally different from, say, being nervous before a trade, where the internal state is at least available for inspection.</p>
+
+<p>The list below is the ten biases that, in my experience reviewing trader journals, do the most damage in futures day trading specifically. Some of them you have heard of. A few you probably have not. Each one has a specific shape in live trading, and each one has a rule that defuses it.</p>
+
+<h2><span class="section-num">02</span>1. Loss aversion</h2>
+
+<p>Loss aversion is the tendency for losses to feel roughly twice as painful as equivalent gains feel pleasant. In behavioural finance research, this ratio has shown up consistently across decades of experiments.</p>
+
+<p>In trading it looks like this. Price hits your stop. You do not close the trade. You tell yourself you will give it a little more room. The stop widens by a few ticks, then a few more. What was supposed to be a 1R loss becomes 1.5R, then 2R, then a surrender. The underlying driver is that closing the trade crystallizes the loss — it makes it real — while holding keeps open the possibility that it turns around. Your nervous system prefers the possibility, even when the expected value is clearly worse.</p>
+
+<p><strong>The defuser:</strong> hard stops set by a platform template, which cannot be moved after entry. Remove the option and the bias has nothing to act on.</p>
+
+<h2><span class="section-num">03</span>2. Anchoring — specifically to your entry price</h2>
+
+<p>Anchoring is the brain's tendency to weight the first number it sees more heavily than subsequent information. In trading, the most destructive anchor is your own entry price.</p>
+
+<p>Your entry price is, objectively, the least relevant number on the chart for every subsequent decision. The market does not know where you got in. Your thesis for the trade was based on levels, structure, or a setup — none of which care where your fill printed. But once you are in a position, your entry price takes over. You evaluate the trade based on whether price is above or below your entry, not based on whether the original thesis is still valid. Breakeven becomes a goal instead of a neutral outcome. Moving the stop to breakeven becomes a way to remove the "pain" of being in the red, even when breakeven is not a meaningful level on the chart.</p>
+
+<p><strong>The defuser:</strong> manage trades against levels and structure, not against your entry. Hide your entry price from view during active management if your platform supports it. You will make better decisions with less information.</p>
+
+<h2><span class="section-num">04</span>3. Sunk cost fallacy</h2>
+
+<p>Sunk cost fallacy is the tendency to continue investing in something because you have already invested in it, regardless of whether continuing makes sense going forward.</p>
+
+<p>In futures trading it has two common forms. The first is holding a losing trade because you have already lost so much on it that getting out now feels like waste — even though the only question that matters is whether the expected value from this moment forward is positive. The second, subtler form is continuing to trade a strategy that has stopped working because you have invested months in learning it. The first form blows individual trades. The second form blows careers.</p>
+
+<p><strong>The defuser:</strong> for single trades, hard stops again. For strategies, a minimum sample size rule — you commit to 100 trades before evaluating, but after 100 trades you evaluate honestly, and if the numbers do not work, you stop running the strategy regardless of how much time you put into learning it.</p>
+
+<h2><span class="section-num">05</span>4. Confirmation bias</h2>
+
+<p>Confirmation bias is the tendency to seek out and weight information that supports your existing belief, and to discount information that contradicts it.</p>
+
+<p>In trading this shows up most dangerously in setup selection. Once you have decided that a trade is going to work, you find reasons the trade should work. The chart confirms it. The indicator confirms it. The level on a different timeframe confirms it. Meanwhile, the contradicting evidence — the slightly weaker volume, the nearby resistance, the fact that the higher timeframe is opposite — gets de-emphasized or ignored outright.</p>
+
+<p><strong>The defuser:</strong> before entering any trade, explicitly write down (in your journal, or out loud) the single strongest reason not to take this trade. Not a checklist of reasons, one reason, the best one. If the best reason against the trade does not survive honest scrutiny, take the trade. If it does, pass. This forces the contradicting evidence onto the same footing as the confirming evidence.</p>
+
+<h2><span class="section-num">06</span>5. Recency bias</h2>
+
+<p>Recency bias weights the last few data points much more heavily than older data, even when the older data carries the same statistical weight.</p>
+
+<p>For a discretionary trader, this shows up every single session. Three losses in a row make the strategy feel broken. Three wins in a row make it feel like free money. Neither feeling is calibrated to the full data — a 50% win rate strategy will produce many runs of three in either direction without any change in the underlying edge. But the feelings produced by recency bias drive actual decisions. Traders size down during unlucky streaks and size up during lucky ones, which is the exact opposite of what the data would recommend.</p>
+
+<p><strong>The defuser:</strong> decision rules based on a 20-trade or 50-trade rolling window, not on the last 3 to 5 trades. Most meaningful signals in your own data require at least a 20-trade sample. If you find yourself adjusting based on three results, you are running on recency bias.</p>
+
+<h2><span class="section-num">07</span>6. Overconfidence after wins</h2>
+
+<p>After a win streak, traders systematically overestimate their own skill and underestimate the role of variance in the recent outcome. This bias has been documented across traders, poker players, sports bettors, and essentially every performance domain where outcomes have a random component.</p>
+
+<p>In futures trading, the specific failure mode is size drift after a good week. The trader has been up consistently, feels sharp, and decides that since they are "in form" they can take slightly larger size. Nothing in the data supports this — the win rate was still just the win rate. But the size goes up, and when the inevitable correction comes, the losses are bigger than the cumulative gains were.</p>
+
+<p><strong>The defuser:</strong> fixed sizing, changed only by explicit rule, never by feeling. If your strategy calls for 2 contracts, you trade 2 contracts whether you are on a streak or in a drawdown. Size changes happen at scheduled review points based on account size, never mid-streak.</p>
+
+<h2><span class="section-num">08</span>7. Hot hand fallacy</h2>
+
+<p>Related to overconfidence, the hot hand fallacy is the specific belief that a recent run of success will continue. It shows up in sports, gambling, and trading with the same shape — the recent winner is assumed to be the next winner.</p>
+
+<p>In trading this drives the "I am on a roll" trade, where the trader takes a setup they would normally pass on because they are confident the current hot streak will extend. Often the setup is sub-par, and the trade is being taken on faith in the streak rather than on the quality of the setup.</p>
+
+<p><strong>The defuser:</strong> a rule that streaks do not loosen your criteria, they tighten them. If you are up three in a row, you become more selective, not less. This runs counter to every instinct. That is exactly why it works.</p>
+
+<h2><span class="section-num">09</span>8. Gambler's fallacy</h2>
+
+<p>The gambler's fallacy is the inverse of the hot hand — the belief that after a string of one outcome, the opposite outcome is now "due." After three red candles, green is due. After three losing trades, a winning trade is due. After five green days, a red day is due.</p>
+
+<p>None of this is mathematically true. Each trade is, for practical purposes, independent of the one before it. A win rate of 50% does not mean wins and losses take turns. It means, over enough samples, the ratio stabilizes around 50%. The next trade does not "know" about the previous one.</p>
+
+<p><strong>The defuser:</strong> evaluate each trade on its own setup merits without reference to the sequence. If you find yourself thinking "I am due for a winner," recognize that phrase as a symptom, not as analysis.</p>
+
+<h2><span class="section-num">10</span>9. Illusion of control</h2>
+
+<p>The illusion of control is the tendency to overestimate how much influence you have over outcomes that are largely random. It is well-documented in gambling — dice throwers throw harder when they want high numbers, even though the throw force has no effect on the outcome.</p>
+
+<p>In trading, it shows up as the belief that your monitoring of the trade changes the trade's outcome. Traders who sit glued to the screen during a trade often feel that their attention is "managing" the position, when in fact the trade is going to do what it is going to do regardless of whether they are watching. This would not matter except that the staring produces the emotional volatility that leads to micromanaging — moving stops, taking partial profits at odd levels, exiting because of a single counter-trend tick.</p>
+
+<p><strong>The defuser:</strong> set the bracket, walk away from the screen for the duration of the trade, and come back when the trade has resolved one way or another. Your attention is not an input into the trade's outcome. Removing it removes the emotional volatility it produces.</p>
+
+<h2><span class="section-num">11</span>10. Narrative fallacy</h2>
+
+<p>Narrative fallacy is your brain's tendency to construct a coherent story from whatever facts are available. The story makes the outcome feel inevitable in retrospect, even when the same facts could have supported many different outcomes.</p>
+
+<p>In trading this is especially dangerous because it corrupts the learning process. After a winning trade, you tell yourself a story about why it worked — your analysis was sharp, your patience paid off, your edge is real. After a losing trade, you tell a different story — the market was manipulated, the news was fake, bad luck. Neither story is usually correct. Both trades were probably outcomes drawn from the same distribution, and the difference in result is largely variance. But because the stories feel true, you reinforce the wrong lessons. You get better at telling yourself you are a good trader and worse at actually being one.</p>
+
+<p><strong>The defuser:</strong> grade every trade on process, not outcome. Did you follow your plan? Was the setup valid at entry? Was the stop at the right place? Did you exit at the rule? If yes to all four, the trade was correct regardless of the P&L. If no to any, the trade was incorrect regardless of the P&L. Outcome-based grading reinforces narrative fallacy. Process-based grading does not.</p>
+
+<h2><span class="section-num">12</span>The checklist that actually helps</h2>
+
+<p>Reading a list of biases once is not a fix. The biases are still there tomorrow. What helps is a short checklist, taped next to your screen, that you run through before entering any trade that feels especially high-conviction. The high-conviction feeling is often the bias signal.</p>
+
+<ul>
+  <li>Would I take this exact setup if the last three trades had been losses instead of wins? (Overconfidence, hot hand)</li>
+  <li>What is the single strongest reason not to take this trade? (Confirmation bias)</li>
+  <li>Am I about to size up because of feel rather than rule? (Overconfidence)</li>
+  <li>Am I evaluating this trade based on my entry price or on the chart? (Anchoring)</li>
+  <li>Is my stop where the rule says, or where I need it to be to feel comfortable? (Loss aversion)</li>
+</ul>
+
+<p>Run the checklist. Take the trade or skip it. Over time, the checklist retrains how you evaluate setups. The biases do not go away. But they stop making the decisions.</p>
+
+
+    <div class="cta-banner">
+      <h3>Catch the biases before they cost you another eval</h3>
+      <p>Tradecovex tags your trades by behavioural signature — the bias-driven patterns show up in the data and stop hiding. Launch pricing locked for life.</p>
+      <a href="/#waitlist" class="btn btn-primary btn-lg">Join the Waitlist</a>
+      <div class="cta-perks">
+        <span class="cta-perk">7-day free trial</span>
+        <span class="cta-perk">No credit card required</span>
+        <span class="cta-perk">Launch pricing locked for life</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container">
+    <div style="text-align:center">
+      <span class="section-tag">Frequently Asked Questions</span>
+      <h2>Common questions about cognitive biases in trading</h2>
+    </div>
+    <div class="faq-list" style="margin-top:40px">
+    <div class="faq-item">
+      <button class="faq-q">Can you actually train yourself out of cognitive biases?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Partially. The research on debiasing is mixed — raw willpower and self-awareness produce small effects that do not hold up well under pressure. What holds up is infrastructure that removes the decision from the moment the bias would fire. You cannot reliably notice loss aversion in real time and correct for it. You can pre-commit to a stop that the platform enforces before loss aversion gets a vote. Most successful long-term traders do not have fewer biases than everyone else. They have more rules.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Which cognitive bias costs traders the most money?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">It is a tie between loss aversion and sunk cost fallacy, and the two often work together. Loss aversion makes you refuse to close a losing trade at the plan stop ('let me give it a little more room'). Sunk cost fallacy then makes you refuse to close it at a wider stop ('I've already lost this much, I have to see it through'). Together they turn what should have been a 1R loss into a 3R or 4R loss. This exact pattern — stop widening into a bigger loss — is responsible for a disproportionate share of blown prop evals.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Is the hot hand fallacy real or is it just variance?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">In most trading contexts it is variance dressed up as skill. A trader who wins three in a row and decides they are 'in the zone' and sizes up is making a decision based on a pattern that does not exist — three wins in a row is entirely consistent with random sequencing of a 50% win rate strategy. That said, there is some research suggesting very short-term streakiness exists in certain market conditions (auto-correlated momentum). The problem is that retail traders using this to justify sizing up are almost always wrong about which case they are in, and the cost of the mistake is asymmetric.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How do I tell recency bias from legitimate pattern recognition?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">By sample size. Recency bias is giving disproportionate weight to the last few trades — your last three losses make the whole strategy feel broken, or your last three wins make it feel bulletproof. Legitimate pattern recognition requires a sample large enough to separate signal from noise, which for most discretionary strategies is 50 to 100 trades minimum. If you are making a decision about your strategy based on fewer than 20 trades, you are almost certainly running on recency bias, not on data.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Does a trading journal actually help with biases?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Yes, but only if the journal is structured to expose the bias, not just to log trades. A raw list of trades with entries and exits does not help much. A journal that asks you to tag the emotional state at entry, the deviation from plan, the reasoning in your own words, and the outcome relative to expectation gives you the data to see the bias pattern over time. When the journal shows you that 70% of your oversized trades came after a win streak, overconfidence bias stops being an abstract concept and starts being something you can point at in your own numbers.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Is narrative fallacy the same as 'telling yourself a story' about a trade?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Close, but the specific trading version has a twist. Narrative fallacy is your brain constructing a coherent story from the facts available so that the outcome feels inevitable in retrospect. In trading it often shows up as post-hoc reasoning — after a winning trade, you attribute the win to your analysis even if the same analysis on a different day would have produced a loss. This feels harmless but it is expensive because it reinforces execution habits based on outcome, not on process. A trader who wins a bad trade and credits their edge will take more bad trades. The fix is to grade trades on whether they were executed correctly, not on whether they won.</div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-wide">
+    <div style="text-align:center">
+      <span class="section-tag">Related Guides</span>
+      <h2>Keep reading</h2>
+    </div>
+    <div class="related-grid">
+    <a href="/guides/build-trading-discipline" class="related-card">
+      <span class="related-tag">Psychology</span>
+      <h4>How to Build Trading Discipline</h4>
+      <p>The infrastructure approach to defusing biases in real time.</p>
+    </a>
+    <a href="/guides/stop-revenge-trading" class="related-card">
+      <span class="related-tag">Psychology</span>
+      <h4>How to Stop Revenge Trading</h4>
+      <p>Loss aversion and sunk cost together in one specific failure mode.</p>
+    </a>
+    <a href="/guides/trading-losing-streaks" class="related-card">
+      <span class="related-tag">Psychology</span>
+      <h4>The Psychology of Losing Streaks</h4>
+      <p>Where recency bias does most of its damage.</p>
+    </a>
+    <a href="/guides/fomo-in-trading" class="related-card">
+      <span class="related-tag">Psychology</span>
+      <h4>FOMO in Trading</h4>
+      <p>A bias worth its own guide — chase behaviour explained.</p>
+    </a>
+    <a href="/guides/ai-trading-journal" class="related-card">
+      <span class="related-tag">Journal</span>
+      <h4>AI Trading Journal Guide</h4>
+      <p>Automated detection of bias-driven patterns in your data.</p>
+    </a>
+    <a href="/guides/trading-journal-prompts" class="related-card">
+      <span class="related-tag">Journal</span>
+      <h4>12 Journal Prompts That Work</h4>
+      <p>Specific questions that surface biases in retrospect.</p>
+    </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="/"><img src="/logo.png" alt="Tradecovex" class="footer-logo"></a>
+        <p class="footer-tagline">The smartest trade copier for NinjaTrader — copy trades and let the AI tell you why.</p>
+        <div class="footer-social">
+          <a href="#" title="Twitter / X" aria-label="Twitter">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" title="YouTube" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#how">How It Works</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="/#waitlist">Join Waitlist</a></li>
+          <li><a href="/guides/">All Guides</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/#privacy">Privacy Policy</a></li>
+          <li><a href="/#terms">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Partners</h4>
+        <ul>
+          <li><a href="#" class="footer-aff">Affiliates — Earn $15–$45/signup</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-risk">
+      <strong>⚠ Risk Disclosure:</strong> Futures trading involves substantial risk of loss and is not suitable for all investors. You can lose more than your initial investment. Past performance is not indicative of future results. Tradecovex is a software tool — it does not provide investment advice and does not guarantee trading results. Use of a trade copier does not guarantee compliance with prop firm rules. All trading decisions are your responsibility. Only trade with capital you can afford to lose.
+    </div>
+    <div class="footer-risk" style="margin-top:10px">
+      <strong>No Investment Advice:</strong> Tradecovex is a software tool for trade copying and journaling. IVAAN INC is not registered as an investment adviser with the Ontario Securities Commission, CIRO, the SEC, or any other regulatory body. Nothing in Tradecovex — including the AI journal analysis feature — constitutes investment advice, financial advice, or a recommendation to buy or sell any security, futures contract, or other financial instrument. The AI journal provides analytical observations about your historical trading patterns for informational purposes only. All trading decisions are made solely by you.
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Tradecovex. All rights reserved. Built by IVAAN INC, Ontario, Canada.</span>
+      <span class="footer-copy">Canadian users served from Toronto · US users served from New York · PIPEDA compliant</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const hamburger=document.getElementById('hamburger');const mobileMenu=document.getElementById('mobile-menu');if(hamburger){hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');});}
+document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{q.parentElement.classList.toggle('open');});});
+</script>
+</body>
+</html>

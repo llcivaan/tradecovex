@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Why You Keep Blowing Funded Accounts (And the 5 Patterns Behind It) — 2026</title>
+<meta name="description" content="Five specific patterns behind almost every blown funded account — size drift after payout, rule creep, consistency rule violations, overconfidence during win streaks, and refusing to take a loss day. Each pattern explained with data-driven examples and the rule that defuses it.">
+<link rel="canonical" href="https://tradecovex.com/guides/why-you-blow-funded-accounts">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Why You Keep Blowing Funded Accounts (And the 5 Patterns Behind It) — 2026">
+<meta property="og:description" content="Five specific patterns behind almost every blown funded account — size drift after payout, rule creep, consistency rule violations, overconfidence during win streaks, and refusing to take a loss day. Each pattern explained with data-driven examples and the rule that defuses it.">
+<meta property="og:url" content="https://tradecovex.com/guides/why-you-blow-funded-accounts">
+<meta property="og:image" content="https://tradecovex.com/logo.png">
+<meta property="og:site_name" content="Tradecovex">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Why You Keep Blowing Funded Accounts (And the 5 Patterns Behind It) — 2026">
+<meta name="twitter:description" content="Five specific patterns behind almost every blown funded account — size drift after payout, rule creep, consistency rule violations, overconfidence during win streaks, and refusing to take a loss day. Each pattern explained with data-driven examples and the rule that defuses it.">
+<meta name="twitter:image" content="https://tradecovex.com/logo.png">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="author" content="Tradecovex / IVAAN INC">
+<link rel="icon" type="image/png" href="/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://tradecovex.com/guides/why-you-blow-funded-accounts#article",
+      "headline": "Why You Keep Blowing Funded Accounts (And the 5 Patterns Behind It) \u2014 2026",
+      "description": "Five specific patterns behind almost every blown funded account \u2014 size drift after payout, rule creep, consistency rule violations, overconfidence during win streaks, and refusing to take a loss day. Each pattern explained with data-driven examples and the rule that defuses it.",
+      "image": "https://tradecovex.com/logo.png",
+      "datePublished": "2026-04-09T00:00:00+00:00",
+      "dateModified": "2026-04-09T00:00:00+00:00",
+      "author": {
+        "@type": "Organization",
+        "name": "Tradecovex",
+        "url": "https://tradecovex.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Tradecovex",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://tradecovex.com/logo.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://tradecovex.com/guides/why-you-blow-funded-accounts"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://tradecovex.com/guides/why-you-blow-funded-accounts#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is there really just five patterns that explain most blown funded accounts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Broadly yes. Individual trader journals show variation, but when you cluster the failure modes across a large sample, most blow-ups sort into five categories \u2014 size drift, rule creep, consistency violations, win-streak overconfidence, and refusal to take a loss day. Specific traders fail more often through one pattern than another, but almost every trader who has blown a funded account will recognize at least two or three of these in their own history. The specificity matters because it makes the patterns preventable \u2014 you cannot defuse a vague problem, but you can defuse 'size drifted up 30 percent after the first payout.'"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which of the five patterns is most dangerous?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Refusal to take a loss day, followed closely by size drift after payout. Both have the same core mechanic \u2014 they take what should have been a bounded loss and turn it into an account-ending event. The refusal-to-take-a-loss-day pattern is especially dangerous because it feels virtuous in the moment (you are 'not giving up'), and the damage unfolds over the last hour of a session in a way that is hard to reverse once it starts."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a trade copier actually prevent these patterns?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A trade copier on its own, no \u2014 it just replicates what the lead account does. A trade copier integrated with rule enforcement and account monitoring can prevent several of them. Matching sizing across accounts prevents size drift on the copied accounts from happening silently. A daily loss cap enforced at the copier level makes refusing-to-take-a-loss-day structurally difficult. Consistency rule tracking shows you before you submit the trade whether you are about to violate the rule. The <a href='/guides/ninjatrader-trade-copier'>trade copier guide</a> covers what a rule-aware copier should actually do."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "I have blown three funded accounts. Am I just not cut out for this?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Almost certainly you are cut out for it. Three blown accounts is a normal amount of blown accounts for a trader who is in the process of figuring this out. The difference between traders who eventually succeed and traders who quit is not whether they blew accounts, but whether they extracted specific lessons from each blow-up. If your three blow-ups all came from the same pattern \u2014 say, all three were refusal-to-take-a-loss-day \u2014 you have a very clear target for your next iteration. Identify the pattern, build the rule that defuses it, and trade the next account with that specific protection in place. The third account is often the one that works."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do consistency rules block so many payouts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because consistency rules are structurally counter-intuitive. Most traders assume that making a lot of money is good for the account, and on a consistency-rule-governed account, a single oversized winning day can actively harm your payout eligibility. Apex PA accounts, for example, have specific consistency requirements where no single day can exceed a certain percentage of cumulative profits. A $1,200 winning day on a $3,000 cumulative profit window can block the payout. Most traders do not fully internalize this until they have personally hit it, which is why the first payout cycle is where many newly-funded traders lose their first payout to a rule they technically knew about."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does it take to get comfortable with funded trading?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For most traders, 60 to 90 days if they survive the first 30. The first month is the hardest because the identity shift, the rule differences, and the real-money weight all hit at once. The second month is about settling into the rhythm, passing the first payout cleanly, and confirming that the process transfers. By month three, funded trading starts to feel like the baseline of how you trade, rather than as a high-stakes extension of it. Traders who blow the first account and come back for a second often make the transition faster, because the second account benefits from the specific lessons of the first."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://tradecovex.com/#software",
+      "name": "Tradecovex",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Windows, macOS",
+      "description": "NinjaTrader trade copier with built-in AI journal that automatically analyzes every copied trade.",
+      "url": "https://tradecovex.com",
+      "offers": {
+        "@type": "Offer",
+        "price": 0,
+        "priceCurrency": "USD",
+        "description": "7-day free trial \u2014 Launch pricing locked for life"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://tradecovex.com/guides/why-you-blow-funded-accounts#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://tradecovex.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://tradecovex.com/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Why You Blow Funded Accounts",
+          "item": "https://tradecovex.com/guides/why-you-blow-funded-accounts"
+        }
+      ]
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://tradecovex.com/guides/why-you-blow-funded-accounts#video",
+      "name": "Why traders blow funded accounts \u2014 practitioner view",
+      "description": "A walkthrough of the specific patterns that kill funded prop firm accounts across every major firm.",
+      "thumbnailUrl": "https://i.ytimg.com/vi/zIwhL93_ZBY/maxresdefault.jpg",
+      "uploadDate": "2026-01-01T00:00:00+00:00",
+      "contentUrl": "https://www.youtube.com/watch?v=zIwhL93_ZBY",
+      "embedUrl": "https://www.youtube.com/embed/zIwhL93_ZBY"
+    }
+  ]
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:#0F172A;background:#fff;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+:root{
+  --blue:#2563EB;
+  --blue-dark:#1d4ed8;
+  --navy:#0A1628;
+  --slate:#4B5E7A;
+  --slate-light:#64748B;
+  --light:#F0F4FF;
+  --border:#DDE3EF;
+  --radius:12px;
+  --shadow-sm:0 1px 3px rgba(10,22,40,.08),0 1px 2px rgba(10,22,40,.06);
+  --shadow-md:0 4px 16px rgba(10,22,40,.1),0 2px 6px rgba(10,22,40,.06);
+  --shadow-lg:0 12px 40px rgba(10,22,40,.14),0 4px 12px rgba(10,22,40,.08);
+}
+
+/* NAV — matches homepage exactly */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px}
+.nav-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav-logo{height:40px;width:auto}
+.nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+.nav-links a{font-size:.88rem;font-weight:600;color:var(--slate);transition:color .2s;letter-spacing:.01em}
+.nav-links a:hover{color:var(--navy)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 26px;border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;transition:all .18s;border:none;text-decoration:none;letter-spacing:.01em}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 2px 8px rgba(37,99,235,.3)}
+.btn-primary:hover{background:var(--blue-dark);transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,99,235,.4)}
+.btn-outline{background:transparent;color:var(--navy);border:2px solid #C4CEDD}
+.btn-outline:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn-outline-white{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35)}
+.btn-outline-white:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.btn-lg{padding:16px 38px;font-size:.98rem;border-radius:14px}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;transition:all .25s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:20px 24px;z-index:199;flex-direction:column;gap:0;box-shadow:var(--shadow-lg)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{display:block;padding:14px 0;font-size:1rem;font-weight:600;color:var(--slate);border-bottom:1px solid var(--border)}
+.mobile-menu a.btn{margin-top:16px;width:100%;border-bottom:none;justify-content:center}
+
+/* HERO — adapted for guide pages */
+.guide-hero{padding:140px 24px 60px;text-align:center;position:relative;overflow:hidden;background:#fff}
+.guide-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 90% 60% at 50% -10%,rgba(37,99,235,.08) 0%,transparent 65%);pointer-events:none}
+.guide-hero::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background-image:radial-gradient(circle at 1px 1px, rgba(37,99,235,.06) 1px, transparent 0);background-size:32px 32px;pointer-events:none;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 0%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 0%,transparent 70%)}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:100px;padding:7px 18px;font-size:.75rem;font-weight:700;color:var(--blue);letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px;position:relative;z-index:1}
+.hero-eyebrow span.dot{width:7px;height:7px;background:var(--blue);border-radius:50%;animation:blink 2s ease infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+h1{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(2.2rem,4.5vw,3.4rem);line-height:1.08;letter-spacing:-.03em;color:var(--navy);max-width:900px;margin:0 auto 24px;position:relative;z-index:1}
+h1 .accent{color:var(--blue)}
+.guide-meta{display:flex;justify-content:center;gap:24px;margin-bottom:20px;flex-wrap:wrap;font-size:.82rem;color:var(--slate-light);position:relative;z-index:1}
+.guide-meta span{display:inline-flex;align-items:center;gap:6px}
+.breadcrumb{font-size:.78rem;color:var(--slate-light);margin-bottom:24px;position:relative;z-index:1}
+.breadcrumb a{color:var(--blue);font-weight:600}
+.breadcrumb a:hover{text-decoration:underline}
+
+/* ANSWER BOX — featured snippet style */
+.answer-box{max-width:780px;margin:0 auto 50px;background:linear-gradient(135deg,#EFF6FF,#F0F4FF);border:2px solid #BFDBFE;border-radius:18px;padding:32px 36px;text-align:left;position:relative;z-index:1;box-shadow:var(--shadow-md)}
+.answer-box-label{display:inline-block;font-size:.68rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.14em;background:#fff;border:1.5px solid #BFDBFE;border-radius:100px;padding:5px 14px;margin-bottom:14px}
+.answer-box p{font-size:1.02rem;color:var(--navy);line-height:1.75;font-weight:500}
+.answer-box p strong{font-weight:700;color:var(--navy)}
+
+/* SHARED SECTION STYLES */
+.section{padding:80px 24px}
+.section-light{background:var(--light)}
+.section-tag{display:inline-block;font-size:.7rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.14em;margin-bottom:16px;background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:100px;padding:5px 14px}
+h2{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(1.7rem,3.2vw,2.4rem);line-height:1.12;letter-spacing:-.025em;color:var(--navy);margin-bottom:18px}
+h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.3rem;color:var(--navy);margin:32px 0 14px;letter-spacing:-.015em}
+h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08rem;color:var(--navy);margin:24px 0 10px;letter-spacing:-.01em}
+.container{max-width:880px;margin:0 auto}
+.container-wide{max-width:1120px;margin:0 auto}
+
+/* PROSE STYLES */
+.prose p{font-size:1rem;color:var(--slate);line-height:1.85;margin-bottom:20px}
+.prose p strong{color:var(--navy);font-weight:700}
+.prose ul,.prose ol{margin:16px 0 24px 22px;color:var(--slate);font-size:1rem;line-height:1.85}
+.prose li{margin-bottom:10px}
+.prose li strong{color:var(--navy);font-weight:700}
+.prose a{color:var(--blue);font-weight:600;border-bottom:1.5px solid rgba(37,99,235,.3);transition:border .2s}
+.prose a:hover{border-bottom-color:var(--blue)}
+.section-num{display:inline-block;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:.78rem;color:var(--blue);background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:8px;padding:4px 10px;margin-bottom:12px;letter-spacing:.06em}
+
+/* PULL QUOTE */
+.pull-quote{background:linear-gradient(135deg,#EFF6FF,#F0F4FF);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:24px 28px;margin:32px 0;font-family:'Barlow Semi Condensed',sans-serif;font-size:1.18rem;font-weight:600;color:var(--navy);line-height:1.55;letter-spacing:-.01em}
+
+/* CALLOUT BOXES */
+.callout{background:#fff;border:1.5px solid var(--border);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:22px 26px;margin:28px 0;box-shadow:var(--shadow-sm)}
+.callout-title{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1rem;color:var(--navy);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.callout p{font-size:.92rem;color:var(--slate);line-height:1.75;margin:0}
+.callout-warn{border-left-color:#DC2626;background:#FEF2F2}
+.callout-warn .callout-title{color:#991B1B}
+.callout-success{border-left-color:#16A34A;background:#F0FDF4}
+.callout-success .callout-title{color:#166534}
+
+/* FEATURE CARD GRID */
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin:32px 0}
+.feature-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:26px;transition:all .25s;box-shadow:var(--shadow-sm)}
+.feature-card:hover{border-color:#93C5FD;box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.feature-card-num{display:inline-block;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:.7rem;color:var(--blue);background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:6px;padding:3px 8px;margin-bottom:12px;letter-spacing:.06em}
+.feature-card h4{margin:0 0 10px;font-size:1.08rem}
+.feature-card p{font-size:.88rem;color:var(--slate);line-height:1.75;margin:0}
+
+/* DATA TABLE */
+.data-table-wrap{overflow-x:auto;border-radius:14px;border:1.5px solid var(--border);box-shadow:var(--shadow-md);margin:28px 0}
+.data-table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:580px;background:#fff}
+.data-table th{padding:14px 18px;text-align:left;font-weight:700;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;background:#F1F5F9;color:var(--slate);border-bottom:2px solid var(--border)}
+.data-table td{padding:13px 18px;border-bottom:1px solid var(--border);color:var(--slate);vertical-align:middle}
+.data-table tr:last-child td{border-bottom:none}
+.data-table tr.tc-row td{background:#EFF6FF;color:var(--navy);font-weight:600}
+.data-table tr.tc-row td:first-child::before{content:'★ ';color:var(--blue)}
+.data-table td.label{font-weight:600;color:var(--navy);background:#FAFBFF}
+.ck{color:#16A34A;font-weight:700}
+.cx{color:#DC2626;font-weight:700}
+.cm{color:#D97706;font-weight:600;font-size:.85rem}
+
+/* VIDEO EMBED */
+.video-wrap{max-width:780px;margin:36px auto;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-lg);background:var(--navy);position:relative;padding-bottom:56.25%;height:0}
+.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.video-caption{font-size:.82rem;color:var(--slate-light);text-align:center;margin-top:14px;font-style:italic}
+
+/* CTA BANNER */
+.cta-banner{background:linear-gradient(135deg,#0A1628,#0F2460,#1d4ed8);border-radius:18px;padding:56px 48px;margin:48px 0;text-align:center;position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
+.cta-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 100%,rgba(37,99,235,.25) 0%,transparent 65%);pointer-events:none}
+.cta-banner h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:1.85rem;color:#fff;margin:0 0 14px;letter-spacing:-.025em;position:relative;z-index:1}
+.cta-banner p{font-size:1rem;color:#93C5FD;max-width:540px;margin:0 auto 26px;line-height:1.7;position:relative;z-index:1}
+.cta-perks{display:flex;gap:22px;justify-content:center;margin-top:22px;flex-wrap:wrap;position:relative;z-index:1}
+.cta-perk{font-size:.78rem;color:#60A5FA;font-weight:600;display:inline-flex;align-items:center;gap:6px}
+.cta-perk::before{content:'✓';font-weight:800}
+
+/* FAQ */
+.faq-list{max-width:780px;margin:0 auto}
+.faq-item{border-bottom:1.5px solid var(--border)}
+.faq-q{width:100%;text-align:left;padding:22px 0;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.97rem;color:var(--navy);line-height:1.45;letter-spacing:-.01em}
+.faq-icon{width:24px;height:24px;min-width:24px;border-radius:50%;border:2px solid var(--blue);display:flex;align-items:center;justify-content:center;transition:all .25s;flex-shrink:0}
+.faq-icon svg{width:12px;height:12px;stroke:var(--blue);fill:none;stroke-width:2.5;stroke-linecap:round;transition:transform .25s}
+.faq-item.open .faq-icon{background:var(--blue)}
+.faq-item.open .faq-icon svg{stroke:#fff;transform:rotate(45deg)}
+.faq-a{display:none;padding:0 0 22px;font-size:.92rem;color:var(--slate);line-height:1.85;max-width:680px}
+.faq-item.open .faq-a{display:block}
+
+/* RELATED GUIDES */
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:30px}
+.related-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:24px;transition:all .25s;display:block;box-shadow:var(--shadow-sm)}
+.related-card:hover{border-color:#93C5FD;box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.related-tag{display:inline-block;font-size:.66rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.1em;background:#EFF6FF;border:1px solid #BFDBFE;border-radius:6px;padding:3px 8px;margin-bottom:12px}
+.related-card h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.02rem;color:var(--navy);margin:0 0 8px;line-height:1.35}
+.related-card p{font-size:.84rem;color:var(--slate);line-height:1.65;margin:0}
+
+/* FOOTER — matches homepage */
+.footer{background:#fff;border-top:1.5px solid var(--border);padding:60px 24px 36px}
+.footer-inner{max-width:1120px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1.5px solid var(--border);margin-bottom:30px}
+.footer-logo{height:48px;width:auto;margin-bottom:14px}
+.footer-tagline{font-size:.85rem;color:var(--slate);max-width:220px;line-height:1.7;margin-bottom:20px;font-weight:400}
+.footer-social{display:flex;gap:10px}
+.footer-social a{width:36px;height:36px;border:1.5px solid var(--border);border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--slate);transition:all .2s}
+.footer-social a:hover{border-color:var(--blue);color:var(--blue);background:#EFF6FF}
+.footer-social svg{width:16px;height:16px;fill:currentColor}
+.footer-col h4{font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:#94A3B8;margin:0 0 16px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;padding:0}
+.footer-col a{font-size:.875rem;color:var(--slate);transition:color .18s;font-weight:500}
+.footer-col a:hover{color:var(--navy)}
+.footer-aff{font-size:.82rem;color:var(--blue);font-weight:700}
+.footer-risk{background:var(--light);border:1.5px solid var(--border);border-radius:12px;padding:18px 22px;margin-bottom:16px;font-size:.75rem;color:#5B7399;line-height:1.75}
+.footer-risk strong{color:var(--slate);font-weight:700}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:6px}
+.footer-copy{font-size:.75rem;color:#94A3B8;font-weight:500}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .nav-links{display:none}
+  .nav-cta-desktop{display:none !important}
+  .hamburger{display:flex}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .feature-grid,.related-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .footer-top{grid-template-columns:1fr}
+  h1{font-size:2rem}
+  h2{font-size:1.6rem}
+  .answer-box{padding:24px 22px}
+  .cta-banner{padding:42px 28px}
+  .cta-banner h3{font-size:1.5rem}
+}
+
+
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" aria-label="Tradecovex home"><img src="/logo.png" alt="Tradecovex" class="nav-logo"></a>
+    <ul class="nav-links">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/guides/">Guides</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+    </ul>
+    <a href="/#waitlist" class="btn btn-primary nav-cta-desktop" style="display:inline-flex">Join Waitlist</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/#features">Features</a>
+  <a href="/guides/">Guides</a>
+  <a href="/#pricing">Pricing</a>
+  <a href="/#faq">FAQ</a>
+  <a href="/#waitlist" class="btn btn-primary">Join Waitlist</a>
+</div>
+
+<section class="guide-hero">
+  <div class="hero-eyebrow"><span class="dot"></span>FUNDED TRADING</div>
+  <p class="breadcrumb"><a href="/">Home</a> › <a href="/guides/">Guides</a> › Why You Blow Funded Accounts</p>
+  <h1>Why You Keep Blowing Funded Accounts (And the 5 Patterns Behind It)</h1>
+  <div class="guide-meta">
+    <span>📅 Updated April 2026</span>
+    <span>⏱ 15 min read</span>
+    <span>✍ Tradecovex Team</span>
+  </div>
+  <div class="answer-box">
+    <span class="answer-box-label">Quick Answer</span>
+    <p>Almost every blown funded account — across Apex, Topstep, MyFundedFutures, and every other major futures prop firm — traces back to one of five specific patterns. Size drift after the first payout. Rule creep, where your eval-era personal rules quietly relax toward the firm's looser funded rules. Consistency rule violations on PA accounts that block payouts and then cause over-trading to 'make it back.' Overconfidence during win streaks that leads to setups you would normally pass on. And the refusal to take a loss day, which turns a normal red session into an account-ending one. These patterns show up in trader journals repeatedly, and once you can see them in your own data, you can build rules that make each one mechanically impossible. This is the field guide.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container prose">
+    <div class="video-wrap">
+  <iframe src="https://www.youtube.com/embed/zIwhL93_ZBY" title="Why traders blow funded accounts — practitioner view" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
+<p class="video-caption">A third-party video on funded account failures. Watch for context before reading the guide below.</p>
+
+    
+<h2><span class="section-num">01</span>The uncomfortable truth about funded blow-ups</h2>
+
+<p>If you have blown at least one funded account, you are in good company. Most working futures prop firm traders have blown at least one, and many have blown three or four before the habits stabilize. That is not a sign you are bad at this. It is a sign that funded trading is a different game from eval trading, and the learning curve on the funded side is real.</p>
+
+<p>What is worth doing, and what most traders do not do, is look honestly at why your funded accounts blew up. Not the market reasons. Not "the prop firm changed the rules." The specific behavioural pattern in your own trading that ended the account. Almost every blown funded account, across every firm, comes down to one of five patterns. This page covers each of them — the shape, the mechanic, and the rule that defuses them.</p>
+
+<p>Fair warning: the patterns below are not flattering. Reading them, you will probably recognize yourself in at least two. That recognition is the point.</p>
+
+<h2><span class="section-num">02</span>Pattern 1 — Size drift after the first payout</h2>
+
+<p>You passed the eval at 2 contracts. You ran the first 30 days of funded trading clean at 2 contracts. First payout hits your bank account. Week two of the second funded month, you are trading 3 or 4 contracts. You did not make a formal decision to size up. The size just drifted.</p>
+
+<p>This is by far the most common pattern. It has a specific psychological driver — the first payout feels like confirmation that your process is proven, and the natural inference is that the proven process deserves bigger size. The inference is wrong. Your process was proven at 2 contracts. Running it at 4 contracts is a different process, one you have not tested, and one with different psychological pressures at every tick.</p>
+
+<p>The specific failure mode is that the larger size produces bigger per-trade P&L swings, which amplifies your emotional response to losses, which degrades execution, which produces a string of losses that at the old size would have been annoying but at the new size is catastrophic. The account does not blow from one trade. It blows from the same streak of losses that would have been a bad week at your original size.</p>
+
+<p><strong>The defuser:</strong> position size is changed only at scheduled review points, never in response to recent performance. A monthly review where you decide whether to scale based on clearly-defined criteria — accumulated profits, win rate stability, drawdown history — is the only legitimate path to a size change. Size changes mid-month based on feel are not scaling decisions, they are drift.</p>
+
+<h2><span class="section-num">03</span>Pattern 2 — Rule creep</h2>
+
+<p>Your eval was governed by strict personal rules. Daily loss cap $300. Session end 11:30 AM. No trades past 11:30 regardless of setup quality. Those rules were tight because you knew the eval was tight — the drawdown floor was unforgiving and the profit target was specific.</p>
+
+<p>On funded, the firm's rules are often looser. The firm lets you lose more per day than your personal cap. The firm does not impose a session end time. Over the first few weeks, this looseness quietly infects your personal rules. The daily cap drifts to $400 because "the firm allows $500, so $400 is still conservative." The session starts ending at 12:00, then 12:30, then sometimes 2:00 PM because "the rules allow it."</p>
+
+<p>None of these individual changes feel like rule breaks. They feel like reasonable adjustments. But the cumulative effect is that by week six of funded trading, you are trading with a safety margin substantially smaller than the one that got you through the eval. When the inevitable bad day arrives, the tighter margin catches you, and the account ends.</p>
+
+<p><strong>The defuser:</strong> write your eval-era rules on paper, tape them next to your monitor, and treat them as binding for at least the first 90 days of funded trading. The firm's rules are the outer floor. Your rules are tighter, and they stay tighter, because the tighter rules were what kept you alive during the eval and they will keep you alive here.</p>
+
+<h2><span class="section-num">04</span>Pattern 3 — Consistency rule violations on PA accounts</h2>
+
+<p>This pattern is specific to firms that have consistency rules on their funded accounts — Apex PA accounts are the most prominent example, but several other firms have analogous mechanics. The rule says, in essence, no single day's profit can exceed a specified share of your cumulative profits over the payout window.</p>
+
+<p>The pattern plays out in two stages. First stage — the trader has a great day early in the payout window. Say they make $1,200 on day two of a 10-day window. The consistency rule effectively requires them to accumulate several thousand dollars of other profits to keep the single-day ratio compliant, which they now have to do in the remaining sessions.</p>
+
+<p>Second stage — the pressure of needing to hit a cumulative number to validate the earlier big day changes the trader's behaviour. They take trades they would normally skip. They extend sessions. They size up on marginal setups because they need the volume of profits. Eventually, either the consistency rule blocks the payout outright, or the pressure-driven trading produces losses that eat into the cumulative and make the math worse.</p>
+
+<p>The emotional response to losing a payout to a rule the trader technically knew about is almost always to over-trade "to make it back," which is how a consistency violation becomes a blown account rather than just a missed payout.</p>
+
+<p><strong>The defuser:</strong> know the exact consistency math for your specific account, and cap your daily profit at the level that keeps the math clean under worst-case assumptions. For Apex PA, this typically means capping daily profits at 30 percent of the running cumulative — but always check the current rules because firms update them periodically. Ending a good day early because you hit the consistency cap is correct behaviour, not timidity.</p>
+
+<h2><span class="section-num">05</span>Pattern 4 — Overconfidence during win streaks</h2>
+
+<p>You are up four sessions in a row. The strategy feels locked in. You start seeing setups that would not have qualified last week but look obvious now. You size up on one of them. It works. The next one, you size up further. That one also works. The third one — the one that ends the account — is a setup you would have rejected two weeks ago, taken at a size 50 percent larger than your eval-era size, in a session you should have ended an hour earlier.</p>
+
+<p>The win streak itself is usually normal variance. A 55 percent win rate strategy will produce a run of four wins roughly 9 percent of the time in any given 4-trade window — routinely, across a career. What turns the streak into a blown account is the behavioural response to it. Overconfidence loosens your setup filter, which means you start taking worse setups, which changes the effective win rate of the strategy you are now running. By the time the streak reverses, the trades you are taking are worse than the ones that produced the streak, and the reversal therefore hits harder than the streak rewarded.</p>
+
+<p><strong>The defuser:</strong> a rule that win streaks tighten your setup criteria, not loosen them. If you are up three in a row, you become more selective about the next trade, not less. This runs counter to every instinct, which is exactly why it works. Many funded blow-ups come in week six of trading, on a day when the trader started the session convinced they had finally figured it out. The figuring-it-out feeling is a warning sign, not a credential.</p>
+
+<h2><span class="section-num">06</span>Pattern 5 — Refusing to take a loss day</h2>
+
+<p>Every trader has bad days. On a live retail account, a bad day is a bad day and you move on. On a funded account, something strange happens — ending red feels uniquely unacceptable. Going backwards on the payout progress feels worse than a live account loss, even though the financial impact is similar.</p>
+
+<p>The pattern plays out in the late afternoon of a losing session. You are down, say, $450 on the day. Your session end time was 11:30. It is now 1:45 PM. You have not been able to bring yourself to walk away red. You have taken three more trades trying to turn the session green, two of which lost. Now you are down $700. The daily cap on this firm is $1,100. You have $400 of room. One more trade.</p>
+
+<p>The last trade of this pattern is almost always the one that ends the account, because it is taken with compromised judgment, at wider-than-normal risk, in an already-exhausted mental state, as part of a session that should have ended three hours earlier. The trader wakes up the next morning with a blown account and a clear memory of exactly the moment they should have closed the platform and did not.</p>
+
+<p><strong>The defuser:</strong> a hard daily loss cap enforced at the platform or copier level, set well below the firm's maximum, that flattens positions and closes the platform automatically when hit. If you cannot trust yourself to end a losing session voluntarily — and almost no trader can — you set up the infrastructure to end it for you. Combine with a session end timer so the session cannot extend past a specific clock time regardless of P&L. These two rules together eliminate the majority of account-ending losing days.</p>
+
+<h2><span class="section-num">07</span>The single most important question to ask after a blow-up</h2>
+
+<p>After blowing a funded account — which, again, is not a career-ending event and is more common than most traders admit — the single most important thing to do is diagnose which of the five patterns killed the account. Not a vague "I was emotional" or "I traded badly." The specific pattern, identified from your trade history.</p>
+
+<p>Open your journal or trade log. Look at the final session, the final sequence of trades before the account blew. Match it against the five patterns above. Usually the match is obvious. The losing session started after your normal session end time. The size on the last three trades was larger than your eval-era size. The week prior had a consistency violation and the last week was a make-it-back push. There is almost always a specific pattern, and the pattern is almost always one of these five.</p>
+
+<p>Once you have named the pattern, you can build the specific rule that defuses it for the next account. Not "I will trade better next time." A concrete rule that mechanically prevents the specific pattern from repeating. Size change only at monthly review. Hard daily loss cap at the platform level. Session end timer. Consistency cap at 30 percent of cumulative. Tighter setup filter after three wins, not looser.</p>
+
+<p>The traders who succeed in the prop firm game are almost never the ones who never blew an account. They are the ones who blew an account, diagnosed the specific pattern that killed it, built the rule that defuses that pattern, and carried that rule into the next account. Three blown accounts with three different rule additions on the way up is a much healthier trajectory than one clean-feeling account that has not yet encountered its first real test.</p>
+
+<p>The goal is not to never blow up. The goal is to blow up less often, for less money, through fewer distinct patterns, until eventually the account survives long enough to become boring. Boring is the destination. The five patterns above are the landmarks on the way.</p>
+
+
+    <div class="cta-banner">
+      <h3>Get early warning on the five patterns that kill funded accounts</h3>
+      <p>Tradecovex's AI journal flags size drift, rule creep, and consistency-rule exposure automatically across every funded account you run. Launch pricing locked for life.</p>
+      <a href="/#waitlist" class="btn btn-primary btn-lg">Join the Waitlist</a>
+      <div class="cta-perks">
+        <span class="cta-perk">7-day free trial</span>
+        <span class="cta-perk">No credit card required</span>
+        <span class="cta-perk">Launch pricing locked for life</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container">
+    <div style="text-align:center">
+      <span class="section-tag">Frequently Asked Questions</span>
+      <h2>Common questions about blowing funded accounts</h2>
+    </div>
+    <div class="faq-list" style="margin-top:40px">
+    <div class="faq-item">
+      <button class="faq-q">Is there really just five patterns that explain most blown funded accounts?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Broadly yes. Individual trader journals show variation, but when you cluster the failure modes across a large sample, most blow-ups sort into five categories — size drift, rule creep, consistency violations, win-streak overconfidence, and refusal to take a loss day. Specific traders fail more often through one pattern than another, but almost every trader who has blown a funded account will recognize at least two or three of these in their own history. The specificity matters because it makes the patterns preventable — you cannot defuse a vague problem, but you can defuse 'size drifted up 30 percent after the first payout.'</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Which of the five patterns is most dangerous?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Refusal to take a loss day, followed closely by size drift after payout. Both have the same core mechanic — they take what should have been a bounded loss and turn it into an account-ending event. The refusal-to-take-a-loss-day pattern is especially dangerous because it feels virtuous in the moment (you are 'not giving up'), and the damage unfolds over the last hour of a session in a way that is hard to reverse once it starts.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Can a trade copier actually prevent these patterns?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">A trade copier on its own, no — it just replicates what the lead account does. A trade copier integrated with rule enforcement and account monitoring can prevent several of them. Matching sizing across accounts prevents size drift on the copied accounts from happening silently. A daily loss cap enforced at the copier level makes refusing-to-take-a-loss-day structurally difficult. Consistency rule tracking shows you before you submit the trade whether you are about to violate the rule. The <a href='/guides/ninjatrader-trade-copier'>trade copier guide</a> covers what a rule-aware copier should actually do.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">I have blown three funded accounts. Am I just not cut out for this?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Almost certainly you are cut out for it. Three blown accounts is a normal amount of blown accounts for a trader who is in the process of figuring this out. The difference between traders who eventually succeed and traders who quit is not whether they blew accounts, but whether they extracted specific lessons from each blow-up. If your three blow-ups all came from the same pattern — say, all three were refusal-to-take-a-loss-day — you have a very clear target for your next iteration. Identify the pattern, build the rule that defuses it, and trade the next account with that specific protection in place. The third account is often the one that works.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Why do consistency rules block so many payouts?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Because consistency rules are structurally counter-intuitive. Most traders assume that making a lot of money is good for the account, and on a consistency-rule-governed account, a single oversized winning day can actively harm your payout eligibility. Apex PA accounts, for example, have specific consistency requirements where no single day can exceed a certain percentage of cumulative profits. A $1,200 winning day on a $3,000 cumulative profit window can block the payout. Most traders do not fully internalize this until they have personally hit it, which is why the first payout cycle is where many newly-funded traders lose their first payout to a rule they technically knew about.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How long does it take to get comfortable with funded trading?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">For most traders, 60 to 90 days if they survive the first 30. The first month is the hardest because the identity shift, the rule differences, and the real-money weight all hit at once. The second month is about settling into the rhythm, passing the first payout cleanly, and confirming that the process transfers. By month three, funded trading starts to feel like the baseline of how you trade, rather than as a high-stakes extension of it. Traders who blow the first account and come back for a second often make the transition faster, because the second account benefits from the specific lessons of the first.</div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-wide">
+    <div style="text-align:center">
+      <span class="section-tag">Related Guides</span>
+      <h2>Keep reading</h2>
+    </div>
+    <div class="related-grid">
+    <a href="/guides/funded-account-survival-guide" class="related-card">
+      <span class="related-tag">Funded</span>
+      <h4>Funded Account Survival Guide — First 30 Days</h4>
+      <p>The prequel — how to survive the period where most blow-ups happen.</p>
+    </a>
+    <a href="/guides/trailing-drawdown" class="related-card">
+      <span class="related-tag">Prop Rules</span>
+      <h4>What is Trailing Drawdown?</h4>
+      <p>The mechanic behind most of the damage these five patterns cause.</p>
+    </a>
+    <a href="/guides/self-sabotage-before-passing" class="related-card">
+      <span class="related-tag">Psychology</span>
+      <h4>Self-Sabotage Before Passing</h4>
+      <p>The related pattern that shows up during the evaluation itself.</p>
+    </a>
+    <a href="/guides/pass-apex-evaluation" class="related-card">
+      <span class="related-tag">Apex</span>
+      <h4>How to Pass an Apex Evaluation</h4>
+      <p>Apex-specific rules including PA account consistency requirements.</p>
+    </a>
+    <a href="/guides/build-trading-discipline" class="related-card">
+      <span class="related-tag">Psychology</span>
+      <h4>How to Build Trading Discipline</h4>
+      <p>The infrastructure that defuses all five patterns at once.</p>
+    </a>
+    <a href="/guides/sim-to-funded" class="related-card">
+      <span class="related-tag">Progression</span>
+      <h4>Moving from Sim to Funded</h4>
+      <p>The broader journey that these blow-ups sit inside.</p>
+    </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="/"><img src="/logo.png" alt="Tradecovex" class="footer-logo"></a>
+        <p class="footer-tagline">The smartest trade copier for NinjaTrader — copy trades and let the AI tell you why.</p>
+        <div class="footer-social">
+          <a href="#" title="Twitter / X" aria-label="Twitter">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" title="YouTube" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#how">How It Works</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="/#waitlist">Join Waitlist</a></li>
+          <li><a href="/guides/">All Guides</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/#privacy">Privacy Policy</a></li>
+          <li><a href="/#terms">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Partners</h4>
+        <ul>
+          <li><a href="#" class="footer-aff">Affiliates — Earn $15–$45/signup</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-risk">
+      <strong>⚠ Risk Disclosure:</strong> Futures trading involves substantial risk of loss and is not suitable for all investors. You can lose more than your initial investment. Past performance is not indicative of future results. Tradecovex is a software tool — it does not provide investment advice and does not guarantee trading results. Use of a trade copier does not guarantee compliance with prop firm rules. All trading decisions are your responsibility. Only trade with capital you can afford to lose.
+    </div>
+    <div class="footer-risk" style="margin-top:10px">
+      <strong>No Investment Advice:</strong> Tradecovex is a software tool for trade copying and journaling. IVAAN INC is not registered as an investment adviser with the Ontario Securities Commission, CIRO, the SEC, or any other regulatory body. Nothing in Tradecovex — including the AI journal analysis feature — constitutes investment advice, financial advice, or a recommendation to buy or sell any security, futures contract, or other financial instrument. The AI journal provides analytical observations about your historical trading patterns for informational purposes only. All trading decisions are made solely by you.
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Tradecovex. All rights reserved. Built by IVAAN INC, Ontario, Canada.</span>
+      <span class="footer-copy">Canadian users served from Toronto · US users served from New York · PIPEDA compliant</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const hamburger=document.getElementById('hamburger');const mobileMenu=document.getElementById('mobile-menu');if(hamburger){hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');});}
+document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{q.parentElement.classList.toggle('open');});});
+</script>
+</body>
+</html>
