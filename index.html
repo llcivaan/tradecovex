@@ -306,6 +306,24 @@ h2{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clam
 .footer-bottom{max-width:1180px;margin:40px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
 .footer-copy{font-size:.78rem;color:#5B7399;letter-spacing:.01em}
 
+
+/* ── AFFILIATES PAGE ── */
+.aff-page{display:none;padding:120px 24px 100px;background:#fff;position:relative;min-height:100vh;overflow:hidden}
+.aff-page.active{display:block}
+.aff-page::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 900px 500px at 50% -5%,rgba(37,99,235,.12) 0%,transparent 55%),radial-gradient(ellipse 600px 400px at 15% 30%,rgba(37,99,235,.05) 0%,transparent 60%)}
+.aff-page::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(var(--grid-line) 1px,transparent 1px),linear-gradient(90deg,var(--grid-line) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 70% 60% at 50% 20%,black,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 20%,black,transparent 75%)}
+.aff-page > .container{position:relative;z-index:1}
+.aff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:48px 0 40px;max-width:920px;margin-left:auto;margin-right:auto}
+.aff-earn-card{background:linear-gradient(180deg,#fff 0%,#FAFBFF 100%);border:1.5px solid var(--border);border-radius:18px;padding:36px 30px;text-align:center;box-shadow:var(--shadow-sm);transition:transform .25s,box-shadow .25s,border-color .25s;position:relative;overflow:hidden}
+.aff-earn-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,rgba(37,99,235,.4),transparent);opacity:0;transition:opacity .25s}
+.aff-earn-card:hover{transform:translateY(-3px);border-color:#93C5FD;box-shadow:var(--shadow-lg)}
+.aff-earn-card:hover::before{opacity:1}
+.aff-earn-card.featured{border-color:var(--blue);box-shadow:0 18px 48px rgba(37,99,235,.18);background:linear-gradient(180deg,#fff 0%,#F4F7FE 100%)}
+.aff-earn-card.featured::before{opacity:1}
+.aff-earn-plan{font-family:var(--mono);font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.14em;color:var(--blue);margin-bottom:14px}
+.aff-earn-amount{font-family:'Barlow Semi Condensed',sans-serif;font-size:3rem;font-weight:800;line-height:1;letter-spacing:-.035em;margin-bottom:8px;background:linear-gradient(180deg,var(--navy) 0%,#2450E8 100%);-webkit-background-clip:text;background-clip:text;color:transparent;font-variant-numeric:tabular-nums}
+.aff-earn-note{font-family:var(--mono);font-size:.78rem;color:var(--slate-2);font-weight:500;letter-spacing:.02em}
+
 /* ── FADE-UP ANIMATION ── */
 .fade-up{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
 .fade-up.visible{opacity:1;transform:translateY(0)}
@@ -1001,7 +1019,7 @@ h2{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clam
 
       <div class="faq-item">
         <button class="faq-q">Which NinjaTrader brokers are supported?<div class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></div></button>
-        <div class="faq-a">Tradecovex works with all major NinjaTrader-compatible brokers and data feeds including Rithmic and CQG. Full broker compatibility list will be published before beta opens. Email <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a6d5d3d6d6c9d4d2e6d2d4c7c2c3c5c9d0c3de88c5c9cb">[email&#160;protected]</a> if you have a specific broker in mind.</div>
+        <div class="faq-a">Tradecovex works with all major NinjaTrader-compatible brokers and data feeds including Rithmic and CQG. Full broker compatibility list will be published before beta opens. Email support@tradecovex.com if you have a specific broker in mind.</div>
       </div>
 
       <div class="faq-item">
@@ -1172,7 +1190,7 @@ h2{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clam
           <li><a href="/privacy.html">Privacy Policy</a></li>
           <li><a href="/terms.html">Terms of Service</a></li>
           <li><a href="/refund.html">Refund Policy</a></li>
-          <li><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="53202623233c2127132721323736303c25362b7d303c3e">[email&#160;protected]</a></li>
+          <li>support@tradecovex.com</li>
         </ul>
       </div>
 
@@ -1241,7 +1259,7 @@ h2{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clam
     <p style="font-size:.95rem;color:var(--slate);line-height:1.8;margin-bottom:32px">IVAAN INC (operating as Tradecovex) is committed to protecting your personal information. This policy explains what data we collect, how we use it, where it is stored, and what rights you have over it.</p>
 
     <h2 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:12px">Who we are</h2>
-    <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px">IVAAN INC is a federally incorporated company based in Toronto, Ontario, Canada. We operate the Tradecovex trade copier and AI journal software. Our privacy contact is <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6615131616091412261214070203050910031e4805090b">[email&#160;protected]</a>.</p>
+    <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px">IVAAN INC is a federally incorporated company based in Toronto, Ontario, Canada. We operate the Tradecovex trade copier and AI journal software. Our privacy contact is support@tradecovex.com.</p>
 
     <h2 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:12px">What we collect</h2>
     <ul style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px;padding-left:20px">
@@ -1283,8 +1301,8 @@ h2{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clam
 
     <h2 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:12px">Your rights</h2>
     <ul style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px;padding-left:20px">
-      <li style="margin-bottom:8px"><strong>Right to access:</strong> you can request a full export of all data we hold about you at any time by emailing <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="483b3d3838273a3c083c3a292c2d2b273e2d30662b2725">[email&#160;protected]</a> or using the Export Data option in your account settings.</li>
-      <li style="margin-bottom:8px"><strong>Right to deletion:</strong> you can request permanent deletion of your account and all associated data at any time. We will complete deletion within 30 days of a written request. Use the Delete Account option in your account settings or email <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2e5d5b5e5e415c5a6e5a5c4f4a4b4d41584b56004d4143">[email&#160;protected]</a>.</li>
+      <li style="margin-bottom:8px"><strong>Right to access:</strong> you can request a full export of all data we hold about you at any time by emailing support@tradecovex.com or using the Export Data option in your account settings.</li>
+      <li style="margin-bottom:8px"><strong>Right to deletion:</strong> you can request permanent deletion of your account and all associated data at any time. We will complete deletion within 30 days of a written request. Use the Delete Account option in your account settings or email support@tradecovex.com.</li>
       <li style="margin-bottom:8px"><strong>Right to correct:</strong> if any information we hold about you is inaccurate, contact us and we will correct it.</li>
       <li style="margin-bottom:8px"><strong>Right to withdraw consent:</strong> if you have consented to any data processing (such as AI journal analysis or marketing emails), you can withdraw that consent at any time without affecting the legality of processing that took place before withdrawal.</li>
     </ul>
@@ -1296,13 +1314,13 @@ h2{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clam
     <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px">If a breach of your personal data occurs that poses a real risk of significant harm, we will notify you and the Office of the Privacy Commissioner of Canada within 72 hours of becoming aware of the breach.</p>
 
     <h2 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:12px">Applicable law</h2>
-    <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px">This policy is governed by the Personal Information Protection and Electronic Documents Act (PIPEDA), Canada's federal privacy law. Customers in jurisdictions outside Canada and the United States may have additional rights under their local privacy laws. To exercise any such rights, contact <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="cdbeb8bdbda2bfb98db9bfaca9a8aea2bba8b5e3aea2a0">[email&#160;protected]</a> and we will respond within 30 days.</p>
+    <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px">This policy is governed by the Personal Information Protection and Electronic Documents Act (PIPEDA), Canada's federal privacy law. Customers in jurisdictions outside Canada and the United States may have additional rights under their local privacy laws. To exercise any such rights, contact support@tradecovex.com and we will respond within 30 days.</p>
 
     <h2 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:12px">Changes to this policy</h2>
     <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px">We will notify you by email if we make material changes to this policy. The current version is always accessible via the Privacy Policy link in our footer.</p>
 
     <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:10px;padding:20px 24px;font-size:.88rem;color:#64748B">
-      Contact for privacy questions: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2655535656495452665254474243454950435e0845494b">[email&#160;protected]</a>
+      Contact for privacy questions: support@tradecovex.com
     </div>
   </div>
 </div>
@@ -1337,7 +1355,7 @@ h2{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clam
     <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px">Nothing in Tradecovex, including the AI journal analysis feature, constitutes investment advice, financial advice, a recommendation to buy or sell any security or futures contract, or a solicitation to trade. The AI journal provides analytical observations about your historical trading patterns. All trading decisions are yours alone.</p>
 
     <h2 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:12px">6. Account security</h2>
-    <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px">You are responsible for keeping your Tradecovex account credentials secure. You must notify us immediately at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3744424747584543774345565352545841524f1954585a">[email&#160;protected]</a> if you believe your account has been compromised. You are responsible for all activity that occurs under your account.</p>
+    <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px">You are responsible for keeping your Tradecovex account credentials secure. You must notify us immediately at support@tradecovex.com if you believe your account has been compromised. You are responsible for all activity that occurs under your account.</p>
 
     <h2 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:12px">7. Acceptable use</h2>
     <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px">You may not use Tradecovex to: violate any applicable law or regulation; interfere with or disrupt the service; attempt to gain unauthorised access to any system or data; use the service for any purpose other than your own personal trading management.</p>
@@ -1355,7 +1373,7 @@ h2{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clam
     <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:32px">We will notify you by email at least 14 days before making material changes to these terms. Continued use of the service after changes take effect constitutes acceptance of the new terms.</p>
 
     <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:10px;padding:20px 24px;font-size:.88rem;color:#64748B">
-      Contact: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="22515752524d5056625650434647414d54475a0c414d4f">[email&#160;protected]</a>
+      Contact: support@tradecovex.com
     </div>
   </div>
 </div>
@@ -1381,7 +1399,7 @@ h2{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clam
         <div class="aff-earn-amount">$15</div>
         <div class="aff-earn-note">per signup · one-time</div>
       </div>
-      <div class="aff-earn-card" style="border-color:#BFDBFE;background:#EFF6FF">
+      <div class="aff-earn-card featured">
         <div class="aff-earn-plan" style="color:var(--blue)">Pro Plan</div>
         <div class="aff-earn-amount">$25</div>
         <div class="aff-earn-note">per signup · one-time</div>
@@ -1422,13 +1440,13 @@ h2{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clam
     <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px">All Tradecovex plans include a 7-day free trial with no credit card required. You will not be charged anything during the trial period. You may cancel at any time during the trial with no obligation.</p>
 
     <h2 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:12px">2. Monthly Subscriptions</h2>
-    <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px">If you are on a monthly subscription and are not satisfied within the first 7 days of your first paid billing cycle, contact us at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f0838580809f8284b08482919495939f869588de939f9d">[email&#160;protected]</a> and we will issue a full refund of that month's payment. After the first 7 days of a paid billing period, refunds are not available for that period. Cancellation stops future charges immediately.</p>
+    <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px">If you are on a monthly subscription and are not satisfied within the first 7 days of your first paid billing cycle, contact us at support@tradecovex.com and we will issue a full refund of that month's payment. After the first 7 days of a paid billing period, refunds are not available for that period. Cancellation stops future charges immediately.</p>
 
     <h2 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:12px">3. Annual Subscriptions</h2>
-    <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px">Annual plans are eligible for a full refund within 14 days of the annual billing date if you are not satisfied. After 14 days, annual subscriptions are non-refundable for the remainder of the annual term. To request a refund on an annual plan, contact <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c1b2b4b1b1aeb3b581b5b3a0a5a4a2aeb7a4b9efa2aeac">[email&#160;protected]</a> with your order number.</p>
+    <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px">Annual plans are eligible for a full refund within 14 days of the annual billing date if you are not satisfied. After 14 days, annual subscriptions are non-refundable for the remainder of the annual term. To request a refund on an annual plan, contact support@tradecovex.com with your order number.</p>
 
     <h2 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:12px">4. How to Cancel</h2>
-    <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px">You can cancel your subscription at any time from your account dashboard or by emailing <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a9dadcd9d9c6dbdde9dddbc8cdcccac6dfccd187cac6c4">[email&#160;protected]</a>. Cancellation takes effect at the end of your current billing period. You retain full access until the end of the period you have paid for.</p>
+    <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px">You can cancel your subscription at any time from your account dashboard or by emailing support@tradecovex.com. Cancellation takes effect at the end of your current billing period. You retain full access until the end of the period you have paid for.</p>
 
     <h2 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:12px">5. Exceptions — No Refund Situations</h2>
     <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px">Refunds will not be issued in the following circumstances:</p>
@@ -1443,7 +1461,7 @@ h2{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clam
     <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px">Refunds are processed through Lemon Squeezy, our payment processor and Merchant of Record. Approved refunds are returned to the original payment method within 5–10 business days depending on your bank or card issuer.</p>
 
     <h2 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:12px">7. Contact</h2>
-    <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px">For all refund requests: <a href="/cdn-cgi/l/email-protection#8cfff9fcfce3fef8ccf8feede8e9efe3fae9f4a2efe3e1" style="color:var(--blue)"><span class="__cf_email__" data-cfemail="ee9d9b9e9e819c9aae9a9c8f8a8b8d81988b96c08d8183">[email&#160;protected]</span></a>
+    <p style="font-size:.92rem;color:var(--slate);line-height:1.8;margin-bottom:28px">For all refund requests: support@tradecovex.com
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false">
 // Event delegation for legal pages — works even if Cloudflare defers scripts
 document.addEventListener('click', function(e) {
