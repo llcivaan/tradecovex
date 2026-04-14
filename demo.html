@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280">
+<title>Tradecovex · Interactive Demo</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>*{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}:root[data-theme="dark"]{--bg:#060D1B;--surface:#0B1728;--surface-2:#13243E;--surface-3:#1B2E4A;--ink:#F2F5FB;--ink-2:#C8D2E1;--slate:#8596AE;--slate-2:#5A6B82;--slate-3:#3A485F;--line:#18263A;--line-2:#22344B;--blue:#4D7CFF;--blue-2:#7AA0FF;--blue-glow:rgba(77,124,255,.22);--green:#3FD69B;--green-2:#5FE5B0;--green-glow:rgba(63,214,155,.20);--red:#FF5A6B;--red-glow:rgba(255,90,107,.22);--amber:#F5B544;--amber-2:#FBC864;--purple:#A78BFA;--grid-op:.15}:root[data-theme="light"]{--bg:#FAFBFD;--surface:#FFFFFF;--surface-2:#F4F6FA;--surface-3:#EDF1F7;--ink:#0A1628;--ink-2:#1F2D44;--slate:#4B5E7A;--slate-2:#7081A0;--slate-3:#AAB6C7;--line:#E6EAF0;--line-2:#D6DCE6;--blue:#2450E8;--blue-2:#2563EB;--blue-glow:rgba(37,99,235,.14);--green:#0B9D6A;--green-2:#0B9D6A;--green-glow:rgba(11,157,106,.12);--red:#DC2626;--red-glow:rgba(220,38,38,.18);--amber:#B87514;--amber-2:#D18922;--purple:#7C3AED;--grid-op:.5}:root[data-theme="dark"] .lg-l{display:none}:root[data-theme="light"] .lg-d{display:none}html,body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font-size:13.5px;line-height:1.55;min-height:100vh;font-variant-numeric:tabular-nums;transition:background .3s,color .3s;overflow-x:hidden}:root[data-theme="light"] body{font-weight:500;letter-spacing:-.005em}.num{font-feature-settings:"tnum"}body::before{content:"";position:fixed;inset:0;background:radial-gradient(ellipse 900px 600px at 25% 5%,var(--blue-glow),transparent 60%),radial-gradient(ellipse 700px 400px at 90% 25%,rgba(245,181,68,.08),transparent 65%);pointer-events:none;z-index:0;filter:blur(30px)}body::after{content:"";position:fixed;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:80px 80px;opacity:var(--grid-op);pointer-events:none;z-index:0;mask-image:radial-gradient(ellipse 70% 50% at 50% 30%,#000,transparent 80%)}#intro{position:fixed;inset:0;background:var(--bg);z-index:9999;display:grid;place-items:center;animation:introOut 1s ease 2.8s forwards}#intro img{width:300px;height:auto;opacity:0;animation:bullIn 1.3s cubic-bezier(.22,1,.36,1) .2s forwards;filter:drop-shadow(0 0 50px rgba(77,124,255,.5))}@keyframes bullIn{from{opacity:0;transform:scale(.68)}to{opacity:1;transform:scale(1)}}@keyframes introOut{to{opacity:0;visibility:hidden}}#mobile-gate{display:none;position:fixed;inset:0;z-index:99999;background:var(--bg);padding:40px;text-align:center;flex-direction:column;justify-content:center;align-items:center;gap:24px}#mobile-gate img{width:96px;height:auto;opacity:.7}#mobile-gate h1{font-family:'Barlow Semi Condensed';font-size:30px;font-weight:700;letter-spacing:-.02em;color:var(--ink);max-width:340px;line-height:1.15}#mobile-gate p{font-size:14px;color:var(--slate);max-width:320px;line-height:1.5}#mobile-gate button{margin-top:8px;padding:12px 22px;background:var(--blue);color:#fff;border:0;border-radius:8px;font-family:'DM Sans';font-weight:600;font-size:13px;cursor:pointer}@media (max-width:900px){#mobile-gate{display:flex}}.app{display:flex;position:relative;z-index:1;min-height:100vh}.sb{width:232px;background:var(--surface);border-right:1px solid var(--line);padding:22px 0;flex-shrink:0;position:fixed;inset:0 auto 0 0;z-index:50;overflow-y:auto}.sb .brand{padding:0 18px 24px;border-bottom:1px solid var(--line);margin-bottom:8px;display:flex;justify-content:center;align-items:center;min-height:108px}.sb .brand img{height:90px;width:auto;max-width:100%;object-fit:contain}.ns{font-size:9.5px;text-transform:uppercase;letter-spacing:1.8px;color:var(--slate-2);padding:18px 26px 8px;font-weight:700}.nv a{display:flex;align-items:center;padding:9px 26px;color:var(--slate);text-decoration:none;font-size:13px;font-weight:500;border-left:2px solid transparent;transition:all .15s;cursor:pointer}.nv a:hover{color:var(--ink);background:rgba(77,124,255,.06)}.nv a.on{color:var(--ink);background:linear-gradient(90deg,rgba(77,124,255,.14),transparent 70%);border-left-color:var(--blue);font-weight:600}.nv a .tag{margin-left:auto;font-size:8.5px;padding:2px 5px;border-radius:3px;font-weight:700;letter-spacing:.4px;background:rgba(167,139,250,.15);color:var(--purple)}.nv a .dt{margin-left:auto;width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green),0 0 3px var(--green)}.nv a .ic{margin-right:10px;font-size:12px;opacity:.6}.main{margin-left:232px;flex:1;padding:24px 44px 100px;max-width:1320px}.page{display:none}.page.on{display:block}.states{display:flex;gap:4px;padding:5px;background:var(--surface-2);border:1px solid var(--line);border-radius:11px;margin-bottom:26px;width:fit-content;align-items:center}.states button{padding:9px 18px;background:transparent;border:0;border-radius:7px;color:var(--slate);font-family:'DM Sans';font-size:12px;font-weight:600;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:8px}.states button:hover{color:var(--ink-2)}.states button.on{background:var(--blue);color:#fff;box-shadow:0 2px 14px var(--blue-glow)}.states button .t{font-size:9px;text-transform:uppercase;letter-spacing:1.4px;font-weight:700;opacity:.7}.states-hint{margin-left:14px;font-size:10.5px;color:var(--slate);font-weight:500;font-style:italic;padding-right:8px}.state-panel{display:none}.state-panel.on{display:block}.state-panel.on .anim-1,.state-panel.on .anim-2,.state-panel.on .anim-3,.state-panel.on .anim-4,.state-panel.on .anim-5,.state-panel.on .anim-6,.state-panel.on .anim-7{opacity:0;animation:cardIn .7s cubic-bezier(.22,1,.36,1) both}.state-panel.on .anim-1{animation-delay:0ms}.state-panel.on .anim-2{animation-delay:100ms}.state-panel.on .anim-3{animation-delay:200ms}.state-panel.on .anim-4{animation-delay:300ms}.state-panel.on .anim-5{animation-delay:400ms}.state-panel.on .anim-6{animation-delay:500ms}.state-panel.on .anim-7{animation-delay:600ms}@keyframes cardIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}.state-panel.on .ring-arc{stroke-dasharray:var(--len,654);stroke-dashoffset:var(--len,654);animation:arcDraw 1s cubic-bezier(.25,.85,.4,1) both}.state-panel.on .ring-arc.a1{animation-delay:250ms}.state-panel.on .ring-arc.a2{animation-delay:380ms}.state-panel.on .ring-arc.a3{animation-delay:510ms}@keyframes arcDraw{from{stroke-dashoffset:var(--len,654)}to{stroke-dashoffset:var(--off,0)}}.state-panel[data-panel="live"].on .edc-line{stroke-dasharray:800;stroke-dashoffset:800;animation:lineDraw 1.3s cubic-bezier(.33,1,.5,1) .3s both}.state-panel[data-panel="live"].on .edc-fill{opacity:0;animation:fillIn 1s ease .9s both}.state-panel[data-panel="live"].on .edc-now{opacity:0;animation:fadeIn .4s ease 1.5s both}.state-panel[data-panel="post"].on .edc-line2{stroke-dasharray:1200;stroke-dashoffset:1200;animation:lineDraw2 1.4s cubic-bezier(.33,1,.5,1) .3s both}.state-panel[data-panel="post"].on .edc-fill2{opacity:0;animation:fillIn 1.2s ease 1s both}@keyframes lineDraw{to{stroke-dashoffset:0}}@keyframes lineDraw2{to{stroke-dashoffset:0}}@keyframes fillIn{from{opacity:0}to{opacity:1}}@keyframes fadeIn{from{opacity:0}to{opacity:1}}@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}@keyframes blink{0%,100%{opacity:.5}50%{opacity:1}}.top{display:flex;align-items:center;justify-content:space-between;margin-bottom:36px}.top .ph{display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono';font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:1.4px}.top .ph.pre{color:var(--amber-2)}.top .ph.live{color:var(--green-2)}.top .ph.post{color:var(--slate)}.top .ph.neu{color:var(--slate)}.top .ph .dot{width:6px;height:6px;border-radius:50%;background:currentColor;box-shadow:0 0 8px currentColor}.top .ph.live .dot{animation:pulse 2s infinite}.tools{display:flex;align-items:center;gap:12px}.cdn{font-family:'Barlow Semi Condensed';font-size:13px;font-weight:600;color:var(--ink-2);padding:6px 12px;background:var(--surface-2);border:1px solid var(--line);border-radius:7px}.cdn b{color:var(--ink)}.tt{display:flex;padding:4px;background:var(--surface-2);border:1px solid var(--line);border-radius:999px;cursor:pointer}.tt .opt{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;color:var(--slate-2);font-size:12px;transition:all .2s}.tt .opt.on{background:var(--blue);color:#fff}.eb{display:flex;align-items:center;gap:12px;margin-bottom:20px}.eb .bar{width:40px;height:1px;background:linear-gradient(90deg,var(--slate-2),transparent)}.eb .t{font-size:10.5px;text-transform:uppercase;letter-spacing:2.8px;color:var(--slate);font-weight:700}.eb .s{color:var(--slate-3)}.eb .dt{color:var(--ink-2);font-family:'JetBrains Mono';font-size:10.5px;letter-spacing:1px;font-weight:500}.coach{display:flex;gap:20px;margin-bottom:42px;max-width:920px}.coach .g{flex-shrink:0;width:32px;height:32px;margin-top:6px;border-radius:50%;background:linear-gradient(135deg,#F5B544,#D49333);box-shadow:0 0 28px rgba(245,181,68,.3)}.coach .msg{font-family:'Barlow Semi Condensed';font-size:22px;line-height:1.45;font-weight:500;letter-spacing:-.018em;color:var(--ink-2)}.coach .msg em{font-style:normal;color:var(--ink);font-weight:600}.coach .msg .g1{color:var(--green-2);font-weight:600}.coach .msg .a1{color:var(--amber-2);font-weight:600}.coach .msg .r1{color:var(--red);font-weight:600}.coach-bar{max-width:920px;padding:0 0 0 18px;margin-bottom:42px;border-left:2px solid rgba(245,181,68,.45);position:relative}.coach-bar .stamp{font-family:'DM Sans';font-size:9.5px;font-weight:700;letter-spacing:2.2px;color:var(--amber-2);text-transform:uppercase;margin-bottom:8px}.coach-bar .msg{font-family:'Barlow Semi Condensed';font-size:22px;line-height:1.45;font-weight:500;letter-spacing:-.018em;color:var(--ink-2)}.coach-bar .msg em{font-style:normal;color:var(--ink);font-weight:600}.coach-bar .msg .g1{color:var(--green-2);font-weight:600}.coach-bar .msg .a1{color:var(--amber-2);font-weight:600}.coach-bar .msg .r1{color:var(--red);font-weight:600}.hero{display:grid;grid-template-columns:1fr 1fr;gap:40px;padding-bottom:30px;border-bottom:1px solid var(--line);align-items:center}.js-block{display:flex;align-items:center;gap:32px}.lbl{display:flex;align-items:center;gap:8px;font-size:10.5px;text-transform:uppercase;letter-spacing:2.4px;color:var(--slate);font-weight:700;margin-bottom:18px}.qm{width:14px;height:14px;border-radius:50%;border:1px solid var(--slate-3);display:inline-grid;place-items:center;font-size:9px;color:var(--slate-2);cursor:help;font-family:serif;font-style:italic;font-weight:700}.ring{position:relative;width:230px;height:230px;flex-shrink:0}.ring svg{width:100%;height:100%;transform:rotate(-90deg)}.ring-cl{position:absolute;inset:0;display:grid;place-items:center;text-align:center}.ring-big{font-family:'Barlow Semi Condensed';font-weight:800;font-size:92px;line-height:.88;letter-spacing:-.045em;background:linear-gradient(180deg,#F2F5FB 0%,#7AA0FF 100%);-webkit-background-clip:text;background-clip:text;color:transparent;font-variant-numeric:tabular-nums}:root[data-theme="light"] .ring-big{background:linear-gradient(180deg,#0A1628 0%,#2450E8 100%);-webkit-background-clip:text;background-clip:text;color:transparent}.ring-tot{font-family:'Barlow Semi Condensed';font-size:15px;color:var(--slate-2);font-weight:600;margin-top:2px}.ring-tot.forming{font-family:'JetBrains Mono';font-size:10px;color:var(--amber-2);text-transform:uppercase;letter-spacing:1.4px;font-weight:700;animation:blink 1.6s ease-in-out infinite}.ring-legend{display:flex;justify-content:center;gap:16px;margin-top:14px;font-size:10px;color:var(--slate);text-transform:uppercase;letter-spacing:1.4px;font-weight:700}.ring-legend span{display:inline-flex;align-items:center;gap:6px}.ring-legend .sw{width:8px;height:8px;border-radius:2px}.ring-legend .sw.d{background:var(--green-2)}.ring-legend .sw.e{background:var(--blue-2)}.ring-legend .sw.r{background:var(--purple)}.details{flex:1;min-width:0}.grade{display:inline-flex;align-items:center;gap:8px;padding:5px 12px;background:rgba(63,214,155,.1);border:1px solid rgba(63,214,155,.3);border-radius:999px;font-size:11.5px;color:var(--green-2);font-weight:600;margin-bottom:14px}.grade b{font-family:'Barlow Semi Condensed';font-size:13px;font-weight:800}.grade.forming{background:rgba(245,181,68,.1);border-color:rgba(245,181,68,.35);color:var(--amber-2)}.grade.recovery{background:rgba(77,124,255,.1);border-color:rgba(77,124,255,.3);color:var(--blue-2)}.grade.warn{background:rgba(255,90,107,.1);border-color:rgba(255,90,107,.3);color:var(--red)}.delta-pill{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:999px;font-family:'JetBrains Mono';font-size:10.5px;font-weight:700;letter-spacing:.3px;margin-left:8px}.delta-pill.down{background:rgba(255,90,107,.12);color:var(--red);border:1px solid rgba(255,90,107,.3)}.delta-pill.up{background:rgba(63,214,155,.12);color:var(--green-2);border:1px solid rgba(63,214,155,.3)}.trend{font-family:'JetBrains Mono';font-size:11px;color:var(--slate);margin-bottom:14px}.trend .up{color:var(--green-2);font-weight:600}.trend .dn{color:var(--red);font-weight:600}.trend b{color:var(--ink-2)}.take{padding:14px 16px;background:var(--surface-2);border:1px solid var(--line);border-left:2px solid var(--slate-2);border-radius:8px;font-size:12.5px;color:var(--ink-2)}.take.pos{border-left-color:var(--green-2)}.take.warn{border-left-color:var(--amber-2)}.take.neg{border-left-color:var(--red)}.take .tl{font-size:9.5px;text-transform:uppercase;letter-spacing:1.8px;color:var(--slate-2);font-weight:700;margin-bottom:5px}.askai{display:inline-flex;align-items:center;gap:6px;font-family:'DM Sans';font-size:11px;font-weight:600;padding:5px 10px;background:rgba(245,181,68,.08);border:1px solid rgba(245,181,68,.3);border-radius:6px;color:var(--amber-2);cursor:pointer;margin-top:12px}.askai .el{font-size:8.5px;font-weight:800;padding:1px 4px;background:rgba(245,181,68,.2);border-radius:2px}.rside{padding:24px 26px;background:linear-gradient(180deg,var(--surface),var(--surface-2));border:1px solid var(--line);border-radius:14px;position:relative;overflow:hidden;height:100%;display:flex;flex-direction:column}.rside::before{content:"";position:absolute;top:-40px;right:-30px;width:200px;height:150px;background:radial-gradient(ellipse at center,var(--green-glow),transparent 70%);filter:blur(20px)}.rside .hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;position:relative}.rside h3{font-family:'Barlow Semi Condensed';font-size:17px;font-weight:700;letter-spacing:-.015em}.pill{display:inline-flex;align-items:center;gap:6px;font-size:9.5px;text-transform:uppercase;letter-spacing:1.6px;font-weight:700;padding:4px 10px;border-radius:4px}.pill.g{color:var(--green-2);background:rgba(63,214,155,.1);border:1px solid rgba(63,214,155,.3)}.pill.b{color:var(--blue-2);background:rgba(77,124,255,.1);border:1px solid rgba(77,124,255,.3)}.pill.r{color:var(--red);background:rgba(255,90,107,.1);border:1px solid rgba(255,90,107,.3)}.pill.a{color:var(--amber-2);background:rgba(245,181,68,.1);border:1px solid rgba(245,181,68,.3)}.pill .d{width:6px;height:6px;border-radius:50%;background:currentColor;box-shadow:0 0 8px currentColor}.rside ul{list-style:none;position:relative}.rside li{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px dashed var(--line-2);font-size:12.5px}.rside li:last-child{border-bottom:0}.rside li .ck{width:18px;height:18px;border-radius:50%;background:rgba(63,214,155,.15);border:1px solid rgba(63,214,155,.4);display:grid;place-items:center;color:var(--green-2);font-size:10px;font-weight:800}.rside li .ck.broken{background:rgba(255,90,107,.15);border-color:rgba(255,90,107,.4);color:var(--red)}.rside li .lb{color:var(--ink-2);flex:1}.rside li .vl{font-family:'JetBrains Mono';font-size:11px;color:var(--slate)}.rside li .vl b{color:var(--ink)}.rside.pnl{padding:28px 30px;text-align:left}.rside.pnl .pnl-lbl{font-size:10.5px;text-transform:uppercase;letter-spacing:2.4px;color:var(--slate);font-weight:700;margin-bottom:10px}.rside.pnl .pnl-big{font-family:'Barlow Semi Condensed';font-size:76px;font-weight:700;line-height:.9;letter-spacing:-.035em;color:var(--green);font-variant-numeric:tabular-nums}.rside.pnl .pnl-big.final{font-size:86px}.rside.pnl .pnl-big.neg{color:var(--red)}.rside.pnl .pnl-sub{margin-top:12px;font-family:'JetBrains Mono';font-size:11.5px;color:var(--slate);display:flex;flex-wrap:wrap;gap:10px;align-items:center}.rside.pnl .pnl-sub .sep{width:3px;height:3px;border-radius:50%;background:var(--slate-3)}.rside.pnl .pnl-sub .chg{color:var(--green-2);font-weight:500}.rside.pnl .pnl-sub .chg.dn{color:var(--red)}.rl{display:flex;align-items:center;gap:10px;padding:6px 0;font-size:12px;color:var(--ink-2)}.rl .st{width:6px;height:6px;border-radius:50%;background:var(--green-2);box-shadow:0 0 6px var(--green-2);flex-shrink:0}.rl .st.broken{background:var(--red);box-shadow:0 0 6px var(--red)}.rl b{color:var(--ink);font-weight:600}.section-hd{display:flex;align-items:baseline;justify-content:space-between;margin:32px 0 14px}.section-hd h2{font-size:10.5px;text-transform:uppercase;letter-spacing:2.4px;color:var(--slate);font-weight:700}.section-hd .rt{font-size:11.5px;color:var(--slate)}.ap-wrap{position:relative}.ap-wrap::after{content:"";position:absolute;top:0;right:0;bottom:0;width:60px;background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none;z-index:2}.ap{display:flex;gap:14px;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin;scrollbar-color:var(--line-2) transparent}.ap::-webkit-scrollbar{height:6px}.ap::-webkit-scrollbar-thumb{background:var(--line-2);border-radius:3px}.ac{padding:18px 20px;background:var(--surface);border:1px solid var(--line);border-radius:12px;min-width:240px;flex-shrink:0;transition:transform .15s}.ac:hover{transform:translateY(-2px)}.ac .hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:2px}.ac .nm{font-family:'Barlow Semi Condensed';font-size:16px;font-weight:700;color:var(--ink);letter-spacing:-.01em}.ac .st{width:8px;height:8px;border-radius:50%;box-shadow:0 0 8px currentColor}.ac .st.r{background:#FF5A6B;color:#FF5A6B}.ac .st.a{background:var(--amber-2);color:var(--amber-2)}.ac .st.g{background:var(--green-2);color:var(--green-2)}.ac .sub{font-size:10.5px;text-transform:uppercase;letter-spacing:1.8px;color:var(--slate-2);font-weight:700;margin-bottom:14px}.ac .mt{font-size:9.5px;text-transform:uppercase;letter-spacing:1.6px;color:var(--slate-2);font-weight:700;margin-bottom:5px;display:flex;justify-content:space-between}.ac .mt .live{color:var(--green-2);font-family:'JetBrains Mono'}.ac .mt .live.dn{color:var(--red)}.ac .val{font-family:'Barlow Semi Condensed';font-size:30px;font-weight:800;line-height:1;letter-spacing:-.02em;margin-bottom:14px}.ac .val.r{color:var(--red)}.ac .val.a{color:var(--amber-2)}.ac .val.g{color:var(--green-2)}.ac .bar{height:4px;background:var(--surface-3);border-radius:4px;overflow:hidden}.ac .fill{height:100%;border-radius:4px}.ac .fill.r{background:linear-gradient(90deg,#FF5A6B,#FF7A88)}.ac .fill.a{background:linear-gradient(90deg,#F5B544,#FBC864)}.ac .fill.g{background:linear-gradient(90deg,#3FD69B,#5FE5B0)}.ewt{margin-top:30px;padding:26px 28px 22px;background:linear-gradient(180deg,var(--surface),var(--surface-2));border:1px solid var(--line);border-radius:14px;position:relative;overflow:hidden}.ewt::before{content:"";position:absolute;top:-50px;left:30%;width:400px;height:200px;background:radial-gradient(ellipse at center,var(--blue-glow),transparent 70%);filter:blur(30px)}.ewt .hd{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:4px;position:relative}.ewt h3{font-family:'Barlow Semi Condensed';font-size:17px;font-weight:700;letter-spacing:-.015em;margin-bottom:4px}.ewt .sub{font-size:12px;color:var(--slate);max-width:460px}.ewt .tag{font-size:9.5px;text-transform:uppercase;letter-spacing:1.8px;font-weight:700;color:var(--slate);padding:5px 10px;background:var(--surface-3);border:1px solid var(--line-2);border-radius:4px}.tl{margin-top:44px;position:relative;height:108px}.tl .track{position:absolute;top:46px;left:0;right:0;height:8px;background:var(--surface-3);border-radius:5px;border:1px solid var(--line-2)}.tl .edge{position:absolute;top:46px;left:27%;width:32%;height:8px;background:linear-gradient(90deg,rgba(63,214,155,.45),rgba(63,214,155,.8),rgba(63,214,155,.45));border-radius:5px;box-shadow:0 0 20px rgba(63,214,155,.3)}.tl .edge-lb{position:absolute;top:22px;left:27%;width:32%;text-align:center;font-family:'JetBrains Mono';font-size:10px;color:var(--green-2);font-weight:600;letter-spacing:1.2px}.tl .ev{position:absolute;top:40px;width:2px;height:20px;background:var(--amber-2)}.tl .ev .lb{position:absolute;width:70px;text-align:center;font-family:'JetBrains Mono';font-size:10px;color:var(--amber-2);font-weight:600;line-height:1.3}.tl .ev .lb small{display:block;color:var(--slate);font-size:9px;margin-top:2px;font-weight:500}.tl .ev.up .lb{bottom:26px;left:-34px}.tl .ev.dn .lb{top:24px;left:-34px}.tl .now{position:absolute;top:36px;width:2px;height:28px;background:var(--blue);box-shadow:0 0 10px var(--blue)}.tl .now::after{content:"NOW";position:absolute;top:-16px;left:-13px;font-family:'JetBrains Mono';font-size:9px;color:var(--blue);font-weight:700;letter-spacing:1.2px}.tl .now::before{content:"";position:absolute;top:-4px;left:-3px;width:8px;height:8px;border-radius:50%;background:var(--blue);animation:pulse 2s infinite}.tl .marks{position:absolute;bottom:4px;left:0;right:0;display:flex;justify-content:space-between;font-family:'JetBrains Mono';font-size:10px;color:var(--slate-2);font-weight:500}.edc{margin-top:28px;padding:26px 28px 22px;background:linear-gradient(180deg,var(--surface),var(--surface-2));border:1px solid var(--line);border-radius:14px;position:relative;overflow:hidden}.edc::before{content:"";position:absolute;top:-50px;right:-50px;width:300px;height:200px;background:radial-gradient(ellipse at center,var(--green-glow),transparent 70%);filter:blur(30px)}.edc .hd{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px;position:relative}.edc h3{font-family:'Barlow Semi Condensed';font-size:17px;font-weight:700;letter-spacing:-.015em;margin-bottom:4px}.edc .sub{font-size:12px;color:var(--slate);max-width:440px}.edc .chart{position:relative;margin-top:14px}.edc svg{width:100%;height:auto;display:block}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:24px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:24px}.card{padding:20px 22px;background:var(--surface);border:1px solid var(--line);border-radius:12px;position:relative}.card h4{font-size:9.5px;text-transform:uppercase;letter-spacing:1.9px;color:var(--slate-2);font-weight:700;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between}.card h4 .ct{font-family:'Barlow Semi Condensed';font-size:12.5px;color:var(--ink-2);font-weight:700;text-transform:none;letter-spacing:-.01em}.ev2{display:flex;gap:12px;padding:9px 0;border-bottom:1px dashed var(--line-2);font-size:12px}.ev2:last-child{border-bottom:0}.ev2 .tm{font-family:'JetBrains Mono';font-size:10.5px;color:var(--ink);font-weight:600;width:48px;flex-shrink:0;padding-top:1px}.ev2 .ti{color:var(--ink-2);line-height:1.45}.ev2 .im{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;margin-top:3px;color:var(--red)}.ev2 .im.m{color:var(--amber-2)}.ev2 .im.l{color:var(--slate-2)}.pt{padding:10px 0;border-bottom:1px dashed var(--line-2);font-size:12px;line-height:1.5}.pt:last-child{border-bottom:0}.pt .tg{display:inline-block;font-size:8.5px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;padding:2px 6px;border-radius:3px;margin-bottom:5px}.pt .tg.c{background:rgba(255,90,107,.12);color:var(--red)}.pt .tg.o{background:rgba(63,214,155,.12);color:var(--green-2)}.pt b{color:var(--ink)}.pt .g1{color:var(--green-2);font-weight:600}.pt .r1{color:var(--red);font-weight:600}.prime{margin-top:32px;padding:22px 28px;background:linear-gradient(135deg,rgba(77,124,255,.08),rgba(167,139,250,.06));border:1px solid rgba(77,124,255,.2);border-radius:14px;display:flex;align-items:center;gap:24px}.prime .lbl2{font-size:10px;text-transform:uppercase;letter-spacing:2.4px;color:var(--blue-2);font-weight:700;flex-shrink:0;width:140px}.prime .txt{flex:1;font-family:'Barlow Semi Condensed';font-size:16px;color:var(--ink-2);font-weight:500;line-height:1.4}.prime .txt b{color:var(--ink);font-weight:700}.prime .txt em{font-style:normal;color:var(--green-2);font-weight:600}.prime .btn{background:var(--blue);color:#fff;border:0;padding:11px 22px;border-radius:8px;font-family:'DM Sans';font-size:12px;font-weight:600;cursor:pointer;flex-shrink:0;transition:transform .15s}.prime .btn:hover{transform:translateY(-1px)}#copier-screen{position:fixed;inset:0;background:var(--bg);z-index:200;display:none;align-items:center;justify-content:center;padding:40px;animation:fadeIn .5s both}#copier-screen.on{display:flex}#copier-close{position:absolute;top:24px;right:28px;padding:8px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:6px;font-size:11px;color:var(--slate);font-family:'DM Sans';cursor:pointer;font-weight:600;z-index:201}#copier-close:hover{color:var(--ink);border-color:var(--slate)}.cwin{width:840px;max-width:100%;background:#FAFAFA;border-radius:8px;box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 0 1px rgba(0,0,0,.1);overflow:hidden;color:#1a1a1a;font-family:'DM Sans'}.cwin .titlebar{display:flex;align-items:stretch;background:#E8E8E8;border-bottom:1px solid #D0D0D0}.cwin .titlebar .tab{background:#D9534F;color:#fff;padding:7px 14px;font-size:11.5px;font-weight:600}.cwin .titlebar .sp{flex:1}.cwin .titlebar .wbtns{display:flex;align-items:center;gap:0}.cwin .titlebar .wbtns span{width:34px;height:28px;display:grid;place-items:center;color:#666;font-size:13px;cursor:pointer}.cwin .titlebar .wbtns span:hover{background:#D0D0D0}.cwin .titlebar .wbtns span.cls:hover{background:#E81123;color:#fff}.cwin .body{padding:18px 22px}.cwin .header{display:flex;align-items:center;gap:10px;margin-bottom:14px}.cwin .header .dot{width:9px;height:9px;border-radius:50%;background:#3FA76A;box-shadow:0 0 6px rgba(63,167,106,.6)}.cwin .header .nm{font-family:'Barlow Semi Condensed';font-size:18px;font-weight:700;color:#1a1a1a;letter-spacing:-.01em}.cwin .header .ver{font-size:10px;color:#888;font-weight:500;margin-left:2px}.cwin .status{padding:14px 18px;background:#fff;border:1px solid #E0E0E0;border-radius:6px;display:grid;grid-template-columns:1fr 1fr;gap:8px 30px;margin-bottom:14px;font-size:12px;color:#444}.cwin .status .row{display:flex;gap:14px}.cwin .status .lb{color:#888;width:110px;flex-shrink:0;font-size:11.5px}.cwin .status .vl{color:#222;font-weight:500}.cwin .status .vl.green{color:#3FA76A;font-weight:600}.cwin .status .vl.green::before{content:"● ";color:#3FA76A}.cwin .toolbar{display:flex;gap:6px;margin-bottom:12px}.cwin .tbtn{padding:9px 14px;background:#fff;border:1px solid #DCDCDC;border-radius:5px;font-size:11.5px;color:#444;font-weight:500;cursor:pointer;font-family:'DM Sans';transition:all .15s}.cwin .tbtn:hover{background:#F5F5F5;border-color:#BBB}.cwin .tbtn.start{border-color:#3FA76A;color:#2E8B57;font-weight:600}.cwin .tbtn.start:hover{background:#EAFFF3}.cwin .accts{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}.cwin .acct{padding:10px 12px;background:#E9F7EE;border:1px solid #B8DFC4;border-radius:5px;font-size:12px;cursor:pointer;transition:all .15s}.cwin .acct:hover{background:#D9F0E1;border-color:#3FA76A}.cwin .acct .nm2{font-family:'DM Sans';font-weight:600;color:#1F6B3F;font-size:11.5px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.cwin .acct .mlt{font-family:'JetBrains Mono';font-size:10.5px;color:#3FA76A;margin-top:3px;font-weight:500}.cwin .legend{display:flex;gap:18px;font-size:10.5px;color:#666;margin:6px 0 12px;align-items:center}.cwin .legend span{display:inline-flex;align-items:center;gap:5px}.cwin .legend .lgd{width:8px;height:8px;border-radius:50%}.cwin .legend .lgd.armed{background:#3FA76A}.cwin .legend .lgd.drift{background:#E08D2D}.cwin .legend .lgd.dis{background:#AAA}.cwin .legend .lgd.lead{background:#3478F6}.cwin .actions{display:grid;grid-template-columns:1fr 1fr;gap:6px}.cwin .actbtn{padding:11px;background:#fff;border:1px solid #DCDCDC;border-radius:5px;font-size:11.5px;color:#444;cursor:pointer;text-align:center;font-family:'DM Sans';font-weight:500}.cwin .actbtn:hover{background:#F5F5F5}.cwin .showlog{text-align:right;font-size:10.5px;color:#888;margin-top:6px;cursor:pointer}.cwin .flatten{margin-top:14px;padding:14px;background:#FFF1F2;border:1px solid #FFD0D5;border-radius:5px;text-align:center;font-size:12px;font-weight:700;color:#D9534F;cursor:pointer;letter-spacing:.4px;text-transform:uppercase}#alert-ribbon{position:fixed;top:0;left:232px;right:0;background:linear-gradient(90deg,rgba(245,181,68,.22),rgba(245,181,68,.1));border-bottom:1px solid rgba(245,181,68,.45);padding:11px 28px;display:none;align-items:center;gap:14px;z-index:80;animation:slideDown .4s cubic-bezier(.22,1,.36,1) both;backdrop-filter:blur(8px)}#alert-ribbon.on{display:flex}body.tour-active #alert-ribbon{top:46px}@keyframes slideDown{from{transform:translateY(-100%)}to{transform:translateY(0)}}#alert-ribbon .txt{flex:1;font-family:'Barlow Semi Condensed';font-size:13.5px;font-weight:600;color:var(--ink);letter-spacing:.01em}#alert-ribbon .txt b{color:var(--amber-2);font-weight:700}#alert-ribbon .x{padding:6px 12px;background:rgba(245,181,68,.18);border:1px solid rgba(245,181,68,.4);border-radius:5px;font-size:11px;color:var(--amber-2);cursor:pointer;font-weight:600;font-family:'DM Sans'}#alert-ribbon .x:hover{background:rgba(245,181,68,.28)}#tour-overlay{position:fixed;inset:0;pointer-events:none;z-index:1000;display:none}#tour-overlay.on{display:block}#tour-mask{position:absolute;inset:0;background:rgba(0,0,0,.62);transition:clip-path .55s cubic-bezier(.22,1,.36,1);pointer-events:auto;cursor:pointer}:root[data-theme="light"] #tour-mask{background:rgba(15,30,60,.42)}#tour-spotlight{position:absolute;border:2px solid var(--blue);border-radius:10px;box-shadow:0 0 0 4px rgba(77,124,255,.18),0 0 30px rgba(77,124,255,.45);transition:all .55s cubic-bezier(.22,1,.36,1);pointer-events:none;animation:spotlightPulse 2.4s ease-in-out infinite}@keyframes spotlightPulse{0%,100%{box-shadow:0 0 0 4px rgba(77,124,255,.18),0 0 30px rgba(77,124,255,.45)}50%{box-shadow:0 0 0 6px rgba(77,124,255,.28),0 0 40px rgba(77,124,255,.6)}}#tour-card{position:absolute;width:340px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px 22px;box-shadow:0 24px 50px rgba(0,0,0,.45),0 0 0 1px rgba(77,124,255,.2);transition:all .55s cubic-bezier(.22,1,.36,1);pointer-events:auto;font-family:'DM Sans'}#tour-card .step{font-family:'JetBrains Mono';font-size:9.5px;color:var(--blue-2);font-weight:700;letter-spacing:1.6px;text-transform:uppercase;margin-bottom:8px}#tour-card .ttl{font-family:'Barlow Semi Condensed';font-size:18px;font-weight:700;color:var(--ink);letter-spacing:-.012em;line-height:1.25;margin-bottom:8px}#tour-card .body{font-size:13px;color:var(--ink-2);line-height:1.5;margin-bottom:14px}#tour-card .body em{font-style:normal;color:var(--ink);font-weight:600}#tour-card .body .a1{color:var(--amber-2);font-weight:600}#tour-card .body .g1{color:var(--green-2);font-weight:600}#tour-card .body .r1{color:var(--red);font-weight:600}#tour-card .actions{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:12px;border-top:1px solid var(--line)}#tour-card .hint{font-size:11px;color:var(--slate);font-style:italic;display:flex;align-items:center;gap:6px}#tour-card .hint::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--blue);box-shadow:0 0 8px var(--blue);animation:pulse 1.6s infinite}#tour-card .next{padding:7px 14px;background:var(--blue);color:#fff;border:0;border-radius:6px;font-family:'DM Sans';font-size:11.5px;font-weight:600;cursor:pointer;transition:all .15s}#tour-card .next:hover{background:var(--blue-2);transform:translateX(2px)}#tour-header{position:fixed;top:0;left:0;right:0;height:46px;background:linear-gradient(180deg,rgba(11,23,40,.94),rgba(11,23,40,.78));border-bottom:1px solid var(--line);z-index:1100;display:flex;align-items:center;padding:0 20px;backdrop-filter:blur(8px);font-family:'DM Sans'}:root[data-theme="light"] #tour-header{background:linear-gradient(180deg,rgba(255,255,255,.96),rgba(255,255,255,.82))}#tour-header .label{font-size:10.5px;color:var(--slate);text-transform:uppercase;letter-spacing:1.8px;font-weight:700;margin-right:14px}#tour-header .progress{flex:1;height:4px;background:var(--surface-3);border-radius:2px;overflow:hidden;max-width:480px}#tour-header .progress .fill{height:100%;background:linear-gradient(90deg,var(--blue),var(--blue-2));width:0%;transition:width .5s cubic-bezier(.22,1,.36,1);box-shadow:0 0 8px var(--blue)}#tour-header .step-count{font-family:'JetBrains Mono';font-size:11px;color:var(--ink-2);font-weight:600;margin:0 14px;min-width:56px}#tour-header .skip{margin-left:auto;padding:6px 14px;background:transparent;border:1px solid var(--line-2);border-radius:6px;font-size:11.5px;color:var(--slate);cursor:pointer;font-family:'DM Sans';font-weight:500;transition:all .15s}#tour-header .skip:hover{color:var(--ink);border-color:var(--slate)}body.tour-active{padding-top:46px}#final-card{position:fixed;inset:0;background:var(--bg);z-index:1500;display:none;align-items:center;justify-content:center;padding:40px;animation:fadeIn .6s both}#final-card.on{display:flex}#final-card .inner{max-width:620px;text-align:center;position:relative;z-index:2}#final-card img{width:140px;margin:0 auto 28px;opacity:.95;filter:drop-shadow(0 0 30px rgba(77,124,255,.4))}#final-card .eyebrow{font-family:'JetBrains Mono';font-size:11px;color:var(--blue-2);text-transform:uppercase;letter-spacing:2.4px;font-weight:700;margin-bottom:18px}#final-card h1{font-family:'Barlow Semi Condensed';font-size:44px;font-weight:700;color:var(--ink);letter-spacing:-.02em;line-height:1.12;margin-bottom:18px}#final-card p{font-size:16px;color:var(--ink-2);line-height:1.55;margin-bottom:32px;max-width:520px;margin-left:auto;margin-right:auto}#final-card .btnrow{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}.cta-pri{padding:14px 28px;background:var(--blue);color:#fff;border:0;border-radius:9px;font-family:'DM Sans';font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s;box-shadow:0 6px 20px var(--blue-glow)}.cta-pri:hover{transform:translateY(-2px);box-shadow:0 10px 30px var(--blue-glow)}.cta-sec{padding:14px 24px;background:transparent;color:var(--ink-2);border:1px solid var(--line-2);border-radius:9px;font-family:'DM Sans';font-size:14px;font-weight:500;cursor:pointer;transition:all .15s;text-decoration:none;display:inline-block}.cta-sec:hover{color:var(--ink);border-color:var(--slate)}.letter-grade-card{padding:32px;background:linear-gradient(135deg,var(--surface),var(--surface-2));border:1px solid var(--line);border-radius:16px;display:grid;grid-template-columns:1fr 2fr;gap:32px;align-items:center;margin-bottom:28px}.letter-grade{font-family:'Barlow Semi Condensed';font-size:140px;font-weight:800;line-height:.8;letter-spacing:-.05em;background:linear-gradient(180deg,#4D7CFF 0%,#7AA0FF 100%);-webkit-background-clip:text;background-clip:text;color:transparent;text-align:center}.grade-sub{font-size:12px;color:var(--slate);text-transform:uppercase;letter-spacing:2px;font-weight:700;margin-top:8px;text-align:center}.qstats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.qstat{padding:14px 16px;background:var(--surface);border:1px solid var(--line);border-radius:10px}.qstat .qv{font-family:'Barlow Semi Condensed';font-size:28px;font-weight:800;color:var(--ink);letter-spacing:-.02em;line-height:1}.qstat .qv.g{color:var(--green-2)}.qstat .qv.r{color:var(--red)}.qstat .ql{font-size:10px;text-transform:uppercase;letter-spacing:1.4px;color:var(--slate);font-weight:700;margin-top:6px}.focus-input{margin-top:24px;padding:20px 24px;background:linear-gradient(135deg,rgba(77,124,255,.08),rgba(167,139,250,.06));border:1px solid rgba(77,124,255,.2);border-radius:12px}.focus-input .fi-lbl{font-size:10px;text-transform:uppercase;letter-spacing:2.4px;color:var(--blue-2);font-weight:700;margin-bottom:8px}.focus-input .fi-hint{font-size:11.5px;color:var(--slate);margin-bottom:12px;font-style:italic}.focus-input input,.focus-input textarea{width:100%;padding:12px 14px;background:var(--surface);border:1px solid var(--line-2);border-radius:8px;color:var(--ink);font-family:'Barlow Semi Condensed';font-size:15px;font-weight:500}.focus-input input:focus,.focus-input textarea:focus{outline:0;border-color:var(--blue)}.ritual{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:28px}.ritual .rcard{padding:20px 22px;background:var(--surface);border:1px solid var(--line);border-radius:12px}.ritual h4{font-size:10px;text-transform:uppercase;letter-spacing:2.4px;color:var(--slate);font-weight:700;margin-bottom:14px}.ritual label{font-size:10px;text-transform:uppercase;letter-spacing:1.4px;color:var(--slate-2);font-weight:700;display:block;margin-top:12px;margin-bottom:6px}.ritual input{width:100%;padding:9px 12px;background:var(--surface-2);border:1px solid var(--line);border-radius:6px;color:var(--ink);font-family:'DM Sans';font-size:12.5px}.ritual input::placeholder{color:var(--slate-3);font-style:italic}.acct-hero{padding:28px 32px;background:linear-gradient(135deg,var(--surface),var(--surface-2));border:1px solid var(--line);border-radius:14px;display:grid;grid-template-columns:2fr 3fr;gap:32px;align-items:center;margin-bottom:28px}.acct-pnl{font-family:'Barlow Semi Condensed';font-size:72px;font-weight:700;letter-spacing:-.035em;line-height:.9;color:var(--green-2);font-variant-numeric:tabular-nums}.acct-pnl-lbl{font-size:10px;text-transform:uppercase;letter-spacing:2.2px;color:var(--slate);font-weight:700;margin-bottom:8px}.acct-pnl-sub{margin-top:12px;font-family:'JetBrains Mono';font-size:11.5px;color:var(--slate)}.acct-portfolio{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.acct-portfolio .qstat{padding:14px 16px}.acct-table{margin-top:24px;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}.acct-table table{width:100%;border-collapse:collapse;font-size:12.5px}.acct-table th{padding:14px 18px;text-align:left;background:var(--surface-2);color:var(--slate);font-size:9.5px;text-transform:uppercase;letter-spacing:1.8px;font-weight:700;border-bottom:1px solid var(--line)}.acct-table td{padding:14px 18px;border-bottom:1px solid var(--line);color:var(--ink-2);font-family:'JetBrains Mono';font-size:12px}.acct-table tr:last-child td{border-bottom:0}.acct-table .firm-tag{display:inline-block;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:2px 6px;border-radius:3px;background:var(--surface-3);color:var(--slate)}.acct-table .st-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}.acct-table .st-dot.g{background:var(--green-2);box-shadow:0 0 6px var(--green-2)}.acct-table .st-dot.a{background:var(--amber-2);box-shadow:0 0 6px var(--amber-2)}.acct-table .st-dot.r{background:var(--red);box-shadow:0 0 6px var(--red)}.acct-table .nm3{font-family:'Barlow Semi Condensed';font-weight:700;color:var(--ink);font-size:13px}.acct-table .pos{color:var(--green-2);font-weight:600}.acct-table .neg{color:var(--red);font-weight:600}.jrn-hero{padding:28px 32px;background:linear-gradient(135deg,var(--surface),var(--surface-2));border:1px solid var(--line);border-radius:14px;display:grid;grid-template-columns:1fr 2fr;gap:32px;margin-bottom:28px}.setup-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}.setup-card{padding:20px 22px;background:var(--surface);border:1px solid var(--line);border-radius:12px;position:relative;overflow:hidden;cursor:pointer;transition:all .2s}.setup-card:hover{transform:translateY(-2px);border-color:rgba(77,124,255,.4)}.setup-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--green-2)}.setup-card.neg::before{background:var(--red)}.setup-card.neu::before{background:var(--amber-2)}.setup-card .sc-hd{display:flex;justify-content:space-between;align-items:start;margin-bottom:12px}.setup-card .sc-nm{font-family:'Barlow Semi Condensed';font-size:15px;font-weight:700;color:var(--ink);letter-spacing:-.01em}.setup-card .sc-tag{font-size:9px;text-transform:uppercase;font-weight:700;padding:2px 6px;border-radius:3px;background:rgba(63,214,155,.12);color:var(--green-2);letter-spacing:1px}.setup-card.neg .sc-tag{background:rgba(255,90,107,.12);color:var(--red)}.setup-card.neu .sc-tag{background:rgba(245,181,68,.12);color:var(--amber-2)}.setup-card .sc-wr{font-family:'Barlow Semi Condensed';font-size:36px;font-weight:800;color:var(--ink);letter-spacing:-.03em;line-height:.9;margin-bottom:4px}.setup-card .sc-pnl{font-family:'JetBrains Mono';font-size:14px;font-weight:600;color:var(--green-2)}.setup-card.neg .sc-pnl{color:var(--red)}.setup-card .sc-meta{margin-top:10px;font-family:'JetBrains Mono';font-size:10.5px;color:var(--slate);display:flex;justify-content:space-between}.edge-split{display:grid;grid-template-columns:1fr 1fr;gap:40px;padding:28px 32px;background:linear-gradient(135deg,var(--surface),var(--surface-2));border:1px solid var(--line);border-radius:14px;margin-bottom:28px;position:relative}.edge-split::after{content:"";position:absolute;left:50%;top:20%;bottom:20%;width:1px;background:linear-gradient(180deg,transparent,var(--line-2),transparent)}.edge-col h4{font-size:10px;text-transform:uppercase;letter-spacing:2.2px;color:var(--slate);font-weight:700;margin-bottom:10px}.edge-big{font-family:'Barlow Semi Condensed';font-size:72px;font-weight:800;line-height:.85;letter-spacing:-.035em;color:var(--ink)}.edge-big .unit{font-size:24px;color:var(--slate);font-weight:500;margin-left:4px}.edge-col .sub{margin-top:12px;font-size:12px;color:var(--slate);font-family:'JetBrains Mono'}.edge-col .ribbon{display:inline-block;margin-top:14px;padding:5px 10px;border-radius:4px;font-size:9.5px;text-transform:uppercase;letter-spacing:1.4px;font-weight:700;background:rgba(245,181,68,.12);color:var(--amber-2);border:1px solid rgba(245,181,68,.3)}.edge-col .ribbon.g{background:rgba(63,214,155,.12);color:var(--green-2);border-color:rgba(63,214,155,.3)}.money-flow{padding:28px 32px;background:linear-gradient(180deg,var(--surface),var(--surface-2));border:1px solid var(--line);border-radius:14px;margin-top:28px}.money-flow h3{font-family:'Barlow Semi Condensed';font-size:17px;font-weight:700;margin-bottom:4px;letter-spacing:-.015em}.money-flow .sub{font-size:12px;color:var(--slate);margin-bottom:20px}.mf-bar{display:flex;height:56px;border-radius:10px;overflow:hidden;margin-bottom:14px;position:relative;box-shadow:0 0 0 1px var(--line-2)}.mf-seg{display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono';font-size:11px;color:#fff;font-weight:700;padding:0 8px;position:relative}.mf-seg .mflab{font-size:9.5px;text-transform:uppercase;letter-spacing:.8px}.mf-axis{display:flex;justify-content:space-between;font-family:'JetBrains Mono';font-size:10.5px;color:var(--slate);font-weight:600;margin-top:14px}.mf-axis b{color:var(--ink-2);font-weight:700}.mf-legend{margin-top:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;font-size:11.5px}.mf-legend .ml{padding:10px 12px;background:var(--surface);border:1px solid var(--line);border-radius:8px;display:flex;align-items:center;gap:10px}.mf-legend .ml .sw{width:10px;height:10px;border-radius:2px;flex-shrink:0}.mf-legend .ml .tx{flex:1;color:var(--ink-2);font-weight:500}.mf-legend .ml .val{font-family:'JetBrains Mono';color:var(--ink);font-weight:700;font-size:11px}.mf-legend .ml .val.g{color:var(--green-2)}.mf-legend .ml .val.r{color:var(--red)}.action-center{margin-top:28px}.action-center .ac-hd{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}.action-center .ac-hd h3{font-family:'Barlow Semi Condensed';font-size:17px;font-weight:700;letter-spacing:-.015em;color:var(--purple)}.action-center .ac-hd .meta{font-size:11px;color:var(--slate)}.action-center .ac-sub{font-size:9.5px;color:var(--purple);text-transform:uppercase;letter-spacing:2px;font-weight:700;margin:18px 0 10px}.pcd{padding:18px 20px;background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--purple);border-radius:8px;margin-bottom:10px;display:grid;grid-template-columns:2fr 1fr auto;gap:18px;align-items:center}.pcd .pcd-main{display:flex;flex-direction:column;gap:4px}.pcd .pcd-rule{font-family:'Barlow Semi Condensed';font-size:14px;font-weight:600;color:var(--ink);letter-spacing:-.01em}.pcd .pcd-ev{font-size:11px;color:var(--slate);font-style:italic}.pcd .pcd-conf{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.4px;padding:3px 8px;border-radius:3px;background:rgba(63,214,155,.12);color:var(--green-2);text-align:center}.pcd .pcd-impact{font-family:'JetBrains Mono';font-size:13px;font-weight:700;color:var(--green-2);text-align:right}.pcd .pcd-btns{display:flex;gap:4px}.pcd .pcd-btns button{padding:6px 10px;background:transparent;border:1px solid var(--line-2);border-radius:5px;color:var(--slate);font-size:10.5px;font-family:'DM Sans';font-weight:600;cursor:pointer}.pcd .pcd-btns button.accept{background:var(--blue);color:#fff;border-color:var(--blue)}.news-card{padding:18px 22px;background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--slate-2);border-radius:10px;margin-bottom:12px}.news-card.g{border-left-color:var(--green-2)}.news-card.r{border-left-color:var(--red)}.news-card.a{border-left-color:var(--amber-2)}.news-card.b{border-left-color:var(--blue-2)}.news-card .nc-hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;gap:12px}.news-card .nc-tag{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.4px;padding:3px 8px;border-radius:3px;background:var(--surface-3);color:var(--slate)}.news-card .nc-tag.g{background:rgba(63,214,155,.12);color:var(--green-2)}.news-card .nc-tag.r{background:rgba(255,90,107,.12);color:var(--red)}.news-card .nc-tag.a{background:rgba(245,181,68,.12);color:var(--amber-2)}.news-card .nc-tm{font-family:'JetBrains Mono';font-size:10.5px;color:var(--slate);font-weight:600}.news-card .nc-ttl{font-family:'Barlow Semi Condensed';font-size:16px;font-weight:700;color:var(--ink);margin-bottom:6px;letter-spacing:-.01em}.news-card .nc-body{font-size:12.5px;color:var(--ink-2);line-height:1.5}.news-card .nc-body b{color:var(--ink)}.edge-today{padding:22px 26px;background:linear-gradient(135deg,rgba(245,181,68,.08),rgba(167,139,250,.05));border:1px solid rgba(245,181,68,.3);border-radius:14px;margin-top:24px}.edge-today h3{font-family:'Barlow Semi Condensed';font-size:17px;font-weight:700;color:var(--amber-2);letter-spacing:-.015em;margin-bottom:6px}.edge-today .sub{font-size:12px;color:var(--slate);margin-bottom:14px}.edge-today .et-row{display:flex;gap:14px;padding:12px 0;border-top:1px dashed var(--line-2);font-size:12.5px}.edge-today .et-tm{font-family:'JetBrains Mono';font-size:11px;color:var(--ink);font-weight:600;width:62px;flex-shrink:0}.edge-today .et-ev{flex:1}.edge-today .et-ev b{color:var(--ink)}.edge-today .et-read{color:var(--amber-2);font-size:11.5px;font-style:italic;margin-top:4px}.deals-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}.deal-card{padding:22px 24px;background:linear-gradient(180deg,var(--surface),var(--surface-2));border:1px solid var(--line);border-radius:14px;position:relative;overflow:hidden}.deal-card.featured{border-left:3px solid var(--purple);box-shadow:0 0 0 1px rgba(167,139,250,.2)}.deal-card.featured::before{content:"";position:absolute;top:-30px;right:-30px;width:150px;height:100px;background:radial-gradient(ellipse at center,rgba(167,139,250,.18),transparent 70%);filter:blur(20px)}.deal-card .dc-tag{display:inline-block;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.4px;padding:3px 8px;border-radius:3px;background:rgba(167,139,250,.15);color:var(--purple);margin-bottom:10px}.deal-card .dc-firm{font-family:'Barlow Semi Condensed';font-size:18px;font-weight:700;color:var(--ink);margin-bottom:4px;letter-spacing:-.01em}.deal-card .dc-prd{font-size:11.5px;color:var(--slate);margin-bottom:14px}.deal-card .dc-price{display:flex;align-items:baseline;gap:8px;margin-bottom:14px}.deal-card .dc-was{font-family:'JetBrains Mono';font-size:13px;color:var(--slate);text-decoration:line-through}.deal-card .dc-now{font-family:'Barlow Semi Condensed';font-size:28px;font-weight:800;color:var(--green-2);letter-spacing:-.02em}.deal-card .dc-save{font-size:10px;color:var(--green-2);font-weight:700;text-transform:uppercase;letter-spacing:1px}.deal-card .dc-code{padding:10px 12px;background:var(--surface-3);border:1px dashed var(--line-2);border-radius:6px;font-family:'JetBrains Mono';font-size:12px;color:var(--ink);text-align:center;font-weight:600;margin-bottom:10px;cursor:pointer}.deal-card .dc-btn{display:block;padding:10px;background:var(--blue);color:#fff;border:0;border-radius:6px;font-family:'DM Sans';font-size:11.5px;font-weight:600;cursor:pointer;width:100%;text-align:center;text-decoration:none}</style>
+</head>
+<body>
+<div id="mobile-gate">
+  <img src="assets/bull-dark.png" alt="">
+  <h1>Tradecovex is built for desktop</h1>
+  <p>This interface is designed for the screen you actually trade on. Open this link on your laptop or desktop to explore the full demo.</p>
+  <button onclick="navigator.clipboard&&navigator.clipboard.writeText(location.href);this.textContent='Link copied'">Copy link</button>
+</div>
+
+<div id="intro">
+  <img src="assets/bull-intro.png" alt="Tradecovex">
+</div>
+
+<div id="copier-screen">
+  <button id="copier-close">Close ×</button>
+  <div class="cwin" id="cwin">
+    <div class="titlebar">
+      <div class="tab">Tradecovex Copier</div>
+      <div class="sp"></div>
+      <div class="wbtns"><span>—</span><span>▢</span><span class="cls">×</span></div>
+    </div>
+    <div class="body">
+      <div class="header">
+        <span class="dot"></span>
+        <div class="nm">Tradecovex Copier</div>
+        <div class="ver">v2.0.1</div>
+      </div>
+      <div class="status">
+        <div class="row"><div class="lb">Backend</div><div class="vl green">connected</div></div>
+        <div class="row"><div class="lb">Last config sync</div><div class="vl">2s ago</div></div>
+        <div class="row"><div class="lb">Account</div><div class="vl">joe.blacklane@gmail.com</div></div>
+        <div class="row"><div class="lb">Plan</div><div class="vl">Pro · 19/40</div></div>
+        <div class="row"><div class="lb">Trading window</div><div class="vl">stopped</div></div>
+        <div class="row"><div class="lb">Followers</div><div class="vl">19 loaded · copier stopped</div></div>
+      </div>
+      <div class="toolbar">
+        <button class="tbtn start" id="start-btn">START</button>
+        <button class="tbtn">Arm all</button>
+        <button class="tbtn">Disarm all</button>
+        <button class="tbtn">Apply mult to all</button>
+      </div>
+      <div class="accts">
+        <div class="acct"><div class="nm2">Sim101</div><div class="mlt">1x</div></div>
+        <div class="acct"><div class="nm2">MFFUEVFLX267833022</div><div class="mlt">1x</div></div>
+        <div class="acct"><div class="nm2">MFFUEVCR267833023</div><div class="mlt">1x</div></div>
+        <div class="acct"><div class="nm2">LTE0506131732004</div><div class="mlt">1x</div></div>
+        <div class="acct"><div class="nm2">LFE0506131732001</div><div class="mlt">1x</div></div>
+        <div class="acct"><div class="nm2">LFE0506131732002</div><div class="mlt">1x</div></div>
+        <div class="acct"><div class="nm2">FNFTCHBLACKLANE…</div><div class="mlt">1x</div></div>
+        <div class="acct"><div class="nm2">APEX3523640000089</div><div class="mlt">1x</div></div>
+        <div class="acct"><div class="nm2">APEX3523640000087</div><div class="mlt">1x</div></div>
+        <div class="acct"><div class="nm2">APEX3523640000086</div><div class="mlt">1x</div></div>
+        <div class="acct"><div class="nm2">APEX3523640000088</div><div class="mlt">1x</div></div>
+        <div class="acct"><div class="nm2">APEX3523640000090</div><div class="mlt">1x</div></div>
+        <div class="acct"><div class="nm2">APEX3523640000092</div><div class="mlt">1x</div></div>
+        <div class="acct"><div class="nm2">APEX3523640000091</div><div class="mlt">1x</div></div>
+        <div class="acct"><div class="nm2">APEX3523640000093</div><div class="mlt">1x</div></div>
+        <div class="acct"><div class="nm2">APEX3523640000094</div><div class="mlt">1x</div></div>
+        <div class="acct"><div class="nm2">APEX3523640000095</div><div class="mlt">1x</div></div>
+        <div class="acct"><div class="nm2">SimAccount1</div><div class="mlt">1x</div></div>
+        <div class="acct"><div class="nm2">SimAccount2</div><div class="mlt">1x</div></div>
+      </div>
+      <div class="legend">
+        <span><span class="lgd armed"></span>armed</span>
+        <span><span class="lgd drift"></span>drifted</span>
+        <span><span class="lgd dis"></span>disabled</span>
+        <span><span class="lgd lead"></span>current leader</span>
+      </div>
+      <div class="actions">
+        <button class="actbtn" id="open-dash">Open dashboard ↗</button>
+        <button class="actbtn">Re-arm drifted</button>
+      </div>
+      <div class="showlog">Show log</div>
+      <div class="flatten">FLATTEN ALL POSITIONS</div>
+    </div>
+  </div>
+</div>
+
+<div class="app" id="app" style="display:none">
+  <aside class="sb">
+    <div class="brand">
+      <img class="lg-d" src="assets/sidebar-dark.png" alt="Tradecovex">
+      <img class="lg-l" src="assets/sidebar-light.png" alt="Tradecovex">
+    </div>
+    <div class="ns">Workspace</div>
+    <nav class="nv">
+      <a class="on" data-nav="dailybrief">Daily Brief <span class="dt"></span></a>
+      <a data-nav="dailyreview">Daily Review</a>
+      <a data-nav="accounts">Accounts</a>
+      <a data-nav="journal">Journal</a>
+      <a data-nav="edge">Edge</a>
+      <a data-nav="news">News Feed</a>
+    </nav>
+    <div class="ns">Prop Firms</div>
+    <nav class="nv">
+      <a data-nav="propupdates">Propfirm Updates</a>
+      <a data-nav="propdeals">Propfirm Deals</a>
+    </nav>
+    <div class="ns">Account</div>
+    <nav class="nv">
+      <a data-nav="settings">Settings</a>
+    </nav>
+    <div class="ns">Desktop App</div>
+    <nav class="nv">
+      <a id="nav-copier"><span class="ic">↗</span>View Trade Copier</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <div id="alert-ribbon">
+      <div class="txt"><b>FOMC RATE DECISION</b> · 2:00 PM ET · NQ expected ±1.5% · stay flat through the window</div>
+      <button class="x" onclick="document.getElementById('alert-ribbon').classList.remove('on')">Dismiss ×</button>
+    </div>
+
+<section class="page on" data-pg="dailybrief">
+  <div class="states" id="states">
+    <button data-st="pre" class="on"><span class="t">State ▸</span>Pre-Market</button>
+    <button data-st="live"><span class="t">State ▸</span>Live</button>
+    <button data-st="post"><span class="t">State ▸</span>Post-Session</button>
+    <span class="states-hint">Same page · evolves as Joe trades</span>
+  </div>
+
+  <!-- Pre-Market -->
+  <section class="state-panel on" data-panel="pre">
+    <div class="top anim-1">
+      <div class="ph pre"><span class="dot"></span>Pre-Market · Open in 1h 48m</div>
+      <div class="tools">
+        <div class="cdn">NQ <b>18,742</b> <span style="color:var(--green-2)">+0.34%</span></div>
+        <div class="cdn">ES <b>5,284</b> <span style="color:var(--green-2)">+0.21%</span></div>
+        <div class="tt theme-tog"><div class="opt on">&#9790;</div><div class="opt">&#9728;</div></div>
+      </div>
+    </div>
+    <div class="eb anim-1"><span class="bar"></span><span class="t">Good Morning, Joe</span><span class="s">/</span><span class="dt">TUE &middot; APR 12 &middot; 2026 &middot; 07:42 EST</span></div>
+
+    <div class="coach anim-2">
+      <div class="g"></div>
+      <div class="msg"><em>Yesterday you pulled a solid 82.</em> You held the 10:15 rule and walked at lunch. Today has teeth: <span class="a1">CPI at 8:30</span>, then <span class="a1">FOMC at 2 PM</span>. Your Tuesday mornings pre-10am have cost you <span class="r1">&minus;$1,840</span> over 30 sessions. <em>Let the open settle. Wait for the 10:15 setup. Flat through FOMC.</em></div>
+    </div>
+
+    <div class="hero anim-3">
+      <div>
+        <div class="lbl">Yesterday&apos;s Joe Score <span class="qm" title="Discipline 40% + Edge 35% + Risk 25%">i</span></div>
+        <div class="js-block">
+          <div class="ring">
+            <svg viewBox="0 0 240 240">
+              <circle cx="120" cy="120" r="104" fill="none" stroke="var(--surface-3)" stroke-width="12" stroke-dasharray="210.6 443.4" transform="rotate(2 120 120)"/>
+              <circle cx="120" cy="120" r="104" fill="none" stroke="var(--surface-3)" stroke-width="12" stroke-dasharray="210.6 443.4" transform="rotate(122 120 120)"/>
+              <circle cx="120" cy="120" r="104" fill="none" stroke="var(--surface-3)" stroke-width="12" stroke-dasharray="210.6 443.4" transform="rotate(242 120 120)"/>
+              <circle class="ring-arc a1" cx="120" cy="120" r="104" fill="none" stroke="var(--green-2)" stroke-width="12" stroke-linecap="round" stroke-dasharray="168 654" style="--len:654;--off:486" transform="rotate(2 120 120)"/>
+              <circle class="ring-arc a2" cx="120" cy="120" r="104" fill="none" stroke="var(--blue-2)" stroke-width="12" stroke-linecap="round" stroke-dasharray="170 654" style="--len:654;--off:484" transform="rotate(122 120 120)"/>
+              <circle class="ring-arc a3" cx="120" cy="120" r="104" fill="none" stroke="var(--purple)" stroke-width="12" stroke-linecap="round" stroke-dasharray="186 654" style="--len:654;--off:468" transform="rotate(242 120 120)"/>
+            </svg>
+            <div class="ring-cl"><div><div class="ring-big num" data-target="82">82</div><div class="ring-tot">/ 100</div></div></div>
+          </div>
+          <div class="details">
+            <div class="grade"><b>B+</b> Solid &middot; last 30</div>
+            <div class="trend"><span class="up">&#9650; +6</span> vs prior &middot; 30d avg <b>72</b></div>
+            <div class="take pos"><div class="tl">Takeaway carried forward</div>You held the 10:15 rule and walked at lunch. Do the same today and today looks like yesterday.</div>
+          </div>
+        </div>
+        <div class="ring-legend"><span><span class="sw d"></span>Discipline 32/40</span><span><span class="sw e"></span>Edge 28/35</span><span><span class="sw r"></span>Risk 22/25</span></div>
+      </div>
+      <div class="rside">
+        <div class="hd"><h3>Session Readiness</h3><div class="pill g"><span class="d"></span>All Systems Go</div></div>
+        <ul>
+          <li><div class="ck">&check;</div><div class="lb">Copier armed</div><div class="vl"><b>Ready</b></div></li>
+          <li><div class="ck">&check;</div><div class="lb">Accounts connected</div><div class="vl"><b>19</b> of 19</div></li>
+          <li><div class="ck">&check;</div><div class="lb">Active rules engaged</div><div class="vl"><b>5</b> rules</div></li>
+          <li><div class="ck">&check;</div><div class="lb">Data feed &middot; Rithmic</div><div class="vl"><b>Live</b></div></li>
+          <li><div class="ck">&check;</div><div class="lb">Daily loss limit</div><div class="vl"><b>&minus;$1,500</b></div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-hd anim-4"><h2>Accounts Pulse</h2><div class="rt">19 accounts &middot; sorted by urgency &middot; scroll &rarr;</div></div>
+    <div class="ap-wrap anim-4"><div class="ap">
+      <div class="ac"><div class="hd"><div class="nm">Apex 089</div><div class="st r"></div></div><div class="sub">Apex &middot; Funded</div><div class="mt"><span>DD Buffer</span></div><div class="val num r">$264</div><div class="bar"><div class="fill r" style="width:12%"></div></div></div>
+      <div class="ac"><div class="hd"><div class="nm">Apex 087</div><div class="st r"></div></div><div class="sub">Apex &middot; EOD</div><div class="mt"><span>DD Buffer</span></div><div class="val num r">$204</div><div class="bar"><div class="fill r" style="width:18%"></div></div></div>
+      <div class="ac"><div class="hd"><div class="nm">Apex 091</div><div class="st a"></div></div><div class="sub">Apex &middot; Eval 21d</div><div class="mt"><span>Gap to Pass</span></div><div class="val num a">$3,038</div><div class="bar"><div class="fill a" style="width:52%"></div></div></div>
+      <div class="ac"><div class="hd"><div class="nm">MFFU CR 023</div><div class="st g"></div></div><div class="sub">MFFU &middot; Core</div><div class="mt"><span>Gap to Pass</span></div><div class="val num g">$2,964</div><div class="bar"><div class="fill g" style="width:74%"></div></div></div>
+      <div class="ac"><div class="hd"><div class="nm">LTE 004</div><div class="st g"></div></div><div class="sub">LTE &middot; Funded</div><div class="mt"><span>DD Buffer</span></div><div class="val num g">$1,842</div><div class="bar"><div class="fill g" style="width:62%"></div></div></div>
+      <div class="ac"><div class="hd"><div class="nm">Apex 094</div><div class="st a"></div></div><div class="sub">Apex &middot; Eval 11d</div><div class="mt"><span>Gap to Pass</span></div><div class="val num a">$2,118</div><div class="bar"><div class="fill a" style="width:48%"></div></div></div>
+      <div class="ac"><div class="hd"><div class="nm">LFE 001</div><div class="st g"></div></div><div class="sub">LFE &middot; Funded</div><div class="mt"><span>DD Buffer</span></div><div class="val num g">$2,401</div><div class="bar"><div class="fill g" style="width:68%"></div></div></div>
+    </div></div>
+
+    <div class="ewt anim-5">
+      <div class="hd"><div><h3>Your Session Map</h3><div class="sub">Edge window, scheduled events, and where you are now.</div></div><div class="tag">07:42 &rarr; 16:00 EST</div></div>
+      <div class="tl">
+        <div class="track"></div><div class="edge"></div>
+        <div class="edge-lb">EDGE WINDOW &middot; 9:45 &ndash; 11:30</div>
+        <div class="now" style="left:6%"></div>
+        <div class="ev up" style="left:14%"><div class="lb">08:30<small>CPI</small></div></div>
+        <div class="ev dn" style="left:22%"><div class="lb">09:30<small>OPEN</small></div></div>
+        <div class="ev up" style="left:56%"><div class="lb">12:00<small>LUNCH</small></div></div>
+        <div class="ev dn" style="left:82%"><div class="lb">14:00<small>FOMC</small></div></div>
+        <div class="marks"><span>7:00</span><span>9:00</span><span>11:00</span><span>13:00</span><span>15:00</span><span>16:00</span></div>
+      </div>
+    </div>
+
+    <div class="prime anim-7"><div class="lbl2">Primed for Today</div><div class="txt">Edge window opens in <b>2h 3m</b>. Your 10:15 NQ reversal has hit 8 of the last 10 Tuesdays. Read yesterday&apos;s review, then walk away until 9:45.</div><button class="btn">Review Yesterday &rarr;</button></div>
+  </section>
+
+  <!-- Live -->
+  <section class="state-panel" data-panel="live">
+    <div class="top anim-1">
+      <div class="ph live"><span class="dot"></span>Session Live &middot; 12:48 EST</div>
+      <div class="tools">
+        <div class="cdn">NQ <b>18,812</b> <span style="color:var(--green-2)">+0.72%</span></div>
+        <div class="cdn">ES <b>5,296</b> <span style="color:var(--green-2)">+0.44%</span></div>
+        <div class="tt theme-tog"><div class="opt on">&#9790;</div><div class="opt">&#9728;</div></div>
+      </div>
+    </div>
+    <div class="eb anim-1"><span class="bar"></span><span class="t">Mid-Session, Joe</span><span class="s">/</span><span class="dt">TUE &middot; APR 12 &middot; 2026 &middot; 12:48 EST</span></div>
+
+    <div class="coach anim-2">
+      <div class="g"></div>
+      <div class="msg">You chased the <span class="r1">CPI spike against the plan</span> &mdash; four trades inside 20 minutes, <em>3 losses</em>, revenge size on the last one. <span class="r1">Your score just dropped 21 points.</span> That&apos;s the Tuesday morning pattern biting again. <em>Stop. Flat through FOMC. The 2 PM window is your reset.</em></div>
+    </div>
+
+    <div class="hero anim-3">
+      <div>
+        <div class="lbl">Joe Score &middot; Forming <span class="qm" title="Live score">i</span></div>
+        <div class="js-block">
+          <div class="ring">
+            <svg viewBox="0 0 240 240">
+              <circle cx="120" cy="120" r="104" fill="none" stroke="var(--surface-3)" stroke-width="12" stroke-dasharray="210.6 443.4" transform="rotate(2 120 120)"/>
+              <circle cx="120" cy="120" r="104" fill="none" stroke="var(--surface-3)" stroke-width="12" stroke-dasharray="210.6 443.4" transform="rotate(122 120 120)"/>
+              <circle cx="120" cy="120" r="104" fill="none" stroke="var(--surface-3)" stroke-width="12" stroke-dasharray="210.6 443.4" transform="rotate(242 120 120)"/>
+              <circle class="ring-arc a1" cx="120" cy="120" r="104" fill="none" stroke="var(--green-2)" stroke-width="12" stroke-linecap="round" stroke-dasharray="95 654" style="--len:654;--off:559" transform="rotate(2 120 120)" opacity="0.85"/>
+              <circle class="ring-arc a2" cx="120" cy="120" r="104" fill="none" stroke="var(--blue-2)" stroke-width="12" stroke-linecap="round" stroke-dasharray="112 654" style="--len:654;--off:542" transform="rotate(122 120 120)" opacity="0.85"/>
+              <circle class="ring-arc a3" cx="120" cy="120" r="104" fill="none" stroke="var(--purple)" stroke-width="12" stroke-linecap="round" stroke-dasharray="163 654" style="--len:654;--off:491" transform="rotate(242 120 120)" opacity="0.85"/>
+            </svg>
+            <div class="ring-cl"><div><div class="ring-big num" data-target="61">61</div><div class="ring-tot forming">&bull; Building &middot; down</div></div></div>
+          </div>
+          <div class="details">
+            <div class="grade warn"><b>C&minus;</b> Off plan <span class="delta-pill down">&#9660; &minus;21</span></div>
+            <div class="trend">Partial &middot; <span class="dn">&#9660; 4 trades</span> &middot; <b>1W 3L</b></div>
+            <div class="take neg"><div class="tl">Live Read</div>You broke the 9:45 rule, revenged the CPI spike. You still have the 2 PM reset. Stay flat until then.</div>
+          </div>
+        </div>
+        <div class="ring-legend"><span><span class="sw d"></span>Discipline 18/40</span><span><span class="sw e"></span>Edge 23/35</span><span><span class="sw r"></span>Risk 20/25</span></div>
+      </div>
+      <div class="rside pnl">
+        <div class="pnl-lbl">Net P&amp;L &middot; Live</div>
+        <div class="pnl-big neg num" data-target="-340" data-prefix="-$" data-suffix=".00">-$340</div>
+        <div class="pnl-sub"><span class="chg dn">&#9660; &minus;0.4% account</span><span class="sep"></span><span>4 trades &middot; 1W 3L</span><span class="sep"></span><span>Worst: NQ 8:48 &middot; &minus;$620</span></div>
+        <div style="margin-top:20px;padding-top:18px;border-top:1px dashed var(--line-2)">
+          <div class="pnl-lbl" style="margin-bottom:8px">Live Rules &middot; 3/5 Held</div>
+          <div class="rl"><span class="st broken"></span><div><b>Broke:</b> 9:45 open rule &middot; traded CPI spike</div></div>
+          <div class="rl"><span class="st broken"></span><div><b>Broke:</b> Max 3 consecutive losses</div></div>
+          <div class="rl"><span class="st"></span><div>Loss cap distance &middot; <b>$1,160</b> left</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="edc anim-5">
+      <div class="hd"><div><h3>Edge Decay Curve &middot; Live</h3><div class="sub">Your win-rate by minute-of-day, drawing in real time.</div></div><div class="pill r"><span class="d"></span>Off edge window</div></div>
+      <div class="chart"><svg viewBox="0 0 900 240" preserveAspectRatio="none">
+        <defs><linearGradient id="tf" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#4D7CFF" stop-opacity="0.25"/><stop offset="100%" stop-color="#4D7CFF" stop-opacity="0"/></linearGradient></defs>
+        <rect x="180" y="20" width="290" height="180" fill="rgba(63,214,155,0.06)" stroke="rgba(63,214,155,0.2)" stroke-dasharray="3 4"/>
+        <text x="325" y="38" fill="#3FD69B" font-family="JetBrains Mono" font-size="10" font-weight="600" text-anchor="middle" letter-spacing="1.5">PROVEN EDGE &middot; 9:45 &ndash; 11:30</text>
+        <g stroke="#18263A" stroke-width="1"><line x1="0" y1="60" x2="900" y2="60"/><line x1="0" y1="120" x2="900" y2="120"/><line x1="0" y1="180" x2="900" y2="180"/></g>
+        <g fill="#5A6B82" font-family="JetBrains Mono" font-size="10"><text x="8" y="64">80%</text><text x="8" y="124">60%</text><text x="8" y="184">40%</text></g>
+        <path d="M 60 170 Q 120 150 180 110 T 360 75 Q 440 80 540 130" fill="none" stroke="#5A6B82" stroke-width="1.5" stroke-dasharray="5 5" opacity="0.7"/>
+        <path class="edc-fill" d="M 60 140 Q 100 120 140 160 Q 180 185 220 175 Q 280 170 340 168 Q 420 170 500 165 Q 540 170 540 165 L 540 200 L 60 200 Z" fill="url(#tf)"/>
+        <path class="edc-line" d="M 60 140 Q 100 120 140 160 Q 180 185 220 175 Q 280 170 340 168 Q 420 170 500 165 Q 540 170 540 165" fill="none" stroke="#FF5A6B" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="140" cy="160" r="4" fill="#FF5A6B"/>
+        <text x="152" y="155" fill="#FF5A6B" font-family="JetBrains Mono" font-size="10" font-weight="600">8:48 CPI &middot; &minus;$620</text>
+        <circle class="edc-now" cx="540" cy="165" r="5" fill="#4D7CFF" stroke="#060D1B" stroke-width="2"/>
+        <text class="edc-now" x="552" y="160" fill="#4D7CFF" font-family="JetBrains Mono" font-size="10" font-weight="600">NOW 12:48</text>
+        <g fill="#5A6B82" font-family="JetBrains Mono" font-size="10" text-anchor="middle"><text x="60" y="225">8:30</text><text x="220" y="225">10:00</text><text x="380" y="225">11:00</text><text x="540" y="225">12:48</text><text x="700" y="225">14:00</text><text x="860" y="225">16:00</text></g>
+      </svg></div>
+    </div>
+
+    <div class="prime anim-7"><div class="lbl2">Next 1h 12m</div><div class="txt"><b>Stay flat until 2 PM.</b> FOMC lands at 14:00. Your 2 PM setup has hit 6 of the last 9 Tuesdays. This is your reset &mdash; one clean trade, not five.</div><button class="btn">Set FOMC Alert &rarr;</button></div>
+  </section>
+
+  <!-- Post-Session -->
+  <section class="state-panel" data-panel="post">
+    <div class="top anim-1">
+      <div class="ph post"><span class="dot"></span>Session Closed &middot; 16:00 EST</div>
+      <div class="tools">
+        <div class="cdn">NQ <b>18,798</b> <span style="color:var(--green-2)">+0.64%</span></div>
+        <div class="cdn">ES <b>5,291</b> <span style="color:var(--green-2)">+0.35%</span></div>
+        <div class="tt theme-tog"><div class="opt on">&#9790;</div><div class="opt">&#9728;</div></div>
+      </div>
+    </div>
+    <div class="eb anim-1"><span class="bar"></span><span class="t">Session Recap, Joe</span><span class="s">/</span><span class="dt">TUE &middot; APR 12 &middot; 2026 &middot; 16:00 EST</span></div>
+
+    <div class="coach anim-2">
+      <div class="g"></div>
+      <div class="msg"><em>Not a clean session &mdash; but a real one.</em> Morning: you broke the 9:45 rule and chased CPI for <span class="r1">&minus;$340</span>. <em>Then you stopped.</em> 2 PM: one clean FOMC setup, <span class="g1">+$1,160 on four contracts.</span> Score clawed back from <span class="r1">61</span> to <span class="g1">76</span>. <em>The win today wasn&apos;t the P&amp;L &mdash; it was stopping.</em></div>
+    </div>
+
+    <div class="hero anim-3">
+      <div>
+        <div class="lbl">Today&apos;s Joe Score &middot; Final <span class="qm" title="Final">i</span></div>
+        <div class="js-block">
+          <div class="ring">
+            <svg viewBox="0 0 240 240">
+              <circle cx="120" cy="120" r="104" fill="none" stroke="var(--surface-3)" stroke-width="12" stroke-dasharray="210.6 443.4" transform="rotate(2 120 120)"/>
+              <circle cx="120" cy="120" r="104" fill="none" stroke="var(--surface-3)" stroke-width="12" stroke-dasharray="210.6 443.4" transform="rotate(122 120 120)"/>
+              <circle cx="120" cy="120" r="104" fill="none" stroke="var(--surface-3)" stroke-width="12" stroke-dasharray="210.6 443.4" transform="rotate(242 120 120)"/>
+              <circle class="ring-arc a1" cx="120" cy="120" r="104" fill="none" stroke="var(--green-2)" stroke-width="12" stroke-linecap="round" stroke-dasharray="121 654" style="--len:654;--off:533" transform="rotate(2 120 120)"/>
+              <circle class="ring-arc a2" cx="120" cy="120" r="104" fill="none" stroke="var(--blue-2)" stroke-width="12" stroke-linecap="round" stroke-dasharray="160 654" style="--len:654;--off:494" transform="rotate(122 120 120)"/>
+              <circle class="ring-arc a3" cx="120" cy="120" r="104" fill="none" stroke="var(--purple)" stroke-width="12" stroke-linecap="round" stroke-dasharray="188 654" style="--len:654;--off:466" transform="rotate(242 120 120)"/>
+            </svg>
+            <div class="ring-cl"><div><div class="ring-big num" data-target="76">76</div><div class="ring-tot">/ 100 &middot; Final</div></div></div>
+          </div>
+          <div class="details">
+            <div class="grade recovery"><b>B</b> Recovered <span class="delta-pill up">&#9650; +15 vs midday</span></div>
+            <div class="trend"><span class="dn">&#9660; &minus;6</span> vs yesterday &middot; 30d avg <b>72</b></div>
+            <div class="take warn"><div class="tl">Today&apos;s Takeaway</div>Mixed day &mdash; broken rules in the morning, clean recovery in the afternoon. <em>Tomorrow&apos;s lesson:</em> when CPI fires, stay flat.</div>
+          </div>
+        </div>
+        <div class="ring-legend"><span><span class="sw d"></span>Discipline 23/40</span><span><span class="sw e"></span>Edge 31/35</span><span><span class="sw r"></span>Risk 22/25</span></div>
+      </div>
+      <div class="rside pnl">
+        <div class="pnl-lbl">Net P&amp;L &middot; Final</div>
+        <div class="pnl-big final num" data-target="820" data-prefix="+$" data-suffix=".50">+$820</div>
+        <div class="pnl-sub"><span class="chg">&#9650; +0.9% account</span><span class="sep"></span><span>8 trades &middot; 5W 3L</span><span class="sep"></span><span>PF 1.8</span><span class="sep"></span><span>Recovery: &minus;$340 &rarr; +$820</span></div>
+        <div style="margin-top:20px;padding-top:18px;border-top:1px dashed var(--line-2)">
+          <div class="pnl-lbl" style="margin-bottom:8px">Rules Held &middot; 3/5 &middot; Streak Broken</div>
+          <div class="rl"><span class="st broken"></span><div>9:45 rule broke &middot; 12-day streak ended</div></div>
+          <div class="rl"><span class="st"></span><div>Recovered &middot; stayed flat through FOMC</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="prime anim-7" id="prime-post"><div class="lbl2">Tomorrow&apos;s Focus</div><div class="txt"><b>When CPI fires, stay flat for 15 minutes.</b> Today cost you $620 for not doing that. Tomorrow&apos;s Pre-Market brief opens with this sentence. <em>That&apos;s how the loop closes.</em></div><button class="btn">Review Full Session &rarr;</button></div>
+  </section>
+</section>
+
+<section class="page" data-pg="dailyreview">
+  <div class="top">
+    <div class="ph neu"><span class="dot"></span>Daily Review &middot; Apr 12 &middot; 2026</div>
+    <div class="tools">
+      <div class="cdn">14 trades</div>
+      <div class="cdn">Joe Score <b>76</b></div>
+      <div class="tt theme-tog"><div class="opt on">&#9790;</div><div class="opt">&#9728;</div></div>
+    </div>
+  </div>
+  <div class="eb"><span class="bar"></span><span class="t">Close the loop, Joe</span><span class="s">/</span><span class="dt">TUE &middot; APR 12 &middot; 2026</span></div>
+
+  <div class="coach-bar">
+    <div class="stamp">UPDATED 16:04 EST</div>
+    <div class="msg"><em>A real day.</em> The morning cost you <span class="r1">&minus;$340</span> for chasing CPI. The afternoon earned <span class="g1">+$1,160</span> for waiting. Net <span class="g1">+$820</span>. <em>Now write one sentence you&apos;ll read tomorrow at 7 AM.</em></div>
+  </div>
+
+  <div class="letter-grade-card" id="daily-review-hero">
+    <div>
+      <div class="letter-grade">B</div>
+      <div class="grade-sub">Recovered from C&minus;</div>
+    </div>
+    <div>
+      <div class="qstats">
+        <div class="qstat"><div class="qv g">+$820</div><div class="ql">Net P&amp;L</div></div>
+        <div class="qstat"><div class="qv">5/8</div><div class="ql">Win Rate 63%</div></div>
+        <div class="qstat"><div class="qv">1.8</div><div class="ql">Profit Factor</div></div>
+        <div class="qstat"><div class="qv r">3/5</div><div class="ql">Rules Held</div></div>
+        <div class="qstat"><div class="qv">76</div><div class="ql">Joe Score</div></div>
+        <div class="qstat"><div class="qv">2</div><div class="ql">Broken Rules</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="focus-input">
+    <div class="fi-lbl">Tomorrow&apos;s Focus &middot; one sentence</div>
+    <div class="fi-hint">This shows up first thing on tomorrow&apos;s Pre-Market brief. Make it specific.</div>
+    <input type="text" value="When CPI fires, stay flat for 15 minutes." />
+  </div>
+
+  <div class="ritual">
+    <div class="rcard">
+      <h4>Pre-Trading Ritual</h4>
+      <label>Sleep &amp; hours</label>
+      <input placeholder="e.g. 7.5 hrs &middot; slept well &middot; rested" />
+      <label>Mental state</label>
+      <input placeholder="e.g. focused, calm &mdash; or anxious about yesterday&apos;s loss" />
+      <label>One word for today</label>
+      <input placeholder="e.g. patient" />
+    </div>
+    <div class="rcard">
+      <h4>Post-Trading Reflection</h4>
+      <label>What I learned</label>
+      <input value="CPI first 15m is non-negotiable. Walk away from the desk." />
+      <label>What to improve</label>
+      <input placeholder="e.g. revenge trading after first loss" />
+      <label>Gratitude / win</label>
+      <input value="I stopped. That&apos;s the win." />
+    </div>
+  </div>
+</section>
+
+<section class="page" data-pg="accounts">
+  <div class="top">
+    <div class="ph neu"><span class="dot"></span>Accounts &middot; 19 connected</div>
+    <div class="tools">
+      <div class="cdn">All firms</div>
+      <div class="cdn">Today <b style="color:var(--green-2)">+$820</b></div>
+      <div class="tt theme-tog"><div class="opt on">&#9790;</div><div class="opt">&#9728;</div></div>
+    </div>
+  </div>
+  <div class="eb"><span class="bar"></span><span class="t">Portfolio view, Joe</span><span class="s">/</span><span class="dt">TUE &middot; APR 12 &middot; 16:00 EST</span></div>
+
+  <div class="coach-bar">
+    <div class="stamp">UPDATED 16:00 EST</div>
+    <div class="msg">Across <em>19 accounts</em>, today&apos;s P&amp;L was <span class="g1">+$820</span>. <span class="a1">Apex 089 and Apex 087 are within $500 of the drawdown line</span> &mdash; one bad day tomorrow and you lose them. The other 17 are safe.</div>
+  </div>
+
+  <div class="acct-hero" id="accounts-hero">
+    <div>
+      <div class="acct-pnl-lbl">Portfolio P&amp;L &middot; Today</div>
+      <div class="acct-pnl">+$820</div>
+      <div class="acct-pnl-sub">Across 19 accounts &middot; 6 firms &middot; +$12,840 MTD</div>
+    </div>
+    <div class="acct-portfolio">
+      <div class="qstat"><div class="qv g">6</div><div class="ql">Funded</div></div>
+      <div class="qstat"><div class="qv">9</div><div class="ql">In Evaluation</div></div>
+      <div class="qstat"><div class="qv r">2</div><div class="ql">At Risk</div></div>
+      <div class="qstat"><div class="qv">19</div><div class="ql">Total Active</div></div>
+      <div class="qstat"><div class="qv">$487K</div><div class="ql">Total Funded</div></div>
+      <div class="qstat"><div class="qv g">+2.6%</div><div class="ql">MTD Return</div></div>
+    </div>
+  </div>
+
+  <div class="acct-table">
+    <table>
+      <thead><tr><th>Account</th><th>Firm</th><th>Phase</th><th>Today</th><th>DD Buffer</th><th>Gap to Pass</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td><span class="nm3">Apex 089</span></td><td><span class="firm-tag">Apex</span></td><td>Funded</td><td class="pos">+$43</td><td class="neg">$264</td><td>&mdash;</td><td><span class="st-dot r"></span>At risk</td></tr>
+        <tr><td><span class="nm3">Apex 087</span></td><td><span class="firm-tag">Apex</span></td><td>EOD</td><td class="pos">+$43</td><td class="neg">$204</td><td>&mdash;</td><td><span class="st-dot r"></span>At risk</td></tr>
+        <tr><td><span class="nm3">Apex 091</span></td><td><span class="firm-tag">Apex</span></td><td>Eval 21d</td><td class="pos">+$43</td><td>$1,540</td><td>$3,038</td><td><span class="st-dot a"></span>On track</td></tr>
+        <tr><td><span class="nm3">MFFU CR 023</span></td><td><span class="firm-tag">MFFU</span></td><td>Core</td><td class="pos">+$43</td><td>$2,120</td><td>$2,964</td><td><span class="st-dot g"></span>Ahead</td></tr>
+        <tr><td><span class="nm3">LTE 004</span></td><td><span class="firm-tag">LTE</span></td><td>Funded</td><td class="pos">+$43</td><td>$1,842</td><td>&mdash;</td><td><span class="st-dot g"></span>Clean</td></tr>
+        <tr><td><span class="nm3">Apex 094</span></td><td><span class="firm-tag">Apex</span></td><td>Eval 11d</td><td class="pos">+$43</td><td>$1,640</td><td>$2,118</td><td><span class="st-dot a"></span>On track</td></tr>
+        <tr><td><span class="nm3">LFE 001</span></td><td><span class="firm-tag">LFE</span></td><td>Funded</td><td class="pos">+$43</td><td>$2,401</td><td>&mdash;</td><td><span class="st-dot g"></span>Clean</td></tr>
+        <tr><td><span class="nm3">Tradeify T4</span></td><td><span class="firm-tag">Tradeify</span></td><td>Funded</td><td class="pos">+$43</td><td>$2,401</td><td>&mdash;</td><td><span class="st-dot g"></span>Clean</td></tr>
+        <tr><td><span class="nm3">Bulenox B2</span></td><td><span class="firm-tag">Bulenox</span></td><td>Eval 34d</td><td class="pos">+$43</td><td>$1,780</td><td>$1,780</td><td><span class="st-dot g"></span>Ahead</td></tr>
+        <tr><td><span class="nm3">+ 10 more accounts</span></td><td colspan="6" style="color:var(--slate);font-style:italic">&mdash; scroll to see all</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="page" data-pg="journal">
+  <div class="top">
+    <div class="ph neu"><span class="dot"></span>Journal &middot; 90 days &middot; 847 trades</div>
+    <div class="tools">
+      <div class="cdn">NQ futures</div>
+      <div class="cdn">Net <b style="color:var(--green-2)">+$14,280</b></div>
+      <div class="tt theme-tog"><div class="opt on">&#9790;</div><div class="opt">&#9728;</div></div>
+    </div>
+  </div>
+  <div class="eb"><span class="bar"></span><span class="t">Every trade captured, Joe</span><span class="s">/</span><span class="dt">90-DAY VIEW &middot; 847 TRADES</span></div>
+
+  <div class="coach-bar">
+    <div class="stamp">UPDATED 16:04 EST</div>
+    <div class="msg">14 distinct setups across 90 days. Your <em>10:15 NQ reversal</em> is a <span class="g1">73% winner</span>. Your <em>pre-10 CPI chase</em> is an <span class="r1">18% disaster</span> that keeps pulling you in. <em>One of these is your edge. One of these is costing you your edge.</em></div>
+  </div>
+
+  <div class="section-hd" id="journal-setups"><h2>Setup Performance &middot; 90 days</h2><div class="rt">Auto-tagged by the AI &middot; click to drill in</div></div>
+  <div class="setup-grid">
+    <div class="setup-card"><div class="sc-hd"><div class="sc-nm">10:15 NQ Reversal</div><div class="sc-tag">EDGE</div></div><div class="sc-wr">73%</div><div class="sc-pnl">+$6,840</div><div class="sc-meta"><span>42 trades</span><span>R:R 1:2.4</span></div></div>
+    <div class="setup-card"><div class="sc-hd"><div class="sc-nm">2 PM FOMC Setup</div><div class="sc-tag">EDGE</div></div><div class="sc-wr">68%</div><div class="sc-pnl">+$4,120</div><div class="sc-meta"><span>28 trades</span><span>R:R 1:2.8</span></div></div>
+    <div class="setup-card"><div class="sc-hd"><div class="sc-nm">Opening Range Break</div><div class="sc-tag">EDGE</div></div><div class="sc-wr">61%</div><div class="sc-pnl">+$2,840</div><div class="sc-meta"><span>56 trades</span><span>R:R 1:1.8</span></div></div>
+    <div class="setup-card neg"><div class="sc-hd"><div class="sc-nm">Pre-10 CPI Chase</div><div class="sc-tag">DRAIN</div></div><div class="sc-wr">18%</div><div class="sc-pnl">-$1,840</div><div class="sc-meta"><span>22 trades</span><span>R:R 1:1.2</span></div></div>
+    <div class="setup-card neg"><div class="sc-hd"><div class="sc-nm">Afternoon Giveback</div><div class="sc-tag">DRAIN</div></div><div class="sc-wr">28%</div><div class="sc-pnl">-$1,240</div><div class="sc-meta"><span>36 trades</span><span>R:R 1:1.3</span></div></div>
+    <div class="setup-card neg"><div class="sc-hd"><div class="sc-nm">Revenge Size</div><div class="sc-tag">DRAIN</div></div><div class="sc-wr">34%</div><div class="sc-pnl">-$980</div><div class="sc-meta"><span>14 trades</span><span>R:R 1:1.1</span></div></div>
+    <div class="setup-card neu"><div class="sc-hd"><div class="sc-nm">Range Fade</div><div class="sc-tag">MIXED</div></div><div class="sc-wr">52%</div><div class="sc-pnl">+$420</div><div class="sc-meta"><span>38 trades</span><span>R:R 1:1.6</span></div></div>
+    <div class="setup-card neu"><div class="sc-hd"><div class="sc-nm">Break &amp; Retest</div><div class="sc-tag">MIXED</div></div><div class="sc-wr">48%</div><div class="sc-pnl">+$180</div><div class="sc-meta"><span>44 trades</span><span>R:R 1:1.9</span></div></div>
+    <div class="setup-card"><div class="sc-hd"><div class="sc-nm">Flag Continuation</div><div class="sc-tag">EDGE</div></div><div class="sc-wr">64%</div><div class="sc-pnl">+$2,140</div><div class="sc-meta"><span>32 trades</span><span>R:R 1:2.1</span></div></div>
+  </div>
+</section>
+
+<section class="page" data-pg="edge">
+  <div class="top">
+    <div class="ph neu"><span class="dot"></span>Edge &middot; 14 patterns &middot; 8 rules</div>
+    <div class="tools">
+      <div class="cdn">90 days</div>
+      <div class="cdn">82% discipline</div>
+      <div class="tt theme-tog"><div class="opt on">&#9790;</div><div class="opt">&#9728;</div></div>
+    </div>
+  </div>
+  <div class="eb"><span class="bar"></span><span class="t">Your Edge, Joe</span><span class="s">/</span><span class="dt">90 DAYS &middot; 14 PATTERNS &middot; 8 RULES</span></div>
+
+  <div class="coach-bar">
+    <div class="stamp">UPDATED 16:04 EST</div>
+    <div class="msg"><em>Your edge is one setup at one hour &mdash; 10:15 NQ Reversal.</em> Everything outside that window is noise or actively losing. Your biggest leak is the <span class="r1">Pre-10 CPI chase</span> &mdash; the rule you&apos;re holding only 67% of the time. <em>Patterns found the leak. Rules can close it. Hold the line for two weeks and the curve straightens.</em></div>
+  </div>
+
+  <div class="edge-split">
+    <div class="edge-col">
+      <h4>Patterns Detected</h4>
+      <div class="edge-big num" data-target="14">14<span class="unit">patterns</span></div>
+      <div class="sub">3 working &middot; 5 hurting &middot; 3 psychology &middot; 3 behavioural</div>
+      <div class="ribbon">SUBTRACTION &gt; ADDITION &middot; one edge, three drains</div>
+    </div>
+    <div class="edge-col">
+      <h4>Discipline Held</h4>
+      <div class="edge-big num" data-target="82">82<span class="unit">%</span></div>
+      <div class="sub">5 rules &gt; 90% &middot; 1 at 75&ndash;89% &middot; 2 below 75%</div>
+      <div class="ribbon g">11-DAY STREAK &middot; longest this quarter</div>
+    </div>
+  </div>
+
+  <div class="money-flow" id="money-flow">
+    <h3>Money Flow &middot; where every dollar goes</h3>
+    <div class="sub">Green = edge sources. Red = drains. Sorted by absolute dollar contribution.</div>
+    <div class="mf-bar">
+      <div class="mf-seg" style="background:linear-gradient(135deg,#0B9D6A,#3FD69B);flex:28"><div class="mflab">+$6,840</div></div>
+      <div class="mf-seg" style="background:linear-gradient(135deg,#3FD69B,#5FE5B0);flex:18"><div class="mflab">+$4,120</div></div>
+      <div class="mf-seg" style="background:linear-gradient(135deg,#5FE5B0,#B8F2D4);flex:12"><div class="mflab">+$2,840</div></div>
+      <div class="mf-seg" style="background:linear-gradient(135deg,#FBC864,#F5B544);flex:8;color:#1a1a1a"><div class="mflab">&minus;$980</div></div>
+      <div class="mf-seg" style="background:linear-gradient(135deg,#F5B544,#E08D2D);flex:10;color:#1a1a1a"><div class="mflab">&minus;$1,240</div></div>
+      <div class="mf-seg" style="background:linear-gradient(135deg,#FF7A88,#FF5A6B);flex:14"><div class="mflab">&minus;$1,840</div></div>
+      <div class="mf-seg" style="background:linear-gradient(135deg,#FF5A6B,#DC2626);flex:10"><div class="mflab">drain</div></div>
+    </div>
+    <div class="mf-axis"><span>&larr; <b>Edge sources</b></span><span>Net: <b style="color:var(--green-2)">+$9,740</b></span><span><b>Drag sources</b> &rarr;</span></div>
+    <div class="mf-legend">
+      <div class="ml"><div class="sw" style="background:#3FD69B"></div><div class="tx">10:15 NQ Reversal</div><div class="val g">+$6,840</div></div>
+      <div class="ml"><div class="sw" style="background:#5FE5B0"></div><div class="tx">2 PM FOMC Setup</div><div class="val g">+$4,120</div></div>
+      <div class="ml"><div class="sw" style="background:#B8F2D4"></div><div class="tx">Opening Range Break</div><div class="val g">+$2,840</div></div>
+      <div class="ml"><div class="sw" style="background:#FBC864"></div><div class="tx">Revenge Size</div><div class="val r">&minus;$980</div></div>
+      <div class="ml"><div class="sw" style="background:#F5B544"></div><div class="tx">Afternoon Giveback</div><div class="val r">&minus;$1,240</div></div>
+      <div class="ml"><div class="sw" style="background:#FF5A6B"></div><div class="tx">Pre-10 CPI Chase</div><div class="val r">&minus;$1,840</div></div>
+    </div>
+  </div>
+
+  <div class="action-center" id="action-center">
+    <div class="ac-hd"><h3>Action Center &middot; 3 things to decide</h3><div class="meta">Drafted from your patterns</div></div>
+    <div class="ac-sub">DRAFTED FROM YOUR PATTERNS</div>
+    <div class="pcd">
+      <div class="pcd-main">
+        <div class="pcd-rule">No trades in the 15 minutes after CPI release.</div>
+        <div class="pcd-ev">Pre-10 CPI chase: &minus;$1,840 over 22 trades &middot; 18% win rate</div>
+      </div>
+      <div class="pcd-conf">HIGH CONFIDENCE</div>
+      <div class="pcd-impact">+$1,840<br><span style="font-size:9px;color:var(--slate);text-transform:uppercase">projected 30d</span></div>
+      <div class="pcd-btns"><button class="accept">Accept</button><button>Modify</button></div>
+    </div>
+    <div class="pcd">
+      <div class="pcd-main">
+        <div class="pcd-rule">After 3 consecutive losses &rarr; pause 30 minutes (hard stop).</div>
+        <div class="pcd-ev">Revenge size pattern triggered 4 of last 6 red days</div>
+      </div>
+      <div class="pcd-conf">HIGH CONFIDENCE</div>
+      <div class="pcd-impact">+$680<br><span style="font-size:9px;color:var(--slate);text-transform:uppercase">projected 30d</span></div>
+      <div class="pcd-btns"><button class="accept">Accept</button><button>Modify</button></div>
+    </div>
+    <div class="pcd">
+      <div class="pcd-main">
+        <div class="pcd-rule">After 1:30 PM on green days &rarr; reduce max size by 50%.</div>
+        <div class="pcd-ev">Afternoon giveback: 40% of green-morning gains return to market</div>
+      </div>
+      <div class="pcd-conf">HIGH CONFIDENCE</div>
+      <div class="pcd-impact">+$480<br><span style="font-size:9px;color:var(--slate);text-transform:uppercase">projected 30d</span></div>
+      <div class="pcd-btns"><button class="accept">Accept</button><button>Modify</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="page" data-pg="news">
+  <div class="top">
+    <div class="ph neu"><span class="dot"></span>News Feed &middot; live &middot; 07:42 EST</div>
+    <div class="tools">
+      <div class="cdn">High impact</div>
+      <div class="cdn">Mon &rarr; Wed</div>
+      <div class="tt theme-tog"><div class="opt on">&#9790;</div><div class="opt">&#9728;</div></div>
+    </div>
+  </div>
+  <div class="eb"><span class="bar"></span><span class="t">Reads the tape, Joe</span><span class="s">/</span><span class="dt">APR 12 &middot; 07:42 EST</span></div>
+
+  <div class="coach-bar">
+    <div class="stamp">UPDATED 07:40 EST</div>
+    <div class="msg">Today is a <span class="r1">two-event day</span>: CPI at 8:30 (high) and FOMC at 14:00 (high). <em>Both move NQ 1%+ on average.</em> <span class="g1">Dovish bias priced in</span> across rates market. Your edge window sits between them &mdash; not in them.</div>
+  </div>
+
+  <div class="edge-today">
+    <h3>Your Edge Today &middot; behavioural read</h3>
+    <div class="sub">Matched against your 90-day patterns. Analytical &mdash; not a trade signal.</div>
+    <div class="et-row">
+      <div class="et-tm">08:30</div>
+      <div class="et-ev"><b>CPI Release</b> &middot; high impact on NQ, ES<div class="et-read">Your pattern says: stay flat 15 minutes. Pre-10 CPI chase has cost you &minus;$1,840 over 22 trades.</div></div>
+    </div>
+    <div class="et-row">
+      <div class="et-tm">14:00</div>
+      <div class="et-ev"><b>FOMC Rate Decision</b> &middot; high impact across the complex<div class="et-read">Your pattern says: your 2 PM setup is a 68% winner. The 2 PM window is your edge window, not 8:30.</div></div>
+    </div>
+    <div class="et-row">
+      <div class="et-tm">15:30</div>
+      <div class="et-ev"><b>Fed Speaker &middot; Williams</b> &middot; low impact<div class="et-read">No behavioural read &mdash; low-impact event, sits outside your trading window anyway.</div></div>
+    </div>
+  </div>
+
+  <div class="section-hd" style="margin-top:32px"><h2>Live News &middot; colour-coded by direction</h2><div class="rt">Dovish &middot; Hawkish &middot; Mixed &middot; Neutral</div></div>
+  <div class="news-card g">
+    <div class="nc-hd"><div class="nc-tag g">DOVISH</div><div class="nc-tm">07:34 EST</div></div>
+    <div class="nc-ttl">Core CPI expectations soften overnight</div>
+    <div class="nc-body">Overnight rates positioning shifted toward a softer core CPI print. <b>NQ +0.34%</b> pre-market. If core prints at or below 2.8%, expect a continuation into the open.</div>
+  </div>
+  <div class="news-card r">
+    <div class="nc-hd"><div class="nc-tag r">HAWKISH</div><div class="nc-tm">06:52 EST</div></div>
+    <div class="nc-ttl">Fed Bowman reiterates restrictive stance</div>
+    <div class="nc-body">Fed Governor Bowman said in pre-market remarks the economy still needs restrictive policy. <b>Hawkish tone.</b> Probability of hold at today&apos;s FOMC ticks up to 94%.</div>
+  </div>
+  <div class="news-card a">
+    <div class="nc-hd"><div class="nc-tag a">MIXED</div><div class="nc-tm">05:20 EST</div></div>
+    <div class="nc-ttl">Asian session: Nikkei +0.8%, Shanghai flat</div>
+    <div class="nc-body">Risk-on in Tokyo, range-bound in Shanghai. US pre-market opens with mild risk-on bias. <b>Not a trending session setup.</b></div>
+  </div>
+</section>
+
+<section class="page" data-pg="propdeals">
+  <div class="top">
+    <div class="ph neu"><span class="dot"></span>Propfirm Deals &middot; 18 active</div>
+    <div class="tools">
+      <div class="cdn">All firms</div>
+      <div class="cdn">Updated daily</div>
+      <div class="tt theme-tog"><div class="opt on">&#9790;</div><div class="opt">&#9728;</div></div>
+    </div>
+  </div>
+  <div class="eb"><span class="bar"></span><span class="t">Pays for itself, Joe</span><span class="s">/</span><span class="dt">18 ACTIVE DEALS &middot; UPDATED DAILY</span></div>
+
+  <div class="coach-bar">
+    <div class="stamp">UPDATED APR 12 09:00 EST</div>
+    <div class="msg"><em>Three featured deals today.</em> Apex, MFFU, and Tradeify all running promotions &mdash; combined savings against Joe&apos;s next 3 evaluations: <span class="g1">$687</span>. <em>Your subscription is $39. Do the math.</em></div>
+  </div>
+
+  <div class="section-hd" style="margin-top:28px"><h2>Featured &middot; this week</h2><div class="rt">Hand-picked by the Tradecovex team</div></div>
+  <div class="deals-grid">
+    <div class="deal-card featured">
+      <div class="dc-tag">Featured</div>
+      <div class="dc-firm">Apex Trader Funding</div>
+      <div class="dc-prd">$150K Evaluation Account</div>
+      <div class="dc-price">
+        <div class="dc-was">$337</div>
+        <div class="dc-now">$87</div>
+      </div>
+      <div class="dc-save">Save $250 &middot; 74% off</div>
+      <div class="dc-code">TRADECOVEX74</div>
+      <button class="dc-btn">Claim Deal &rarr;</button>
+    </div>
+    <div class="deal-card featured">
+      <div class="dc-tag">Featured</div>
+      <div class="dc-firm">MyFundedFutures</div>
+      <div class="dc-prd">$100K Starter Program</div>
+      <div class="dc-price">
+        <div class="dc-was">$145</div>
+        <div class="dc-now">$58</div>
+      </div>
+      <div class="dc-save">Save $87 &middot; 60% off</div>
+      <div class="dc-code">COVEX60</div>
+      <button class="dc-btn">Claim Deal &rarr;</button>
+    </div>
+    <div class="deal-card featured">
+      <div class="dc-tag">Featured</div>
+      <div class="dc-firm">Tradeify</div>
+      <div class="dc-prd">$50K Pro Account</div>
+      <div class="dc-price">
+        <div class="dc-was">$175</div>
+        <div class="dc-now">$88</div>
+      </div>
+      <div class="dc-save">Save $87 &middot; 50% off</div>
+      <div class="dc-code">TCVX50</div>
+      <button class="dc-btn">Claim Deal &rarr;</button>
+    </div>
+  </div>
+
+  <div class="section-hd" style="margin-top:36px"><h2>All Deals &middot; alphabetical</h2><div class="rt">15 more deals across every firm</div></div>
+  <div class="deals-grid">
+    <div class="deal-card"><div class="dc-firm">Bulenox</div><div class="dc-prd">$25K Account</div><div class="dc-price"><div class="dc-was">$165</div><div class="dc-now">$99</div></div><div class="dc-save">Save $66 &middot; 40% off</div><div class="dc-code">COVEX40</div><button class="dc-btn">Claim &rarr;</button></div>
+    <div class="deal-card"><div class="dc-firm">FTMO</div><div class="dc-prd">$100K Challenge</div><div class="dc-price"><div class="dc-was">$540</div><div class="dc-now">$378</div></div><div class="dc-save">Save $162 &middot; 30% off</div><div class="dc-code">FTMO30TCX</div><button class="dc-btn">Claim &rarr;</button></div>
+    <div class="deal-card"><div class="dc-firm">LTE</div><div class="dc-prd">$50K Pro</div><div class="dc-price"><div class="dc-was">$195</div><div class="dc-now">$117</div></div><div class="dc-save">Save $78 &middot; 40% off</div><div class="dc-code">LTE40</div><button class="dc-btn">Claim &rarr;</button></div>
+  </div>
+</section>
+
+  </main>
+</div>
+
+<div id="tour-header" style="display:none">
+  <div class="label">Demo Tour</div>
+  <div class="progress"><div class="fill" id="prog-fill"></div></div>
+  <div class="step-count" id="prog-text">— / —</div>
+  <button class="skip" id="skip-tour">Skip tour →</button>
+</div>
+
+<div id="tour-overlay">
+  <div id="tour-mask"></div>
+  <div id="tour-spotlight"></div>
+  <div id="tour-card">
+    <div class="step" id="tc-step">Step 1</div>
+    <div class="ttl" id="tc-ttl">Title</div>
+    <div class="body" id="tc-body">Body</div>
+    <div class="actions">
+      <div class="hint" id="tc-hint">Click the highlighted area</div>
+      <button class="next" id="tc-next">Next →</button>
+    </div>
+  </div>
+</div>
+
+<div id="final-card">
+  <div class="inner">
+    <img class="lg-d" src="assets/bull-dark.png" alt="">
+    <img class="lg-l" src="assets/bull-light.png" alt="">
+    <div class="eyebrow">That's Tradecovex</div>
+    <h1>The only trade copier with an integrated AI journal.</h1>
+    <p>Built for NinjaTrader. Tradovate, TradingView, MT4/MT5 next. Copy trades across all your prop accounts — the AI shows you exactly where your edge breaks down.</p>
+    <div class="btnrow">
+      <a class="cta-pri" href="https://tradecovex.com">Visit tradecovex.com →</a>
+      <button class="cta-sec" id="replay-btn">↻ Replay tour</button>
+    </div>
+  </div>
+</div>
+
+<script>const STOPS = [
+{target:'#cwin', screen:'copier', card:'right',
+step:'Stop 1 of 17 · Trade Copier',
+ttl:"This is Tradecovex.",
+body:"A <em>local</em> add-on that lives inside your NinjaTrader. Not a cloud service. When NT runs, this runs — one lead account copying to up to 100 followers.",
+hint:'Click anywhere to continue'},
+{target:'#start-btn', screen:'copier', card:'right',
+step:'Stop 2 of 17 · One click',
+ttl:"One click. 19 accounts armed.",
+body:"Joe's on Pro — <em>19 loaded</em>. Hit START and every follower mirrors the lead in milliseconds. No manual entry. Now let's see what the AI journal did with his day.",
+hint:'Click START'},
+{target:'#states', screen:'app', page:'dailybrief', state:'pre', card:'right', scroll:0,
+step:'Stop 3 of 17 · Same page · three states',
+ttl:"Daily Brief evolves through Joe's day.",
+body:"One URL. <em>Pre-Market</em> primes him. <em>Live</em> co-pilots. <em>Post-Session</em> closes. We'll watch each one. Yesterday Joe scored <span class=\"g1\">82</span>.",
+hint:'Click PRE-MARKET'},
+{target:'.state-panel[data-panel="pre"] .anim-3', screen:'app', page:'dailybrief', state:'pre', card:'bottom', scroll:280,
+step:'Stop 4 of 17 · The signature',
+ttl:"AI voice + Joe Score.",
+body:"Voice primes Joe in one paragraph — yesterday's takeaway, today's risks, one directive. The <span class=\"g1\">Joe Score</span>: <em>Discipline + Edge + Risk = 100</em>. Yesterday's 82 carries until the bell.",
+hint:'Click the hero'},
+{target:'#states', screen:'app', page:'dailybrief', state:'live', card:'right', scroll:0,
+step:'Stop 5 of 17 · Bell rings',
+ttl:"Watch the score drop.",
+body:"Joe chased the CPI spike, broke two rules, took three losses. <em>Watch the ring redraw:</em> <span class=\"g1\">82</span> → <span class=\"r1\">61</span>. Down 21 points in 40 minutes.",
+hint:'Click LIVE'},
+{target:'#alert-ribbon', screen:'app', page:'dailybrief', state:'live', card:'bottom', scroll:0, fireAlert:true,
+step:'Stop 6 of 17 · Cross-page alert',
+ttl:"FOMC at 2 PM.",
+body:"Doesn't matter which page Joe is on — important news interrupts. The product talks to him when it matters, not constantly. The 2 PM reset is his chance to claw the day back.",
+hint:'Click Dismiss'},
+{target:'#states', screen:'app', page:'dailybrief', state:'post', card:'right', scroll:0,
+step:'Stop 7 of 17 · The recovery',
+ttl:"61 → 76. Loop closes.",
+body:"Joe stopped. Waited FOMC. Took one clean trade — <span class=\"g1\">+$1,160</span>. Score clawed back to <em>76</em>. Day net <span class=\"g1\">+$820</span> despite the morning blow.",
+hint:'Click POST-SESSION'},
+{target:'[data-nav="dailyreview"]', screen:'app', page:'dailybrief', state:'post', card:'right',
+step:'Stop 8 of 17 · The loop writes tomorrow',
+ttl:"One sentence carries forward.",
+body:"Every night Joe writes <em>Tomorrow's Focus</em> — one sentence. It opens tomorrow's Pre-Market. <em>Yesterday's takeaway</em> is literally yesterday's Tomorrow's Focus.",
+hint:'Click Daily Review'},
+{target:'#daily-review-hero', screen:'app', page:'dailyreview', card:'right', scroll:250,
+step:'Stop 9 of 17 · Daily Review',
+ttl:"The day gets a grade.",
+body:"Not a number — a <em>letter</em>. Plus the six metrics that earned it. Joe's writes tomorrow's one-sentence focus here: <em>When CPI fires, stay flat for 15 minutes.</em> That sentence opens tomorrow's brief.",
+hint:'Click the grade card'},
+{target:'[data-nav="accounts"]', screen:'app', page:'dailyreview', card:'right',
+step:'Stop 10 of 17 · All 19 at once',
+ttl:"The copier's reason to exist.",
+body:"Joe runs 19 prop accounts across Apex, MFFU, LTE, Bulenox. Balances drift, drawdowns shift, evaluations end. One page keeps track of all of it.",
+hint:'Click Accounts'},
+{target:'#accounts-hero', screen:'app', page:'accounts', card:'right', scroll:250,
+step:'Stop 11 of 17 · Multi-account view',
+ttl:"19 prop accounts, one page.",
+body:"Portfolio P&L across every account, every firm. Drawdown distance, days remaining, funded vs eval. The account table below shows <em>which of his 19 is closest to the line right now.</em>",
+hint:'Click the hero'},
+{target:'[data-nav="journal"]', screen:'app', page:'accounts', card:'right',
+step:'Stop 12 of 17 · Auto-captured journal',
+ttl:"Joe never touched this.",
+body:"Every trade the copier fires is auto-captured. Tagged by setup. Scored. Stored. The AI did the journaling work Joe would have done badly and abandoned by week three.",
+hint:'Click Journal'},
+{target:'#journal-setups', screen:'app', page:'journal', card:'top', scroll:350,
+step:'Stop 13 of 17 · Setup performance',
+ttl:"What's working. What's bleeding.",
+body:"14 setups auto-tagged from 90 days of trades. <em>10:15 NQ reversal: 73%</em> wins. <em>Pre-10 CPI chase: 18%.</em> The AI surfaced patterns Joe never saw in his own trades.",
+hint:'Click any setup card'},
+{target:'[data-nav="edge"]', screen:'app', page:'journal', card:'right',
+step:'Stop 14 of 17 · Your edge',
+ttl:"The pattern library.",
+body:"<em>Edge</em> is where patterns become rules. The AI found the leaks — Action Center drafts rules to close them. Accept, modify, dismiss.",
+hint:'Click Edge'},
+{target:'#money-flow', screen:'app', page:'edge', card:'top', scroll:450,
+step:'Stop 15 of 17 · Money Flow',
+ttl:"Where every dollar goes.",
+body:"The single visualisation traders screenshot for Discord. <span class=\"g1\">Green</span> = edge sources. <span class=\"r1\">Red</span> = drains. One edge to protect, three drains to cut.",
+hint:'Click the flow bar'},
+{target:'#action-center', screen:'app', page:'edge', card:'top', scroll:800,
+step:'Stop 16 of 17 · Patterns become rules',
+ttl:"Action Center.",
+body:"Patterns the AI found → rules drafted for Joe. Accept, modify, dismiss. <em>The Elite tier is the AI conversation about the data</em> — the rules themselves are Pro.",
+hint:'Click a card'},
+{target:'#tour-card', screen:'app', page:'edge', card:'center',
+step:'Stop 17 of 17 · That\'s Tradecovex',
+ttl:"Copier + AI journal.",
+body:"You've seen the full loop. One local add-on, nine pages of AI analysis, one trader getting better every day.",
+hint:'Click Next to finish'}
+];
+let idx = 0;
+const $ = s => document.querySelector(s);
+const $$ = s => document.querySelectorAll(s);
+function setTheme(t){
+document.documentElement.dataset.theme = t;
+$$('.tt').forEach(tt => {
+tt.querySelectorAll('.opt').forEach((o,i) => o.classList.toggle('on', (i===0 && t==='dark') || (i===1 && t==='light')));
+});
+}
+function setupTheme(){
+$$('.theme-tog').forEach(tt => {
+tt.addEventListener('click', (e) => {
+e.stopPropagation();
+setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark');
+});
+});
+}
+function setPage(p){
+$$('.page').forEach(pg => pg.classList.toggle('on', pg.dataset.pg === p));
+$$('.nv a[data-nav]').forEach(a => a.classList.toggle('on', a.dataset.nav === p));
+if (p !== 'dailybrief') {
+$('#alert-ribbon').classList.remove('on');
+}
+}
+function setState(st){
+$$('.states button[data-st]').forEach(b => b.classList.toggle('on', b.dataset.st === st));
+$$('.state-panel').forEach(p => p.classList.remove('on'));
+const panel = document.querySelector('.state-panel[data-panel="' + st + '"]');
+if (panel) {
+void panel.offsetWidth;
+panel.classList.add('on');
+panel.querySelectorAll('.num[data-target]').forEach(el => startCountUp(el));
+}
+if (st === 'post') {
+$('#alert-ribbon').classList.remove('on');
+}
+}
+function showScreen(name){
+$('#copier-screen').classList.toggle('on', name === 'copier');
+$('#app').style.display = name === 'app' ? 'flex' : 'none';
+}
+function startCountUp(el){
+const target = parseFloat(el.dataset.target);
+if (isNaN(target)) return;
+const prefix = el.dataset.prefix || '';
+const suffix = el.dataset.suffix || '';
+const duration = 900;
+const start = performance.now();
+function frame(now){
+const t = Math.min(1, (now - start) / duration);
+const eased = 1 - Math.pow(1 - t, 3);
+const val = target * eased;
+let formatted;
+if (Math.abs(target) >= 1000) formatted = Math.round(val).toLocaleString();
+else formatted = Math.round(val).toString();
+let displayPrefix = prefix;
+let absVal = formatted;
+if (val < 0) {
+absVal = Math.abs(Math.round(val)).toLocaleString();
+if (prefix === '-$') displayPrefix = '-$';
+else displayPrefix = '-' + prefix;
+}
+el.innerHTML = displayPrefix + absVal + (suffix ? '<span style="font-size:.5em;opacity:.7;font-weight:500">' + suffix + '</span>' : '');
+if (t < 1) requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+}
+function positionTour(stop){
+const card = $('#tour-card');
+if (stop.card === 'center') {
+$('#tour-spotlight').style.opacity = '0';
+const vw = window.innerWidth, vh = window.innerHeight;
+const cardW = 340;
+const cardH = card.offsetHeight || 240;
+card.style.top = (vh/2 - cardH/2) + 'px';
+card.style.left = (vw/2 - cardW/2) + 'px';
+$('#tour-mask').style.clipPath = 'none';
+return;
+}
+const target = $(stop.target);
+if (!target) return;
+const r = target.getBoundingClientRect();
+const pad = 8;
+const sl = $('#tour-spotlight');
+sl.style.opacity = '1';
+sl.style.top = (r.top - pad) + 'px';
+sl.style.left = (r.left - pad) + 'px';
+sl.style.width = (r.width + pad*2) + 'px';
+sl.style.height = (r.height + pad*2) + 'px';
+const mask = $('#tour-mask');
+mask.style.clipPath = 'polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 0, ' +
+(r.left - pad) + 'px ' + (r.top - pad) + 'px, ' +
+(r.left - pad) + 'px ' + (r.bottom + pad) + 'px, ' +
+(r.right + pad) + 'px ' + (r.bottom + pad) + 'px, ' +
+(r.right + pad) + 'px ' + (r.top - pad) + 'px, ' +
+(r.left - pad) + 'px ' + (r.top - pad) + 'px)';
+const cardW = 340;
+const cardH = card.offsetHeight || 200;
+const vw = window.innerWidth, vh = window.innerHeight;
+let top, left;
+const placement = stop.card || 'right';
+if (placement === 'right' && r.right + cardW + 30 < vw) { top = r.top + r.height/2 - cardH/2; left = r.right + 24; }
+else if (placement === 'left' && r.left - cardW - 30 > 0) { top = r.top + r.height/2 - cardH/2; left = r.left - cardW - 24; }
+else if (placement === 'bottom' && r.bottom + cardH + 30 < vh) { top = r.bottom + 16; left = r.left + r.width/2 - cardW/2; }
+else if (placement === 'top' && r.top - cardH - 30 > 46) { top = r.top - cardH - 16; left = r.left + r.width/2 - cardW/2; }
+else if (r.right + cardW + 30 < vw) { top = r.top; left = r.right + 24; }
+else if (r.bottom + cardH + 30 < vh) { top = r.bottom + 16; left = Math.max(20, r.left); }
+else { top = 80; left = vw - cardW - 30; }
+top = Math.max(60, Math.min(top, vh - cardH - 20));
+left = Math.max(20, Math.min(left, vw - cardW - 20));
+card.style.top = top + 'px';
+card.style.left = left + 'px';
+}
+function renderStop(){
+if (idx >= STOPS.length) { finishTour(); return; }
+const stop = STOPS[idx];
+if (stop.screen === 'copier') { showScreen('copier'); }
+else if (stop.screen === 'app') {
+showScreen('app');
+if (stop.page) setPage(stop.page);
+if (stop.state) setState(stop.state);
+}
+if (typeof stop.scroll === 'number') { window.scrollTo({top: stop.scroll, behavior: 'smooth'}); }
+if (stop.fireAlert) { setTimeout(() => $('#alert-ribbon').classList.add('on'), 400); }
+$('#tc-step').textContent = stop.step;
+$('#tc-ttl').textContent = stop.ttl;
+$('#tc-body').innerHTML = stop.body;
+$('#tc-hint').innerHTML = stop.hint;
+setTimeout(() => positionTour(stop), stop.fireAlert ? 650 : 400);
+$('#prog-fill').style.width = ((idx+1)/STOPS.length * 100) + '%';
+$('#prog-text').textContent = (idx+1) + ' / ' + STOPS.length;
+if (stop.card !== 'center' && stop.target) {
+const tgt = $(stop.target);
+if (tgt) {
+tgt.style.cursor = 'pointer';
+const handler = (e) => { e.preventDefault(); e.stopPropagation(); tgt.removeEventListener('click', handler, true); next(); };
+tgt.addEventListener('click', handler, true);
+}
+}
+}
+function next(){ idx++; renderStop(); }
+function startTour(){
+idx = 0;
+document.body.classList.add('tour-active');
+$('#tour-header').style.display = 'flex';
+$('#tour-overlay').classList.add('on');
+$('#final-card').classList.remove('on');
+$('#alert-ribbon').classList.remove('on');
+renderStop();
+}
+function finishTour(){
+$('#tour-overlay').classList.remove('on');
+$('#tour-header').style.display = 'none';
+document.body.classList.remove('tour-active');
+$('#final-card').classList.add('on');
+}
+function skipTour(){
+$('#tour-overlay').classList.remove('on');
+$('#tour-header').style.display = 'none';
+document.body.classList.remove('tour-active');
+showScreen('app');
+setPage('dailybrief');
+setState('pre');
+}
+window.addEventListener('load', () => {
+setupTheme();
+setTimeout(() => {
+$('#intro').style.display = 'none';
+showScreen('copier');
+startTour();
+}, 3900);
+$('#skip-tour').addEventListener('click', skipTour);
+$('#tc-next').addEventListener('click', next);
+$('#tour-mask').addEventListener('click', next);
+$('#replay-btn').addEventListener('click', () => {
+$('#final-card').classList.remove('on');
+showScreen('copier');
+startTour();
+});
+$$('.nv a[data-nav]').forEach(a => {
+a.addEventListener('click', (e) => {
+e.preventDefault();
+const pg = a.dataset.nav;
+const pageExists = document.querySelector('.page[data-pg="' + pg + '"]');
+if (pageExists) { setPage(pg); }
+else { alert('This page is a preview placeholder. Try Daily Brief / Daily Review / Accounts / Journal / Edge / News Feed / Propfirm Deals.'); }
+});
+});
+$('#nav-copier').addEventListener('click', (e) => { e.preventDefault(); showScreen('copier'); });
+$('#copier-close').addEventListener('click', () => {
+if (!document.body.classList.contains('tour-active')) {
+showScreen('app'); setPage('dailybrief'); setState('pre');
+}
+});
+$('#open-dash').addEventListener('click', () => {
+if (!document.body.classList.contains('tour-active')) {
+showScreen('app'); setPage('dailybrief'); setState('pre');
+}
+});
+$$('.states button[data-st]').forEach(b => {
+b.addEventListener('click', () => setState(b.dataset.st));
+});
+setTimeout(() => {
+const prePanel = document.querySelector('.state-panel[data-panel="pre"]');
+if (prePanel) prePanel.querySelectorAll('.num[data-target]').forEach(el => startCountUp(el));
+}, 4000);
+let resizeTO;
+window.addEventListener('resize', () => {
+clearTimeout(resizeTO);
+resizeTO = setTimeout(() => {
+if ($('#tour-overlay').classList.contains('on') && idx < STOPS.length) positionTour(STOPS[idx]);
+}, 100);
+});
+});</script>
+</body>
+</html>
