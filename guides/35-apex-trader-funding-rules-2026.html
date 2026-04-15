@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Apex Trader Funding Rules 2026 — The Complete Reference (Every Rule, Every March 2026 Change)</title>
+<meta name="description" content="Every Apex Trader Funding rule in 2026. Account sizes, EOD vs Intraday trailing drawdown, profit targets, the new 50% consistency rule, mandatory brackets, the March 2026 overhaul that removed MAE and the 5:1 risk-reward rule, and what changed for Performance Accounts.">
+<link rel="canonical" href="https://tradecovex.com/guides/apex-trader-funding-rules-2026">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Apex Trader Funding Rules 2026 — The Complete Reference (Every Rule, Every March 2026 Change)">
+<meta property="og:description" content="Every Apex Trader Funding rule in 2026. Account sizes, EOD vs Intraday trailing drawdown, profit targets, the new 50% consistency rule, mandatory brackets, the March 2026 overhaul that removed MAE and the 5:1 risk-reward rule, and what changed for Performance Accounts.">
+<meta property="og:url" content="https://tradecovex.com/guides/apex-trader-funding-rules-2026">
+<meta property="og:image" content="https://tradecovex.com/logo.png">
+<meta property="og:site_name" content="Tradecovex">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Apex Trader Funding Rules 2026 — The Complete Reference (Every Rule, Every March 2026 Change)">
+<meta name="twitter:description" content="Every Apex Trader Funding rule in 2026. Account sizes, EOD vs Intraday trailing drawdown, profit targets, the new 50% consistency rule, mandatory brackets, the March 2026 overhaul that removed MAE and the 5:1 risk-reward rule, and what changed for Performance Accounts.">
+<meta name="twitter:image" content="https://tradecovex.com/logo.png">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="author" content="Tradecovex / IVAAN INC">
+<link rel="icon" type="image/png" href="/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://tradecovex.com/guides/apex-trader-funding-rules-2026#article",
+      "headline": "Apex Trader Funding Rules 2026 \u2014 The Complete Reference (Every Rule, Every March 2026 Change)",
+      "description": "Every Apex Trader Funding rule in 2026. Account sizes, EOD vs Intraday trailing drawdown, profit targets, the new 50% consistency rule, mandatory brackets, the March 2026 overhaul that removed MAE and the 5:1 risk-reward rule, and what changed for Performance Accounts.",
+      "image": "https://tradecovex.com/logo.png",
+      "datePublished": "2026-04-09T00:00:00+00:00",
+      "dateModified": "2026-04-09T00:00:00+00:00",
+      "author": {
+        "@type": "Organization",
+        "name": "Tradecovex",
+        "url": "https://tradecovex.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Tradecovex",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://tradecovex.com/logo.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://tradecovex.com/guides/apex-trader-funding-rules-2026"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://tradecovex.com/guides/apex-trader-funding-rules-2026#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What changed in the Apex March 2026 overhaul?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Five major changes hit at once on March 1, 2026. Monthly evaluation fees were replaced with one-time payments. The MAE (Maximum Adverse Excursion) rule that closed accounts for open-trade drawdown was eliminated. The 5:1 risk-reward ratio rule was removed. The 30% consistency rule on Performance Accounts was loosened to 50%. And traders now choose at evaluation purchase between End-of-Day trailing drawdown or Intraday trailing drawdown \u2014 previously only the intraday version existed. Bracket orders are now enforced at the platform level on Rithmic and Tradovate, meaning the platform rejects any order without an attached stop and target."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between EOD and Intraday trailing drawdown on Apex?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "EOD (End-of-Day) trailing drawdown updates once per day at 4:59:59 PM ET based on your closing balance. The new threshold is then enforced in real time during the next session. EOD accounts also have a Daily Loss Limit ($1,000 on $50K, scaling with account size) that pauses the account for the day if hit but does not close it. Intraday trailing drawdown trails your peak balance in real time, including unrealized profits, and there is no Daily Loss Limit. EOD is significantly more forgiving and is the recommended choice for nearly all traders. Intraday is the legacy mechanic that ended most accounts under the pre-2026 rules and remains available for traders who prefer it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the Safety Net and how does it work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Safety Net is the threshold at which the trailing drawdown stops moving on Performance Accounts. It equals your account starting balance plus the drawdown amount plus $100. For a $50K PA, the Safety Net is $52,600 ($50,000 + $2,500 + $100). For a $150K PA it is $155,100. Once your end-of-day balance reaches the Safety Net, the drawdown threshold locks at the starting balance plus $100 and never moves again. From that point you can have full position size and your account is protected at the original starting balance level. The Safety Net is one of the most important Apex mechanics \u2014 until you hit it, your buffer is constantly moving. After you hit it, your floor is fixed for life."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the new 50% consistency rule?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Under the post-March 2026 rules, no single trading day can account for more than 50 percent of your total profit balance at the time of a payout request. This is significantly looser than the pre-March 30 percent rule that blocked many payouts. The rule applies to Performance Accounts only (not evaluations) and resets after each payout \u2014 the next single-day cap is calculated from the new running total since the last withdrawal. The rule disappears entirely once you reach the sixth payout or move to a Live Trading Account."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are bracket orders really mandatory on Apex now?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, on Rithmic and Tradovate as of March 1, 2026. The platform itself rejects any market or limit order that does not have an attached stop loss and take profit. This is platform-level enforcement, not a manual rule check during payout review. The change protects traders from accidental rule violations during volatility but removes some flexibility for discretionary scaling and partial exits. Some traders find this restrictive at first; most adapt within a few weeks. Bracket orders do not guarantee exact exit prices during high-volatility events like NFP or FOMC, and slippage is still the trader's responsibility."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I run multiple Apex accounts with a copier?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Apex permits running multiple accounts and using a <a href='/guides/ninjatrader-trade-copier'>trade copier</a> to replicate trades across them, subject to specific rules. Each account must follow its own contract scaling rule independently, and the position size on any single account cannot exceed that account's permitted maximum even if the lead account is sized larger. There is also a documented scaling restriction that limits the contract size to half of the maximum until the Safety Net threshold is reached. Practical implication: a $50K PA capped at 10 contracts maximum can only trade 5 contracts until the EOD balance reaches $52,600. A copier needs to respect this per-account when it replicates trades."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://tradecovex.com/#software",
+      "name": "Tradecovex",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Windows, macOS",
+      "description": "NinjaTrader trade copier with built-in AI journal that automatically analyzes every copied trade.",
+      "url": "https://tradecovex.com",
+      "offers": {
+        "@type": "Offer",
+        "price": 0,
+        "priceCurrency": "USD",
+        "description": "7-day free trial \u2014 Launch pricing locked for life"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://tradecovex.com/guides/apex-trader-funding-rules-2026#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://tradecovex.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://tradecovex.com/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Apex Trader Funding Rules 2026",
+          "item": "https://tradecovex.com/guides/apex-trader-funding-rules-2026"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:#0F172A;background:#fff;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+:root{
+  --blue:#2563EB;
+  --blue-dark:#1d4ed8;
+  --navy:#0A1628;
+  --slate:#4B5E7A;
+  --slate-light:#64748B;
+  --light:#F0F4FF;
+  --border:#DDE3EF;
+  --radius:12px;
+  --shadow-sm:0 1px 3px rgba(10,22,40,.08),0 1px 2px rgba(10,22,40,.06);
+  --shadow-md:0 4px 16px rgba(10,22,40,.1),0 2px 6px rgba(10,22,40,.06);
+  --shadow-lg:0 12px 40px rgba(10,22,40,.14),0 4px 12px rgba(10,22,40,.08);
+}
+
+/* NAV — matches homepage exactly */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px}
+.nav-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav-logo{height:40px;width:auto}
+.nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+.nav-links a{font-size:.88rem;font-weight:600;color:var(--slate);transition:color .2s;letter-spacing:.01em}
+.nav-links a:hover{color:var(--navy)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 26px;border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;transition:all .18s;border:none;text-decoration:none;letter-spacing:.01em}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 2px 8px rgba(37,99,235,.3)}
+.btn-primary:hover{background:var(--blue-dark);transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,99,235,.4)}
+.btn-outline{background:transparent;color:var(--navy);border:2px solid #C4CEDD}
+.btn-outline:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn-outline-white{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35)}
+.btn-outline-white:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.btn-lg{padding:16px 38px;font-size:.98rem;border-radius:14px}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;transition:all .25s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:20px 24px;z-index:199;flex-direction:column;gap:0;box-shadow:var(--shadow-lg)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{display:block;padding:14px 0;font-size:1rem;font-weight:600;color:var(--slate);border-bottom:1px solid var(--border)}
+.mobile-menu a.btn{margin-top:16px;width:100%;border-bottom:none;justify-content:center}
+
+/* HERO — adapted for guide pages */
+.guide-hero{padding:140px 24px 60px;text-align:center;position:relative;overflow:hidden;background:#fff}
+.guide-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 90% 60% at 50% -10%,rgba(37,99,235,.08) 0%,transparent 65%);pointer-events:none}
+.guide-hero::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background-image:radial-gradient(circle at 1px 1px, rgba(37,99,235,.06) 1px, transparent 0);background-size:32px 32px;pointer-events:none;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 0%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 0%,transparent 70%)}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:100px;padding:7px 18px;font-size:.75rem;font-weight:700;color:var(--blue);letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px;position:relative;z-index:1}
+.hero-eyebrow span.dot{width:7px;height:7px;background:var(--blue);border-radius:50%;animation:blink 2s ease infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+h1{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(2.2rem,4.5vw,3.4rem);line-height:1.08;letter-spacing:-.03em;color:var(--navy);max-width:900px;margin:0 auto 24px;position:relative;z-index:1}
+h1 .accent{color:var(--blue)}
+.guide-meta{display:flex;justify-content:center;gap:24px;margin-bottom:20px;flex-wrap:wrap;font-size:.82rem;color:var(--slate-light);position:relative;z-index:1}
+.guide-meta span{display:inline-flex;align-items:center;gap:6px}
+.breadcrumb{font-size:.78rem;color:var(--slate-light);margin-bottom:24px;position:relative;z-index:1}
+.breadcrumb a{color:var(--blue);font-weight:600}
+.breadcrumb a:hover{text-decoration:underline}
+
+/* ANSWER BOX — featured snippet style */
+.answer-box{max-width:780px;margin:0 auto 50px;background:linear-gradient(135deg,#EFF6FF,#F0F4FF);border:2px solid #BFDBFE;border-radius:18px;padding:32px 36px;text-align:left;position:relative;z-index:1;box-shadow:var(--shadow-md)}
+.answer-box-label{display:inline-block;font-size:.68rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.14em;background:#fff;border:1.5px solid #BFDBFE;border-radius:100px;padding:5px 14px;margin-bottom:14px}
+.answer-box p{font-size:1.02rem;color:var(--navy);line-height:1.75;font-weight:500}
+.answer-box p strong{font-weight:700;color:var(--navy)}
+
+/* SHARED SECTION STYLES */
+.section{padding:80px 24px}
+.section-light{background:var(--light)}
+.section-tag{display:inline-block;font-size:.7rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.14em;margin-bottom:16px;background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:100px;padding:5px 14px}
+h2{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(1.7rem,3.2vw,2.4rem);line-height:1.12;letter-spacing:-.025em;color:var(--navy);margin-bottom:18px}
+h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.3rem;color:var(--navy);margin:32px 0 14px;letter-spacing:-.015em}
+h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08rem;color:var(--navy);margin:24px 0 10px;letter-spacing:-.01em}
+.container{max-width:880px;margin:0 auto}
+.container-wide{max-width:1120px;margin:0 auto}
+
+/* PROSE STYLES */
+.prose p{font-size:1rem;color:var(--slate);line-height:1.85;margin-bottom:20px}
+.prose p strong{color:var(--navy);font-weight:700}
+.prose ul,.prose ol{margin:16px 0 24px 22px;color:var(--slate);font-size:1rem;line-height:1.85}
+.prose li{margin-bottom:10px}
+.prose li strong{color:var(--navy);font-weight:700}
+.prose a{color:var(--blue);font-weight:600;border-bottom:1.5px solid rgba(37,99,235,.3);transition:border .2s}
+.prose a:hover{border-bottom-color:var(--blue)}
+.section-num{display:inline-block;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:.78rem;color:var(--blue);background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:8px;padding:4px 10px;margin-bottom:12px;letter-spacing:.06em}
+
+/* PULL QUOTE */
+.pull-quote{background:linear-gradient(135deg,#EFF6FF,#F0F4FF);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:24px 28px;margin:32px 0;font-family:'Barlow Semi Condensed',sans-serif;font-size:1.18rem;font-weight:600;color:var(--navy);line-height:1.55;letter-spacing:-.01em}
+
+/* CALLOUT BOXES */
+.callout{background:#fff;border:1.5px solid var(--border);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:22px 26px;margin:28px 0;box-shadow:var(--shadow-sm)}
+.callout-title{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1rem;color:var(--navy);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.callout p{font-size:.92rem;color:var(--slate);line-height:1.75;margin:0}
+.callout-warn{border-left-color:#DC2626;background:#FEF2F2}
+.callout-warn .callout-title{color:#991B1B}
+.callout-success{border-left-color:#16A34A;background:#F0FDF4}
+.callout-success .callout-title{color:#166534}
+
+/* FEATURE CARD GRID */
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin:32px 0}
+.feature-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:26px;transition:all .25s;box-shadow:var(--shadow-sm)}
+.feature-card:hover{border-color:#93C5FD;box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.feature-card-num{display:inline-block;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:.7rem;color:var(--blue);background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:6px;padding:3px 8px;margin-bottom:12px;letter-spacing:.06em}
+.feature-card h4{margin:0 0 10px;font-size:1.08rem}
+.feature-card p{font-size:.88rem;color:var(--slate);line-height:1.75;margin:0}
+
+/* DATA TABLE */
+.data-table-wrap{overflow-x:auto;border-radius:14px;border:1.5px solid var(--border);box-shadow:var(--shadow-md);margin:28px 0}
+.data-table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:580px;background:#fff}
+.data-table th{padding:14px 18px;text-align:left;font-weight:700;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;background:#F1F5F9;color:var(--slate);border-bottom:2px solid var(--border)}
+.data-table td{padding:13px 18px;border-bottom:1px solid var(--border);color:var(--slate);vertical-align:middle}
+.data-table tr:last-child td{border-bottom:none}
+.data-table tr.tc-row td{background:#EFF6FF;color:var(--navy);font-weight:600}
+.data-table tr.tc-row td:first-child::before{content:'★ ';color:var(--blue)}
+.data-table td.label{font-weight:600;color:var(--navy);background:#FAFBFF}
+.ck{color:#16A34A;font-weight:700}
+.cx{color:#DC2626;font-weight:700}
+.cm{color:#D97706;font-weight:600;font-size:.85rem}
+
+/* VIDEO EMBED */
+.video-wrap{max-width:780px;margin:36px auto;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-lg);background:var(--navy);position:relative;padding-bottom:56.25%;height:0}
+.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.video-caption{font-size:.82rem;color:var(--slate-light);text-align:center;margin-top:14px;font-style:italic}
+
+/* CTA BANNER */
+.cta-banner{background:linear-gradient(135deg,#0A1628,#0F2460,#1d4ed8);border-radius:18px;padding:56px 48px;margin:48px 0;text-align:center;position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
+.cta-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 100%,rgba(37,99,235,.25) 0%,transparent 65%);pointer-events:none}
+.cta-banner h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:1.85rem;color:#fff;margin:0 0 14px;letter-spacing:-.025em;position:relative;z-index:1}
+.cta-banner p{font-size:1rem;color:#93C5FD;max-width:540px;margin:0 auto 26px;line-height:1.7;position:relative;z-index:1}
+.cta-perks{display:flex;gap:22px;justify-content:center;margin-top:22px;flex-wrap:wrap;position:relative;z-index:1}
+.cta-perk{font-size:.78rem;color:#60A5FA;font-weight:600;display:inline-flex;align-items:center;gap:6px}
+.cta-perk::before{content:'✓';font-weight:800}
+
+/* FAQ */
+.faq-list{max-width:780px;margin:0 auto}
+.faq-item{border-bottom:1.5px solid var(--border)}
+.faq-q{width:100%;text-align:left;padding:22px 0;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.97rem;color:var(--navy);line-height:1.45;letter-spacing:-.01em}
+.faq-icon{width:24px;height:24px;min-width:24px;border-radius:50%;border:2px solid var(--blue);display:flex;align-items:center;justify-content:center;transition:all .25s;flex-shrink:0}
+.faq-icon svg{width:12px;height:12px;stroke:var(--blue);fill:none;stroke-width:2.5;stroke-linecap:round;transition:transform .25s}
+.faq-item.open .faq-icon{background:var(--blue)}
+.faq-item.open .faq-icon svg{stroke:#fff;transform:rotate(45deg)}
+.faq-a{display:none;padding:0 0 22px;font-size:.92rem;color:var(--slate);line-height:1.85;max-width:680px}
+.faq-item.open .faq-a{display:block}
+
+/* RELATED GUIDES */
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:30px}
+.related-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:24px;transition:all .25s;display:block;box-shadow:var(--shadow-sm)}
+.related-card:hover{border-color:#93C5FD;box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.related-tag{display:inline-block;font-size:.66rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.1em;background:#EFF6FF;border:1px solid #BFDBFE;border-radius:6px;padding:3px 8px;margin-bottom:12px}
+.related-card h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.02rem;color:var(--navy);margin:0 0 8px;line-height:1.35}
+.related-card p{font-size:.84rem;color:var(--slate);line-height:1.65;margin:0}
+
+/* FOOTER — matches homepage */
+.footer{background:#fff;border-top:1.5px solid var(--border);padding:60px 24px 36px}
+.footer-inner{max-width:1120px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1.5px solid var(--border);margin-bottom:30px}
+.footer-logo{height:48px;width:auto;margin-bottom:14px}
+.footer-tagline{font-size:.85rem;color:var(--slate);max-width:220px;line-height:1.7;margin-bottom:20px;font-weight:400}
+.footer-social{display:flex;gap:10px}
+.footer-social a{width:36px;height:36px;border:1.5px solid var(--border);border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--slate);transition:all .2s}
+.footer-social a:hover{border-color:var(--blue);color:var(--blue);background:#EFF6FF}
+.footer-social svg{width:16px;height:16px;fill:currentColor}
+.footer-col h4{font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:#94A3B8;margin:0 0 16px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;padding:0}
+.footer-col a{font-size:.875rem;color:var(--slate);transition:color .18s;font-weight:500}
+.footer-col a:hover{color:var(--navy)}
+.footer-aff{font-size:.82rem;color:var(--blue);font-weight:700}
+.footer-risk{background:var(--light);border:1.5px solid var(--border);border-radius:12px;padding:18px 22px;margin-bottom:16px;font-size:.75rem;color:#5B7399;line-height:1.75}
+.footer-risk strong{color:var(--slate);font-weight:700}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:6px}
+.footer-copy{font-size:.75rem;color:#94A3B8;font-weight:500}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .nav-links{display:none}
+  .nav-cta-desktop{display:none !important}
+  .hamburger{display:flex}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .feature-grid,.related-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .footer-top{grid-template-columns:1fr}
+  h1{font-size:2rem}
+  h2{font-size:1.6rem}
+  .answer-box{padding:24px 22px}
+  .cta-banner{padding:42px 28px}
+  .cta-banner h3{font-size:1.5rem}
+}
+
+
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" aria-label="Tradecovex home"><img src="/logo.png" alt="Tradecovex" class="nav-logo"></a>
+    <ul class="nav-links">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/guides/">Guides</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+    </ul>
+    <a href="/#waitlist" class="btn btn-primary nav-cta-desktop" style="display:inline-flex">Join Waitlist</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/#features">Features</a>
+  <a href="/guides/">Guides</a>
+  <a href="/#pricing">Pricing</a>
+  <a href="/#faq">FAQ</a>
+  <a href="/#waitlist" class="btn btn-primary">Join Waitlist</a>
+</div>
+
+<section class="guide-hero">
+  <div class="hero-eyebrow"><span class="dot"></span>APEX RULES REFERENCE</div>
+  <p class="breadcrumb"><a href="/">Home</a> › <a href="/guides/">Guides</a> › Apex Trader Funding Rules 2026</p>
+  <h1>Apex Trader Funding Rules 2026 — The Complete Reference</h1>
+  <div class="guide-meta">
+    <span>📅 Updated April 2026</span>
+    <span>⏱ 18 min read</span>
+    <span>✍ Tradecovex Team</span>
+  </div>
+  <div class="answer-box">
+    <span class="answer-box-label">Quick Answer</span>
+    <p>Apex Trader Funding overhauled its entire account structure on March 1, 2026 — and the new rules look almost nothing like the legacy rules most reviews still describe. The recurring monthly fees are gone, replaced with one-time payments. The MAE rule that punished open-trade drawdown is gone. The 5:1 risk-reward restriction is gone. The 30% consistency rule was loosened to 50%. Traders now choose between End-of-Day (EOD) trailing drawdown and Intraday trailing drawdown when buying an evaluation, with mandatory bracket orders enforced at the platform level on Rithmic and Tradovate. Legacy accounts purchased before March 1, 2026 still operate under the old rules. Everything new falls under the updated framework. This page is the complete rule-by-rule reference, updated through April 2026.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container prose">
+    
+
+    
+<h2><span class="section-num">01</span>What changed on March 1, 2026 — and why it matters</h2>
+
+<p>If you have read anything about Apex Trader Funding written before March 2026, the rules in that article are out of date. Apex did the largest rule overhaul in its history on March 1, 2026, and almost every meaningful piece of the experience changed in a way that benefits traders.</p>
+
+<p>The pre-March 2026 rule set was, in the words of many traders who had lived inside it for years, designed to be passable but unforgiving. Trailing drawdown updated in real time on every tick. The MAE (Maximum Adverse Excursion) rule could close accounts because of open-trade drawdown even if the trade ultimately closed green. The 30% consistency rule blocked payouts whenever a trader had one strong day. The 5:1 risk-reward restriction prevented traders from running wide-stop strategies. Monthly fees accumulated whether you were trading or sitting on your hands.</p>
+
+<p>The post-March 2026 rule set is a different product. Here is the short summary.</p>
+
+<ul>
+  <li><strong>One-time payment</strong> for evaluations replaces the recurring monthly subscription model.</li>
+  <li><strong>EOD trailing drawdown is now a choice</strong>, not a forced configuration. Traders choose EOD or Intraday at evaluation purchase.</li>
+  <li><strong>The MAE rule is gone</strong>. Open-trade drawdown no longer ends accounts.</li>
+  <li><strong>The 5:1 risk-reward rule is gone</strong>. Wider stops are now permitted within normal risk management.</li>
+  <li><strong>The consistency rule loosened to 50%</strong>, up from 30%. Single big days are far less likely to block payouts.</li>
+  <li><strong>Bracket orders are mandatory</strong> and enforced at the platform level on Rithmic and Tradovate.</li>
+  <li><strong>Payout reviews and chart screenshots are gone</strong>. Approved trades pay out without manual review.</li>
+</ul>
+
+<div class="callout">
+  <strong>The bottom line:</strong> Apex in April 2026 is a meaningfully more trader-friendly firm than Apex in February 2026 was. If your impression of Apex was formed by the legacy rules, it is worth re-evaluating under the new framework. Legacy accounts (purchased before March 1, 2026) still operate under the old rules until they are closed or replaced.
+</div>
+
+<h2><span class="section-num">02</span>The two account types — EOD and Intraday</h2>
+
+<p>The single most important decision when buying a 2026 Apex evaluation is which drawdown model to choose. The choice is permanent for that evaluation — you cannot switch later — and the two models behave very differently.</p>
+
+<h3>End-of-Day (EOD) Trailing Drawdown</h3>
+
+<p>The EOD trailing threshold updates once per day at 4:59:59 PM ET based on where your account closed. The new threshold is then enforced in real time during the next trading session. If your balance touches the threshold intraday during the next session, the account closes.</p>
+
+<p>EOD accounts also include a Daily Loss Limit. On a $50K EOD account the DLL is $1,000. If you lose that amount in a single session, trading is paused for the rest of the day, but the account stays alive — you come back the next day at your current balance. The DLL is a speed bump. The EOD trailing threshold is the cliff.</p>
+
+<p>EOD is significantly more forgiving than Intraday because intraday unrealised profits do not lock in a new threshold. You can be up $1,500 mid-session and give it back without the threshold ratcheting upward. The threshold only moves based on the closing balance.</p>
+
+<h3>Intraday Trailing Drawdown</h3>
+
+<p>The Intraday trailing drawdown trails your peak balance in real time, including unrealized profits. If your account hits a new high at 10:30 AM during a session, the threshold immediately locks in at a new higher level — even if you give back the gains before close. Intraday accounts have no Daily Loss Limit on the evaluation; the only floor is the trailing threshold itself.</p>
+
+<p>This is the legacy mechanic that ended most accounts under the pre-2026 rules. It remains available for traders who prefer the more aggressive structure, but for most traders, EOD is the better choice. The mechanics of intraday versus EOD trailing are covered in detail in the <a href="/guides/trailing-drawdown">trailing drawdown guide</a>.</p>
+
+<h2><span class="section-num">03</span>Account sizes, profit targets, and drawdowns</h2>
+
+<p>Apex offers multiple account sizes in 2026. The exact pricing structure shifted with the move to one-time payments, and the specific dollar amounts should be verified on the Apex site at purchase time, but the rule structure is consistent.</p>
+
+<div class="data-table-wrap">
+<table class="data-table">
+<thead><tr><th>Account size</th><th>Profit target</th><th>Trailing drawdown</th><th>Daily Loss Limit (EOD)</th><th>Max contracts</th></tr></thead>
+<tbody>
+<tr><td class="label">$25K</td><td>$1,500</td><td>$1,500</td><td>$500</td><td>4 contracts</td></tr>
+<tr><td class="label">$50K</td><td>$3,000</td><td>$2,500</td><td>$1,000</td><td>10 contracts</td></tr>
+<tr><td class="label">$75K</td><td>$4,500</td><td>$2,750</td><td>$1,500</td><td>12 contracts</td></tr>
+<tr><td class="label">$100K</td><td>$6,000</td><td>$3,000</td><td>$2,000</td><td>14 contracts</td></tr>
+<tr><td class="label">$150K</td><td>$9,000</td><td>$5,000</td><td>$3,000</td><td>17 contracts</td></tr>
+<tr><td class="label">$250K</td><td>$15,000</td><td>$6,500</td><td>$5,000</td><td>27 contracts</td></tr>
+<tr><td class="label">$300K</td><td>$20,000</td><td>$7,500</td><td>$5,500</td><td>35 contracts</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Apex also offers Static accounts where the drawdown does not trail. These have lower profit targets but a fixed rather than ratcheting drawdown. The $100K Static, for example, has a $2,000 profit target and a $625 fixed drawdown. Static accounts behave differently from trailing accounts and are generally chosen by traders who want predictability over the trailing dynamic.</p>
+
+<h2><span class="section-num">04</span>The Safety Net — the most important Apex mechanic to understand</h2>
+
+<p>The Safety Net is the threshold at which the trailing drawdown stops moving permanently. It applies to Performance Accounts (the funded phase after passing the evaluation) and equals your starting balance plus the drawdown amount plus $100.</p>
+
+<div class="data-table-wrap">
+<table class="data-table">
+<thead><tr><th>Account size</th><th>Drawdown</th><th>Safety Net (locks at)</th></tr></thead>
+<tbody>
+<tr><td class="label">$50K PA</td><td>$2,500</td><td>$52,600</td></tr>
+<tr><td class="label">$100K PA</td><td>$3,000</td><td>$103,100</td></tr>
+<tr><td class="label">$150K PA</td><td>$5,000</td><td>$155,100</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Once your end-of-day balance reaches the Safety Net, two things happen. First, the trailing threshold locks at your starting balance plus $100 and never moves again. Second, your contract scaling unlocks — you can now trade the full contract maximum for your account size instead of the half-cap that applied before reaching the Safety Net.</p>
+
+<p>This means the $50K PA, which is capped at 5 contracts before reaching the Safety Net (half of the 10 contract maximum), unlocks the full 10 contracts after reaching the $52,600 threshold. The contract scaling rule is the reason new PA traders cannot just go max contracts on day one.</p>
+
+<div class="callout callout-warn">
+  <strong>The Safety Net trap most new Apex traders fall into:</strong> they assume the trailing drawdown stops moving the moment they hit any level of profit. It does not. It stops moving when end-of-day balance crosses the starting balance plus drawdown plus $100. Until that exact moment, every new equity high ratchets the floor upward.
+</div>
+
+<h2><span class="section-num">05</span>The 50% consistency rule on Performance Accounts</h2>
+
+<p>The post-March 2026 consistency rule states that no single trading day can account for more than 50 percent of your total profit balance at the time of a payout request. This is the rule that loosened from the previous 30 percent threshold.</p>
+
+<p>The math example. On a $50K PA, you have accumulated $4,000 in profit since your last payout. Your highest single day during that window was $1,800. Your highest-day-to-total ratio is $1,800 / $4,000 = 45 percent. That passes the 50 percent rule, and you can request a payout. If your highest day had been $2,200, the ratio would be 55 percent, and you would need to add enough smaller profitable days to get the highest day below 50 percent of the new running total.</p>
+
+<p>The rule resets after each payout. The day count and the ratio start fresh from your post-payout balance. The rule applies until your sixth payout or until you move to a Live Trading Account, after which the 50 percent rule no longer applies. From the sixth payout onward, you are also eligible for 100 percent payouts (no firm split) on profits above the minimum balance threshold.</p>
+
+<h2><span class="section-num">06</span>Payout structure and the 100% threshold</h2>
+
+<p>Apex payouts work on a tiered structure. The first five approved payouts pay out a defined percentage to the trader (the firm retains the remainder under the standard split). Starting with the sixth payout, traders qualify for 100 percent payouts on amounts above the safety net threshold.</p>
+
+<p>The minimum payout is $500 across all account sizes. To request a payout, your balance must exceed the safety net threshold by at least the requested amount. For a $50K PA with a $52,600 safety net, you must have at least $52,600 + $500 = $53,100 to request the minimum $500 payout. Larger payouts require a balance proportionally higher above the safety net.</p>
+
+<p>The eight-trading-day rule requires that you have at least 8 trading days between payout requests. You also need to have met the consistency rule (50 percent on the highest day) and the minimum balance requirement.</p>
+
+<h2><span class="section-num">07</span>Mandatory bracket orders — the biggest workflow change</h2>
+
+<p>As of March 1, 2026, Rithmic and Tradovate enforce mandatory bracket orders at the platform level on Apex accounts. Any market or limit order that does not have an attached stop loss and take profit is rejected by the platform. There is no way to opt out.</p>
+
+<p>This is the most significant workflow change for traders coming from the legacy rules. Discretionary scaling, manual partial exits, and stop-and-reverse style trading all require workarounds within the bracket framework. Most traders adapt within two to three weeks of trading under the new rules.</p>
+
+<p>The trade-off is that platform-level enforcement effectively prevents accidental rule violations. Under the legacy rules, a trader who forgot a stop and got caught in a fast move could end the account in seconds. Under the post-March 2026 rules, the platform simply will not let that order through, which protects the evaluation fee from accidental oversight during volatility.</p>
+
+<p>Brackets do not guarantee exact exit prices during high-impact events like FOMC, NFP, or CPI. Slippage can still occur and the trader is responsible for the final fill. The brackets enforce a stop must exist, not that the stop will fill at the exact level.</p>
+
+<h2><span class="section-num">08</span>Contract scaling on Performance Accounts</h2>
+
+<p>On a Performance Account before reaching the Safety Net, you can only trade half of the account's maximum contracts. The scaling rule unlocks the full maximum once the Safety Net is reached.</p>
+
+<div class="data-table-wrap">
+<table class="data-table">
+<thead><tr><th>Account size</th><th>Max contracts (full)</th><th>Pre-Safety Net cap</th><th>Safety Net target</th></tr></thead>
+<tbody>
+<tr><td class="label">$50K PA</td><td>10</td><td>5 contracts</td><td>$52,600</td></tr>
+<tr><td class="label">$100K PA</td><td>14</td><td>7 contracts</td><td>$103,100</td></tr>
+<tr><td class="label">$150K PA</td><td>17</td><td>8 contracts</td><td>$155,100</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>If you accidentally trade more than half-max contracts before reaching the Safety Net, you are expected to close the excess immediately. Apex documents a single-violation grace period for accidental over-sizing, but repeated violations or refusal to close out the excess can lead to account closure. Most traders running multiple accounts use a <a href="/guides/copy-trades-apex-accounts">copier with per-account size controls</a> to ensure scaling rules are respected across the fleet automatically.</p>
+
+<h2><span class="section-num">09</span>Permitted products and prohibited strategies</h2>
+
+<p>Apex permits trading on CME-listed futures including ES, NQ, CL, GC, and the corresponding micro contracts (MES, MNQ). The full list is published on the Apex site and updated periodically. Forex spot, equities, and synthetic crypto products are not permitted.</p>
+
+<p>Prohibited strategies in 2026 include hedging during news events (holding both long and short on the same or correlated instrument simultaneously), high-frequency trading, dollar-cost averaging on losing positions in Performance Accounts, and any form of automated strategy that has not been pre-approved by Apex risk management. Pyramiding into winning positions is permitted with appropriate risk management.</p>
+
+<p>Apex maintains broad discretion to investigate accounts showing patterns suggesting any prohibited strategy. Traders who want to run automated strategies should contact Apex risk management before deploying any algorithm, because retroactive approval is not available.</p>
+
+<h2><span class="section-num">10</span>Resets and renewals under the new pricing</h2>
+
+<p>Under the one-time-payment model, account resets work differently than under the legacy monthly subscription. Manual resets cost $80 (Rithmic) or $100 (Tradovate) and are non-refundable. A reset restores the account to its original starting balance, drawdown limit, and trading day count.</p>
+
+<p>Free resets that previously kicked in during monthly auto-renewal no longer apply because there is no monthly auto-renewal under the one-time payment model. Traders who want a fresh attempt after blowing an evaluation either pay the manual reset fee or purchase a new evaluation account.</p>
+
+<h2><span class="section-num">11</span>Evaluation phase rules</h2>
+
+<p>The evaluation phase has fewer rules than the Performance Account phase, which is intentional — Apex wants to see if you can hit a profit target without ending the account, not test you on dozens of compliance rules from day one.</p>
+
+<ul>
+  <li><strong>Single hard rule:</strong> do not let your end-of-day balance touch the trailing threshold. Hitting it ends the evaluation.</li>
+  <li><strong>Profit target:</strong> hit your account's published profit target without breaching the threshold.</li>
+  <li><strong>No consistency rule</strong> in the evaluation phase. You can hit a single big day and still pass.</li>
+  <li><strong>Daily Loss Limit (EOD accounts only):</strong> hitting deactivates the day, not the evaluation.</li>
+  <li><strong>Mandatory brackets</strong> apply during the evaluation as well.</li>
+  <li><strong>Minimum trading days:</strong> at least 7 non-consecutive trading days are required for a valid evaluation, subject to active promotions for one-day-pass options.</li>
+  <li><strong>Trading deadline:</strong> all trades closed and pending orders cancelled by 4:59 PM ET each day.</li>
+</ul>
+
+<p>Once you hit the profit target without breaching the threshold and have completed the minimum trading days, you are eligible for a Performance Account. The transition is automatic at evaluation completion, and the PA picks up the new rule set covered above.</p>
+
+<h2><span class="section-num">12</span>Summary — the full 2026 Apex rule set</h2>
+
+<p>For easy reference, here is the complete current rule set in one place.</p>
+
+<ul>
+  <li><strong>Account purchase:</strong> one-time payment (post-March 2026), choose EOD or Intraday at purchase.</li>
+  <li><strong>Evaluation rule:</strong> do not breach trailing drawdown, hit profit target, complete 7+ trading days.</li>
+  <li><strong>EOD vs Intraday:</strong> EOD updates once daily at 4:59:59 PM ET; Intraday updates real-time including unrealized.</li>
+  <li><strong>Daily Loss Limit:</strong> EOD only — pauses the day, does not end the account.</li>
+  <li><strong>Bracket orders:</strong> mandatory at platform level on Rithmic and Tradovate.</li>
+  <li><strong>PA consistency rule:</strong> no single day above 50% of total profit at payout request (loosened from 30%).</li>
+  <li><strong>Safety Net:</strong> starting balance + drawdown + $100; locks the trailing floor and unlocks full contracts.</li>
+  <li><strong>Contract scaling:</strong> half-max until Safety Net, then full max.</li>
+  <li><strong>Payout structure:</strong> tiered split for first 5 payouts, 100% from 6th onward.</li>
+  <li><strong>Minimum payout:</strong> $500. Eight trading days between requests.</li>
+  <li><strong>MAE rule:</strong> removed in March 2026.</li>
+  <li><strong>5:1 risk-reward rule:</strong> removed in March 2026.</li>
+  <li><strong>Prohibited:</strong> hedging during news, HFT, DCA on losers in PA, unapproved automation.</li>
+</ul>
+
+<p>That is the complete April 2026 Apex rule set. Apex updates its rules periodically, and anything on this page should be cross-checked against the official Apex help center before significant decisions. For the strategic side of passing under these rules, see <a href="/guides/pass-apex-evaluation">how to pass an Apex evaluation</a>. For Topstep's parallel rule set, see <a href="/guides/topstep-combine-rules-2026">the Topstep 2026 reference</a>. For a side-by-side comparison of all three major firms, see the <a href="/guides/prop-firm-rules-2026">Prop Firm Rules 2026 Hub</a>.</p>
+
+
+    <div class="cta-banner">
+      <h3>Track every Apex rule across every PA account in real time</h3>
+      <p>Tradecovex shows your trailing threshold, safety net status, consistency math, and contract scaling for every connected Apex account. Launch pricing locked for life.</p>
+      <a href="/#waitlist" class="btn btn-primary btn-lg">Join the Waitlist</a>
+      <div class="cta-perks">
+        <span class="cta-perk">7-day free trial</span>
+        <span class="cta-perk">No credit card required</span>
+        <span class="cta-perk">Launch pricing locked for life</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container">
+    <div style="text-align:center">
+      <span class="section-tag">Frequently Asked Questions</span>
+      <h2>Common questions about Apex Trader Funding rules in 2026</h2>
+    </div>
+    <div class="faq-list" style="margin-top:40px">
+    <div class="faq-item">
+      <button class="faq-q">What changed in the Apex March 2026 overhaul?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Five major changes hit at once on March 1, 2026. Monthly evaluation fees were replaced with one-time payments. The MAE (Maximum Adverse Excursion) rule that closed accounts for open-trade drawdown was eliminated. The 5:1 risk-reward ratio rule was removed. The 30% consistency rule on Performance Accounts was loosened to 50%. And traders now choose at evaluation purchase between End-of-Day trailing drawdown or Intraday trailing drawdown — previously only the intraday version existed. Bracket orders are now enforced at the platform level on Rithmic and Tradovate, meaning the platform rejects any order without an attached stop and target.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What is the difference between EOD and Intraday trailing drawdown on Apex?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">EOD (End-of-Day) trailing drawdown updates once per day at 4:59:59 PM ET based on your closing balance. The new threshold is then enforced in real time during the next session. EOD accounts also have a Daily Loss Limit ($1,000 on $50K, scaling with account size) that pauses the account for the day if hit but does not close it. Intraday trailing drawdown trails your peak balance in real time, including unrealized profits, and there is no Daily Loss Limit. EOD is significantly more forgiving and is the recommended choice for nearly all traders. Intraday is the legacy mechanic that ended most accounts under the pre-2026 rules and remains available for traders who prefer it.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What is the Safety Net and how does it work?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">The Safety Net is the threshold at which the trailing drawdown stops moving on Performance Accounts. It equals your account starting balance plus the drawdown amount plus $100. For a $50K PA, the Safety Net is $52,600 ($50,000 + $2,500 + $100). For a $150K PA it is $155,100. Once your end-of-day balance reaches the Safety Net, the drawdown threshold locks at the starting balance plus $100 and never moves again. From that point you can have full position size and your account is protected at the original starting balance level. The Safety Net is one of the most important Apex mechanics — until you hit it, your buffer is constantly moving. After you hit it, your floor is fixed for life.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What is the new 50% consistency rule?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Under the post-March 2026 rules, no single trading day can account for more than 50 percent of your total profit balance at the time of a payout request. This is significantly looser than the pre-March 30 percent rule that blocked many payouts. The rule applies to Performance Accounts only (not evaluations) and resets after each payout — the next single-day cap is calculated from the new running total since the last withdrawal. The rule disappears entirely once you reach the sixth payout or move to a Live Trading Account.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Are bracket orders really mandatory on Apex now?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Yes, on Rithmic and Tradovate as of March 1, 2026. The platform itself rejects any market or limit order that does not have an attached stop loss and take profit. This is platform-level enforcement, not a manual rule check during payout review. The change protects traders from accidental rule violations during volatility but removes some flexibility for discretionary scaling and partial exits. Some traders find this restrictive at first; most adapt within a few weeks. Bracket orders do not guarantee exact exit prices during high-volatility events like NFP or FOMC, and slippage is still the trader's responsibility.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Can I run multiple Apex accounts with a copier?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Yes, Apex permits running multiple accounts and using a <a href='/guides/ninjatrader-trade-copier'>trade copier</a> to replicate trades across them, subject to specific rules. Each account must follow its own contract scaling rule independently, and the position size on any single account cannot exceed that account's permitted maximum even if the lead account is sized larger. There is also a documented scaling restriction that limits the contract size to half of the maximum until the Safety Net threshold is reached. Practical implication: a $50K PA capped at 10 contracts maximum can only trade 5 contracts until the EOD balance reaches $52,600. A copier needs to respect this per-account when it replicates trades.</div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-wide">
+    <div style="text-align:center">
+      <span class="section-tag">Related Guides</span>
+      <h2>Keep reading</h2>
+    </div>
+    <div class="related-grid">
+    <a href="/guides/topstep-combine-rules-2026" class="related-card">
+      <span class="related-tag">Topstep</span>
+      <h4>Topstep Combine Rules 2026 — Complete Reference</h4>
+      <p>The same authoritative breakdown for Topstep's 2026 rules.</p>
+    </a>
+    <a href="/guides/myfundedfutures-rules-2026" class="related-card">
+      <span class="related-tag">MFFU</span>
+      <h4>MyFundedFutures Rules 2026 — Complete Reference</h4>
+      <p>The Core / Rapid / Pro structure explained in full for 2026.</p>
+    </a>
+    <a href="/guides/prop-firm-rules-2026" class="related-card">
+      <span class="related-tag">Hub</span>
+      <h4>Prop Firm Rules 2026 Hub</h4>
+      <p>Side-by-side comparison of all major futures prop firms in 2026.</p>
+    </a>
+    <a href="/guides/pass-apex-evaluation" class="related-card">
+      <span class="related-tag">Strategy</span>
+      <h4>How to Pass an Apex Evaluation</h4>
+      <p>The playbook for passing under the current Apex rules.</p>
+    </a>
+    <a href="/guides/trailing-drawdown" class="related-card">
+      <span class="related-tag">Prop Rules</span>
+      <h4>What is Trailing Drawdown?</h4>
+      <p>Deep dive on the trailing drawdown mechanic — Apex EOD vs Intraday in detail.</p>
+    </a>
+    <a href="/guides/copy-trades-apex-accounts" class="related-card">
+      <span class="related-tag">Copier</span>
+      <h4>How to Copy Trades Across Apex Accounts</h4>
+      <p>Running multiple Apex evaluations or PAs in parallel.</p>
+    </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="/"><img src="/logo.png" alt="Tradecovex" class="footer-logo"></a>
+        <p class="footer-tagline">The smartest trade copier for NinjaTrader — copy trades and let the AI tell you why.</p>
+        <div class="footer-social">
+          <a href="#" title="Twitter / X" aria-label="Twitter">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" title="YouTube" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#how">How It Works</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="/#waitlist">Join Waitlist</a></li>
+          <li><a href="/guides/">All Guides</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/#privacy">Privacy Policy</a></li>
+          <li><a href="/#terms">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Partners</h4>
+        <ul>
+          <li><a href="#" class="footer-aff">Affiliates — Earn $15–$45/signup</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-risk">
+      <strong>⚠ Risk Disclosure:</strong> Futures trading involves substantial risk of loss and is not suitable for all investors. You can lose more than your initial investment. Past performance is not indicative of future results. Tradecovex is a software tool — it does not provide investment advice and does not guarantee trading results. Use of a trade copier does not guarantee compliance with prop firm rules. All trading decisions are your responsibility. Only trade with capital you can afford to lose.
+    </div>
+    <div class="footer-risk" style="margin-top:10px">
+      <strong>No Investment Advice:</strong> Tradecovex is a software tool for trade copying and journaling. IVAAN INC is not registered as an investment adviser with the Ontario Securities Commission, CIRO, the SEC, or any other regulatory body. Nothing in Tradecovex — including the AI journal analysis feature — constitutes investment advice, financial advice, or a recommendation to buy or sell any security, futures contract, or other financial instrument. The AI journal provides analytical observations about your historical trading patterns for informational purposes only. All trading decisions are made solely by you.
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Tradecovex. All rights reserved. Built by IVAAN INC, Ontario, Canada.</span>
+      <span class="footer-copy">Canadian users served from Toronto · US users served from New York · PIPEDA compliant</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const hamburger=document.getElementById('hamburger');const mobileMenu=document.getElementById('mobile-menu');if(hamburger){hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');});}
+document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{q.parentElement.classList.toggle('open');});});
+</script>
+</body>
+</html>
