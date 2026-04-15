@@ -1130,7 +1130,8 @@ h2{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clam
     <p class="section-sub fade-up">Every account starts with a free 7-day trial. No card needed. These are our launch prices — early members keep their rate locked for life when we raise prices.</p>
 
     <div class="brevo-form-wrap">
-      <form id="sib-form" method="POST" action="https://b126d666.sibforms.com/serve/MUIFADsGBLYeW6o_4hTSI9vu_E1IKHOkFtvzb3o7YEqnAJbZn-NjO1lCZkNJo90Ifa8-OMKw4Y7nUz_uPESosYEVySIE6RDYkyS6M2txk-WO21Y5M9YOVQPs5fCsFKYUNsFt018yXbEkxqFmM-zcxu4UVxYMo5Qop0CvMH17kHNlZIPlLQsou3l-pD2r729MtO24TbJIwj2bwlSVPg==">
+      <div id="wl-form-wrap">
+<form id="sib-form" method="POST" action="https://b126d666.sibforms.com/serve/MUIFADsGBLYeW6o_4hTSI9vu_E1IKHOkFtvzb3o7YEqnAJbZn-NjO1lCZkNJo90Ifa8-OMKw4Y7nUz_uPESosYEVySIE6RDYkyS6M2txk-WO21Y5M9YOVQPs5fCsFKYUNsFt018yXbEkxqFmM-zcxu4UVxYMo5Qop0CvMH17kHNlZIPlLQsou3l-pD2r729MtO24TbJIwj2bwlSVPg==">
         <input class="wl-input" type="email" id="EMAIL" name="EMAIL" placeholder="your@email.com" data-required="true" required>
         <div class="casl-row" style="width:100%;margin:0 0 10px">
           <input type="checkbox" id="CASL_CONSENT" name="CASL_CONSENT" required>
@@ -1141,6 +1142,20 @@ h2{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clam
         <input type="text" name="email_address_check" value="" style="display:none">
         <button type="submit" class="btn btn-primary" style="width:100%">Join Waitlist</button>
       </form>
+<div id="wl-success" style="display:none;text-align:center;padding:32px 24px;background:linear-gradient(135deg,rgba(37,99,235,.08),rgba(37,99,235,.04));border:1.5px solid rgba(37,99,235,.25);border-radius:16px">
+  <div style="width:56px;height:56px;margin:0 auto 16px;background:#2563EB;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,99,235,.35)">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+  </div>
+  <h3 style="font-family:'Barlow Semi Condensed',sans-serif;font-size:1.6rem;font-weight:800;color:var(--navy);margin-bottom:8px;letter-spacing:-.02em">You're in.</h3>
+  <p style="font-size:.95rem;color:var(--slate);line-height:1.6;margin-bottom:18px;max-width:440px;margin-left:auto;margin-right:auto">
+    Check your inbox for a welcome email from <strong>support@tradecovex.com</strong>. We'll send early access details, founding member pricing, and launch updates as we go.
+  </p>
+  <p style="font-size:.82rem;color:var(--slate-2);font-style:italic;margin-bottom:20px">Don't see it? Check spam, or add support@tradecovex.com to your contacts.</p>
+  <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+    <a href="/demo.html" class="btn btn-secondary" style="padding:10px 18px;font-size:.88rem">Try the Live Demo →</a>
+  </div>
+</div>
+</div>
     </div>
     <p class="wl-note">No spam. Unsubscribe anytime. Canadian data storage.</p>
 
@@ -1578,6 +1593,42 @@ function closeAIConsent() {
     });
   }
 })();
+
+
+// ── Waitlist form: intercept submit, show success inline ──
+(function() {
+  var form = document.getElementById('sib-form');
+  if (!form) return;
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var btn = form.querySelector('button[type="submit"]');
+    var originalText = btn.textContent;
+    btn.textContent = 'Joining...';
+    btn.disabled = true;
+    btn.style.opacity = '.7';
+    var formData = new FormData(form);
+    fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      mode: 'no-cors'  // Brevo doesn't return CORS headers; no-cors is fine for fire-and-forget
+    }).then(function() {
+      form.style.display = 'none';
+      var success = document.getElementById('wl-success');
+      if (success) {
+        success.style.display = 'block';
+        success.scrollIntoView({behavior: 'smooth', block: 'center'});
+      }
+      if (typeof gtag === 'function') gtag('event', 'waitlist_signup');
+    }).catch(function(err) {
+      console.error('Waitlist submit failed:', err);
+      btn.textContent = originalText;
+      btn.disabled = false;
+      btn.style.opacity = '1';
+      alert('Something went wrong. Please try again or email support@tradecovex.com directly.');
+    });
+  });
+})();
+
 </script>
 </body>
 </html>
