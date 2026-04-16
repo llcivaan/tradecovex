@@ -245,8 +245,40 @@
   </url>
   <url>
     <loc>https://tradecovex.com/guides/prop-firm-rules-2026</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-04-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Cluster J: Wave 6 — Rules Expansion + Copier Guides -->
+  <url>
+    <loc>https://tradecovex.com/guides/take-profit-trader-rules-2026</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://tradecovex.com/guides/bulenox-rules-2026</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://tradecovex.com/guides/tradeify-rules-2026</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://tradecovex.com/guides/bracket-orders-trade-copier</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://tradecovex.com/guides/best-vps-ninjatrader-copier</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
   </url>
 </urlset>
