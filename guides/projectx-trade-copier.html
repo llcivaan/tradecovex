@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>ProjectX Trade Copier 2026 &amp;mdash; What Works and What Doesn&#x27;t</title>
+<meta name="description" content="Which trade copiers actually work with ProjectX in 2026, which prop firms are on the ProjectX API (Topstep, Tradeify, Lucid Trading, TickTickTrader, GoatFundedTrader, and more), cloud vs local trade-offs, and how NinjaTrader copiers fit in.">
+<link rel="canonical" href="https://tradecovex.com/guides/projectx-trade-copier">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ProjectX Trade Copier 2026 &amp;mdash; What Works and What Doesn&#x27;t">
+<meta property="og:description" content="Which trade copiers actually work with ProjectX in 2026, which prop firms are on the ProjectX API (Topstep, Tradeify, Lucid Trading, TickTickTrader, GoatFundedTrader, and more), cloud vs local trade-offs, and how NinjaTrader copiers fit in.">
+<meta property="og:url" content="https://tradecovex.com/guides/projectx-trade-copier">
+<meta property="og:image" content="https://tradecovex.com/logo.png">
+<meta property="og:site_name" content="Tradecovex">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ProjectX Trade Copier 2026 &amp;mdash; What Works and What Doesn&#x27;t">
+<meta name="twitter:description" content="Which trade copiers actually work with ProjectX in 2026, which prop firms are on the ProjectX API (Topstep, Tradeify, Lucid Trading, TickTickTrader, GoatFundedTrader, and more), cloud vs local trade-offs, and how NinjaTrader copiers fit in.">
+<meta name="twitter:image" content="https://tradecovex.com/logo.png">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="author" content="Tradecovex / IVAAN INC">
+<link rel="icon" type="image/png" href="/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://tradecovex.com/guides/projectx-trade-copier#article",
+      "headline": "ProjectX Trade Copier 2026 &mdash; What Works and What Doesn't",
+      "description": "Which trade copiers actually work with ProjectX in 2026, which prop firms are on the ProjectX API (Topstep, Tradeify, Lucid Trading, TickTickTrader, GoatFundedTrader, and more), cloud vs local trade-offs, and how NinjaTrader copiers fit in.",
+      "image": "https://tradecovex.com/logo.png",
+      "datePublished": "2026-04-16T00:00:00+00:00",
+      "dateModified": "2026-04-16T00:00:00+00:00",
+      "author": {
+        "@type": "Organization",
+        "name": "Tradecovex",
+        "url": "https://tradecovex.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Tradecovex",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://tradecovex.com/logo.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://tradecovex.com/guides/projectx-trade-copier"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://tradecovex.com/guides/projectx-trade-copier#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is ProjectX?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ProjectX is a trading platform and API backend used by a growing list of futures prop firms in 2026. TopstepX is the most visible implementation &mdash; Topstep's proprietary platform is built on ProjectX. Other prop firms using ProjectX as their primary or secondary platform include Lucid Trading, TickTickTrader, Tradeify, E8 Funding, Blue Guardian, Aqua Futures, GoatFundedTrader, and FXIFY Futures. It is not a prop firm itself but the technology licensed to prop firms."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which trade copiers work with ProjectX?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Several copiers support the ProjectX API directly as of April 2026: TradeSyncer ($49-$149/mo cloud-based), FutuCopy (around $39/mo cloud-based, Chicago-hosted), and Trade Dispensary (self-hosted software you run locally). TopstepX also includes a built-in copier for managing multiple Topstep accounts on the TopstepX platform, but this does not cross to other firms."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use a NinjaTrader copier with ProjectX prop firms?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only if the prop firm also offers a NinjaTrader-compatible connection like Rithmic or Tradovate. Tradeify, Lucid Trading, and TickTickTrader offer both ProjectX and NinjaTrader access, so you can use a NinjaTrader copier (Tradecovex, Replikanto, ETP) by connecting through Rithmic. However, new Topstep Trading Combines since July 2025 are TopstepX-only &mdash; no NinjaTrader connection is available. For these, you need a ProjectX-compatible copier."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is cloud-based ProjectX copying allowed by prop firms?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Policy varies by firm. Some prop firms explicitly allow or promote cloud-based copiers. Others include language in their terms of service that restricts third-party cloud order routing. When uncertain, read the firm's Terms of Service and Trader Agreement carefully, and ask support for written confirmation before running a cloud copier on a funded account. Self-hosted or local copiers avoid this concern because order flow never leaves your machine."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are ghost orders in ProjectX copiers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ghost orders are a phenomenon some traders experience with copiers where orders appear to have filled on one account but not on the lead, or orders show up on followers without matching the lead's position. This happens across many copier implementations, including both ProjectX-based and Rithmic-based ones. It is usually caused by race conditions in API event streams, partial fill propagation issues, or network hiccups. Use a copier with detailed logging and monitor daily."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need a ProjectX copier if I'm on NinjaTrader?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only if you have accounts at prop firms that are ProjectX-only. Most prop firms offering ProjectX also offer NinjaTrader access via Rithmic or Tradovate, so a NinjaTrader-native copier like Tradecovex handles the bulk of the market. Exceptions are new Topstep combines (TopstepX-only since July 2025) and some newer firms that launched exclusively on ProjectX. For those specific accounts, you would need either a ProjectX-compatible copier or separate account management."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:#0F172A;background:#fff;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+:root{
+  --blue:#2563EB;
+  --blue-dark:#1d4ed8;
+  --navy:#0A1628;
+  --slate:#4B5E7A;
+  --slate-light:#64748B;
+  --light:#F0F4FF;
+  --border:#DDE3EF;
+  --radius:12px;
+  --shadow-sm:0 1px 3px rgba(10,22,40,.08),0 1px 2px rgba(10,22,40,.06);
+  --shadow-md:0 4px 16px rgba(10,22,40,.1),0 2px 6px rgba(10,22,40,.06);
+  --shadow-lg:0 12px 40px rgba(10,22,40,.14),0 4px 12px rgba(10,22,40,.08);
+}
+
+/* NAV — matches homepage exactly */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px}
+.nav-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav-logo{height:40px;width:auto}
+.nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+.nav-links a{font-size:.88rem;font-weight:600;color:var(--slate);transition:color .2s;letter-spacing:.01em}
+.nav-links a:hover{color:var(--navy)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 26px;border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;transition:all .18s;border:none;text-decoration:none;letter-spacing:.01em}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 2px 8px rgba(37,99,235,.3)}
+.btn-primary:hover{background:var(--blue-dark);transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,99,235,.4)}
+.btn-outline{background:transparent;color:var(--navy);border:2px solid #C4CEDD}
+.btn-outline:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn-outline-white{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35)}
+.btn-outline-white:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.btn-lg{padding:16px 38px;font-size:.98rem;border-radius:14px}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;transition:all .25s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:20px 24px;z-index:199;flex-direction:column;gap:0;box-shadow:var(--shadow-lg)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{display:block;padding:14px 0;font-size:1rem;font-weight:600;color:var(--slate);border-bottom:1px solid var(--border)}
+.mobile-menu a.btn{margin-top:16px;width:100%;border-bottom:none;justify-content:center}
+
+/* HERO — adapted for guide pages */
+.guide-hero{padding:140px 24px 60px;text-align:center;position:relative;overflow:hidden;background:#fff}
+.guide-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 90% 60% at 50% -10%,rgba(37,99,235,.08) 0%,transparent 65%);pointer-events:none}
+.guide-hero::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background-image:radial-gradient(circle at 1px 1px, rgba(37,99,235,.06) 1px, transparent 0);background-size:32px 32px;pointer-events:none;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 0%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 0%,transparent 70%)}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:100px;padding:7px 18px;font-size:.75rem;font-weight:700;color:var(--blue);letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px;position:relative;z-index:1}
+.hero-eyebrow span.dot{width:7px;height:7px;background:var(--blue);border-radius:50%;animation:blink 2s ease infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+h1{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(2.2rem,4.5vw,3.4rem);line-height:1.08;letter-spacing:-.03em;color:var(--navy);max-width:900px;margin:0 auto 24px;position:relative;z-index:1}
+h1 .accent{color:var(--blue)}
+.guide-meta{display:flex;justify-content:center;gap:24px;margin-bottom:20px;flex-wrap:wrap;font-size:.82rem;color:var(--slate-light);position:relative;z-index:1}
+.guide-meta span{display:inline-flex;align-items:center;gap:6px}
+.breadcrumb{font-size:.78rem;color:var(--slate-light);margin-bottom:24px;position:relative;z-index:1}
+.breadcrumb a{color:var(--blue);font-weight:600}
+.breadcrumb a:hover{text-decoration:underline}
+
+/* ANSWER BOX — featured snippet style */
+.answer-box{max-width:780px;margin:0 auto 50px;background:linear-gradient(135deg,#EFF6FF,#F0F4FF);border:2px solid #BFDBFE;border-radius:18px;padding:32px 36px;text-align:left;position:relative;z-index:1;box-shadow:var(--shadow-md)}
+.answer-box-label{display:inline-block;font-size:.68rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.14em;background:#fff;border:1.5px solid #BFDBFE;border-radius:100px;padding:5px 14px;margin-bottom:14px}
+.answer-box p{font-size:1.02rem;color:var(--navy);line-height:1.75;font-weight:500}
+.answer-box p strong{font-weight:700;color:var(--navy)}
+
+/* SHARED SECTION STYLES */
+.section{padding:80px 24px}
+.section-light{background:var(--light)}
+.section-tag{display:inline-block;font-size:.7rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.14em;margin-bottom:16px;background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:100px;padding:5px 14px}
+h2{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(1.7rem,3.2vw,2.4rem);line-height:1.12;letter-spacing:-.025em;color:var(--navy);margin-bottom:18px}
+h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.3rem;color:var(--navy);margin:32px 0 14px;letter-spacing:-.015em}
+h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08rem;color:var(--navy);margin:24px 0 10px;letter-spacing:-.01em}
+.container{max-width:880px;margin:0 auto}
+.container-wide{max-width:1120px;margin:0 auto}
+
+/* PROSE STYLES */
+.prose p{font-size:1rem;color:var(--slate);line-height:1.85;margin-bottom:20px}
+.prose p strong{color:var(--navy);font-weight:700}
+.prose ul,.prose ol{margin:16px 0 24px 22px;color:var(--slate);font-size:1rem;line-height:1.85}
+.prose li{margin-bottom:10px}
+.prose li strong{color:var(--navy);font-weight:700}
+.prose a{color:var(--blue);font-weight:600;border-bottom:1.5px solid rgba(37,99,235,.3);transition:border .2s}
+.prose a:hover{border-bottom-color:var(--blue)}
+.section-num{display:inline-block;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:.78rem;color:var(--blue);background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:8px;padding:4px 10px;margin-bottom:12px;letter-spacing:.06em}
+
+/* PULL QUOTE */
+.pull-quote{background:linear-gradient(135deg,#EFF6FF,#F0F4FF);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:24px 28px;margin:32px 0;font-family:'Barlow Semi Condensed',sans-serif;font-size:1.18rem;font-weight:600;color:var(--navy);line-height:1.55;letter-spacing:-.01em}
+
+/* CALLOUT BOXES */
+.callout{background:#fff;border:1.5px solid var(--border);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:22px 26px;margin:28px 0;box-shadow:var(--shadow-sm)}
+.callout-title{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1rem;color:var(--navy);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.callout p{font-size:.92rem;color:var(--slate);line-height:1.75;margin:0}
+.callout-warn{border-left-color:#DC2626;background:#FEF2F2}
+.callout-warn .callout-title{color:#991B1B}
+.callout-success{border-left-color:#16A34A;background:#F0FDF4}
+.callout-success .callout-title{color:#166534}
+
+/* FEATURE CARD GRID */
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin:32px 0}
+.feature-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:26px;transition:all .25s;box-shadow:var(--shadow-sm)}
+.feature-card:hover{border-color:#93C5FD;box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.feature-card-num{display:inline-block;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:.7rem;color:var(--blue);background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:6px;padding:3px 8px;margin-bottom:12px;letter-spacing:.06em}
+.feature-card h4{margin:0 0 10px;font-size:1.08rem}
+.feature-card p{font-size:.88rem;color:var(--slate);line-height:1.75;margin:0}
+
+/* DATA TABLE */
+.data-table-wrap{overflow-x:auto;border-radius:14px;border:1.5px solid var(--border);box-shadow:var(--shadow-md);margin:28px 0}
+.data-table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:580px;background:#fff}
+.data-table th{padding:14px 18px;text-align:left;font-weight:700;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;background:#F1F5F9;color:var(--slate);border-bottom:2px solid var(--border)}
+.data-table td{padding:13px 18px;border-bottom:1px solid var(--border);color:var(--slate);vertical-align:middle}
+.data-table tr:last-child td{border-bottom:none}
+.data-table tr.tc-row td{background:#EFF6FF;color:var(--navy);font-weight:600}
+.data-table tr.tc-row td:first-child::before{content:'★ ';color:var(--blue)}
+.data-table td.label{font-weight:600;color:var(--navy);background:#FAFBFF}
+.ck{color:#16A34A;font-weight:700}
+.cx{color:#DC2626;font-weight:700}
+.cm{color:#D97706;font-weight:600;font-size:.85rem}
+
+/* VIDEO EMBED */
+.video-wrap{max-width:780px;margin:36px auto;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-lg);background:var(--navy);position:relative;padding-bottom:56.25%;height:0}
+.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.video-caption{font-size:.82rem;color:var(--slate-light);text-align:center;margin-top:14px;font-style:italic}
+
+/* CTA BANNER */
+.cta-banner{background:linear-gradient(135deg,#0A1628,#0F2460,#1d4ed8);border-radius:18px;padding:56px 48px;margin:48px 0;text-align:center;position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
+.cta-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 100%,rgba(37,99,235,.25) 0%,transparent 65%);pointer-events:none}
+.cta-banner h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:1.85rem;color:#fff;margin:0 0 14px;letter-spacing:-.025em;position:relative;z-index:1}
+.cta-banner p{font-size:1rem;color:#93C5FD;max-width:540px;margin:0 auto 26px;line-height:1.7;position:relative;z-index:1}
+.cta-perks{display:flex;gap:22px;justify-content:center;margin-top:22px;flex-wrap:wrap;position:relative;z-index:1}
+.cta-perk{font-size:.78rem;color:#60A5FA;font-weight:600;display:inline-flex;align-items:center;gap:6px}
+.cta-perk::before{content:'\2713';font-weight:800}
+
+/* FAQ */
+.faq-list{max-width:780px;margin:0 auto}
+.faq-item{border-bottom:1.5px solid var(--border)}
+.faq-q{width:100%;text-align:left;padding:22px 0;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.97rem;color:var(--navy);line-height:1.45;letter-spacing:-.01em}
+.faq-icon{width:24px;height:24px;min-width:24px;border-radius:50%;border:2px solid var(--blue);display:flex;align-items:center;justify-content:center;transition:all .25s;flex-shrink:0}
+.faq-icon svg{width:12px;height:12px;stroke:var(--blue);fill:none;stroke-width:2.5;stroke-linecap:round;transition:transform .25s}
+.faq-item.open .faq-icon{background:var(--blue)}
+.faq-item.open .faq-icon svg{stroke:#fff;transform:rotate(45deg)}
+.faq-a{display:none;padding:0 0 22px;font-size:.92rem;color:var(--slate);line-height:1.85;max-width:680px}
+.faq-item.open .faq-a{display:block}
+
+/* RELATED GUIDES */
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:30px}
+.related-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:24px;transition:all .25s;display:block;box-shadow:var(--shadow-sm)}
+.related-card:hover{border-color:#93C5FD;box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.related-tag{display:inline-block;font-size:.66rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.1em;background:#EFF6FF;border:1px solid #BFDBFE;border-radius:6px;padding:3px 8px;margin-bottom:12px}
+.related-card h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.02rem;color:var(--navy);margin:0 0 8px;line-height:1.35}
+.related-card p{font-size:.84rem;color:var(--slate);line-height:1.65;margin:0}
+
+/* FOOTER — matches homepage */
+.footer{background:#fff;border-top:1.5px solid var(--border);padding:60px 24px 36px}
+.footer-inner{max-width:1120px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1.5px solid var(--border);margin-bottom:30px}
+.footer-logo{height:48px;width:auto;margin-bottom:14px}
+.footer-tagline{font-size:.85rem;color:var(--slate);max-width:220px;line-height:1.7;margin-bottom:20px;font-weight:400}
+.footer-social{display:flex;gap:10px}
+.footer-social a{width:36px;height:36px;border:1.5px solid var(--border);border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--slate);transition:all .2s}
+.footer-social a:hover{border-color:var(--blue);color:var(--blue);background:#EFF6FF}
+.footer-social svg{width:16px;height:16px;fill:currentColor}
+.footer-col h4{font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:#94A3B8;margin:0 0 16px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;padding:0}
+.footer-col a{font-size:.875rem;color:var(--slate);transition:color .18s;font-weight:500}
+.footer-col a:hover{color:var(--navy)}
+.footer-aff{font-size:.82rem;color:var(--blue);font-weight:700}
+.footer-risk{background:var(--light);border:1.5px solid var(--border);border-radius:12px;padding:18px 22px;margin-bottom:16px;font-size:.75rem;color:#5B7399;line-height:1.75}
+.footer-risk strong{color:var(--slate);font-weight:700}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:6px}
+.footer-copy{font-size:.75rem;color:#94A3B8;font-weight:500}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .nav-links{display:none}
+  .nav-cta-desktop{display:none !important}
+  .hamburger{display:flex}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .feature-grid,.related-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .footer-top{grid-template-columns:1fr}
+  h1{font-size:2rem}
+  h2{font-size:1.6rem}
+  .answer-box{padding:24px 22px}
+  .cta-banner{padding:42px 28px}
+  .cta-banner h3{font-size:1.5rem}
+}
+
+</style>
+
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" aria-label="Tradecovex home"><img src="/logo.png" alt="Tradecovex" class="nav-logo"></a>
+    <ul class="nav-links">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/guides/">Guides</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+    </ul>
+    <a href="/#waitlist" class="btn btn-primary nav-cta-desktop" style="display:inline-flex">Join Waitlist</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/#features">Features</a>
+  <a href="/guides/">Guides</a>
+  <a href="/#pricing">Pricing</a>
+  <a href="/#faq">FAQ</a>
+  <a href="/#waitlist" class="btn btn-primary">Join Waitlist</a>
+</div>
+
+
+<section class="guide-hero">
+  <div class="hero-eyebrow"><span class="dot"></span>PROJECTX COPIER REFERENCE</div>
+  <p class="breadcrumb"><a href="/">Home</a> › <a href="/guides/">Guides</a> › ProjectX Trade Copier</p>
+  <h1>ProjectX Trade Copier <span class="accent">2026</span></h1>
+  <div class="guide-meta">
+    <span>📅 Updated April 2026</span>
+    <span>⏱ 14 min read</span>
+    <span>✍ Tradecovex Team</span>
+  </div>
+  <div class="answer-box">
+    <span class="answer-box-label">Quick Answer</span>
+    <p>ProjectX is a trading platform and API backend used by a growing list of futures prop firms in 2026 including <strong>TopstepX, Lucid Trading, Tradeify, E8 Funding, Blue Guardian, Aqua Futures, GoatFundedTrader, and FXIFY Futures</strong>. Several trade copiers support the ProjectX API directly &mdash; notably <strong>TradeSyncer</strong> (cloud, $49-$149/mo), <strong>FutuCopy</strong> ($39/mo cloud), and <strong>Trade Dispensary</strong> (self-hosted). Cloud copiers route orders through third-party servers, which some prop firms flag in their terms of service. Self-hosted or locally-run copiers keep order flow on your machine and avoid that concern. If you trade primarily through NinjaTrader, you may not need a ProjectX-specific copier at all &mdash; most ProjectX firms also allow NinjaTrader connections via Rithmic.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container prose">
+
+<h2><span class="section-num">01</span>What ProjectX actually is</h2>
+
+<p>ProjectX is a trading platform and API developed for prop firm environments. It is not a prop firm itself &mdash; it is the technology stack that prop firms license to provide browser-based charting, order entry, risk enforcement, and account management to their traders. Think of it as white-label prop firm trading infrastructure.</p>
+
+<p>The original and most visible implementation of ProjectX is <strong>TopstepX</strong>, the proprietary platform Topstep launched in 2024 and made mandatory for all new Trading Combines as of July 2025. TopstepX is built on the ProjectX backend. When Topstep developed the platform, they licensed it to ProjectX Technologies, which then began offering the same core platform to other prop firms under their own brands.</p>
+
+<p>Today a growing list of prop firms run on the ProjectX API. Some expose the platform under their own brand (TopstepX, TickTickTrader's platform), others use a more generic "ProjectX" label in their dashboards. The common thread is the same underlying order routing, account structure, and risk enforcement model.</p>
+
+<h2><span class="section-num">02</span>Which prop firms run on ProjectX</h2>
+
+<p>As of early 2026, the prop firms using ProjectX as their primary or secondary trading platform include:</p>
+
+<div class="data-table-wrap">
+<table class="data-table">
+<thead><tr><th>Prop firm</th><th>ProjectX implementation</th><th>Other platforms offered</th></tr></thead>
+<tbody>
+<tr><td class="label">Topstep</td><td>TopstepX (mandatory for new combines)</td><td>NinjaTrader, Tradovate, TradingView (legacy accounts only)</td></tr>
+<tr><td class="label">TickTickTrader</td><td>ProjectX platform</td><td>Rithmic, NinjaTrader</td></tr>
+<tr><td class="label">Lucid Trading</td><td>ProjectX platform</td><td>Tradovate Prop, Rithmic</td></tr>
+<tr><td class="label">Tradeify</td><td>ProjectX (one of several options)</td><td>NinjaTrader, Tradovate, TradingView, Quantower</td></tr>
+<tr><td class="label">E8 Funding (Futures)</td><td>ProjectX platform</td><td>Limited alternatives</td></tr>
+<tr><td class="label">Blue Guardian (Futures)</td><td>ProjectX platform</td><td>Limited alternatives</td></tr>
+<tr><td class="label">Aqua Futures</td><td>ProjectX platform</td><td>Limited alternatives</td></tr>
+<tr><td class="label">GoatFundedTrader (Futures)</td><td>ProjectX platform</td><td>Limited alternatives</td></tr>
+<tr><td class="label">FXIFY Futures</td><td>ProjectX platform</td><td>Limited alternatives</td></tr>
+<tr><td class="label">The Futures Desk</td><td>ProjectX platform</td><td>Limited alternatives</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>The pattern to notice: firms that were already established (Topstep, Tradeify) offer ProjectX as one of several platforms. Firms that launched into futures prop more recently (E8 Futures, Blue Guardian Futures, FXIFY Futures, Aqua, Goat) often use ProjectX as their primary or only platform because it gives them a working prop firm stack without building their own.</p>
+
+<p>The list is expanding fast. If you see a new futures prop firm launch in 2026 and they tout a "custom web platform," check the URL of their platform &mdash; it is often a ProjectX deployment under a custom domain. The visible branding differs, but the API underneath is the same.</p>
+
+<h2><span class="section-num">03</span>Why ProjectX matters for trade copiers</h2>
+
+<p>A trade copier's job is to detect orders on a lead account and mirror them to follower accounts. To do that, the copier needs to know how to connect to the broker or platform. There are essentially three connection methods in the futures prop firm world:</p>
+
+<ul>
+<li><strong>Rithmic API.</strong> The long-running futures data and order routing standard. Many prop firms offer Rithmic access, and most serious NinjaTrader copiers (Replikanto, ETP, Tradecovex, others) connect through this layer.</li>
+<li><strong>Tradovate API.</strong> Tradovate's cloud-native futures platform. Prop firms that use Tradovate Prop (Tradeify, Alpha Futures, Take Profit Trader) are accessible via Tradovate's API.</li>
+<li><strong>ProjectX API.</strong> The API that backs TopstepX and every other ProjectX-branded prop firm platform. This is the layer a "ProjectX trade copier" connects to.</li>
+</ul>
+
+<p>A copier that supports ProjectX can connect directly to an account at any ProjectX-backed firm (TopstepX, Lucid, TickTickTrader, etc.) without going through Rithmic. For firms like Topstep that made TopstepX mandatory for new combines, this is the only way to copy trades on those accounts &mdash; Rithmic is no longer an option for new Topstep combines.</p>
+
+<h2><span class="section-num">04</span>Copiers that support ProjectX</h2>
+
+<p>Several trade copiers advertise explicit ProjectX support as of April 2026:</p>
+
+<h3>TradeSyncer (cloud)</h3>
+<p>TradeSyncer supports ProjectX as one of its integrated platforms alongside NinjaTrader, Tradovate, Rithmic, TradingView, Volumetrica, and DxFeed. Pricing is $49/mo Basic (2 connections, 10 accounts each), $99/mo Pro (4 connections, 20 accounts each), and $149/mo Flex (unlimited connections, 120 accounts). TradeSyncer is a cloud relay &mdash; orders route through their servers &mdash; with reported sub-100ms replication. Full detail in our <a href="/compare/tradesyncer-pricing-2026">TradeSyncer pricing 2026</a> breakdown.</p>
+
+<h3>FutuCopy (cloud, Chicago-hosted)</h3>
+<p>FutuCopy is a newer entrant targeting prop firm futures traders. It is browser-based and cloud-hosted with servers in Chicago for 1-2ms latency to CME and broker APIs. Pricing starts around $39/mo for unlimited connections and unlimited accounts at the standard tier. It supports Rithmic, Tradovate, ProjectX, dxFeed, and Deepcharts as connection types.</p>
+
+<h3>Trade Dispensary (self-hosted)</h3>
+<p>Trade Dispensary is an interesting architectural outlier. It is self-hosted &mdash; you run the copier software on your own machine &mdash; and supports all major ProjectX prop firms (TopstepX, Lucid Trading, Tradeify, E8 Funding, Blue Guardian, Aqua Futures, FXIFY Futures, Goat Funded Trader). The company positions self-hosting as a prop firm compliance feature: because the copier runs on your local machine, there is no third-party cloud relay for the prop firm to flag.</p>
+
+<h3>TopstepX built-in copier (single-firm only)</h3>
+<p>TopstepX includes a built-in copier for managing multiple Topstep accounts on the TopstepX platform. This works well inside the Topstep ecosystem but does not cross to other prop firms. If you run Topstep-only accounts, this may be sufficient &mdash; but as soon as you add an Apex or MFFU account, you need a cross-platform copier.</p>
+
+<h2><span class="section-num">05</span>Cloud vs local vs self-hosted &mdash; the architecture question</h2>
+
+<p>When choosing a copier for ProjectX-backed accounts, the single most important decision is architectural. There are three models.</p>
+
+<div class="data-table-wrap">
+<table class="data-table">
+<thead><tr><th>Model</th><th>Examples</th><th>Latency</th><th>Prop firm risk</th></tr></thead>
+<tbody>
+<tr><td class="label">Cloud relay</td><td>TradeSyncer, FutuCopy</td><td>50-150ms typical</td><td>Some firms flag third-party cloud relay in ToS</td></tr>
+<tr><td class="label">Local (NinjaTrader add-on)</td><td>Tradecovex, Replikanto, ETP</td><td>Sub-10ms typical</td><td>Low &mdash; order flow never leaves your machine</td></tr>
+<tr><td class="label">Self-hosted (user-run)</td><td>Trade Dispensary</td><td>Local execution speed</td><td>Low &mdash; same as running any tool on your machine</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><strong>Cloud relay copiers</strong> are convenient &mdash; no install, works across devices, copying continues if your machine goes offline. The trade-off is that your orders route through the copier vendor's servers. Prop firms have varying policies on this. Some actively promote cloud copiers. Others mention in their terms of service that third-party order routing may violate account rules. Read each firm's fine print before running cloud copying on a funded account.</p>
+
+<p><strong>Local NinjaTrader add-ons</strong> run as plugins inside your NinjaTrader installation. The copier code executes inside the NinjaTrader process, and orders route through NinjaTrader's normal connection to the broker (Rithmic, Tradovate, or other). There is no third-party relay. This is the same architectural model as Replikanto and ETP TradeCopier. Read our <a href="/compare/tradecovex-vs-replikanto">Tradecovex vs Replikanto</a> comparison for the mechanics of how these work. The catch: NinjaTrader add-ons connect to brokers NinjaTrader itself supports &mdash; which does not include ProjectX directly. For ProjectX-only accounts (like new Topstep combines), NinjaTrader add-ons cannot reach those accounts.</p>
+
+<p><strong>Self-hosted copiers</strong> are a middle path. You run the software on your own machine or VPS, but it is not a NinjaTrader plugin &mdash; it is a standalone application that connects to multiple broker APIs directly, including ProjectX. Trade Dispensary is the most visible example. The trade-off is setup complexity and keeping the software running reliably. Done right, you get the speed of local execution and the coverage of the cloud relays.</p>
+
+<h2><span class="section-num">06</span>The Topstep-specific situation</h2>
+
+<p>Topstep deserves a section of its own. As of July 2025, all new Trading Combines at Topstep are required to trade on TopstepX &mdash; the ProjectX-backed platform. Legacy accounts that existed before the transition can continue on NinjaTrader, Tradovate, TradingView, or Quantower through Rithmic. New accounts cannot.</p>
+
+<p>This matters for copier choice. If you are running new Topstep combines on TopstepX, you cannot use a NinjaTrader-native copier for those specific accounts &mdash; the accounts are not accessible through Rithmic. You either need a copier that supports the ProjectX API (TradeSyncer, FutuCopy, Trade Dispensary) or you use TopstepX's built-in multi-account management features for Topstep-only setups.</p>
+
+<p>If you have a mix of accounts &mdash; say, new Topstep combines on TopstepX plus Apex evaluations on Rithmic plus MFFU accounts on Tradovate &mdash; you need either a single copier that supports all three connection types (TradeSyncer does; FutuCopy does; Trade Dispensary does) or you run separate copiers per firm and accept the management overhead.</p>
+
+<p>For the detailed Topstep rules context and what's changed in 2026, see the <a href="/guides/topstep-combine-rules-2026">Topstep Combine rules 2026</a> reference.</p>
+
+<h2><span class="section-num">07</span>The "ghost orders" problem on ProjectX</h2>
+
+<p>Traders using copiers across ProjectX-backed firms sometimes report a phenomenon called "ghost orders" &mdash; orders that appear to have filled on one account but not the lead, or orders that show up on a follower without matching the lead's position. This is not specific to any single copier; it is a platform-level issue that affects any multi-account management on top of ProjectX.</p>
+
+<p>The pattern usually involves race conditions between the ProjectX API's event stream and the copier's order submission logic, partial fills that are not propagated cleanly, or network hiccups that cause the copier to retry an order that actually filled. Replikanto users have reported similar behaviour with Rithmic. Any copier is susceptible to this in some form &mdash; it is a function of distributed systems and order-state reconciliation.</p>
+
+<p>Practical mitigation: use a copier that logs every state transition, monitor discrepancies daily, and keep a conservative risk posture on funded accounts until you are confident the copier is stable under your specific network conditions and trade frequency.</p>
+
+<div class="callout callout-warn">
+  <div class="callout-title">⚠ Prop firm terms of service &mdash; read carefully</div>
+  <p>Some prop firms explicitly prohibit third-party cloud-based order routing. Others allow it. Others are ambiguous. Before running a cloud-based copier on a funded (paying) account at any prop firm, read the firm's Terms of Service and Trader Agreement for specific language about trade copiers, signal services, and third-party order routing. When ambiguous, ask support in writing and save the response. Violating an unwritten policy can cost you a funded account; an email confirmation from support protects you.</p>
+</div>
+
+<h2><span class="section-num">08</span>If you're on NinjaTrader, do you need a ProjectX copier?</h2>
+
+<p>This is the most common question from NinjaTrader-based prop firm traders. The short answer: only for accounts that are ProjectX-only.</p>
+
+<p>Most prop firms that offer ProjectX also offer other platforms. Tradeify supports ProjectX, NinjaTrader, Tradovate, TradingView, and Quantower. Lucid Trading supports ProjectX and Rithmic (which connects NinjaTrader). TickTickTrader supports ProjectX, Rithmic, and NinjaTrader. For these firms, a NinjaTrader-native copier like Tradecovex, Replikanto, or ETP works fine &mdash; you just set up your accounts through Rithmic (or whichever NinjaTrader-compatible feed the firm supports) instead of ProjectX.</p>
+
+<p>The exceptions are:</p>
+
+<ul>
+<li><strong>New Topstep combines</strong> &mdash; TopstepX only, as of July 2025. NinjaTrader copiers cannot reach these accounts.</li>
+<li><strong>ProjectX-only launches</strong> &mdash; some newer firms (E8 Futures, Blue Guardian Futures, Aqua Futures, Goat Futures, FXIFY Futures) launched exclusively on ProjectX and may not offer NinjaTrader-compatible connections.</li>
+</ul>
+
+<p>If your prop firm stack is entirely NinjaTrader-accessible, stick with a local NinjaTrader copier for lowest latency and cleanest prop firm compliance. If your stack includes Topstep-new or any ProjectX-only firm, you either need a ProjectX-compatible copier or you accept that those specific accounts will not be in your copier portfolio.</p>
+
+<h2><span class="section-num">09</span>Which stack for which situation</h2>
+
+<div class="feature-grid">
+<div class="feature-card">
+<div class="feature-card-num">01</div>
+<h4>NinjaTrader-first trader, mixed prop firm stack</h4>
+<p>Running accounts at Apex (Rithmic), Tradeify (NT or Tradovate), MFFU (Rithmic), Bulenox (Rithmic), TPT (Tradovate). No Topstep. Solution: a local NinjaTrader copier like Tradecovex. Zero ProjectX requirement.</p>
+</div>
+<div class="feature-card">
+<div class="feature-card-num">02</div>
+<h4>New Topstep trader on TopstepX only</h4>
+<p>Running Topstep combines exclusively on TopstepX. Solution: TopstepX's built-in copier for same-firm copying, or a ProjectX-compatible copier if you plan to add other firms later.</p>
+</div>
+<div class="feature-card">
+<div class="feature-card-num">03</div>
+<h4>Multi-firm trader with Topstep in the mix</h4>
+<p>Running new Topstep combines plus Apex, MFFU, Tradeify, etc. Solution: a cloud or self-hosted copier that supports both ProjectX (for Topstep) and Rithmic/Tradovate (for the others) &mdash; TradeSyncer, FutuCopy, or Trade Dispensary.</p>
+</div>
+<div class="feature-card">
+<div class="feature-card-num">04</div>
+<h4>Pure ProjectX trader (newer firms only)</h4>
+<p>Running exclusively on ProjectX-backed firms (E8, Blue Guardian, Aqua, Goat, FXIFY). Solution: ProjectX-native copier. Self-hosted (Trade Dispensary) if prop firm compliance matters; cloud-based (TradeSyncer, FutuCopy) if speed-to-setup matters more.</p>
+</div>
+</div>
+
+<h2><span class="section-num">10</span>The Tradecovex position</h2>
+
+<p>Tradecovex is a local NinjaTrader add-on. We do not support the ProjectX API directly &mdash; Tradecovex connects to the same brokers NinjaTrader itself connects to, primarily Rithmic and Tradovate for futures prop firm use. That means Tradecovex works seamlessly with Apex, Topstep (legacy accounts only), MFFU, Take Profit Trader, Tradeify (NT connection), Bulenox, TickTickTrader (Rithmic connection), Lucid Trading (Rithmic connection), and any other prop firm offering NinjaTrader access.</p>
+
+<p>For new Topstep combines that are TopstepX-only, Tradecovex is not the right tool. For every other prop firm account that is accessible through NinjaTrader, Tradecovex runs locally with sub-10ms replication, full per-account risk enforcement, and an AI journal that captures every copied trade automatically. That combination is not available from any cloud ProjectX copier we are aware of.</p>
+
+<p>If you want to understand how a local NinjaTrader copier compares to cloud alternatives in detail, our <a href="/guides/trade-copier-latency">trade copier latency</a> guide covers the execution-speed math, and our <a href="/compare/best-ninjatrader-trade-copiers-2026">best NinjaTrader copiers of 2026</a> comparison covers the feature-by-feature breakdown of all the major local copiers.</p>
+
+<div class="pull-quote">If every account in your prop firm portfolio can be reached via NinjaTrader &mdash; and for most traders it can &mdash; a local NinjaTrader copier wins on speed, journal depth, and compliance. ProjectX-specific copiers matter only when a specific prop firm has made ProjectX its only platform.</div>
+
+<h2><span class="section-num">11</span>Making the decision</h2>
+
+<p>Start with your account list. Write down every prop firm where you have an account or intend to open one. For each, note which platforms are supported. If everything on your list can be reached through NinjaTrader (Rithmic or Tradovate), a local NinjaTrader copier is the right answer and you do not need to think about ProjectX at all.</p>
+
+<p>If one or more accounts are ProjectX-only &mdash; especially a new Topstep combine &mdash; you have a choice: either accept that those accounts will not be in your copier portfolio and manage them separately, or choose a copier that supports both ProjectX and your other connection types. The trade-off is architectural: cloud means convenience but third-party relay, self-hosted means local execution but setup complexity, local NinjaTrader means lowest latency but ProjectX-only accounts are out of reach.</p>
+
+<p>Most prop firm traders in 2026 can operate entirely within the NinjaTrader ecosystem by choosing prop firms that support NinjaTrader access. The rise of ProjectX-only firms is real but still a minority position &mdash; and whether you want to be an early adopter of brand-new prop firms like Blue Guardian Futures or Aqua Futures is a separate question from what copier to run.</p>
+
+
+    <div class="cta-banner">
+      <h3>NinjaTrader Copier With AI Journal</h3>
+      <p>Tradecovex is a local NinjaTrader add-on &mdash; no cloud relay, sub-10ms replication, and every trade captured by the AI journal automatically.</p>
+      <a href="/" class="btn btn-primary btn-lg" style="position:relative;z-index:1">Get Started</a>
+      <div class="cta-perks">
+        <span class="cta-perk">7-day free trial</span>
+        <span class="cta-perk">No credit card</span>
+        <span class="cta-perk">NinjaTrader add-on</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container">
+    <div style="text-align:center">
+      <span class="section-tag">FAQ</span>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q">What is ProjectX?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">ProjectX is a trading platform and API backend used by a growing list of futures prop firms in 2026. TopstepX is the most visible implementation &mdash; Topstep's proprietary platform is built on ProjectX. Other prop firms using ProjectX as their primary or secondary platform include Lucid Trading, TickTickTrader, Tradeify, E8 Funding, Blue Guardian, Aqua Futures, GoatFundedTrader, and FXIFY Futures. It is not a prop firm itself but the technology licensed to prop firms.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Which trade copiers work with ProjectX?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Several copiers support the ProjectX API directly as of April 2026: TradeSyncer ($49-$149/mo cloud-based), FutuCopy (around $39/mo cloud-based, Chicago-hosted), and Trade Dispensary (self-hosted software you run locally). TopstepX also includes a built-in copier for managing multiple Topstep accounts on the TopstepX platform, but this does not cross to other firms.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Can I use a NinjaTrader copier with ProjectX prop firms?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Only if the prop firm also offers a NinjaTrader-compatible connection like Rithmic or Tradovate. Tradeify, Lucid Trading, and TickTickTrader offer both ProjectX and NinjaTrader access, so you can use a NinjaTrader copier (Tradecovex, Replikanto, ETP) by connecting through Rithmic. However, new Topstep Trading Combines since July 2025 are TopstepX-only &mdash; no NinjaTrader connection is available. For these, you need a ProjectX-compatible copier.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Is cloud-based ProjectX copying allowed by prop firms?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Policy varies by firm. Some prop firms explicitly allow or promote cloud-based copiers. Others include language in their terms of service that restricts third-party cloud order routing. When uncertain, read the firm's Terms of Service and Trader Agreement carefully, and ask support for written confirmation before running a cloud copier on a funded account. Self-hosted or local copiers avoid this concern because order flow never leaves your machine.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What are ghost orders in ProjectX copiers?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Ghost orders are a phenomenon some traders experience with copiers where orders appear to have filled on one account but not on the lead, or orders show up on followers without matching the lead's position. This happens across many copier implementations, including both ProjectX-based and Rithmic-based ones. It is usually caused by race conditions in API event streams, partial fill propagation issues, or network hiccups. Use a copier with detailed logging and monitor daily.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Do I need a ProjectX copier if I&#x27;m on NinjaTrader?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Only if you have accounts at prop firms that are ProjectX-only. Most prop firms offering ProjectX also offer NinjaTrader access via Rithmic or Tradovate, so a NinjaTrader-native copier like Tradecovex handles the bulk of the market. Exceptions are new Topstep combines (TopstepX-only since July 2025) and some newer firms that launched exclusively on ProjectX. For those specific accounts, you would need either a ProjectX-compatible copier or separate account management.</div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-wide">
+    <div style="text-align:center">
+      <span class="section-tag">Related Guides</span>
+      <h2>Keep reading</h2>
+    </div>
+    <div class="related-grid">
+    <a href="/guides/ninjatrader-trade-copier" class="related-card">
+      <span class="related-tag">Guide</span>
+      <h4>NinjaTrader Trade Copier Guide</h4>
+      <p>The complete 2026 reference for how NinjaTrader trade copiers work with prop firm accounts.</p>
+    </a>
+    <a href="/compare/tradesyncer-pricing-2026" class="related-card">
+      <span class="related-tag">Compare</span>
+      <h4>TradeSyncer Pricing Plans 2026</h4>
+      <p>TradeSyncer's three tiers &mdash; the main cloud copier that supports ProjectX and NinjaTrader together.</p>
+    </a>
+    <a href="/compare/best-ninjatrader-trade-copiers-2026" class="related-card">
+      <span class="related-tag">Roundup</span>
+      <h4>Best NinjaTrader Trade Copiers 2026</h4>
+      <p>Local vs cloud copiers for NinjaTrader-based prop firm portfolios.</p>
+    </a>
+    <a href="/guides/topstep-combine-rules-2026" class="related-card">
+      <span class="related-tag">Rules</span>
+      <h4>Topstep Combine Rules 2026</h4>
+      <p>Topstep's full rules including the TopstepX-only change that affects copier setup.</p>
+    </a>
+    <a href="/guides/trade-copier-latency" class="related-card">
+      <span class="related-tag">Latency</span>
+      <h4>Trade Copier Latency Explained</h4>
+      <p>Why cloud copiers run 100ms while local NT add-ons run sub-10ms.</p>
+    </a>
+    <a href="/compare/tradecovex-vs-tradesyncer" class="related-card">
+      <span class="related-tag">Compare</span>
+      <h4>Tradecovex vs TradeSyncer</h4>
+      <p>Local NinjaTrader add-on vs cloud ProjectX-capable copier &mdash; which fits which trader.</p>
+    </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="/"><img src="/logo.png" alt="Tradecovex" class="footer-logo"></a>
+        <p class="footer-tagline">The smartest trade copier for NinjaTrader — copy trades and let the AI tell you why.</p>
+        <div class="footer-social">
+          <a href="#" title="Twitter / X" aria-label="Twitter">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" title="YouTube" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#how">How It Works</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="/#waitlist">Join Waitlist</a></li>
+          <li><a href="/guides/">All Guides</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/#privacy">Privacy Policy</a></li>
+          <li><a href="/#terms">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Partners</h4>
+        <ul>
+          <li><a href="#" class="footer-aff">Affiliates &mdash; Earn $15&ndash;$45/signup</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-risk">
+      <strong>⚠ Risk Disclosure:</strong> Futures trading involves substantial risk of loss and is not suitable for all investors. You can lose more than your initial investment. Past performance is not indicative of future results. Tradecovex is a software tool &mdash; it does not provide investment advice and does not guarantee trading results. Use of a trade copier does not guarantee compliance with prop firm rules. All trading decisions are your responsibility. Only trade with capital you can afford to lose.
+    </div>
+    <div class="footer-risk" style="margin-top:10px">
+      <strong>No Investment Advice:</strong> Tradecovex is a software tool for trade copying and journaling. IVAAN INC is not registered as an investment adviser with the Ontario Securities Commission, CIRO, the SEC, or any other regulatory body. Nothing in Tradecovex &mdash; including the AI journal analysis feature &mdash; constitutes investment advice, financial advice, or a recommendation to buy or sell any security, futures contract, or other financial instrument. The AI journal provides analytical observations about your historical trading patterns for informational purposes only. All trading decisions are made solely by you.
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2026 Tradecovex. All rights reserved. Built by IVAAN INC, Ontario, Canada.</span>
+      <span class="footer-copy">Canadian users served from Toronto &middot; US users served from New York &middot; PIPEDA compliant</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const hamburger=document.getElementById('hamburger');const mobileMenu=document.getElementById('mobile-menu');if(hamburger){hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');});}
+document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{q.parentElement.classList.toggle('open');});});
+</script>
+
+
+</body>
+</html>
