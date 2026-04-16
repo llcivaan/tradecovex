@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Take Profit Trader Rules 2026 — Every Rule at Every Stage (Test, PRO, PRO+)</title>
+<meta name="description" content="Complete Take Profit Trader rules reference for 2026. Every rule across Test, PRO, and PRO+ accounts — profit targets, EOD vs intraday trailing drawdown, 50% consistency rule, buffer zone, payout structure, news restrictions, contract limits, and the PRO-to-PRO+ progression path.">
+<link rel="canonical" href="https://tradecovex.com/guides/take-profit-trader-rules-2026">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Take Profit Trader Rules 2026 — Every Rule at Every Stage (Test, PRO, PRO+)">
+<meta property="og:description" content="Complete Take Profit Trader rules reference for 2026. Every rule across Test, PRO, and PRO+ accounts — profit targets, EOD vs intraday trailing drawdown, 50% consistency rule, buffer zone, payout structure, news restrictions, contract limits, and the PRO-to-PRO+ progression path.">
+<meta property="og:url" content="https://tradecovex.com/guides/take-profit-trader-rules-2026">
+<meta property="og:image" content="https://tradecovex.com/logo.png">
+<meta property="og:site_name" content="Tradecovex">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Take Profit Trader Rules 2026 — Every Rule at Every Stage (Test, PRO, PRO+)">
+<meta name="twitter:description" content="Complete Take Profit Trader rules reference for 2026. Every rule across Test, PRO, and PRO+ accounts — profit targets, EOD vs intraday trailing drawdown, 50% consistency rule, buffer zone, payout structure, news restrictions, contract limits, and the PRO-to-PRO+ progression path.">
+<meta name="twitter:image" content="https://tradecovex.com/logo.png">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="author" content="Tradecovex / IVAAN INC">
+<link rel="icon" type="image/png" href="/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://tradecovex.com/guides/take-profit-trader-rules-2026#article",
+      "headline": "Take Profit Trader Rules 2026 \u2014 Every Rule at Every Stage (Test, PRO, PRO+)",
+      "description": "Complete Take Profit Trader rules reference for 2026. Every rule across Test, PRO, and PRO+ accounts \u2014 profit targets, EOD vs intraday trailing drawdown, 50% consistency rule, buffer zone, payout structure, news restrictions, contract limits, and the PRO-to-PRO+ progression path.",
+      "image": "https://tradecovex.com/logo.png",
+      "datePublished": "2026-04-15T00:00:00+00:00",
+      "dateModified": "2026-04-15T00:00:00+00:00",
+      "author": {
+        "@type": "Organization",
+        "name": "Tradecovex",
+        "url": "https://tradecovex.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Tradecovex",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://tradecovex.com/logo.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://tradecovex.com/guides/take-profit-trader-rules-2026"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://tradecovex.com/guides/take-profit-trader-rules-2026#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the biggest difference between TPT Test and PRO rules?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The drawdown mechanic. The Test uses end-of-day trailing drawdown \u2014 only your balance at 5:00 PM Eastern matters. The PRO account uses intraday trailing drawdown \u2014 unrealised gains push the floor up in real time. This is the single most common reason funded TPT accounts get liquidated within the first week."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Take Profit Trader allow trade copiers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not on PRO accounts. TPT prohibits automated copy trading between PRO accounts. However, copy trading is permitted on PRO+ accounts (up to 5 accounts). If you use a NinjaTrader trade copier and have TPT PRO accounts, you must manage them individually until you earn PRO+ status."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How fast can I pass the TPT evaluation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The minimum is 5 trading days. If you hit the profit target and satisfy the 50% consistency rule in that time, you can activate your PRO account on day six. Many traders pass within 7-12 trading days on $50K accounts."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the buffer zone on PRO accounts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The buffer zone equals your maximum drawdown amount. On a $50K account with a $2,000 drawdown, you need to reach a balance of $52,000 before you can withdraw at the full 80% profit split. You can withdraw inside the buffer if the account is terminated, but the split drops to 50% if the account was active less than 60 trading days."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many Take Profit Trader accounts can I have?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can operate unlimited Test accounts simultaneously. You can have up to 5 active PRO accounts and 5 active PRO+ accounts. Up to 10 passed Tests can be activated within a 30-day period."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does TPT have a daily loss limit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Take Profit Trader removed the daily loss limit across all account sizes as of January 2025. The only hard risk rule is the trailing drawdown (EOD in Test, intraday in PRO). This is one of the most trader-friendly rule sets in the industry."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:#0F172A;background:#fff;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+:root{
+  --blue:#2563EB;
+  --blue-dark:#1d4ed8;
+  --navy:#0A1628;
+  --slate:#4B5E7A;
+  --slate-light:#64748B;
+  --light:#F0F4FF;
+  --border:#DDE3EF;
+  --radius:12px;
+  --shadow-sm:0 1px 3px rgba(10,22,40,.08),0 1px 2px rgba(10,22,40,.06);
+  --shadow-md:0 4px 16px rgba(10,22,40,.1),0 2px 6px rgba(10,22,40,.06);
+  --shadow-lg:0 12px 40px rgba(10,22,40,.14),0 4px 12px rgba(10,22,40,.08);
+}
+
+/* NAV — matches homepage exactly */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px}
+.nav-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav-logo{height:40px;width:auto}
+.nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+.nav-links a{font-size:.88rem;font-weight:600;color:var(--slate);transition:color .2s;letter-spacing:.01em}
+.nav-links a:hover{color:var(--navy)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 26px;border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;transition:all .18s;border:none;text-decoration:none;letter-spacing:.01em}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 2px 8px rgba(37,99,235,.3)}
+.btn-primary:hover{background:var(--blue-dark);transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,99,235,.4)}
+.btn-outline{background:transparent;color:var(--navy);border:2px solid #C4CEDD}
+.btn-outline:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn-outline-white{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35)}
+.btn-outline-white:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.btn-lg{padding:16px 38px;font-size:.98rem;border-radius:14px}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;transition:all .25s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:20px 24px;z-index:199;flex-direction:column;gap:0;box-shadow:var(--shadow-lg)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{display:block;padding:14px 0;font-size:1rem;font-weight:600;color:var(--slate);border-bottom:1px solid var(--border)}
+.mobile-menu a.btn{margin-top:16px;width:100%;border-bottom:none;justify-content:center}
+
+/* HERO — adapted for guide pages */
+.guide-hero{padding:140px 24px 60px;text-align:center;position:relative;overflow:hidden;background:#fff}
+.guide-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 90% 60% at 50% -10%,rgba(37,99,235,.08) 0%,transparent 65%);pointer-events:none}
+.guide-hero::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background-image:radial-gradient(circle at 1px 1px, rgba(37,99,235,.06) 1px, transparent 0);background-size:32px 32px;pointer-events:none;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 0%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 0%,transparent 70%)}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:100px;padding:7px 18px;font-size:.75rem;font-weight:700;color:var(--blue);letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px;position:relative;z-index:1}
+.hero-eyebrow span.dot{width:7px;height:7px;background:var(--blue);border-radius:50%;animation:blink 2s ease infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+h1{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(2.2rem,4.5vw,3.4rem);line-height:1.08;letter-spacing:-.03em;color:var(--navy);max-width:900px;margin:0 auto 24px;position:relative;z-index:1}
+h1 .accent{color:var(--blue)}
+.guide-meta{display:flex;justify-content:center;gap:24px;margin-bottom:20px;flex-wrap:wrap;font-size:.82rem;color:var(--slate-light);position:relative;z-index:1}
+.guide-meta span{display:inline-flex;align-items:center;gap:6px}
+.breadcrumb{font-size:.78rem;color:var(--slate-light);margin-bottom:24px;position:relative;z-index:1}
+.breadcrumb a{color:var(--blue);font-weight:600}
+.breadcrumb a:hover{text-decoration:underline}
+
+/* ANSWER BOX — featured snippet style */
+.answer-box{max-width:780px;margin:0 auto 50px;background:linear-gradient(135deg,#EFF6FF,#F0F4FF);border:2px solid #BFDBFE;border-radius:18px;padding:32px 36px;text-align:left;position:relative;z-index:1;box-shadow:var(--shadow-md)}
+.answer-box-label{display:inline-block;font-size:.68rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.14em;background:#fff;border:1.5px solid #BFDBFE;border-radius:100px;padding:5px 14px;margin-bottom:14px}
+.answer-box p{font-size:1.02rem;color:var(--navy);line-height:1.75;font-weight:500}
+.answer-box p strong{font-weight:700;color:var(--navy)}
+
+/* SHARED SECTION STYLES */
+.section{padding:80px 24px}
+.section-light{background:var(--light)}
+.section-tag{display:inline-block;font-size:.7rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.14em;margin-bottom:16px;background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:100px;padding:5px 14px}
+h2{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(1.7rem,3.2vw,2.4rem);line-height:1.12;letter-spacing:-.025em;color:var(--navy);margin-bottom:18px}
+h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.3rem;color:var(--navy);margin:32px 0 14px;letter-spacing:-.015em}
+h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08rem;color:var(--navy);margin:24px 0 10px;letter-spacing:-.01em}
+.container{max-width:880px;margin:0 auto}
+.container-wide{max-width:1120px;margin:0 auto}
+
+/* PROSE STYLES */
+.prose p{font-size:1rem;color:var(--slate);line-height:1.85;margin-bottom:20px}
+.prose p strong{color:var(--navy);font-weight:700}
+.prose ul,.prose ol{margin:16px 0 24px 22px;color:var(--slate);font-size:1rem;line-height:1.85}
+.prose li{margin-bottom:10px}
+.prose li strong{color:var(--navy);font-weight:700}
+.prose a{color:var(--blue);font-weight:600;border-bottom:1.5px solid rgba(37,99,235,.3);transition:border .2s}
+.prose a:hover{border-bottom-color:var(--blue)}
+.section-num{display:inline-block;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:.78rem;color:var(--blue);background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:8px;padding:4px 10px;margin-bottom:12px;letter-spacing:.06em}
+
+/* PULL QUOTE */
+.pull-quote{background:linear-gradient(135deg,#EFF6FF,#F0F4FF);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:24px 28px;margin:32px 0;font-family:'Barlow Semi Condensed',sans-serif;font-size:1.18rem;font-weight:600;color:var(--navy);line-height:1.55;letter-spacing:-.01em}
+
+/* CALLOUT BOXES */
+.callout{background:#fff;border:1.5px solid var(--border);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:22px 26px;margin:28px 0;box-shadow:var(--shadow-sm)}
+.callout-title{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1rem;color:var(--navy);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.callout p{font-size:.92rem;color:var(--slate);line-height:1.75;margin:0}
+.callout-warn{border-left-color:#DC2626;background:#FEF2F2}
+.callout-warn .callout-title{color:#991B1B}
+.callout-success{border-left-color:#16A34A;background:#F0FDF4}
+.callout-success .callout-title{color:#166534}
+
+/* FEATURE CARD GRID */
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin:32px 0}
+.feature-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:26px;transition:all .25s;box-shadow:var(--shadow-sm)}
+.feature-card:hover{border-color:#93C5FD;box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.feature-card-num{display:inline-block;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:.7rem;color:var(--blue);background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:6px;padding:3px 8px;margin-bottom:12px;letter-spacing:.06em}
+.feature-card h4{margin:0 0 10px;font-size:1.08rem}
+.feature-card p{font-size:.88rem;color:var(--slate);line-height:1.75;margin:0}
+
+/* DATA TABLE */
+.data-table-wrap{overflow-x:auto;border-radius:14px;border:1.5px solid var(--border);box-shadow:var(--shadow-md);margin:28px 0}
+.data-table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:580px;background:#fff}
+.data-table th{padding:14px 18px;text-align:left;font-weight:700;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;background:#F1F5F9;color:var(--slate);border-bottom:2px solid var(--border)}
+.data-table td{padding:13px 18px;border-bottom:1px solid var(--border);color:var(--slate);vertical-align:middle}
+.data-table tr:last-child td{border-bottom:none}
+.data-table tr.tc-row td{background:#EFF6FF;color:var(--navy);font-weight:600}
+.data-table tr.tc-row td:first-child::before{content:'★ ';color:var(--blue)}
+.data-table td.label{font-weight:600;color:var(--navy);background:#FAFBFF}
+.ck{color:#16A34A;font-weight:700}
+.cx{color:#DC2626;font-weight:700}
+.cm{color:#D97706;font-weight:600;font-size:.85rem}
+
+/* VIDEO EMBED */
+.video-wrap{max-width:780px;margin:36px auto;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-lg);background:var(--navy);position:relative;padding-bottom:56.25%;height:0}
+.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.video-caption{font-size:.82rem;color:var(--slate-light);text-align:center;margin-top:14px;font-style:italic}
+
+/* CTA BANNER */
+.cta-banner{background:linear-gradient(135deg,#0A1628,#0F2460,#1d4ed8);border-radius:18px;padding:56px 48px;margin:48px 0;text-align:center;position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
+.cta-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 100%,rgba(37,99,235,.25) 0%,transparent 65%);pointer-events:none}
+.cta-banner h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:1.85rem;color:#fff;margin:0 0 14px;letter-spacing:-.025em;position:relative;z-index:1}
+.cta-banner p{font-size:1rem;color:#93C5FD;max-width:540px;margin:0 auto 26px;line-height:1.7;position:relative;z-index:1}
+.cta-perks{display:flex;gap:22px;justify-content:center;margin-top:22px;flex-wrap:wrap;position:relative;z-index:1}
+.cta-perk{font-size:.78rem;color:#60A5FA;font-weight:600;display:inline-flex;align-items:center;gap:6px}
+.cta-perk::before{content:'✓';font-weight:800}
+
+/* FAQ */
+.faq-list{max-width:780px;margin:0 auto}
+.faq-item{border-bottom:1.5px solid var(--border)}
+.faq-q{width:100%;text-align:left;padding:22px 0;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.97rem;color:var(--navy);line-height:1.45;letter-spacing:-.01em}
+.faq-icon{width:24px;height:24px;min-width:24px;border-radius:50%;border:2px solid var(--blue);display:flex;align-items:center;justify-content:center;transition:all .25s;flex-shrink:0}
+.faq-icon svg{width:12px;height:12px;stroke:var(--blue);fill:none;stroke-width:2.5;stroke-linecap:round;transition:transform .25s}
+.faq-item.open .faq-icon{background:var(--blue)}
+.faq-item.open .faq-icon svg{stroke:#fff;transform:rotate(45deg)}
+.faq-a{display:none;padding:0 0 22px;font-size:.92rem;color:var(--slate);line-height:1.85;max-width:680px}
+.faq-item.open .faq-a{display:block}
+
+/* RELATED GUIDES */
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:30px}
+.related-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:24px;transition:all .25s;display:block;box-shadow:var(--shadow-sm)}
+.related-card:hover{border-color:#93C5FD;box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.related-tag{display:inline-block;font-size:.66rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.1em;background:#EFF6FF;border:1px solid #BFDBFE;border-radius:6px;padding:3px 8px;margin-bottom:12px}
+.related-card h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.02rem;color:var(--navy);margin:0 0 8px;line-height:1.35}
+.related-card p{font-size:.84rem;color:var(--slate);line-height:1.65;margin:0}
+
+/* FOOTER — matches homepage */
+.footer{background:#fff;border-top:1.5px solid var(--border);padding:60px 24px 36px}
+.footer-inner{max-width:1120px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1.5px solid var(--border);margin-bottom:30px}
+.footer-logo{height:48px;width:auto;margin-bottom:14px}
+.footer-tagline{font-size:.85rem;color:var(--slate);max-width:220px;line-height:1.7;margin-bottom:20px;font-weight:400}
+.footer-social{display:flex;gap:10px}
+.footer-social a{width:36px;height:36px;border:1.5px solid var(--border);border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--slate);transition:all .2s}
+.footer-social a:hover{border-color:var(--blue);color:var(--blue);background:#EFF6FF}
+.footer-social svg{width:16px;height:16px;fill:currentColor}
+.footer-col h4{font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:#94A3B8;margin:0 0 16px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;padding:0}
+.footer-col a{font-size:.875rem;color:var(--slate);transition:color .18s;font-weight:500}
+.footer-col a:hover{color:var(--navy)}
+.footer-aff{font-size:.82rem;color:var(--blue);font-weight:700}
+.footer-risk{background:var(--light);border:1.5px solid var(--border);border-radius:12px;padding:18px 22px;margin-bottom:16px;font-size:.75rem;color:#5B7399;line-height:1.75}
+.footer-risk strong{color:var(--slate);font-weight:700}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:6px}
+.footer-copy{font-size:.75rem;color:#94A3B8;font-weight:500}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .nav-links{display:none}
+  .nav-cta-desktop{display:none !important}
+  .hamburger{display:flex}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .feature-grid,.related-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .footer-top{grid-template-columns:1fr}
+  h1{font-size:2rem}
+  h2{font-size:1.6rem}
+  .answer-box{padding:24px 22px}
+  .cta-banner{padding:42px 28px}
+  .cta-banner h3{font-size:1.5rem}
+}
+
+
+</style>
+
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" aria-label="Tradecovex home"><img src="/logo.png" alt="Tradecovex" class="nav-logo"></a>
+    <ul class="nav-links">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/guides/">Guides</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+    </ul>
+    <a href="/#waitlist" class="btn btn-primary nav-cta-desktop" style="display:inline-flex">Join Waitlist</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/#features">Features</a>
+  <a href="/guides/">Guides</a>
+  <a href="/#pricing">Pricing</a>
+  <a href="/#faq">FAQ</a>
+  <a href="/#waitlist" class="btn btn-primary">Join Waitlist</a>
+</div>
+
+<section class="guide-hero">
+  <div class="hero-eyebrow"><span class="dot"></span>TPT RULES REFERENCE</div>
+  <p class="breadcrumb"><a href="/">Home</a> › <a href="/guides/">Guides</a> › Take Profit Trader Rules 2026</p>
+  <h1>Take Profit Trader Rules 2026 — <span class="accent">The Complete Reference</span></h1>
+  <div class="guide-meta">
+    <span>📅 Updated April 2026</span>
+    <span>⏱ 16 min read</span>
+    <span>✍ Tradecovex Team</span>
+  </div>
+  <div class="answer-box">
+    <span class="answer-box-label">Quick Answer</span>
+    <p>Take Profit Trader uses a three-stage model: <strong>Test → PRO → PRO+</strong>. The Test is a one-step evaluation with EOD trailing drawdown, a 50% consistency rule, 5 minimum trading days, no daily loss limit, and profit targets of 6% ($1,500 for $25K up to $9,000 for $150K). PRO accounts switch to <strong>intraday trailing drawdown</strong> — the single biggest rule change between stages and the most common reason traders blow funded accounts in the first week. PRO+ is a live-market account with a 90/10 profit split, EOD drawdown, and no buffer zone. This page covers every rule at every stage, updated through April 2026.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container prose">
+    
+
+<h2><span class="section-num">01</span>How Take Profit Trader works — three stages</h2>
+
+<p>Take Profit Trader is a futures-only prop firm founded in 2021 in Orlando, Florida by James Sixsmith. The model is straightforward: pass a one-step evaluation (the Test), trade a simulated funded account (PRO), and eventually earn an invitation to trade live capital (PRO+). The rules change at each stage, and the transitions between stages are where most traders get caught off guard.</p>
+
+<p>The biggest trap in the entire TPT system is the drawdown switch. During the Test, your trailing drawdown is calculated at end-of-day. During PRO, it switches to intraday — meaning unrealised gains push your floor up tick by tick. Traders who coast through the evaluation on EOD trailing often blow their PRO account in the first week because they did not adjust for the tighter mechanic.</p>
+
+<div class="callout-warn callout">
+  <div class="callout-title">⚠ Critical rule change between stages</div>
+  <p>The Test uses end-of-day (EOD) trailing drawdown. The PRO account uses intraday trailing drawdown. This is the single most common reason funded TPT accounts get liquidated. Plan for it before you pass, not after.</p>
+</div>
+
+<h2><span class="section-num">02</span>Stage 1 — The Test (Evaluation)</h2>
+
+<p>The Test is TPT's one-step evaluation. You trade in a simulated environment, hit a profit target, and follow a set of risk rules. You pay a monthly subscription for as long as the Test is active. There is no time limit to pass.</p>
+
+<h3>Account sizes and profit targets</h3>
+
+<div class="data-table-wrap">
+<table class="data-table">
+<thead><tr><th>Account size</th><th>Profit target</th><th>Trailing drawdown</th><th>Max contracts</th><th>Max micros</th><th>Monthly fee</th></tr></thead>
+<tbody>
+<tr><td class="label">$25,000</td><td>$1,500 (6%)</td><td>$1,500</td><td>3</td><td>30</td><td>$150/mo</td></tr>
+<tr><td class="label">$50,000</td><td>$3,000 (6%)</td><td>$2,000</td><td>6</td><td>60</td><td>$180/mo</td></tr>
+<tr><td class="label">$75,000</td><td>$4,500 (6%)</td><td>$2,500</td><td>8</td><td>80</td><td>$210/mo</td></tr>
+<tr><td class="label">$100,000</td><td>$6,000 (6%)</td><td>$3,500</td><td>10</td><td>100</td><td>$240/mo</td></tr>
+<tr><td class="label">$150,000</td><td>$9,000 (6%)</td><td>$4,500</td><td>15</td><td>150</td><td>$360/mo</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Pricing is a recurring monthly subscription until you either pass and activate a PRO account, or cancel. Promotional codes can reduce the monthly fee significantly — TPT runs frequent sales. Always check the current pricing on the TPT website before purchasing.</p>
+
+<h3>Test rules — the full list</h3>
+
+<p><strong>Rule 1: Hit the profit target.</strong> Your net account balance must reach the starting balance plus the profit target shown in the table above. There is no time limit. Some traders pass in 5 days, others take months.</p>
+
+<p><strong>Rule 2: Do not exceed maximum position size.</strong> Each account has a hard cap on simultaneous open contracts. For standard contracts, follow the max contracts column. For micros, you can trade up to 10x the standard limit. You cannot hold both a standard contract and micro contracts in the same instrument simultaneously if the combined position exceeds the limit.</p>
+
+<p><strong>Rule 3: Do not hit the trailing drawdown.</strong> The trailing drawdown is calculated at end-of-day during the Test. Only your balance at 5:00 PM Eastern matters. Intraday dips that recover before the close do not move the floor. The drawdown trails upward as your end-of-day balance increases and stops trailing once it reaches your starting account balance. If your account touches the floor at any point (including intraday), the account is liquidated.</p>
+
+<p><strong>Rule 4: Trade approved products during approved hours.</strong> Most CME, CBOT, NYMEX, and COMEX futures are permitted. Trading hours are 5:00 PM to 4:00 PM Eastern, Sunday through Friday. All positions must be closed by 4:59 PM Eastern — the system auto-liquidates anything open past the cutoff.</p>
+
+<p><strong>Rule 5: Meet the consistency requirement.</strong> You must trade a minimum of 5 separate trading days. Additionally, no single trading day can account for more than 50% of your total net profit. If your best day is $2,000 and your total profit is $3,000, you fail the consistency rule ($2,000 / $3,000 = 67%). You would need to earn additional profit across other days to bring that ratio to 50% or below.</p>
+
+<p><strong>Rule 6: No counter positions.</strong> You cannot hold open positions in opposite directions within the same product or closely related products. No hedging.</p>
+
+<div class="callout">
+  <div class="callout-title">What changed in 2025-2026</div>
+  <p>TPT removed the daily loss limit across all Test account sizes as of January 2025. There is also no news trading restriction during the Test phase. Both of these changes made the evaluation more forgiving than it was previously.</p>
+</div>
+
+<h2><span class="section-num">03</span>Stage 2 — The PRO Account (Simulated Funded)</h2>
+
+<p>After passing the Test and paying a one-time $130 activation fee, you receive a PRO account. The PRO account is still simulated — your orders do not hit the exchange — but the profits you withdraw are real cash.</p>
+
+<h3>PRO account rules</h3>
+
+<p><strong>Intraday trailing drawdown.</strong> This is the rule that matters most. Unlike the Test, the PRO drawdown is calculated in real time, including unrealised gains. If you enter a trade and it moves $1,000 in your favour before pulling back, your drawdown floor has already moved up by $1,000 — even if you close the trade at breakeven. The drawdown stops trailing once it reaches your original starting balance.</p>
+
+<p><strong>80/20 profit split.</strong> You keep 80% of approved payouts. The remaining 20% goes to TPT.</p>
+
+<p><strong>Buffer zone.</strong> You must build a profit buffer equal to your maximum drawdown amount before withdrawing at the full 80% split. On a $50,000 account with a $2,000 drawdown, you need to reach $52,000 before standard withdrawals. You can withdraw inside the buffer zone if the account is terminated, but the split drops to 50% if the account was active less than 60 trading days.</p>
+
+<p><strong>Weekly activity requirement.</strong> You must place at least one trade per calendar week. Failure to trade for an extended period can result in account suspension. Contact support if you need a temporary exception.</p>
+
+<p><strong>News trading restrictions.</strong> All PRO accounts must be flat — no open positions and no pending orders — one minute before, during, and one minute after prohibited news events. The key events are FOMC announcements (Wednesdays at 2:00 PM ET) and Non-Farm Payroll (monthly, Fridays at 8:30 AM ET). Crude Oil Inventories are restricted specifically for crude oil positions.</p>
+
+<p><strong>No counter positions.</strong> Same rule as the Test — no hedging across related products.</p>
+
+<p><strong>Maximum 5 accounts.</strong> You can have up to 5 active PRO accounts. Each must be managed individually. TPT does not permit automated copy trading between accounts on PRO.</p>
+
+<div class="callout-warn callout">
+  <div class="callout-title">⚠ Copy trading restriction on PRO</div>
+  <p>TPT prohibits automated copy trading between PRO accounts. If you are running a <a href="/guides/ninjatrader-trade-copier">trade copier</a> on NinjaTrader and managing multiple TPT accounts, this restriction applies at the PRO level. Copy trading is permitted on PRO+ accounts.</p>
+</div>
+
+<h3>PRO reset fees</h3>
+
+<p>If you violate a rule on a PRO account, you can pay a fee to reset it without re-evaluating. Reset fees vary by account size and are significantly higher than Test resets — ranging from roughly $399 to $1,499 depending on the account tier. This makes protecting your funded account substantially more important than passing the evaluation in the first place.</p>
+
+<h2><span class="section-num">04</span>Stage 3 — The PRO+ Account (Live Market)</h2>
+
+<p>PRO+ is the final stage. It is a live-market account where your orders hit the exchange through Tradovate, TPT's regulated broker. You earn an invitation to PRO+ based on sustained profitability — generally after generating approximately $5,000 in cumulative PRO profits, although TPT has not published a fixed threshold.</p>
+
+<h3>PRO+ advantages over PRO</h3>
+
+<div class="feature-grid">
+  <div class="feature-card">
+    <span class="feature-card-num">90/10 SPLIT</span>
+    <h4>Higher profit share</h4>
+    <p>PRO+ accounts receive a 90/10 split versus the 80/20 split on PRO. Every dollar you earn keeps more in your pocket.</p>
+  </div>
+  <div class="feature-card">
+    <span class="feature-card-num">EOD DRAWDOWN</span>
+    <h4>EOD trailing drawdown returns</h4>
+    <p>PRO+ switches back to end-of-day trailing drawdown — the same mechanic as the Test. No more intraday floor ratcheting.</p>
+  </div>
+  <div class="feature-card">
+    <span class="feature-card-num">NO BUFFER</span>
+    <h4>No buffer zone</h4>
+    <p>Every dollar earned is available for withdrawal immediately. No need to build a profit cushion before your first payout.</p>
+  </div>
+  <div class="feature-card">
+    <span class="feature-card-num">COPY TRADING</span>
+    <h4>Copy trading permitted</h4>
+    <p>Unlike PRO, PRO+ accounts allow automated copy trading between up to 5 accounts — relevant for traders using a <a href="/guides/ninjatrader-trade-copier">NinjaTrader trade copier</a>.</p>
+  </div>
+</div>
+
+<p>TPT covers CME data fees on PRO+ accounts. However, trading on additional exchanges incurs a $135/month fee.</p>
+
+<h2><span class="section-num">05</span>Payout structure — how you actually get paid</h2>
+
+<p>TPT's headline feature is day-one payouts. Once you are on a PRO account, you can request a withdrawal at any time — there is no minimum number of profitable days required. However, the buffer zone applies: you need to build profit equal to your maximum drawdown before withdrawing at the full 80% split.</p>
+
+<div class="data-table-wrap">
+<table class="data-table">
+<thead><tr><th>Feature</th><th>PRO</th><th>PRO+</th></tr></thead>
+<tbody>
+<tr><td class="label">Profit split</td><td>80/20</td><td>90/10</td></tr>
+<tr><td class="label">Drawdown type</td><td>Intraday trailing</td><td>EOD trailing</td></tr>
+<tr><td class="label">Buffer zone</td><td>Yes — equal to max drawdown</td><td>No</td></tr>
+<tr><td class="label">Withdrawal frequency</td><td>Unlimited</td><td>Unlimited</td></tr>
+<tr><td class="label">Min withdrawal</td><td>$250 (fee-free) / $50 fee under $250</td><td>$250 (fee-free) / $50 fee under $250</td></tr>
+<tr><td class="label">Processing time</td><td>~24 hours to wallet, 12 business hours to bank</td><td>~24 hours to wallet, 12 business hours to bank</td></tr>
+<tr><td class="label">Copy trading</td><td class="cx">✗ Not permitted</td><td class="ck">✓ Up to 5 accounts</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Payment methods include PayPal and Wise. US residents complete a W-9 tax form; international traders complete a W-8BEN.</p>
+
+<h2><span class="section-num">06</span>Platforms supported</h2>
+
+<p>Take Profit Trader supports over 15 trading platforms — the broadest platform support of any futures prop firm. The primary platforms are NinjaTrader (via CQG or Rithmic), Tradovate, and TradingView. Other supported platforms include Sierra Chart, Quantower, MotiveWave, R|Trader Pro, and several more.</p>
+
+<p>For traders running a <a href="/guides/ninjatrader-trade-copier">NinjaTrader trade copier</a>, TPT accounts connect via CQG or Rithmic data feeds. CQG connects through NinjaTrader's built-in "NinjaTrader" connection type. Rithmic requires downloading R|Trader Pro first for initial authentication, then connecting NinjaTrader using the "Rithmic for NinjaTrader Brokerage" connection.</p>
+
+<h2><span class="section-num">07</span>How TPT compares to other futures prop firms</h2>
+
+<div class="data-table-wrap">
+<table class="data-table">
+<thead><tr><th>Feature</th><th>Take Profit Trader</th><th>Topstep</th><th>Apex</th><th>MFFU</th></tr></thead>
+<tbody>
+<tr><td class="label">Evaluation steps</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+<tr><td class="label">Eval drawdown type</td><td>EOD trailing</td><td>EOD trailing</td><td>Intraday trailing</td><td>EOD trailing</td></tr>
+<tr><td class="label">Funded drawdown</td><td>Intraday trailing</td><td>EOD trailing</td><td>Intraday trailing</td><td>EOD trailing</td></tr>
+<tr><td class="label">Consistency rule</td><td>50% (eval only)</td><td>50% or 40%</td><td>30%</td><td>None</td></tr>
+<tr><td class="label">Funded profit split</td><td>80/20 → 90/10</td><td>90/10</td><td>100% first $25K, then 90/10</td><td>100% first $10K, then 90/10</td></tr>
+<tr><td class="label">Max accounts</td><td>5 PRO + 5 PRO+</td><td>Multiple (platform limited)</td><td>20</td><td>Multiple</td></tr>
+<tr><td class="label">Daily loss limit</td><td>None</td><td>Yes</td><td>Yes (trailing)</td><td>Yes</td></tr>
+<tr><td class="label">Copy trading</td><td>PRO+ only</td><td>Varies</td><td>Permitted</td><td>Varies</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>The standout advantage of TPT is daily payouts — no other firm matches the withdrawal speed. The standout disadvantage is the drawdown switch from EOD (eval) to intraday (PRO), which is the strictest funded drawdown mechanic in the industry. <a href="/compare/apex-vs-topstep-vs-myfundedfutures">See the full comparison →</a></p>
+
+<div class="pull-quote">If you can handle intraday trailing drawdown and want the fastest payouts in futures prop trading, TPT is the obvious choice. If you need EOD drawdown on funded accounts, look at Topstep or MFFU instead.</div>
+
+<h2><span class="section-num">08</span>Pricing breakdown — what it actually costs</h2>
+
+<p>TPT's pricing looks straightforward until you factor in the activation fee and potential reset costs. Here is the real math for a $50K account.</p>
+
+<p><strong>Best case (pass first attempt, 5 days):</strong> One month of subscription ($180) plus the $130 PRO activation fee equals $310 total to get funded. This is competitive but not the cheapest — Tradeify can get you funded for $103 with no activation fee.</p>
+
+<p><strong>Average case (pass second attempt, 6 weeks):</strong> Two months of subscription ($360) plus $130 activation equals $490. This is where TPT starts to get expensive relative to firms with lower monthly costs or one-time pricing.</p>
+
+<p><strong>PRO reset scenario:</strong> You pass the Test, activate PRO, and breach the account in the first week because the intraday trailing drawdown caught you off guard. The PRO reset fee is roughly $399-$999 depending on account size. On a $50K account, assume $399. Your total is now $310 (initial path) plus $399 (reset) = $709 before you have earned a single dollar.</p>
+
+<p>The lesson: the $130 activation fee is minor. The PRO reset fee is where TPT punishes mistakes. Protect your funded account aggressively — especially in the first week when you are adjusting to the intraday trailing drawdown mechanic.</p>
+
+<div class="callout">
+  <div class="callout-title">Cost comparison at a glance ($50K account)</div>
+  <p><strong>Tradeify:</strong> ~$103 (one month, no activation). <strong>Topstep Standard:</strong> ~$198 ($49/mo + $149 activation). <strong>TPT:</strong> ~$310 ($180/mo + $130 activation). <strong>Bulenox EOD:</strong> ~$293 ($145/mo + $148 activation). TPT is not the cheapest, but the daily payout speed and no-daily-loss-limit evaluation are the trade-offs.</p>
+</div>
+
+<h2><span class="section-num">09</span>Surviving the drawdown switch — practical strategies</h2>
+
+<p>The EOD-to-intraday drawdown switch is not a theoretical risk. It is the single most common reason traders who pass the TPT Test fail their PRO account within the first week. Here are concrete strategies for managing it.</p>
+
+<p><strong>Cut your size in half for the first 5 trading days on PRO.</strong> If you traded 4 contracts during the Test, trade 2 on PRO until you have built enough cushion that the intraday trailing feels manageable. The profit will be smaller, but you will not blow the account learning how intraday trailing works.</p>
+
+<p><strong>Set a hard daily profit cap.</strong> On a $50K PRO account with a $2,000 drawdown, any day where you are up $600 is a good day. Close the platform. Walk away. The intraday trailing drawdown means every dollar of unrealised profit you give back is a dollar permanently subtracted from your cushion. Taking a $600 day and closing is better than letting a $1,200 winner pull back to $400.</p>
+
+<p><strong>Do not hold through the first 30 minutes of the US open.</strong> The 9:30 AM Eastern spike creates the biggest intraday equity swings. On an EOD account, those swings do not matter. On an intraday trailing account, a spike that runs your unrealised P/L to +$1,500 before pulling back to +$200 has permanently moved your floor up by $1,500. Trade the open if that is your edge, but manage the position aggressively — partial profits, tight trailing stops.</p>
+
+<p><strong>Track your drawdown manually.</strong> TPT's dashboard shows your current drawdown level, but it updates with a slight delay. Keep a manual calculation running: starting balance + highest peak balance - drawdown amount = your current floor. Know that number before every trade.</p>
+
+<h2><span class="section-num">10</span>What a trade copier changes about TPT</h2>
+
+<p>TPT limits traders to 5 PRO accounts, and copy trading is not permitted at the PRO level. This means traders running multiple TPT accounts must manage each one individually — entering and exiting trades manually on each account.</p>
+
+<p>At the PRO+ level, copy trading is permitted across up to 5 accounts. A <a href="/guides/ninjatrader-trade-copier">local NinjaTrader trade copier</a> like Tradecovex can replicate trades from a lead account to multiple follower accounts simultaneously, making the PRO+ multi-account workflow manageable.</p>
+
+<p>If you are running TPT alongside accounts at other firms (Apex, Topstep, Bulenox) that do permit copy trading at all stages, a trade copier lets you execute once and have every account follow — but you would need to manage the TPT PRO accounts separately until they reach PRO+ status.</p>
+
+
+    <div class="cta-banner">
+      <h3>Running Multiple TPT Accounts?</h3>
+      <p>Tradecovex copies trades from your lead NinjaTrader account to every follower — and the AI journal tracks which accounts are making money and which are bleeding.</p>
+      <a href="/" class="btn btn-primary btn-lg" style="position:relative;z-index:1">Get Started</a>
+      <div class="cta-perks">
+        <span class="cta-perk">7-day free trial</span>
+        <span class="cta-perk">No credit card</span>
+        <span class="cta-perk">NinjaTrader add-on</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container">
+    <div style="text-align:center">
+      <span class="section-tag">FAQ</span>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q">What is the biggest difference between TPT Test and PRO rules?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">The drawdown mechanic. The Test uses end-of-day trailing drawdown — only your balance at 5:00 PM Eastern matters. The PRO account uses intraday trailing drawdown — unrealised gains push the floor up in real time. This is the single most common reason funded TPT accounts get liquidated within the first week.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Does Take Profit Trader allow trade copiers?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Not on PRO accounts. TPT prohibits automated copy trading between PRO accounts. However, copy trading is permitted on PRO+ accounts (up to 5 accounts). If you use a NinjaTrader trade copier and have TPT PRO accounts, you must manage them individually until you earn PRO+ status.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How fast can I pass the TPT evaluation?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">The minimum is 5 trading days. If you hit the profit target and satisfy the 50% consistency rule in that time, you can activate your PRO account on day six. Many traders pass within 7-12 trading days on $50K accounts.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What is the buffer zone on PRO accounts?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">The buffer zone equals your maximum drawdown amount. On a $50K account with a $2,000 drawdown, you need to reach a balance of $52,000 before you can withdraw at the full 80% profit split. You can withdraw inside the buffer if the account is terminated, but the split drops to 50% if the account was active less than 60 trading days.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How many Take Profit Trader accounts can I have?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">You can operate unlimited Test accounts simultaneously. You can have up to 5 active PRO accounts and 5 active PRO+ accounts. Up to 10 passed Tests can be activated within a 30-day period.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Does TPT have a daily loss limit?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">No. Take Profit Trader removed the daily loss limit across all account sizes as of January 2025. The only hard risk rule is the trailing drawdown (EOD in Test, intraday in PRO). This is one of the most trader-friendly rule sets in the industry.</div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-wide">
+    <div style="text-align:center">
+      <span class="section-tag">Related Guides</span>
+      <h2>Keep reading</h2>
+    </div>
+    <div class="related-grid">
+    <a href="/guides/topstep-combine-rules-2026" class="related-card">
+      <span class="related-tag">Rules</span>
+      <h4>Topstep Combine Rules 2026</h4>
+      <p>Complete rule reference for Topstep — the other major NinjaTrader-compatible prop firm.</p>
+    </a>
+    <a href="/guides/apex-trader-funding-rules-2026" class="related-card">
+      <span class="related-tag">Rules</span>
+      <h4>Apex Trader Funding Rules 2026</h4>
+      <p>Every Apex rule, from evaluation through Performance Account.</p>
+    </a>
+    <a href="/guides/trailing-drawdown" class="related-card">
+      <span class="related-tag">Prop Rules</span>
+      <h4>What is Trailing Drawdown?</h4>
+      <p>Deep dive on EOD vs intraday trailing — the mechanic that kills the most funded accounts.</p>
+    </a>
+    <a href="/guides/ninjatrader-trade-copier" class="related-card">
+      <span class="related-tag">Copier</span>
+      <h4>NinjaTrader Trade Copier Guide</h4>
+      <p>How trade copiers work with multiple prop firm accounts on NinjaTrader.</p>
+    </a>
+    <a href="/guides/prop-firm-rules-2026" class="related-card">
+      <span class="related-tag">Hub</span>
+      <h4>Prop Firm Rules Hub 2026</h4>
+      <p>All prop firm rules references in one place.</p>
+    </a>
+    <a href="/guides/funded-account-survival-guide" class="related-card">
+      <span class="related-tag">Funded</span>
+      <h4>Funded Account Survival Guide</h4>
+      <p>The first 30 days on a funded account — what to do, what to avoid.</p>
+    </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="/"><img src="/logo.png" alt="Tradecovex" class="footer-logo"></a>
+        <p class="footer-tagline">The smartest trade copier for NinjaTrader — copy trades and let the AI tell you why.</p>
+        <div class="footer-social">
+          <a href="#" title="Twitter / X" aria-label="Twitter">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" title="YouTube" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#how">How It Works</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="/#waitlist">Join Waitlist</a></li>
+          <li><a href="/guides/">All Guides</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/#privacy">Privacy Policy</a></li>
+          <li><a href="/#terms">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Partners</h4>
+        <ul>
+          <li><a href="#" class="footer-aff">Affiliates — Earn $15–$45/signup</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-risk">
+      <strong>⚠ Risk Disclosure:</strong> Futures trading involves substantial risk of loss and is not suitable for all investors. You can lose more than your initial investment. Past performance is not indicative of future results. Tradecovex is a software tool — it does not provide investment advice and does not guarantee trading results. Use of a trade copier does not guarantee compliance with prop firm rules. All trading decisions are your responsibility. Only trade with capital you can afford to lose.
+    </div>
+    <div class="footer-risk" style="margin-top:10px">
+      <strong>No Investment Advice:</strong> Tradecovex is a software tool for trade copying and journaling. IVAAN INC is not registered as an investment adviser with the Ontario Securities Commission, CIRO, the SEC, or any other regulatory body. Nothing in Tradecovex — including the AI journal analysis feature — constitutes investment advice, financial advice, or a recommendation to buy or sell any security, futures contract, or other financial instrument. The AI journal provides analytical observations about your historical trading patterns for informational purposes only. All trading decisions are made solely by you.
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Tradecovex. All rights reserved. Built by IVAAN INC, Ontario, Canada.</span>
+      <span class="footer-copy">Canadian users served from Toronto · US users served from New York · PIPEDA compliant</span>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+const hamburger=document.getElementById('hamburger');const mobileMenu=document.getElementById('mobile-menu');if(hamburger){hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');});}
+document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{q.parentElement.classList.toggle('open');});});
+</script>
+
+</body>
+</html>

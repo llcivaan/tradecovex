@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Bracket Orders and Trade Copiers on NinjaTrader — How ATM Strategies Copy Across Accounts</title>
+<meta name="description" content="How NinjaTrader bracket orders (ATM strategies) work with trade copiers. Covers stop-loss and profit-target replication, ATM strategy syncing, OCO bracket behaviour across follower accounts, common failure modes, and how to configure bracket orders when copying trades to multiple prop firm accounts.">
+<link rel="canonical" href="https://tradecovex.com/guides/bracket-orders-trade-copier">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bracket Orders and Trade Copiers on NinjaTrader — How ATM Strategies Copy Across Accounts">
+<meta property="og:description" content="How NinjaTrader bracket orders (ATM strategies) work with trade copiers. Covers stop-loss and profit-target replication, ATM strategy syncing, OCO bracket behaviour across follower accounts, common failure modes, and how to configure bracket orders when copying trades to multiple prop firm accounts.">
+<meta property="og:url" content="https://tradecovex.com/guides/bracket-orders-trade-copier">
+<meta property="og:image" content="https://tradecovex.com/logo.png">
+<meta property="og:site_name" content="Tradecovex">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bracket Orders and Trade Copiers on NinjaTrader — How ATM Strategies Copy Across Accounts">
+<meta name="twitter:description" content="How NinjaTrader bracket orders (ATM strategies) work with trade copiers. Covers stop-loss and profit-target replication, ATM strategy syncing, OCO bracket behaviour across follower accounts, common failure modes, and how to configure bracket orders when copying trades to multiple prop firm accounts.">
+<meta name="twitter:image" content="https://tradecovex.com/logo.png">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="author" content="Tradecovex / IVAAN INC">
+<link rel="icon" type="image/png" href="/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://tradecovex.com/guides/bracket-orders-trade-copier#article",
+      "headline": "Bracket Orders and Trade Copiers on NinjaTrader \u2014 How ATM Strategies Copy Across Accounts",
+      "description": "How NinjaTrader bracket orders (ATM strategies) work with trade copiers. Covers stop-loss and profit-target replication, ATM strategy syncing, OCO bracket behaviour across follower accounts, common failure modes, and how to configure bracket orders when copying trades to multiple prop firm accounts.",
+      "image": "https://tradecovex.com/logo.png",
+      "datePublished": "2026-04-15T00:00:00+00:00",
+      "dateModified": "2026-04-15T00:00:00+00:00",
+      "author": {
+        "@type": "Organization",
+        "name": "Tradecovex",
+        "url": "https://tradecovex.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Tradecovex",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://tradecovex.com/logo.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://tradecovex.com/guides/bracket-orders-trade-copier"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://tradecovex.com/guides/bracket-orders-trade-copier#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do trade copiers copy bracket orders (ATM strategies)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most NinjaTrader trade copiers handle brackets in one of two ways. In Executions Mode, the copier copies the entry as a market order and creates a new ATM strategy on each follower. In Orders Mode, the copier mirrors the exact order types including stops and targets. Not all copiers handle ATM modifications (trailing stops, breakeven moves) \u2014 you must test this in simulation before going live."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens if the stop-loss does not copy to a follower account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The follower position is unprotected. If the market moves against you, the follower account has no exit \u2014 it stays open until it hits the prop firm's drawdown limit and liquidates. This is the most dangerous copier misconfiguration and the single most important thing to test."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a ghost order and how does it affect bracket copying?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A ghost order is a phantom position that appears in NinjaTrader but does not exist at the broker level. It is a known NinjaTrader-level issue that any local copier inherits. Ghost orders can cause the copier to skip entries (thinks a position already exists) or double-enter (does not see the existing position). Running NinjaTrader on a stable VPS with a reliable connection reduces ghost order frequency."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I use Executions Mode or Orders Mode for bracket copying?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Executions Mode is more reliable for most traders \u2014 entries fill immediately as market orders and each follower gets a clean independent ATM. Orders Mode gives tighter price alignment but risks missed fills on limit orders during volatile markets. For prop firm traders running 10+ accounts, Executions Mode is generally the safer choice."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I copy ES trades to MES follower accounts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Some copiers support cross-order copying (ES to MES or vice versa). This requires explicit configuration \u2014 the copier needs to know the contract conversion ratio (1 ES = 10 MES). Not all copiers support this. Verify with your specific copier before relying on it."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:#0F172A;background:#fff;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+:root{
+  --blue:#2563EB;
+  --blue-dark:#1d4ed8;
+  --navy:#0A1628;
+  --slate:#4B5E7A;
+  --slate-light:#64748B;
+  --light:#F0F4FF;
+  --border:#DDE3EF;
+  --radius:12px;
+  --shadow-sm:0 1px 3px rgba(10,22,40,.08),0 1px 2px rgba(10,22,40,.06);
+  --shadow-md:0 4px 16px rgba(10,22,40,.1),0 2px 6px rgba(10,22,40,.06);
+  --shadow-lg:0 12px 40px rgba(10,22,40,.14),0 4px 12px rgba(10,22,40,.08);
+}
+
+/* NAV — matches homepage exactly */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px}
+.nav-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav-logo{height:40px;width:auto}
+.nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+.nav-links a{font-size:.88rem;font-weight:600;color:var(--slate);transition:color .2s;letter-spacing:.01em}
+.nav-links a:hover{color:var(--navy)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 26px;border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;transition:all .18s;border:none;text-decoration:none;letter-spacing:.01em}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 2px 8px rgba(37,99,235,.3)}
+.btn-primary:hover{background:var(--blue-dark);transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,99,235,.4)}
+.btn-outline{background:transparent;color:var(--navy);border:2px solid #C4CEDD}
+.btn-outline:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn-outline-white{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35)}
+.btn-outline-white:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.btn-lg{padding:16px 38px;font-size:.98rem;border-radius:14px}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;transition:all .25s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:20px 24px;z-index:199;flex-direction:column;gap:0;box-shadow:var(--shadow-lg)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{display:block;padding:14px 0;font-size:1rem;font-weight:600;color:var(--slate);border-bottom:1px solid var(--border)}
+.mobile-menu a.btn{margin-top:16px;width:100%;border-bottom:none;justify-content:center}
+
+/* HERO — adapted for guide pages */
+.guide-hero{padding:140px 24px 60px;text-align:center;position:relative;overflow:hidden;background:#fff}
+.guide-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 90% 60% at 50% -10%,rgba(37,99,235,.08) 0%,transparent 65%);pointer-events:none}
+.guide-hero::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background-image:radial-gradient(circle at 1px 1px, rgba(37,99,235,.06) 1px, transparent 0);background-size:32px 32px;pointer-events:none;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 0%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 0%,transparent 70%)}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:100px;padding:7px 18px;font-size:.75rem;font-weight:700;color:var(--blue);letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px;position:relative;z-index:1}
+.hero-eyebrow span.dot{width:7px;height:7px;background:var(--blue);border-radius:50%;animation:blink 2s ease infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+h1{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(2.2rem,4.5vw,3.4rem);line-height:1.08;letter-spacing:-.03em;color:var(--navy);max-width:900px;margin:0 auto 24px;position:relative;z-index:1}
+h1 .accent{color:var(--blue)}
+.guide-meta{display:flex;justify-content:center;gap:24px;margin-bottom:20px;flex-wrap:wrap;font-size:.82rem;color:var(--slate-light);position:relative;z-index:1}
+.guide-meta span{display:inline-flex;align-items:center;gap:6px}
+.breadcrumb{font-size:.78rem;color:var(--slate-light);margin-bottom:24px;position:relative;z-index:1}
+.breadcrumb a{color:var(--blue);font-weight:600}
+.breadcrumb a:hover{text-decoration:underline}
+
+/* ANSWER BOX — featured snippet style */
+.answer-box{max-width:780px;margin:0 auto 50px;background:linear-gradient(135deg,#EFF6FF,#F0F4FF);border:2px solid #BFDBFE;border-radius:18px;padding:32px 36px;text-align:left;position:relative;z-index:1;box-shadow:var(--shadow-md)}
+.answer-box-label{display:inline-block;font-size:.68rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.14em;background:#fff;border:1.5px solid #BFDBFE;border-radius:100px;padding:5px 14px;margin-bottom:14px}
+.answer-box p{font-size:1.02rem;color:var(--navy);line-height:1.75;font-weight:500}
+.answer-box p strong{font-weight:700;color:var(--navy)}
+
+/* SHARED SECTION STYLES */
+.section{padding:80px 24px}
+.section-light{background:var(--light)}
+.section-tag{display:inline-block;font-size:.7rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.14em;margin-bottom:16px;background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:100px;padding:5px 14px}
+h2{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(1.7rem,3.2vw,2.4rem);line-height:1.12;letter-spacing:-.025em;color:var(--navy);margin-bottom:18px}
+h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.3rem;color:var(--navy);margin:32px 0 14px;letter-spacing:-.015em}
+h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08rem;color:var(--navy);margin:24px 0 10px;letter-spacing:-.01em}
+.container{max-width:880px;margin:0 auto}
+.container-wide{max-width:1120px;margin:0 auto}
+
+/* PROSE STYLES */
+.prose p{font-size:1rem;color:var(--slate);line-height:1.85;margin-bottom:20px}
+.prose p strong{color:var(--navy);font-weight:700}
+.prose ul,.prose ol{margin:16px 0 24px 22px;color:var(--slate);font-size:1rem;line-height:1.85}
+.prose li{margin-bottom:10px}
+.prose li strong{color:var(--navy);font-weight:700}
+.prose a{color:var(--blue);font-weight:600;border-bottom:1.5px solid rgba(37,99,235,.3);transition:border .2s}
+.prose a:hover{border-bottom-color:var(--blue)}
+.section-num{display:inline-block;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:.78rem;color:var(--blue);background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:8px;padding:4px 10px;margin-bottom:12px;letter-spacing:.06em}
+
+/* PULL QUOTE */
+.pull-quote{background:linear-gradient(135deg,#EFF6FF,#F0F4FF);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:24px 28px;margin:32px 0;font-family:'Barlow Semi Condensed',sans-serif;font-size:1.18rem;font-weight:600;color:var(--navy);line-height:1.55;letter-spacing:-.01em}
+
+/* CALLOUT BOXES */
+.callout{background:#fff;border:1.5px solid var(--border);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:22px 26px;margin:28px 0;box-shadow:var(--shadow-sm)}
+.callout-title{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1rem;color:var(--navy);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.callout p{font-size:.92rem;color:var(--slate);line-height:1.75;margin:0}
+.callout-warn{border-left-color:#DC2626;background:#FEF2F2}
+.callout-warn .callout-title{color:#991B1B}
+.callout-success{border-left-color:#16A34A;background:#F0FDF4}
+.callout-success .callout-title{color:#166534}
+
+/* FEATURE CARD GRID */
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin:32px 0}
+.feature-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:26px;transition:all .25s;box-shadow:var(--shadow-sm)}
+.feature-card:hover{border-color:#93C5FD;box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.feature-card-num{display:inline-block;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:.7rem;color:var(--blue);background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:6px;padding:3px 8px;margin-bottom:12px;letter-spacing:.06em}
+.feature-card h4{margin:0 0 10px;font-size:1.08rem}
+.feature-card p{font-size:.88rem;color:var(--slate);line-height:1.75;margin:0}
+
+/* DATA TABLE */
+.data-table-wrap{overflow-x:auto;border-radius:14px;border:1.5px solid var(--border);box-shadow:var(--shadow-md);margin:28px 0}
+.data-table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:580px;background:#fff}
+.data-table th{padding:14px 18px;text-align:left;font-weight:700;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;background:#F1F5F9;color:var(--slate);border-bottom:2px solid var(--border)}
+.data-table td{padding:13px 18px;border-bottom:1px solid var(--border);color:var(--slate);vertical-align:middle}
+.data-table tr:last-child td{border-bottom:none}
+.data-table tr.tc-row td{background:#EFF6FF;color:var(--navy);font-weight:600}
+.data-table tr.tc-row td:first-child::before{content:'★ ';color:var(--blue)}
+.data-table td.label{font-weight:600;color:var(--navy);background:#FAFBFF}
+.ck{color:#16A34A;font-weight:700}
+.cx{color:#DC2626;font-weight:700}
+.cm{color:#D97706;font-weight:600;font-size:.85rem}
+
+/* VIDEO EMBED */
+.video-wrap{max-width:780px;margin:36px auto;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-lg);background:var(--navy);position:relative;padding-bottom:56.25%;height:0}
+.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.video-caption{font-size:.82rem;color:var(--slate-light);text-align:center;margin-top:14px;font-style:italic}
+
+/* CTA BANNER */
+.cta-banner{background:linear-gradient(135deg,#0A1628,#0F2460,#1d4ed8);border-radius:18px;padding:56px 48px;margin:48px 0;text-align:center;position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
+.cta-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 100%,rgba(37,99,235,.25) 0%,transparent 65%);pointer-events:none}
+.cta-banner h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:1.85rem;color:#fff;margin:0 0 14px;letter-spacing:-.025em;position:relative;z-index:1}
+.cta-banner p{font-size:1rem;color:#93C5FD;max-width:540px;margin:0 auto 26px;line-height:1.7;position:relative;z-index:1}
+.cta-perks{display:flex;gap:22px;justify-content:center;margin-top:22px;flex-wrap:wrap;position:relative;z-index:1}
+.cta-perk{font-size:.78rem;color:#60A5FA;font-weight:600;display:inline-flex;align-items:center;gap:6px}
+.cta-perk::before{content:'✓';font-weight:800}
+
+/* FAQ */
+.faq-list{max-width:780px;margin:0 auto}
+.faq-item{border-bottom:1.5px solid var(--border)}
+.faq-q{width:100%;text-align:left;padding:22px 0;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.97rem;color:var(--navy);line-height:1.45;letter-spacing:-.01em}
+.faq-icon{width:24px;height:24px;min-width:24px;border-radius:50%;border:2px solid var(--blue);display:flex;align-items:center;justify-content:center;transition:all .25s;flex-shrink:0}
+.faq-icon svg{width:12px;height:12px;stroke:var(--blue);fill:none;stroke-width:2.5;stroke-linecap:round;transition:transform .25s}
+.faq-item.open .faq-icon{background:var(--blue)}
+.faq-item.open .faq-icon svg{stroke:#fff;transform:rotate(45deg)}
+.faq-a{display:none;padding:0 0 22px;font-size:.92rem;color:var(--slate);line-height:1.85;max-width:680px}
+.faq-item.open .faq-a{display:block}
+
+/* RELATED GUIDES */
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:30px}
+.related-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:24px;transition:all .25s;display:block;box-shadow:var(--shadow-sm)}
+.related-card:hover{border-color:#93C5FD;box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.related-tag{display:inline-block;font-size:.66rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.1em;background:#EFF6FF;border:1px solid #BFDBFE;border-radius:6px;padding:3px 8px;margin-bottom:12px}
+.related-card h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.02rem;color:var(--navy);margin:0 0 8px;line-height:1.35}
+.related-card p{font-size:.84rem;color:var(--slate);line-height:1.65;margin:0}
+
+/* FOOTER — matches homepage */
+.footer{background:#fff;border-top:1.5px solid var(--border);padding:60px 24px 36px}
+.footer-inner{max-width:1120px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1.5px solid var(--border);margin-bottom:30px}
+.footer-logo{height:48px;width:auto;margin-bottom:14px}
+.footer-tagline{font-size:.85rem;color:var(--slate);max-width:220px;line-height:1.7;margin-bottom:20px;font-weight:400}
+.footer-social{display:flex;gap:10px}
+.footer-social a{width:36px;height:36px;border:1.5px solid var(--border);border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--slate);transition:all .2s}
+.footer-social a:hover{border-color:var(--blue);color:var(--blue);background:#EFF6FF}
+.footer-social svg{width:16px;height:16px;fill:currentColor}
+.footer-col h4{font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:#94A3B8;margin:0 0 16px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;padding:0}
+.footer-col a{font-size:.875rem;color:var(--slate);transition:color .18s;font-weight:500}
+.footer-col a:hover{color:var(--navy)}
+.footer-aff{font-size:.82rem;color:var(--blue);font-weight:700}
+.footer-risk{background:var(--light);border:1.5px solid var(--border);border-radius:12px;padding:18px 22px;margin-bottom:16px;font-size:.75rem;color:#5B7399;line-height:1.75}
+.footer-risk strong{color:var(--slate);font-weight:700}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:6px}
+.footer-copy{font-size:.75rem;color:#94A3B8;font-weight:500}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .nav-links{display:none}
+  .nav-cta-desktop{display:none !important}
+  .hamburger{display:flex}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .feature-grid,.related-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .footer-top{grid-template-columns:1fr}
+  h1{font-size:2rem}
+  h2{font-size:1.6rem}
+  .answer-box{padding:24px 22px}
+  .cta-banner{padding:42px 28px}
+  .cta-banner h3{font-size:1.5rem}
+}
+
+
+</style>
+
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" aria-label="Tradecovex home"><img src="/logo.png" alt="Tradecovex" class="nav-logo"></a>
+    <ul class="nav-links">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/guides/">Guides</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+    </ul>
+    <a href="/#waitlist" class="btn btn-primary nav-cta-desktop" style="display:inline-flex">Join Waitlist</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/#features">Features</a>
+  <a href="/guides/">Guides</a>
+  <a href="/#pricing">Pricing</a>
+  <a href="/#faq">FAQ</a>
+  <a href="/#waitlist" class="btn btn-primary">Join Waitlist</a>
+</div>
+
+<section class="guide-hero">
+  <div class="hero-eyebrow"><span class="dot"></span>COPIER + BRACKET ORDERS</div>
+  <p class="breadcrumb"><a href="/">Home</a> › <a href="/guides/">Guides</a> › Bracket Orders &amp; Trade Copiers</p>
+  <h1>Bracket Orders and Trade Copiers on <span class="accent">NinjaTrader</span></h1>
+  <div class="guide-meta">
+    <span>📅 Updated April 2026</span>
+    <span>⏱ 12 min read</span>
+    <span>✍ Tradecovex Team</span>
+  </div>
+  <div class="answer-box">
+    <span class="answer-box-label">Quick Answer</span>
+    <p>A bracket order (also called an ATM strategy in NinjaTrader) is a set of linked orders: an entry, a stop-loss, and a profit target. When using a <strong>trade copier</strong>, the critical question is whether the copier replicates the full bracket — not just the entry. If only the entry copies and the stop-loss does not follow, your follower accounts are unprotected. Most NinjaTrader copiers handle brackets in one of two ways: <strong>Executions Mode</strong> (copies the entry as a market order, then creates a new ATM on the follower) or <strong>Orders Mode</strong> (mirrors the exact order types including limits and stops). This page explains how brackets interact with copiers and how to avoid the most common failure modes.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container prose">
+    
+
+<h2><span class="section-num">01</span>What is a bracket order?</h2>
+
+<p>A bracket order is a group of linked orders that enter a position and simultaneously set both a stop-loss and a profit target. In NinjaTrader, bracket orders are called <strong>ATM Strategies</strong> (Advanced Trade Management). When you place a trade using an ATM strategy, NinjaTrader automatically submits the protective stop and the target along with your entry — all as a single coordinated unit.</p>
+
+<p>For prop firm traders, brackets are not optional. Every funded account has a trailing drawdown that can liquidate your account if a single trade runs away from you. A bracket order ensures that every entry has a predefined exit, even if your internet drops or NinjaTrader freezes.</p>
+
+<div class="video-wrap">
+  <iframe src="https://www.youtube.com/embed/pcjcLiHdvcY" title="NinjaTrader ATM Strategy Setup" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
+<p class="video-caption">NinjaTrader ATM strategy (bracket order) setup walkthrough.</p>
+
+<h2><span class="section-num">02</span>How brackets work inside NinjaTrader</h2>
+
+<p>When you create an ATM strategy in NinjaTrader, you define a template with one or more stop-loss and profit-target pairs. Each pair is called a <strong>bracket</strong>. A single ATM can have multiple brackets — for example, you might take profit on half your position at +8 ticks and the other half at +16 ticks, with a single stop at -12 ticks.</p>
+
+<p>The key mechanics that matter for trade copying are:</p>
+
+<p><strong>OCO behaviour.</strong> The stop-loss and profit target are linked as an OCO (One-Cancels-Other) pair. When one fills, the other is automatically cancelled. This is handled server-side by the broker, not by NinjaTrader — which means it works even if NinjaTrader disconnects.</p>
+
+<p><strong>Auto-trail and auto-breakeven.</strong> ATM strategies can include automatic stop-loss adjustments — trailing the stop by a fixed number of ticks, or moving it to breakeven after the trade moves a certain distance in your favour. These adjustments are managed by NinjaTrader locally, not by the broker.</p>
+
+<p><strong>ATM templates are local.</strong> Your ATM strategy definitions live on your machine. They are not shared across NinjaTrader instances or accounts. This matters for copier setups — the follower accounts need their own ATM configuration.</p>
+
+<h2><span class="section-num">03</span>How trade copiers handle brackets</h2>
+
+<p>Trade copiers on NinjaTrader typically operate in one of two modes, and the mode determines how your brackets get replicated.</p>
+
+<h3>Executions Mode</h3>
+
+<p>In Executions Mode, the copier watches the leader account for filled orders. When an entry fills on the leader, the copier sends a corresponding market order to each follower account. The copier then creates a <strong>new ATM strategy</strong> on each follower account to handle the stop-loss and profit target.</p>
+
+<p>This means the follower's bracket is independent of the leader's bracket. The stop and target distances are typically configured per-follower or match the leader's ATM template. If the leader adjusts their stop (trail, breakeven move, manual drag), some copiers replicate that adjustment to followers and some do not — it depends on the copier.</p>
+
+<div class="callout">
+  <div class="callout-title">Executions Mode — pros and cons</div>
+  <p><strong>Pro:</strong> Fast and reliable. Market orders on followers fill almost instantly. Each follower gets a clean, independent ATM. <strong>Con:</strong> Follower entry prices may differ slightly from the leader (slippage). Stop-loss adjustments on the leader may not always propagate to followers, depending on the copier. You need to verify that your copier replicates ATM modifications, not just entries.</p>
+</div>
+
+<h3>Orders Mode</h3>
+
+<p>In Orders Mode, the copier mirrors the exact order types from leader to followers — including limit orders, stop orders, and the bracket structure. This gives tighter price alignment because followers submit the same order type at the same price, rather than chasing with market orders.</p>
+
+<p>The trade-off is speed. Limit orders on followers may not fill if the market moves away before the order reaches the exchange. In fast-moving futures markets (NQ, ES during the open), a limit order that fills on the leader account may not fill on a follower account a few hundred milliseconds later.</p>
+
+<div class="callout">
+  <div class="callout-title">Orders Mode — pros and cons</div>
+  <p><strong>Pro:</strong> Tighter entry price alignment. The full bracket structure is mirrored, including order types. <strong>Con:</strong> Followers may miss fills on limit orders during volatile periods. Partial fills can create position mismatches between leader and followers. Requires more careful configuration.</p>
+</div>
+
+<h2><span class="section-num">04</span>Common bracket + copier failure modes</h2>
+
+<p>These are the scenarios that blow up prop firm accounts when traders assume everything is working but have not tested properly.</p>
+
+<h3>Failure 1: Entry copies but stop does not</h3>
+
+<p>If your copier only copies executions and does not create an ATM on the follower, the follower position has no stop-loss. One adverse move and the account breaches its <a href="/guides/trailing-drawdown">trailing drawdown</a>. This is the single most dangerous copier misconfiguration.</p>
+
+<p><strong>Fix:</strong> Verify in simulation that every follower position has a stop-loss and profit target immediately after the leader entry fills. If your copier does not create ATMs on followers, either switch copiers or set up a default ATM template on each follower that auto-applies to every new position.</p>
+
+<h3>Failure 2: Leader adjusts stop, followers do not follow</h3>
+
+<p>You trail your stop on the leader to lock in profit. The copier does not replicate the trail. Market reverses. Leader stops out at breakeven. Followers stop out at the original location — full loss. Multiply that by 10 accounts and a single trade just cost you 10x the expected loss.</p>
+
+<p><strong>Fix:</strong> Test stop-loss modifications in simulation across all followers. If your copier does not propagate ATM adjustments, consider using a copier that includes "ATM Tandem Mode" or equivalent — where stop and target changes on the leader automatically update all followers.</p>
+
+<h3>Failure 3: Size multiplier mismatches with bracket structure</h3>
+
+<p>Your leader trades 2 contracts with a split bracket — take profit on 1 at +8 ticks, hold 1 for +16 ticks. Your copier uses a 0.5x size multiplier on a follower. The follower tries to trade 1 contract but the bracket expects 2 legs. The bracket logic breaks, potentially leaving a naked position.</p>
+
+<p><strong>Fix:</strong> When using size multipliers, ensure the multiplied quantity is always divisible by the number of bracket legs. Or use a single-bracket ATM (one stop, one target) on followers to avoid the issue entirely.</p>
+
+<h3>Failure 4: Ghost orders</h3>
+
+<p>Ghost orders are phantom positions that appear in NinjaTrader but do not exist at the broker level. They are a <a href="/compare/tradecovex-vs-replikanto">known NinjaTrader issue</a> that any local copier inherits. A ghost order can make the copier think a follower has a position when it does not, or vice versa — leading to missed copies or double entries.</p>
+
+<p><strong>Fix:</strong> Run NinjaTrader on a stable <a href="/guides/best-vps-ninjatrader-copier">VPS</a> with a reliable internet connection. Regularly check the Positions tab to verify actual positions match displayed positions. Some copiers include ghost-order detection and auto-reconciliation.</p>
+
+<h2><span class="section-num">05</span>Best practices for bracket + copier setups</h2>
+
+<div class="feature-grid">
+  <div class="feature-card">
+    <span class="feature-card-num">01</span>
+    <h4>Test every scenario in sim first</h4>
+    <p>Place a trade on the leader. Verify entry, stop, and target appear on every follower. Adjust the leader's stop. Verify followers update. Close the leader. Verify followers close. Do this 10 times before going live.</p>
+  </div>
+  <div class="feature-card">
+    <span class="feature-card-num">02</span>
+    <h4>Use simple ATM templates</h4>
+    <p>Single-bracket ATMs (one stop, one target) are the most reliable for copying. Multi-leg brackets with partial profit targets add complexity that multiplies across follower accounts.</p>
+  </div>
+  <div class="feature-card">
+    <span class="feature-card-num">03</span>
+    <h4>Match contract types</h4>
+    <p>If the leader trades ES (minis), configure followers for ES or MES (micros) — not a mix. Cross-order copying (ES → MES) is supported by some copiers but requires explicit configuration.</p>
+  </div>
+  <div class="feature-card">
+    <span class="feature-card-num">04</span>
+    <h4>Run on a VPS</h4>
+    <p>A <a href="/guides/best-vps-ninjatrader-copier">dedicated VPS</a> eliminates the two biggest copier risks: internet dropouts and machine restarts. The copier runs 24/5 without depending on your home connection.</p>
+  </div>
+</div>
+
+<h2><span class="section-num">06</span>ATM strategy configuration for copier setups</h2>
+
+<p>When you configure ATM strategies specifically for use with a trade copier, the goal is predictability. You want every follower to get the same bracket structure every time, with no ambiguity about stops and targets.</p>
+
+<h3>Creating a copier-friendly ATM template</h3>
+
+<p>Open NinjaTrader's ATM Strategy setup window. Create a new template with these properties designed for copier reliability:</p>
+
+<p><strong>Use fixed tick values, not dollar amounts.</strong> A 12-tick stop on NQ is $240 per contract. If your follower accounts have different position sizes (via a copier multiplier), the tick distance stays constant — $240 per contract regardless of how many contracts the follower trades. Dollar-based stops create confusion when position sizes differ across accounts.</p>
+
+<p><strong>Use a single bracket (one stop, one target).</strong> Split brackets where you take profit on half the position at one level and let the rest run create two separate OCO pairs. Some copiers handle this correctly. Some do not. A single bracket eliminates the ambiguity. If you want to scale out of a position, do it manually on the leader and let the copier replicate the partial close — rather than relying on ATM bracket logic to propagate correctly.</p>
+
+<p><strong>Disable auto-trail in the ATM if your copier propagates trail adjustments.</strong> If both the ATM template and the copier are trying to trail the stop, you get conflicting modifications — the ATM trails locally on the follower while the copier tries to push the leader's trail distance. Pick one system for trailing and disable the other.</p>
+
+<p><strong>Set your ATM as the default template.</strong> In NinjaTrader, you can set a default ATM strategy that auto-applies to every new position. If your copier creates positions on followers without a bracket (some copiers in Executions Mode do this), having a default ATM ensures the follower position always gets a stop and target — even if the copier's bracket logic fails.</p>
+
+<h3>What happens when a bracket partially fills</h3>
+
+<p>Partial fills create the most complex copier scenarios. Your leader enters a 4-contract position. Three contracts fill immediately. The fourth fills 200ms later. Your copier sees two separate fill events and may send two separate orders to each follower. If the follower's ATM is configured for 4 contracts but receives two separate 2-contract entries, the bracket logic can break — creating two independent ATMs instead of one consolidated position.</p>
+
+<p>Most copiers handle this by batching fill events within a time window (typically 500ms-2s). Fills that arrive within the window are treated as a single entry. Fills outside the window create a new position. If you trade during high-volatility periods where partial fills are common (the first 2 minutes of the US open, for example), verify that your copier's batching window is configured correctly.</p>
+
+<h2><span class="section-num">07</span>Prop firm rules that interact with bracket orders</h2>
+
+<p>Different prop firms have different rules that directly affect how you configure your brackets.</p>
+
+<p><strong>Apex Trader Funding:</strong> Apex uses intraday trailing drawdown on evaluation accounts. Your stop-loss must be tight enough that a losing trade does not permanently degrade your drawdown cushion. An ATM with a 20-tick stop on NQ ($400 per contract) on a $50K Apex account with a $2,500 drawdown means each full loss costs 16% of your total drawdown allowance. Size your brackets relative to your drawdown, not relative to your target.</p>
+
+<p><strong>Topstep:</strong> The Maximum Loss Limit on <a href="/guides/topstep-combine-rules-2026">Topstep</a> is EOD trailing, so intraday bracket stops are less critical for drawdown management. However, the Daily Loss Limit ($1,000 on a $50K Combine) is a hard per-day cap. Your bracket stop multiplied by your position size must stay well under the DLL. Two contracts with a 20-tick NQ stop is $800 — leaving only $200 of DLL cushion for any other losses in the session.</p>
+
+<p><strong>Take Profit Trader:</strong> The <a href="/guides/take-profit-trader-rules-2026">PRO account intraday trailing drawdown</a> makes bracket sizing critical. Every tick of unrealised profit that the market gives back permanently moves your floor. Set your profit target to a level where you actively take profit rather than trailing — because trailing on an intraday-trailing account means your drawdown floor climbs with the trailing stop, and if you get stopped out on a pullback, the floor does not move back down.</p>
+
+<p><strong>Bulenox:</strong> <a href="/guides/bulenox-rules-2026">Bulenox Option 2</a> uses EOD drawdown with a daily loss limit circuit breaker. Your brackets should respect the DLL — if the DLL on a $50K account is $1,100, your maximum loss per trade times your position size must stay comfortably below that number. The DLL suspends trading for the day but does not violate the account, so it functions as a forced stop-loss at the account level.</p>
+
+
+<p><strong>MFFU:</strong> <a href="/guides/myfundedfutures-rules-2026">MyFundedFutures</a> varies by plan — Core uses EOD trailing, Rapid uses real-time intraday. Your bracket sizing strategy should match the plan. On Core, you have more room for intraday swings. On Rapid, treat it like Apex intraday trailing — every tick of unrealised profit counts.</p>
+
+<p><strong>Tradeify:</strong> <a href="/guides/tradeify-rules-2026">Tradeify</a> uses EOD trailing drawdown at all stages with no daily loss limit during evaluation. This is the most forgiving environment for bracket orders — your stops can be wider without the intraday ratchet effect eating into your cushion. On funded accounts, the same EOD mechanic applies, so your bracket configuration from evaluation carries over unchanged.</p>
+
+<p>The common thread across all firms: your bracket stop multiplied by your position size is your maximum per-trade risk. That number must stay well within whatever drawdown mechanic the firm uses. Calculate it before placing the trade, not after.</p>
+
+<div class="pull-quote">The bracket is the safety net. The copier is the multiplier. If the copier does not replicate the bracket correctly, you have multiplied your risk instead of your edge.</div>
+
+
+    <div class="cta-banner">
+      <h3>Copy Brackets Across Every Account</h3>
+      <p>Tradecovex is a NinjaTrader add-on that replicates your trades — including stop-loss and profit target management — across all your follower accounts.</p>
+      <a href="/" class="btn btn-primary btn-lg" style="position:relative;z-index:1">Get Started</a>
+      <div class="cta-perks">
+        <span class="cta-perk">7-day free trial</span>
+        <span class="cta-perk">No credit card</span>
+        <span class="cta-perk">NinjaTrader add-on</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container">
+    <div style="text-align:center">
+      <span class="section-tag">FAQ</span>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q">Do trade copiers copy bracket orders (ATM strategies)?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Most NinjaTrader trade copiers handle brackets in one of two ways. In Executions Mode, the copier copies the entry as a market order and creates a new ATM strategy on each follower. In Orders Mode, the copier mirrors the exact order types including stops and targets. Not all copiers handle ATM modifications (trailing stops, breakeven moves) — you must test this in simulation before going live.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What happens if the stop-loss does not copy to a follower account?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">The follower position is unprotected. If the market moves against you, the follower account has no exit — it stays open until it hits the prop firm's drawdown limit and liquidates. This is the most dangerous copier misconfiguration and the single most important thing to test.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What is a ghost order and how does it affect bracket copying?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">A ghost order is a phantom position that appears in NinjaTrader but does not exist at the broker level. It is a known NinjaTrader-level issue that any local copier inherits. Ghost orders can cause the copier to skip entries (thinks a position already exists) or double-enter (does not see the existing position). Running NinjaTrader on a stable VPS with a reliable connection reduces ghost order frequency.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Should I use Executions Mode or Orders Mode for bracket copying?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Executions Mode is more reliable for most traders — entries fill immediately as market orders and each follower gets a clean independent ATM. Orders Mode gives tighter price alignment but risks missed fills on limit orders during volatile markets. For prop firm traders running 10+ accounts, Executions Mode is generally the safer choice.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Can I copy ES trades to MES follower accounts?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Some copiers support cross-order copying (ES to MES or vice versa). This requires explicit configuration — the copier needs to know the contract conversion ratio (1 ES = 10 MES). Not all copiers support this. Verify with your specific copier before relying on it.</div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-wide">
+    <div style="text-align:center">
+      <span class="section-tag">Related Guides</span>
+      <h2>Keep reading</h2>
+    </div>
+    <div class="related-grid">
+    <a href="/guides/ninjatrader-trade-copier" class="related-card">
+      <span class="related-tag">Copier</span>
+      <h4>NinjaTrader Trade Copier Guide</h4>
+      <p>The complete guide to trade copiers on NinjaTrader.</p>
+    </a>
+    <a href="/guides/best-vps-ninjatrader-copier" class="related-card">
+      <span class="related-tag">Infrastructure</span>
+      <h4>Best VPS for NinjaTrader Copier</h4>
+      <p>Why a VPS matters for copier reliability — and which ones to consider.</p>
+    </a>
+    <a href="/guides/trade-copier-latency" class="related-card">
+      <span class="related-tag">Copier</span>
+      <h4>Trade Copier Latency</h4>
+      <p>How latency affects copier performance and what you can do about it.</p>
+    </a>
+    <a href="/guides/trailing-drawdown" class="related-card">
+      <span class="related-tag">Prop Rules</span>
+      <h4>What is Trailing Drawdown?</h4>
+      <p>The mechanic that makes bracket orders mandatory on prop firm accounts.</p>
+    </a>
+    <a href="/compare/tradecovex-vs-replikanto" class="related-card">
+      <span class="related-tag">Comparison</span>
+      <h4>Tradecovex vs Replikanto</h4>
+      <p>How two local NinjaTrader copiers compare on features.</p>
+    </a>
+    <a href="/compare/best-ninjatrader-trade-copiers-2026" class="related-card">
+      <span class="related-tag">Comparison</span>
+      <h4>Best NinjaTrader Trade Copiers 2026</h4>
+      <p>Side-by-side comparison of every copier option.</p>
+    </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="/"><img src="/logo.png" alt="Tradecovex" class="footer-logo"></a>
+        <p class="footer-tagline">The smartest trade copier for NinjaTrader — copy trades and let the AI tell you why.</p>
+        <div class="footer-social">
+          <a href="#" title="Twitter / X" aria-label="Twitter">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" title="YouTube" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#how">How It Works</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="/#waitlist">Join Waitlist</a></li>
+          <li><a href="/guides/">All Guides</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/#privacy">Privacy Policy</a></li>
+          <li><a href="/#terms">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Partners</h4>
+        <ul>
+          <li><a href="#" class="footer-aff">Affiliates — Earn $15–$45/signup</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-risk">
+      <strong>⚠ Risk Disclosure:</strong> Futures trading involves substantial risk of loss and is not suitable for all investors. You can lose more than your initial investment. Past performance is not indicative of future results. Tradecovex is a software tool — it does not provide investment advice and does not guarantee trading results. Use of a trade copier does not guarantee compliance with prop firm rules. All trading decisions are your responsibility. Only trade with capital you can afford to lose.
+    </div>
+    <div class="footer-risk" style="margin-top:10px">
+      <strong>No Investment Advice:</strong> Tradecovex is a software tool for trade copying and journaling. IVAAN INC is not registered as an investment adviser with the Ontario Securities Commission, CIRO, the SEC, or any other regulatory body. Nothing in Tradecovex — including the AI journal analysis feature — constitutes investment advice, financial advice, or a recommendation to buy or sell any security, futures contract, or other financial instrument. The AI journal provides analytical observations about your historical trading patterns for informational purposes only. All trading decisions are made solely by you.
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Tradecovex. All rights reserved. Built by IVAAN INC, Ontario, Canada.</span>
+      <span class="footer-copy">Canadian users served from Toronto · US users served from New York · PIPEDA compliant</span>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+const hamburger=document.getElementById('hamburger');const mobileMenu=document.getElementById('mobile-menu');if(hamburger){hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');});}
+document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{q.parentElement.classList.toggle('open');});});
+</script>
+
+</body>
+</html>

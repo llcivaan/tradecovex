@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Bulenox Rules 2026 — Qualification, Master Account, and Funded Account Rules Explained</title>
+<meta name="description" content="Every Bulenox rule in 2026 explained: Qualification Account targets, trailing vs EOD drawdown options, Master Account 40% consistency rule, payout caps, withdrawal safety threshold, flipping policy, Funded Account transition after 3 payouts, contract limits, daily loss limits, and platform support.">
+<link rel="canonical" href="https://tradecovex.com/guides/bulenox-rules-2026">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bulenox Rules 2026 — Qualification, Master Account, and Funded Account Rules Explained">
+<meta property="og:description" content="Every Bulenox rule in 2026 explained: Qualification Account targets, trailing vs EOD drawdown options, Master Account 40% consistency rule, payout caps, withdrawal safety threshold, flipping policy, Funded Account transition after 3 payouts, contract limits, daily loss limits, and platform support.">
+<meta property="og:url" content="https://tradecovex.com/guides/bulenox-rules-2026">
+<meta property="og:image" content="https://tradecovex.com/logo.png">
+<meta property="og:site_name" content="Tradecovex">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bulenox Rules 2026 — Qualification, Master Account, and Funded Account Rules Explained">
+<meta name="twitter:description" content="Every Bulenox rule in 2026 explained: Qualification Account targets, trailing vs EOD drawdown options, Master Account 40% consistency rule, payout caps, withdrawal safety threshold, flipping policy, Funded Account transition after 3 payouts, contract limits, daily loss limits, and platform support.">
+<meta name="twitter:image" content="https://tradecovex.com/logo.png">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="author" content="Tradecovex / IVAAN INC">
+<link rel="icon" type="image/png" href="/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://tradecovex.com/guides/bulenox-rules-2026#article",
+      "headline": "Bulenox Rules 2026 \u2014 Qualification, Master Account, and Funded Account Rules Explained",
+      "description": "Every Bulenox rule in 2026 explained: Qualification Account targets, trailing vs EOD drawdown options, Master Account 40% consistency rule, payout caps, withdrawal safety threshold, flipping policy, Funded Account transition after 3 payouts, contract limits, daily loss limits, and platform support.",
+      "image": "https://tradecovex.com/logo.png",
+      "datePublished": "2026-04-15T00:00:00+00:00",
+      "dateModified": "2026-04-15T00:00:00+00:00",
+      "author": {
+        "@type": "Organization",
+        "name": "Tradecovex",
+        "url": "https://tradecovex.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Tradecovex",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://tradecovex.com/logo.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://tradecovex.com/guides/bulenox-rules-2026"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://tradecovex.com/guides/bulenox-rules-2026#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does Bulenox allow trade copiers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Bulenox explicitly allows EAs, algorithms, bots, and trade copiers on all account types \u2014 Qualification, Master, and Funded. This is one of their key differentiators. Most competitors either ban automated trading entirely or require specific approval."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the Bulenox 40% consistency rule?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "When requesting a payout from a Master Account, no single trading day's profit can exceed 40% of your total profit balance. For example, if your total profit is $20,000, your best day must be $8,000 or less. Failing this rule does not violate your account \u2014 it simply pauses the payout until you trade enough to bring the ratio into compliance."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the Bulenox flipping rule?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bulenox can deny payouts if most of your profits come from just one or two trades. The rule is subjective \u2014 there are no published statistical thresholds. This is the most controversial Bulenox policy and the source of most negative community feedback. To avoid triggering it, spread profits across multiple sessions and avoid relying on single outsized winners."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens after 3 Bulenox payouts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "After 3 successful Master Account payouts, Bulenox transitions you to a Funded Account with real capital, subject to Risk Department approval. This transition is mandatory \u2014 declining it closes the Master Account and forfeits unpaid profits. The Funded Account has similar rules but includes balance caps based on account size."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many Bulenox accounts can I have?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can have unlimited Qualification Accounts and up to 11 Master Accounts total, but only 3 can be active simultaneously under one Rithmic ID."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What platforms does Bulenox support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bulenox supports over 20 platforms via Rithmic, including NinjaTrader 8, Sierra Chart, Bookmap, Jigsaw Daytradr, ATAS, Quantower, R|Trader Pro, and MotiveWave. This is one of the broadest platform support lists in the futures prop firm space."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:#0F172A;background:#fff;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+:root{
+  --blue:#2563EB;
+  --blue-dark:#1d4ed8;
+  --navy:#0A1628;
+  --slate:#4B5E7A;
+  --slate-light:#64748B;
+  --light:#F0F4FF;
+  --border:#DDE3EF;
+  --radius:12px;
+  --shadow-sm:0 1px 3px rgba(10,22,40,.08),0 1px 2px rgba(10,22,40,.06);
+  --shadow-md:0 4px 16px rgba(10,22,40,.1),0 2px 6px rgba(10,22,40,.06);
+  --shadow-lg:0 12px 40px rgba(10,22,40,.14),0 4px 12px rgba(10,22,40,.08);
+}
+
+/* NAV — matches homepage exactly */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px}
+.nav-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav-logo{height:40px;width:auto}
+.nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+.nav-links a{font-size:.88rem;font-weight:600;color:var(--slate);transition:color .2s;letter-spacing:.01em}
+.nav-links a:hover{color:var(--navy)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 26px;border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;transition:all .18s;border:none;text-decoration:none;letter-spacing:.01em}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 2px 8px rgba(37,99,235,.3)}
+.btn-primary:hover{background:var(--blue-dark);transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,99,235,.4)}
+.btn-outline{background:transparent;color:var(--navy);border:2px solid #C4CEDD}
+.btn-outline:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn-outline-white{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35)}
+.btn-outline-white:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.btn-lg{padding:16px 38px;font-size:.98rem;border-radius:14px}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;transition:all .25s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:20px 24px;z-index:199;flex-direction:column;gap:0;box-shadow:var(--shadow-lg)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{display:block;padding:14px 0;font-size:1rem;font-weight:600;color:var(--slate);border-bottom:1px solid var(--border)}
+.mobile-menu a.btn{margin-top:16px;width:100%;border-bottom:none;justify-content:center}
+
+/* HERO — adapted for guide pages */
+.guide-hero{padding:140px 24px 60px;text-align:center;position:relative;overflow:hidden;background:#fff}
+.guide-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 90% 60% at 50% -10%,rgba(37,99,235,.08) 0%,transparent 65%);pointer-events:none}
+.guide-hero::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background-image:radial-gradient(circle at 1px 1px, rgba(37,99,235,.06) 1px, transparent 0);background-size:32px 32px;pointer-events:none;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 0%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 0%,transparent 70%)}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:100px;padding:7px 18px;font-size:.75rem;font-weight:700;color:var(--blue);letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px;position:relative;z-index:1}
+.hero-eyebrow span.dot{width:7px;height:7px;background:var(--blue);border-radius:50%;animation:blink 2s ease infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+h1{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(2.2rem,4.5vw,3.4rem);line-height:1.08;letter-spacing:-.03em;color:var(--navy);max-width:900px;margin:0 auto 24px;position:relative;z-index:1}
+h1 .accent{color:var(--blue)}
+.guide-meta{display:flex;justify-content:center;gap:24px;margin-bottom:20px;flex-wrap:wrap;font-size:.82rem;color:var(--slate-light);position:relative;z-index:1}
+.guide-meta span{display:inline-flex;align-items:center;gap:6px}
+.breadcrumb{font-size:.78rem;color:var(--slate-light);margin-bottom:24px;position:relative;z-index:1}
+.breadcrumb a{color:var(--blue);font-weight:600}
+.breadcrumb a:hover{text-decoration:underline}
+
+/* ANSWER BOX — featured snippet style */
+.answer-box{max-width:780px;margin:0 auto 50px;background:linear-gradient(135deg,#EFF6FF,#F0F4FF);border:2px solid #BFDBFE;border-radius:18px;padding:32px 36px;text-align:left;position:relative;z-index:1;box-shadow:var(--shadow-md)}
+.answer-box-label{display:inline-block;font-size:.68rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.14em;background:#fff;border:1.5px solid #BFDBFE;border-radius:100px;padding:5px 14px;margin-bottom:14px}
+.answer-box p{font-size:1.02rem;color:var(--navy);line-height:1.75;font-weight:500}
+.answer-box p strong{font-weight:700;color:var(--navy)}
+
+/* SHARED SECTION STYLES */
+.section{padding:80px 24px}
+.section-light{background:var(--light)}
+.section-tag{display:inline-block;font-size:.7rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.14em;margin-bottom:16px;background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:100px;padding:5px 14px}
+h2{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(1.7rem,3.2vw,2.4rem);line-height:1.12;letter-spacing:-.025em;color:var(--navy);margin-bottom:18px}
+h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.3rem;color:var(--navy);margin:32px 0 14px;letter-spacing:-.015em}
+h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08rem;color:var(--navy);margin:24px 0 10px;letter-spacing:-.01em}
+.container{max-width:880px;margin:0 auto}
+.container-wide{max-width:1120px;margin:0 auto}
+
+/* PROSE STYLES */
+.prose p{font-size:1rem;color:var(--slate);line-height:1.85;margin-bottom:20px}
+.prose p strong{color:var(--navy);font-weight:700}
+.prose ul,.prose ol{margin:16px 0 24px 22px;color:var(--slate);font-size:1rem;line-height:1.85}
+.prose li{margin-bottom:10px}
+.prose li strong{color:var(--navy);font-weight:700}
+.prose a{color:var(--blue);font-weight:600;border-bottom:1.5px solid rgba(37,99,235,.3);transition:border .2s}
+.prose a:hover{border-bottom-color:var(--blue)}
+.section-num{display:inline-block;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:.78rem;color:var(--blue);background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:8px;padding:4px 10px;margin-bottom:12px;letter-spacing:.06em}
+
+/* PULL QUOTE */
+.pull-quote{background:linear-gradient(135deg,#EFF6FF,#F0F4FF);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:24px 28px;margin:32px 0;font-family:'Barlow Semi Condensed',sans-serif;font-size:1.18rem;font-weight:600;color:var(--navy);line-height:1.55;letter-spacing:-.01em}
+
+/* CALLOUT BOXES */
+.callout{background:#fff;border:1.5px solid var(--border);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:22px 26px;margin:28px 0;box-shadow:var(--shadow-sm)}
+.callout-title{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1rem;color:var(--navy);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.callout p{font-size:.92rem;color:var(--slate);line-height:1.75;margin:0}
+.callout-warn{border-left-color:#DC2626;background:#FEF2F2}
+.callout-warn .callout-title{color:#991B1B}
+.callout-success{border-left-color:#16A34A;background:#F0FDF4}
+.callout-success .callout-title{color:#166534}
+
+/* FEATURE CARD GRID */
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin:32px 0}
+.feature-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:26px;transition:all .25s;box-shadow:var(--shadow-sm)}
+.feature-card:hover{border-color:#93C5FD;box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.feature-card-num{display:inline-block;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:.7rem;color:var(--blue);background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:6px;padding:3px 8px;margin-bottom:12px;letter-spacing:.06em}
+.feature-card h4{margin:0 0 10px;font-size:1.08rem}
+.feature-card p{font-size:.88rem;color:var(--slate);line-height:1.75;margin:0}
+
+/* DATA TABLE */
+.data-table-wrap{overflow-x:auto;border-radius:14px;border:1.5px solid var(--border);box-shadow:var(--shadow-md);margin:28px 0}
+.data-table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:580px;background:#fff}
+.data-table th{padding:14px 18px;text-align:left;font-weight:700;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;background:#F1F5F9;color:var(--slate);border-bottom:2px solid var(--border)}
+.data-table td{padding:13px 18px;border-bottom:1px solid var(--border);color:var(--slate);vertical-align:middle}
+.data-table tr:last-child td{border-bottom:none}
+.data-table tr.tc-row td{background:#EFF6FF;color:var(--navy);font-weight:600}
+.data-table tr.tc-row td:first-child::before{content:'★ ';color:var(--blue)}
+.data-table td.label{font-weight:600;color:var(--navy);background:#FAFBFF}
+.ck{color:#16A34A;font-weight:700}
+.cx{color:#DC2626;font-weight:700}
+.cm{color:#D97706;font-weight:600;font-size:.85rem}
+
+/* VIDEO EMBED */
+.video-wrap{max-width:780px;margin:36px auto;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-lg);background:var(--navy);position:relative;padding-bottom:56.25%;height:0}
+.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.video-caption{font-size:.82rem;color:var(--slate-light);text-align:center;margin-top:14px;font-style:italic}
+
+/* CTA BANNER */
+.cta-banner{background:linear-gradient(135deg,#0A1628,#0F2460,#1d4ed8);border-radius:18px;padding:56px 48px;margin:48px 0;text-align:center;position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
+.cta-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 100%,rgba(37,99,235,.25) 0%,transparent 65%);pointer-events:none}
+.cta-banner h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:1.85rem;color:#fff;margin:0 0 14px;letter-spacing:-.025em;position:relative;z-index:1}
+.cta-banner p{font-size:1rem;color:#93C5FD;max-width:540px;margin:0 auto 26px;line-height:1.7;position:relative;z-index:1}
+.cta-perks{display:flex;gap:22px;justify-content:center;margin-top:22px;flex-wrap:wrap;position:relative;z-index:1}
+.cta-perk{font-size:.78rem;color:#60A5FA;font-weight:600;display:inline-flex;align-items:center;gap:6px}
+.cta-perk::before{content:'✓';font-weight:800}
+
+/* FAQ */
+.faq-list{max-width:780px;margin:0 auto}
+.faq-item{border-bottom:1.5px solid var(--border)}
+.faq-q{width:100%;text-align:left;padding:22px 0;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.97rem;color:var(--navy);line-height:1.45;letter-spacing:-.01em}
+.faq-icon{width:24px;height:24px;min-width:24px;border-radius:50%;border:2px solid var(--blue);display:flex;align-items:center;justify-content:center;transition:all .25s;flex-shrink:0}
+.faq-icon svg{width:12px;height:12px;stroke:var(--blue);fill:none;stroke-width:2.5;stroke-linecap:round;transition:transform .25s}
+.faq-item.open .faq-icon{background:var(--blue)}
+.faq-item.open .faq-icon svg{stroke:#fff;transform:rotate(45deg)}
+.faq-a{display:none;padding:0 0 22px;font-size:.92rem;color:var(--slate);line-height:1.85;max-width:680px}
+.faq-item.open .faq-a{display:block}
+
+/* RELATED GUIDES */
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:30px}
+.related-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:24px;transition:all .25s;display:block;box-shadow:var(--shadow-sm)}
+.related-card:hover{border-color:#93C5FD;box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.related-tag{display:inline-block;font-size:.66rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.1em;background:#EFF6FF;border:1px solid #BFDBFE;border-radius:6px;padding:3px 8px;margin-bottom:12px}
+.related-card h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.02rem;color:var(--navy);margin:0 0 8px;line-height:1.35}
+.related-card p{font-size:.84rem;color:var(--slate);line-height:1.65;margin:0}
+
+/* FOOTER — matches homepage */
+.footer{background:#fff;border-top:1.5px solid var(--border);padding:60px 24px 36px}
+.footer-inner{max-width:1120px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1.5px solid var(--border);margin-bottom:30px}
+.footer-logo{height:48px;width:auto;margin-bottom:14px}
+.footer-tagline{font-size:.85rem;color:var(--slate);max-width:220px;line-height:1.7;margin-bottom:20px;font-weight:400}
+.footer-social{display:flex;gap:10px}
+.footer-social a{width:36px;height:36px;border:1.5px solid var(--border);border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--slate);transition:all .2s}
+.footer-social a:hover{border-color:var(--blue);color:var(--blue);background:#EFF6FF}
+.footer-social svg{width:16px;height:16px;fill:currentColor}
+.footer-col h4{font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:#94A3B8;margin:0 0 16px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;padding:0}
+.footer-col a{font-size:.875rem;color:var(--slate);transition:color .18s;font-weight:500}
+.footer-col a:hover{color:var(--navy)}
+.footer-aff{font-size:.82rem;color:var(--blue);font-weight:700}
+.footer-risk{background:var(--light);border:1.5px solid var(--border);border-radius:12px;padding:18px 22px;margin-bottom:16px;font-size:.75rem;color:#5B7399;line-height:1.75}
+.footer-risk strong{color:var(--slate);font-weight:700}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:6px}
+.footer-copy{font-size:.75rem;color:#94A3B8;font-weight:500}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .nav-links{display:none}
+  .nav-cta-desktop{display:none !important}
+  .hamburger{display:flex}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .feature-grid,.related-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .footer-top{grid-template-columns:1fr}
+  h1{font-size:2rem}
+  h2{font-size:1.6rem}
+  .answer-box{padding:24px 22px}
+  .cta-banner{padding:42px 28px}
+  .cta-banner h3{font-size:1.5rem}
+}
+
+
+</style>
+
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" aria-label="Tradecovex home"><img src="/logo.png" alt="Tradecovex" class="nav-logo"></a>
+    <ul class="nav-links">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/guides/">Guides</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+    </ul>
+    <a href="/#waitlist" class="btn btn-primary nav-cta-desktop" style="display:inline-flex">Join Waitlist</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/#features">Features</a>
+  <a href="/guides/">Guides</a>
+  <a href="/#pricing">Pricing</a>
+  <a href="/#faq">FAQ</a>
+  <a href="/#waitlist" class="btn btn-primary">Join Waitlist</a>
+</div>
+
+<section class="guide-hero">
+  <div class="hero-eyebrow"><span class="dot"></span>BULENOX RULES REFERENCE</div>
+  <p class="breadcrumb"><a href="/">Home</a> › <a href="/guides/">Guides</a> › Bulenox Rules 2026</p>
+  <h1>Bulenox Rules 2026 — <span class="accent">Every Rule, Every Stage</span></h1>
+  <div class="guide-meta">
+    <span>📅 Updated April 2026</span>
+    <span>⏱ 15 min read</span>
+    <span>✍ Tradecovex Team</span>
+  </div>
+  <div class="answer-box">
+    <span class="answer-box-label">Quick Answer</span>
+    <p>Bulenox uses a three-stage model: <strong>Qualification → Master Account → Funded Account</strong>. The Qualification has no minimum trading days — pass as fast as you can hit the profit target without breaching drawdown. The Master Account is simulated with real payouts, requiring 10 trading days before your first withdrawal, a <strong>40% consistency rule</strong>, and capped payouts for the first three withdrawals. After 3 successful Master Account payouts, you transition to a Funded Account with real capital. Bulenox is one of the few futures prop firms that <strong>explicitly allows trade copiers, EAs, and automated strategies</strong> on all account types. This page covers every rule across all three stages, updated through April 2026.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container prose">
+    
+
+<h2><span class="section-num">01</span>How Bulenox works — three stages</h2>
+
+<p>Bulenox is a US-based futures prop firm founded in 2022 and registered in Wilmington, Delaware. They offer funded accounts from $10,000 to $250,000 through a one-phase evaluation. The model runs in three stages: Qualification (evaluation), Master Account (simulated funded with real payouts), and Funded Account (real capital after 3 successful payouts).</p>
+
+<p>Two things make Bulenox stand out from the competition. First, they explicitly allow EAs, algorithms, bots, and trade copiers on all account types — most competitors ban at least some of these. Second, they offer two drawdown calculation options during Qualification: real-time trailing and end-of-day (EOD) with daily loss limits. The choice you make at evaluation carries through to your Master Account.</p>
+
+<h2><span class="section-num">02</span>Stage 1 — Qualification Account (Evaluation)</h2>
+
+<p>The Qualification is Bulenox's evaluation phase. Hit the profit target without breaching drawdown rules, and you advance to a Master Account. There are no minimum trading days — if you hit the target in one session, you pass.</p>
+
+<h3>Account sizes and targets</h3>
+
+<div class="data-table-wrap">
+<table class="data-table">
+<thead><tr><th>Account size</th><th>Profit target</th><th>Trailing drawdown</th><th>Daily loss limit (Option 2)</th><th>Max contracts</th></tr></thead>
+<tbody>
+<tr><td class="label">$10,000</td><td>$1,000</td><td>$1,000</td><td>$400</td><td>2 (20 micros)</td></tr>
+<tr><td class="label">$25,000</td><td>$1,500</td><td>$1,500</td><td>$500</td><td>3 (30 micros)</td></tr>
+<tr><td class="label">$50,000</td><td>$3,000</td><td>$2,500</td><td>$1,100</td><td>6 (60 micros)</td></tr>
+<tr><td class="label">$100,000</td><td>$6,000</td><td>$3,000</td><td>$2,200</td><td>12 (120 micros)</td></tr>
+<tr><td class="label">$150,000</td><td>$9,000</td><td>$4,500</td><td>$3,300</td><td>15 (150 micros)</td></tr>
+<tr><td class="label">$250,000</td><td>$15,000</td><td>$5,500</td><td>$4,500</td><td>25 (250 micros)</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Two drawdown options</h3>
+
+<p><strong>Option 1 — Real-time trailing drawdown (no daily loss limit).</strong> The drawdown follows your peak balance tick by tick, including unrealised gains. No separate daily loss limit applies. This gives you more room on individual days but means a single intraday spike that you give back can permanently move your floor.</p>
+
+<p><strong>Option 2 — End-of-day (EOD) trailing drawdown with daily loss limit.</strong> The drawdown only recalculates at the end of each trading day, similar to Topstep. However, a daily loss limit applies as a circuit breaker. If you hit the daily loss limit, trading is suspended for the remainder of the day — but it is not treated as a rule violation and does not fail your account. The daily loss limit on Master Accounts is removed after the drawdown reaches the starting balance.</p>
+
+<div class="callout">
+  <div class="callout-title">Which option to choose?</div>
+  <p>Option 2 (EOD + DLL) is generally considered more trader-friendly for intraday futures traders. Intraday dips that recover before the close do not move your floor. The daily loss limit acts as a safety net, not a penalty. Most experienced prop firm traders recommend Option 2 unless you have a specific reason to prefer real-time trailing.</p>
+</div>
+
+<h3>Qualification rules</h3>
+
+<p><strong>No minimum trading days.</strong> Pass in one day if you hit the target.</p>
+
+<p><strong>No consistency rule.</strong> The 40% consistency rule only applies to Master Account payouts, not to the Qualification phase.</p>
+
+<p><strong>Trading hours:</strong> 5:00 PM to 4:00 PM CST (next day). All positions must be closed by 3:59 PM CST. Weekends and public holidays are excluded.</p>
+
+<p><strong>Automated trading allowed.</strong> EAs, algorithms, bots, and trade copiers are explicitly permitted. Bulenox does not provide or support third-party software — they simply do not restrict its use.</p>
+
+<p><strong>News trading allowed.</strong> No restrictions on trading during news events.</p>
+
+<p><strong>No hedging.</strong> You cannot hold opposing positions across accounts under the same Rithmic ID.</p>
+
+<p><strong>Resets.</strong> If you breach a rule, the account can be reset. Free resets are available on the billing date. Manual resets cost $78 at any other time. A reset does not change the subscription expiration date, and completed trading days carry over.</p>
+
+<h2><span class="section-num">03</span>Stage 2 — Master Account (Simulated Funded)</h2>
+
+<p>After passing Qualification, you pay a one-time activation fee to unlock your Master Account. The activation fee varies by account size — approximately $98 for $10K up to around $348 for $250K (Option 2 pricing). The Master Account is simulated, but profits you withdraw are real cash.</p>
+
+<h3>Master Account rules</h3>
+
+<p><strong>Same drawdown rules as Qualification</strong> — the trailing or EOD drawdown you chose carries over. The drawdown stops trailing once it reaches the starting balance plus $100.</p>
+
+<p><strong>Daily loss limit removal (Option 2).</strong> After the drawdown reaches the starting balance (e.g., $103,000 on a $100,000 account), the daily loss limit is removed.</p>
+
+<p><strong>No account reset.</strong> Unlike the Qualification, Master Accounts cannot be reset. If you breach the drawdown, the account is closed permanently.</p>
+
+<p><strong>Weekly activity.</strong> You must place at least one trade every 5 trading days to keep the account active.</p>
+
+<h3>Payout rules — where traders get tripped up</h3>
+
+<p><strong>10 trading days minimum.</strong> You must complete at least 10 individual trading days before your first withdrawal.</p>
+
+<p><strong>40% consistency rule.</strong> When submitting a withdrawal request, no single trading day's profit can exceed 40% of your total profit balance. If your total profit is $10,000, your best day must be $4,000 or less. Failing this rule does not violate the account — it pauses the payout until you trade your way into compliance.</p>
+
+<p><strong>Withdrawal safety threshold (reserve).</strong> A minimum balance must remain in the account to be eligible for withdrawal. This amount depends on account size:</p>
+
+<div class="data-table-wrap">
+<table class="data-table">
+<thead><tr><th>Account size</th><th>Withdrawal safety threshold</th><th>First 3 payout caps</th></tr></thead>
+<tbody>
+<tr><td class="label">$25,000</td><td>$1,600</td><td>$1,000</td></tr>
+<tr><td class="label">$50,000</td><td>$2,600</td><td>$1,500</td></tr>
+<tr><td class="label">$100,000</td><td>$3,100</td><td>$1,750</td></tr>
+<tr><td class="label">$150,000</td><td>$4,600</td><td>$2,000</td></tr>
+<tr><td class="label">$250,000</td><td>$5,600</td><td>$2,500</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><strong>First 3 payout caps.</strong> The first three payouts have maximum withdrawal limits based on account size (shown above). After the third payout, there is no maximum withdrawal limit.</p>
+
+<p><strong>Minimum withdrawal:</strong> $1,000 ($500 for $10K accounts).</p>
+
+<p><strong>Payout schedule:</strong> Payouts are processed weekly on Wednesdays. You can request a payout any day during the month.</p>
+
+<p><strong>Profit split:</strong> 100% of the first $10,000 in profits is yours. After that, the split is 90% to the trader, 10% to Bulenox.</p>
+
+<div class="callout-warn callout">
+  <div class="callout-title">⚠ The flipping rule</div>
+  <p>Bulenox can flag and deny payouts if most of your profits come from just one or two trades — they call this "flipping." The rule is subjective: there are no published statistical thresholds defining exactly what triggers it. This is the single most controversial Bulenox policy, and the source of most negative reviews on Reddit and Trustpilot. To reduce risk, spread your profits across multiple trading sessions and avoid relying on a single outsized winner.</p>
+</div>
+
+<h2><span class="section-num">04</span>Stage 3 — Funded Account (Real Capital)</h2>
+
+<p>After 3 successful Master Account payouts, Bulenox transitions you to a Funded Account with real capital, subject to Risk Department approval. This transition is mandatory — if you decline, the Master Account is closed and unpaid profits are forfeited.</p>
+
+<p>Funded Account rules are similar to Master Account rules. Balance caps apply based on account size. The trailing or EOD drawdown continues. The 40% consistency rule still applies. The profit split remains 90/10 after the initial $10K threshold.</p>
+
+<p>You can have up to 11 Master Accounts total, but only 3 can be active simultaneously under one Rithmic ID.</p>
+
+<h2><span class="section-num">05</span>Strategies for meeting the 40% consistency rule</h2>
+
+<p>The 40% consistency rule is the single biggest friction point between passing your Qualification and actually getting paid. Most traders who fail to withdraw from Bulenox do not fail because they lost money — they fail because one or two outsized winning days pushed their best-day percentage above 40% of total profits.</p>
+
+<p><strong>Set a daily profit target and stop trading when you hit it.</strong> On a $50K Master Account, aim for $300-$500 per day. If your total profit after 10 trading days is $5,000 and your best day is $1,800, you are at 36% — safely below the 40% threshold. If your best day was $2,500, you are at 50% — payout denied until you trade enough additional days to dilute that percentage.</p>
+
+<p><strong>Never let a single day run to its maximum.</strong> If you catch a big move and are up $1,200 by 10:30 AM, close the platform. Taking that trade to $2,000 does not help you — it pushes your consistency ratio higher and makes future payouts harder to qualify for. Small, consistent days are the path to payouts at Bulenox. This is the opposite of how many traders think, but the rule rewards discipline over aggression.</p>
+
+<p><strong>Track the ratio in a spreadsheet.</strong> Before every payout request, calculate: (best day P/L) / (total P/L) × 100. If the result is above 40%, keep trading to bring it down. The Bulenox dashboard shows this number, but calculating it yourself avoids surprises.</p>
+
+<p><strong>Avoid trading during major volatility events if you already have a large winning day.</strong> If your best day is $1,500 and your total is $4,500 (33%), a big FOMC day where you make $2,000 pushes your new best day to $2,000 and your new total to $6,500 — ratio of 30.7%. That is fine. But if FOMC goes against you and you lose $800, your total drops to $3,700 while your best day stays at $1,500 — ratio of 40.5%. Now your payout is blocked. Volatility cuts both ways under consistency rules.</p>
+
+<h2><span class="section-num">06</span>Option 1 vs Option 2 — which drawdown to choose</h2>
+
+<p>This decision affects both your Qualification and Master Account, so choose carefully. Most experienced prop firm traders recommend Option 2 (EOD + daily loss limit) for intraday futures trading. Here is why.</p>
+
+<p><strong>Option 1 (real-time trailing)</strong> tracks your drawdown tick by tick, including unrealised gains. If you enter a trade and it runs $800 in your favour before pulling back $500, your drawdown floor has permanently moved up by $800. You keep $300 of profit but you have lost $500 of drawdown cushion. Over multiple trades in a session, this ratchet effect compounds aggressively. Option 1 rewards traders who take quick profits and rarely let winners run — scalpers, basically.</p>
+
+<p><strong>Option 2 (EOD trailing + daily loss limit)</strong> only recalculates the drawdown at end-of-day. Intraday swings that recover before the close have no effect on your floor. The trade-off is a daily loss limit ($1,100 on a $50K account) that suspends trading for the day if hit — but this is not a rule violation, it is a circuit breaker. The daily loss limit is removed on the Master Account once your drawdown reaches the starting balance. Option 2 rewards traders who manage their daily risk but may take larger intraday swings.</p>
+
+<p>For prop firm traders running a <a href="/guides/ninjatrader-trade-copier">trade copier</a> across multiple Bulenox accounts, Option 2 is almost always the better choice. The intraday ratchet in Option 1 compounds across every follower account — one volatile morning can permanently degrade the drawdown cushion on 5+ accounts simultaneously.</p>
+
+<h2><span class="section-num">07</span>Platforms supported</h2>
+
+<p>Bulenox supports over 20 trading platforms through Rithmic connectivity — more than almost any other futures prop firm. Key supported platforms include NinjaTrader 8, Sierra Chart, Bookmap, Jigsaw Daytradr, ATAS, Quantower, R|Trader Pro, and MotiveWave. This platform flexibility is a genuine differentiator for traders who use specialised order flow tools.</p>
+
+<p>For traders running a <a href="/guides/ninjatrader-trade-copier">NinjaTrader trade copier</a>, Bulenox accounts connect via Rithmic — the same connection type used by many local copier add-ons. Since Bulenox explicitly allows trade copiers, you can run a copier across multiple Bulenox accounts without violating any rules.</p>
+
+<h2><span class="section-num">08</span>How Bulenox compares</h2>
+
+<div class="data-table-wrap">
+<table class="data-table">
+<thead><tr><th>Feature</th><th>Bulenox</th><th>Topstep</th><th>Take Profit Trader</th><th>Apex</th></tr></thead>
+<tbody>
+<tr><td class="label">Min eval days</td><td>0</td><td>2</td><td>5</td><td>1 (7 for payout)</td></tr>
+<tr><td class="label">Drawdown options</td><td>Trailing or EOD</td><td>EOD only</td><td>EOD (eval), Intraday (funded)</td><td>Intraday trailing</td></tr>
+<tr><td class="label">Consistency rule</td><td>40% (funded only)</td><td>50% or 40%</td><td>50% (eval only)</td><td>30%</td></tr>
+<tr><td class="label">Profit split</td><td>100% first $10K, then 90/10</td><td>90/10</td><td>80/20 → 90/10</td><td>100% first $25K, then 90/10</td></tr>
+<tr><td class="label">Trade copiers</td><td class="ck">✓ Allowed</td><td class="cx">✗ Not allowed</td><td class="cm">PRO+ only</td><td class="ck">✓ Allowed</td></tr>
+<tr><td class="label">EAs / algos</td><td class="ck">✓ Allowed</td><td class="cx">✗ Not allowed</td><td class="ck">✓ Allowed</td><td class="ck">✓ Allowed</td></tr>
+<tr><td class="label">Max accounts</td><td>11 total (3 active)</td><td>Platform limited</td><td>5 PRO + 5 PRO+</td><td>20</td></tr>
+<tr><td class="label">Payout frequency</td><td>Weekly (Wednesdays)</td><td>Weekly</td><td>Daily</td><td>Monthly (2x)</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="pull-quote">If you run automated strategies or trade copiers and want a firm that explicitly permits them, Bulenox is one of the best options in the futures prop firm space. The 40% consistency rule and subjective flipping policy are the trade-offs you accept.</div>
+
+<h2><span class="section-num">09</span>Recent changes and what to verify</h2>
+
+<p>Bulenox has made several changes through 2025 and into 2026 that affect how traders should approach the platform. Balance caps were introduced for Funded Accounts (the stage after 3 Master Account payouts), limiting how high your account balance can grow before profits must be withdrawn. The specific caps depend on account size and were formalised in April 2025.</p>
+
+<p>The Funded Account transition itself was a significant policy addition. Earlier in Bulenox's history, traders could remain on Master Accounts indefinitely. The mandatory transition after 3 payouts changed the long-term calculus — you must accept the move to a Funded Account or forfeit unpaid profits. This was controversial in the community because some traders preferred the flexibility of the Master Account structure.</p>
+
+<p>The 40% consistency rule has been in place since the Master Account's inception, but enforcement and communication have improved. Bulenox's help centre now provides clearer examples of how the rule is calculated. However, the flipping rule remains vaguely defined — the exact statistical threshold for triggering a flipping denial has never been published, and this continues to be the primary source of negative community feedback.</p>
+
+<p>As with all prop firms, verify current rules directly on the Bulenox website or help centre before purchasing an evaluation. Rule changes in this industry happen frequently and without advance notice. The numbers in this guide are accurate as of April 2026, but specific pricing, activation fees, and payout caps may have changed since publication.</p>
+
+
+    <div class="cta-banner">
+      <h3>Bulenox Allows Trade Copiers</h3>
+      <p>Tradecovex is a local NinjaTrader add-on that copies your trades across every follower account — and the AI journal tells you which accounts are profitable and why.</p>
+      <a href="/" class="btn btn-primary btn-lg" style="position:relative;z-index:1">Get Started</a>
+      <div class="cta-perks">
+        <span class="cta-perk">7-day free trial</span>
+        <span class="cta-perk">No credit card</span>
+        <span class="cta-perk">NinjaTrader add-on</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container">
+    <div style="text-align:center">
+      <span class="section-tag">FAQ</span>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q">Does Bulenox allow trade copiers?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Yes. Bulenox explicitly allows EAs, algorithms, bots, and trade copiers on all account types — Qualification, Master, and Funded. This is one of their key differentiators. Most competitors either ban automated trading entirely or require specific approval.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What is the Bulenox 40% consistency rule?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">When requesting a payout from a Master Account, no single trading day's profit can exceed 40% of your total profit balance. For example, if your total profit is $20,000, your best day must be $8,000 or less. Failing this rule does not violate your account — it simply pauses the payout until you trade enough to bring the ratio into compliance.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What is the Bulenox flipping rule?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Bulenox can deny payouts if most of your profits come from just one or two trades. The rule is subjective — there are no published statistical thresholds. This is the most controversial Bulenox policy and the source of most negative community feedback. To avoid triggering it, spread profits across multiple sessions and avoid relying on single outsized winners.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What happens after 3 Bulenox payouts?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">After 3 successful Master Account payouts, Bulenox transitions you to a Funded Account with real capital, subject to Risk Department approval. This transition is mandatory — declining it closes the Master Account and forfeits unpaid profits. The Funded Account has similar rules but includes balance caps based on account size.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How many Bulenox accounts can I have?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">You can have unlimited Qualification Accounts and up to 11 Master Accounts total, but only 3 can be active simultaneously under one Rithmic ID.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What platforms does Bulenox support?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Bulenox supports over 20 platforms via Rithmic, including NinjaTrader 8, Sierra Chart, Bookmap, Jigsaw Daytradr, ATAS, Quantower, R|Trader Pro, and MotiveWave. This is one of the broadest platform support lists in the futures prop firm space.</div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-wide">
+    <div style="text-align:center">
+      <span class="section-tag">Related Guides</span>
+      <h2>Keep reading</h2>
+    </div>
+    <div class="related-grid">
+    <a href="/guides/take-profit-trader-rules-2026" class="related-card">
+      <span class="related-tag">Rules</span>
+      <h4>Take Profit Trader Rules 2026</h4>
+      <p>Every TPT rule — Test, PRO, and PRO+ stages compared.</p>
+    </a>
+    <a href="/guides/topstep-combine-rules-2026" class="related-card">
+      <span class="related-tag">Rules</span>
+      <h4>Topstep Combine Rules 2026</h4>
+      <p>The complete Topstep rule reference, updated through April 2026.</p>
+    </a>
+    <a href="/guides/apex-trader-funding-rules-2026" class="related-card">
+      <span class="related-tag">Rules</span>
+      <h4>Apex Trader Funding Rules 2026</h4>
+      <p>Every Apex rule from evaluation through Performance Account.</p>
+    </a>
+    <a href="/guides/ninjatrader-trade-copier" class="related-card">
+      <span class="related-tag">Copier</span>
+      <h4>NinjaTrader Trade Copier Guide</h4>
+      <p>How copiers work across multiple prop firm accounts.</p>
+    </a>
+    <a href="/guides/prop-firm-rules-2026" class="related-card">
+      <span class="related-tag">Hub</span>
+      <h4>Prop Firm Rules Hub 2026</h4>
+      <p>All prop firm rules references in one place.</p>
+    </a>
+    <a href="/guides/trailing-drawdown" class="related-card">
+      <span class="related-tag">Prop Rules</span>
+      <h4>What is Trailing Drawdown?</h4>
+      <p>EOD vs intraday trailing — the mechanic that kills most funded accounts.</p>
+    </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="/"><img src="/logo.png" alt="Tradecovex" class="footer-logo"></a>
+        <p class="footer-tagline">The smartest trade copier for NinjaTrader — copy trades and let the AI tell you why.</p>
+        <div class="footer-social">
+          <a href="#" title="Twitter / X" aria-label="Twitter">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" title="YouTube" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#how">How It Works</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="/#waitlist">Join Waitlist</a></li>
+          <li><a href="/guides/">All Guides</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/#privacy">Privacy Policy</a></li>
+          <li><a href="/#terms">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Partners</h4>
+        <ul>
+          <li><a href="#" class="footer-aff">Affiliates — Earn $15–$45/signup</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-risk">
+      <strong>⚠ Risk Disclosure:</strong> Futures trading involves substantial risk of loss and is not suitable for all investors. You can lose more than your initial investment. Past performance is not indicative of future results. Tradecovex is a software tool — it does not provide investment advice and does not guarantee trading results. Use of a trade copier does not guarantee compliance with prop firm rules. All trading decisions are your responsibility. Only trade with capital you can afford to lose.
+    </div>
+    <div class="footer-risk" style="margin-top:10px">
+      <strong>No Investment Advice:</strong> Tradecovex is a software tool for trade copying and journaling. IVAAN INC is not registered as an investment adviser with the Ontario Securities Commission, CIRO, the SEC, or any other regulatory body. Nothing in Tradecovex — including the AI journal analysis feature — constitutes investment advice, financial advice, or a recommendation to buy or sell any security, futures contract, or other financial instrument. The AI journal provides analytical observations about your historical trading patterns for informational purposes only. All trading decisions are made solely by you.
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Tradecovex. All rights reserved. Built by IVAAN INC, Ontario, Canada.</span>
+      <span class="footer-copy">Canadian users served from Toronto · US users served from New York · PIPEDA compliant</span>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+const hamburger=document.getElementById('hamburger');const mobileMenu=document.getElementById('mobile-menu');if(hamburger){hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');});}
+document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{q.parentElement.classList.toggle('open');});});
+</script>
+
+</body>
+</html>

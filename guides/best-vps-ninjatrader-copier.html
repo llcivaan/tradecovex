@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Best VPS for NinjaTrader Trade Copier in 2026 — What to Look For and Why It Matters</title>
+<meta name="description" content="Why a VPS is essential for running a NinjaTrader trade copier across multiple prop firm accounts. Covers latency, uptime, Windows Server requirements, data centre location, RAM and CPU sizing, cost comparison, and how to avoid ghost orders and missed copies caused by unstable connections.">
+<link rel="canonical" href="https://tradecovex.com/guides/best-vps-ninjatrader-copier">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Best VPS for NinjaTrader Trade Copier in 2026 — What to Look For and Why It Matters">
+<meta property="og:description" content="Why a VPS is essential for running a NinjaTrader trade copier across multiple prop firm accounts. Covers latency, uptime, Windows Server requirements, data centre location, RAM and CPU sizing, cost comparison, and how to avoid ghost orders and missed copies caused by unstable connections.">
+<meta property="og:url" content="https://tradecovex.com/guides/best-vps-ninjatrader-copier">
+<meta property="og:image" content="https://tradecovex.com/logo.png">
+<meta property="og:site_name" content="Tradecovex">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Best VPS for NinjaTrader Trade Copier in 2026 — What to Look For and Why It Matters">
+<meta name="twitter:description" content="Why a VPS is essential for running a NinjaTrader trade copier across multiple prop firm accounts. Covers latency, uptime, Windows Server requirements, data centre location, RAM and CPU sizing, cost comparison, and how to avoid ghost orders and missed copies caused by unstable connections.">
+<meta name="twitter:image" content="https://tradecovex.com/logo.png">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="author" content="Tradecovex / IVAAN INC">
+<link rel="icon" type="image/png" href="/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://tradecovex.com/guides/best-vps-ninjatrader-copier#article",
+      "headline": "Best VPS for NinjaTrader Trade Copier in 2026 \u2014 What to Look For and Why It Matters",
+      "description": "Why a VPS is essential for running a NinjaTrader trade copier across multiple prop firm accounts. Covers latency, uptime, Windows Server requirements, data centre location, RAM and CPU sizing, cost comparison, and how to avoid ghost orders and missed copies caused by unstable connections.",
+      "image": "https://tradecovex.com/logo.png",
+      "datePublished": "2026-04-15T00:00:00+00:00",
+      "dateModified": "2026-04-15T00:00:00+00:00",
+      "author": {
+        "@type": "Organization",
+        "name": "Tradecovex",
+        "url": "https://tradecovex.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Tradecovex",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://tradecovex.com/logo.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://tradecovex.com/guides/best-vps-ninjatrader-copier"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://tradecovex.com/guides/best-vps-ninjatrader-copier#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do I need a VPS to run a NinjaTrader trade copier?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Technically no \u2014 a copier runs on any Windows machine. Practically yes \u2014 if you are copying trades to multiple prop firm accounts, your copier must run reliably 24/5. A home computer with consumer internet is a single point of failure. A VPS in a Chicago or New York data centre gives you enterprise uptime, low latency to the exchange, and eliminates your home connection as a risk factor."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does a trading VPS cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Trading-specific VPS providers typically charge $50-$300/month depending on specs. General cloud providers (AWS, DigitalOcean, Azure) can cost $30-$150/month for equivalent specifications but require self-configuration. For most prop firm copier setups running 10-30 accounts, expect to spend $60-$120/month."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which data centre location is best for futures trading?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Chicago is the best location \u2014 it is closest to the CME where futures orders are matched. New York is a strong second choice. Avoid West Coast US, Europe, or Asia for CME futures trading \u2014 the added latency is unnecessary and compounds when copying across multiple accounts."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does a VPS eliminate ghost orders?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, but it significantly reduces their frequency. Ghost orders are a NinjaTrader-level issue caused by connection interruptions between NinjaTrader and the broker data feed. A VPS with enterprise-grade internet experiences far fewer disconnections than a home setup, which means fewer ghost orders \u2014 but they do not disappear entirely."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much RAM do I need for a NinjaTrader copier VPS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For 1-10 accounts: 4 GB minimum. For 10-30 accounts: 8 GB. For 30-50+ accounts: 16 GB. NinjaTrader 8 is resource-intensive, especially with multiple broker connections and a copier add-on running simultaneously. SSD storage is essential \u2014 avoid spinning HDDs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I run NinjaTrader on a Linux VPS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. NinjaTrader 8 requires Windows. Some traders attempt Wine or virtual machine workarounds on Linux, but these add instability to the exact system that needs to be the most reliable component in your setup. Use Windows Server 2022 on your VPS."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:#0F172A;background:#fff;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+:root{
+  --blue:#2563EB;
+  --blue-dark:#1d4ed8;
+  --navy:#0A1628;
+  --slate:#4B5E7A;
+  --slate-light:#64748B;
+  --light:#F0F4FF;
+  --border:#DDE3EF;
+  --radius:12px;
+  --shadow-sm:0 1px 3px rgba(10,22,40,.08),0 1px 2px rgba(10,22,40,.06);
+  --shadow-md:0 4px 16px rgba(10,22,40,.1),0 2px 6px rgba(10,22,40,.06);
+  --shadow-lg:0 12px 40px rgba(10,22,40,.14),0 4px 12px rgba(10,22,40,.08);
+}
+
+/* NAV — matches homepage exactly */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px}
+.nav-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav-logo{height:40px;width:auto}
+.nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+.nav-links a{font-size:.88rem;font-weight:600;color:var(--slate);transition:color .2s;letter-spacing:.01em}
+.nav-links a:hover{color:var(--navy)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 26px;border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;transition:all .18s;border:none;text-decoration:none;letter-spacing:.01em}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 2px 8px rgba(37,99,235,.3)}
+.btn-primary:hover{background:var(--blue-dark);transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,99,235,.4)}
+.btn-outline{background:transparent;color:var(--navy);border:2px solid #C4CEDD}
+.btn-outline:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn-outline-white{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35)}
+.btn-outline-white:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.btn-lg{padding:16px 38px;font-size:.98rem;border-radius:14px}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;transition:all .25s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:20px 24px;z-index:199;flex-direction:column;gap:0;box-shadow:var(--shadow-lg)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{display:block;padding:14px 0;font-size:1rem;font-weight:600;color:var(--slate);border-bottom:1px solid var(--border)}
+.mobile-menu a.btn{margin-top:16px;width:100%;border-bottom:none;justify-content:center}
+
+/* HERO — adapted for guide pages */
+.guide-hero{padding:140px 24px 60px;text-align:center;position:relative;overflow:hidden;background:#fff}
+.guide-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 90% 60% at 50% -10%,rgba(37,99,235,.08) 0%,transparent 65%);pointer-events:none}
+.guide-hero::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background-image:radial-gradient(circle at 1px 1px, rgba(37,99,235,.06) 1px, transparent 0);background-size:32px 32px;pointer-events:none;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 0%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 0%,transparent 70%)}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:100px;padding:7px 18px;font-size:.75rem;font-weight:700;color:var(--blue);letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px;position:relative;z-index:1}
+.hero-eyebrow span.dot{width:7px;height:7px;background:var(--blue);border-radius:50%;animation:blink 2s ease infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+h1{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(2.2rem,4.5vw,3.4rem);line-height:1.08;letter-spacing:-.03em;color:var(--navy);max-width:900px;margin:0 auto 24px;position:relative;z-index:1}
+h1 .accent{color:var(--blue)}
+.guide-meta{display:flex;justify-content:center;gap:24px;margin-bottom:20px;flex-wrap:wrap;font-size:.82rem;color:var(--slate-light);position:relative;z-index:1}
+.guide-meta span{display:inline-flex;align-items:center;gap:6px}
+.breadcrumb{font-size:.78rem;color:var(--slate-light);margin-bottom:24px;position:relative;z-index:1}
+.breadcrumb a{color:var(--blue);font-weight:600}
+.breadcrumb a:hover{text-decoration:underline}
+
+/* ANSWER BOX — featured snippet style */
+.answer-box{max-width:780px;margin:0 auto 50px;background:linear-gradient(135deg,#EFF6FF,#F0F4FF);border:2px solid #BFDBFE;border-radius:18px;padding:32px 36px;text-align:left;position:relative;z-index:1;box-shadow:var(--shadow-md)}
+.answer-box-label{display:inline-block;font-size:.68rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.14em;background:#fff;border:1.5px solid #BFDBFE;border-radius:100px;padding:5px 14px;margin-bottom:14px}
+.answer-box p{font-size:1.02rem;color:var(--navy);line-height:1.75;font-weight:500}
+.answer-box p strong{font-weight:700;color:var(--navy)}
+
+/* SHARED SECTION STYLES */
+.section{padding:80px 24px}
+.section-light{background:var(--light)}
+.section-tag{display:inline-block;font-size:.7rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.14em;margin-bottom:16px;background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:100px;padding:5px 14px}
+h2{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(1.7rem,3.2vw,2.4rem);line-height:1.12;letter-spacing:-.025em;color:var(--navy);margin-bottom:18px}
+h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.3rem;color:var(--navy);margin:32px 0 14px;letter-spacing:-.015em}
+h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08rem;color:var(--navy);margin:24px 0 10px;letter-spacing:-.01em}
+.container{max-width:880px;margin:0 auto}
+.container-wide{max-width:1120px;margin:0 auto}
+
+/* PROSE STYLES */
+.prose p{font-size:1rem;color:var(--slate);line-height:1.85;margin-bottom:20px}
+.prose p strong{color:var(--navy);font-weight:700}
+.prose ul,.prose ol{margin:16px 0 24px 22px;color:var(--slate);font-size:1rem;line-height:1.85}
+.prose li{margin-bottom:10px}
+.prose li strong{color:var(--navy);font-weight:700}
+.prose a{color:var(--blue);font-weight:600;border-bottom:1.5px solid rgba(37,99,235,.3);transition:border .2s}
+.prose a:hover{border-bottom-color:var(--blue)}
+.section-num{display:inline-block;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:.78rem;color:var(--blue);background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:8px;padding:4px 10px;margin-bottom:12px;letter-spacing:.06em}
+
+/* PULL QUOTE */
+.pull-quote{background:linear-gradient(135deg,#EFF6FF,#F0F4FF);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:24px 28px;margin:32px 0;font-family:'Barlow Semi Condensed',sans-serif;font-size:1.18rem;font-weight:600;color:var(--navy);line-height:1.55;letter-spacing:-.01em}
+
+/* CALLOUT BOXES */
+.callout{background:#fff;border:1.5px solid var(--border);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:22px 26px;margin:28px 0;box-shadow:var(--shadow-sm)}
+.callout-title{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1rem;color:var(--navy);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.callout p{font-size:.92rem;color:var(--slate);line-height:1.75;margin:0}
+.callout-warn{border-left-color:#DC2626;background:#FEF2F2}
+.callout-warn .callout-title{color:#991B1B}
+.callout-success{border-left-color:#16A34A;background:#F0FDF4}
+.callout-success .callout-title{color:#166534}
+
+/* FEATURE CARD GRID */
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin:32px 0}
+.feature-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:26px;transition:all .25s;box-shadow:var(--shadow-sm)}
+.feature-card:hover{border-color:#93C5FD;box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.feature-card-num{display:inline-block;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:.7rem;color:var(--blue);background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:6px;padding:3px 8px;margin-bottom:12px;letter-spacing:.06em}
+.feature-card h4{margin:0 0 10px;font-size:1.08rem}
+.feature-card p{font-size:.88rem;color:var(--slate);line-height:1.75;margin:0}
+
+/* DATA TABLE */
+.data-table-wrap{overflow-x:auto;border-radius:14px;border:1.5px solid var(--border);box-shadow:var(--shadow-md);margin:28px 0}
+.data-table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:580px;background:#fff}
+.data-table th{padding:14px 18px;text-align:left;font-weight:700;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;background:#F1F5F9;color:var(--slate);border-bottom:2px solid var(--border)}
+.data-table td{padding:13px 18px;border-bottom:1px solid var(--border);color:var(--slate);vertical-align:middle}
+.data-table tr:last-child td{border-bottom:none}
+.data-table tr.tc-row td{background:#EFF6FF;color:var(--navy);font-weight:600}
+.data-table tr.tc-row td:first-child::before{content:'★ ';color:var(--blue)}
+.data-table td.label{font-weight:600;color:var(--navy);background:#FAFBFF}
+.ck{color:#16A34A;font-weight:700}
+.cx{color:#DC2626;font-weight:700}
+.cm{color:#D97706;font-weight:600;font-size:.85rem}
+
+/* VIDEO EMBED */
+.video-wrap{max-width:780px;margin:36px auto;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-lg);background:var(--navy);position:relative;padding-bottom:56.25%;height:0}
+.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.video-caption{font-size:.82rem;color:var(--slate-light);text-align:center;margin-top:14px;font-style:italic}
+
+/* CTA BANNER */
+.cta-banner{background:linear-gradient(135deg,#0A1628,#0F2460,#1d4ed8);border-radius:18px;padding:56px 48px;margin:48px 0;text-align:center;position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
+.cta-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 100%,rgba(37,99,235,.25) 0%,transparent 65%);pointer-events:none}
+.cta-banner h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:1.85rem;color:#fff;margin:0 0 14px;letter-spacing:-.025em;position:relative;z-index:1}
+.cta-banner p{font-size:1rem;color:#93C5FD;max-width:540px;margin:0 auto 26px;line-height:1.7;position:relative;z-index:1}
+.cta-perks{display:flex;gap:22px;justify-content:center;margin-top:22px;flex-wrap:wrap;position:relative;z-index:1}
+.cta-perk{font-size:.78rem;color:#60A5FA;font-weight:600;display:inline-flex;align-items:center;gap:6px}
+.cta-perk::before{content:'✓';font-weight:800}
+
+/* FAQ */
+.faq-list{max-width:780px;margin:0 auto}
+.faq-item{border-bottom:1.5px solid var(--border)}
+.faq-q{width:100%;text-align:left;padding:22px 0;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.97rem;color:var(--navy);line-height:1.45;letter-spacing:-.01em}
+.faq-icon{width:24px;height:24px;min-width:24px;border-radius:50%;border:2px solid var(--blue);display:flex;align-items:center;justify-content:center;transition:all .25s;flex-shrink:0}
+.faq-icon svg{width:12px;height:12px;stroke:var(--blue);fill:none;stroke-width:2.5;stroke-linecap:round;transition:transform .25s}
+.faq-item.open .faq-icon{background:var(--blue)}
+.faq-item.open .faq-icon svg{stroke:#fff;transform:rotate(45deg)}
+.faq-a{display:none;padding:0 0 22px;font-size:.92rem;color:var(--slate);line-height:1.85;max-width:680px}
+.faq-item.open .faq-a{display:block}
+
+/* RELATED GUIDES */
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:30px}
+.related-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:24px;transition:all .25s;display:block;box-shadow:var(--shadow-sm)}
+.related-card:hover{border-color:#93C5FD;box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.related-tag{display:inline-block;font-size:.66rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.1em;background:#EFF6FF;border:1px solid #BFDBFE;border-radius:6px;padding:3px 8px;margin-bottom:12px}
+.related-card h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.02rem;color:var(--navy);margin:0 0 8px;line-height:1.35}
+.related-card p{font-size:.84rem;color:var(--slate);line-height:1.65;margin:0}
+
+/* FOOTER — matches homepage */
+.footer{background:#fff;border-top:1.5px solid var(--border);padding:60px 24px 36px}
+.footer-inner{max-width:1120px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1.5px solid var(--border);margin-bottom:30px}
+.footer-logo{height:48px;width:auto;margin-bottom:14px}
+.footer-tagline{font-size:.85rem;color:var(--slate);max-width:220px;line-height:1.7;margin-bottom:20px;font-weight:400}
+.footer-social{display:flex;gap:10px}
+.footer-social a{width:36px;height:36px;border:1.5px solid var(--border);border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--slate);transition:all .2s}
+.footer-social a:hover{border-color:var(--blue);color:var(--blue);background:#EFF6FF}
+.footer-social svg{width:16px;height:16px;fill:currentColor}
+.footer-col h4{font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:#94A3B8;margin:0 0 16px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;padding:0}
+.footer-col a{font-size:.875rem;color:var(--slate);transition:color .18s;font-weight:500}
+.footer-col a:hover{color:var(--navy)}
+.footer-aff{font-size:.82rem;color:var(--blue);font-weight:700}
+.footer-risk{background:var(--light);border:1.5px solid var(--border);border-radius:12px;padding:18px 22px;margin-bottom:16px;font-size:.75rem;color:#5B7399;line-height:1.75}
+.footer-risk strong{color:var(--slate);font-weight:700}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:6px}
+.footer-copy{font-size:.75rem;color:#94A3B8;font-weight:500}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .nav-links{display:none}
+  .nav-cta-desktop{display:none !important}
+  .hamburger{display:flex}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .feature-grid,.related-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .footer-top{grid-template-columns:1fr}
+  h1{font-size:2rem}
+  h2{font-size:1.6rem}
+  .answer-box{padding:24px 22px}
+  .cta-banner{padding:42px 28px}
+  .cta-banner h3{font-size:1.5rem}
+}
+
+
+</style>
+
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" aria-label="Tradecovex home"><img src="/logo.png" alt="Tradecovex" class="nav-logo"></a>
+    <ul class="nav-links">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/guides/">Guides</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+    </ul>
+    <a href="/#waitlist" class="btn btn-primary nav-cta-desktop" style="display:inline-flex">Join Waitlist</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/#features">Features</a>
+  <a href="/guides/">Guides</a>
+  <a href="/#pricing">Pricing</a>
+  <a href="/#faq">FAQ</a>
+  <a href="/#waitlist" class="btn btn-primary">Join Waitlist</a>
+</div>
+
+<section class="guide-hero">
+  <div class="hero-eyebrow"><span class="dot"></span>VPS + COPIER INFRASTRUCTURE</div>
+  <p class="breadcrumb"><a href="/">Home</a> › <a href="/guides/">Guides</a> › Best VPS for NinjaTrader Copier</p>
+  <h1>Best VPS for NinjaTrader <span class="accent">Trade Copier</span> in 2026</h1>
+  <div class="guide-meta">
+    <span>📅 Updated April 2026</span>
+    <span>⏱ 13 min read</span>
+    <span>✍ Tradecovex Team</span>
+  </div>
+  <div class="answer-box">
+    <span class="answer-box-label">Quick Answer</span>
+    <p>If you run a NinjaTrader trade copier across multiple prop firm accounts, a <strong>VPS (Virtual Private Server)</strong> is not optional — it is infrastructure. A VPS gives you 24/5 uptime, eliminates your home internet as a single point of failure, and reduces latency to the exchange by running in a data centre close to the CME. The two biggest copier failure modes — <strong>ghost orders</strong> (from unstable connections) and <strong>missed copies</strong> (from machine restarts or internet drops) — are both mitigated by running on a dedicated VPS. Key specs: Windows Server 2022, 4+ GB RAM, 2+ vCPU, SSD storage, and a data centre in Chicago (closest to CME) or New York.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container prose">
+    
+
+<h2><span class="section-num">01</span>Why a VPS matters for trade copying</h2>
+
+<p>A trade copier only works when NinjaTrader is running. If your home computer restarts, your internet drops, or Windows decides to install updates during the US session open, your copier stops — and your follower accounts are left with open positions that the leader is no longer managing.</p>
+
+<p>A VPS solves this by running NinjaTrader in a data centre with enterprise-grade uptime (99.99%+), redundant internet connections, and no dependency on your local environment. You connect to the VPS via Remote Desktop when you need to manage settings, but the trading and copying happen on the server 24 hours a day, 5 days a week.</p>
+
+<p>For prop firm traders running 10-50+ accounts through a copier, the VPS is not a nice-to-have. It is the difference between a reliable operation and a single point of failure that can breach multiple funded accounts simultaneously.</p>
+
+<div class="video-wrap">
+  <iframe src="https://www.youtube.com/embed/_UiCyk4LUkw" title="NinjaTrader VPS Setup for Prop Firm Trade Copier" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
+<p class="video-caption">VPS setup walkthrough for NinjaTrader and trade copier.</p>
+
+<h2><span class="section-num">02</span>What to look for in a NinjaTrader VPS</h2>
+
+<h3>Operating system</h3>
+
+<p>NinjaTrader 8 requires Windows. Most VPS providers offer Windows Server 2022, which is fully compatible. Do not use a Linux VPS for NinjaTrader — it will not run natively. Some traders attempt Wine or virtual machine workarounds, but these add instability to exactly the system that needs to be rock solid.</p>
+
+<h3>Data centre location</h3>
+
+<p>The CME (Chicago Mercantile Exchange) is where your futures orders are matched. A data centre in Chicago gives you the lowest latency to the exchange. New York is the second-best option. For most prop firm traders running a copier, Chicago or New York provides sub-5ms latency to the exchange, which is more than fast enough.</p>
+
+<p>London-based data centres work for European session traders but add 70-100ms of latency to CME — acceptable for manual trading but worth considering if you are scalping tick-by-tick.</p>
+
+<div class="callout">
+  <div class="callout-title">Data centre priority for futures copier setups</div>
+  <p><strong>1st choice:</strong> Chicago (closest to CME). <strong>2nd choice:</strong> New York (still sub-5ms to CME). <strong>3rd choice:</strong> Any US East Coast location. <strong>Avoid:</strong> West Coast US, Europe, or Asia for CME futures trading — the added latency compounds across multiple follower accounts.</p>
+</div>
+
+<h3>RAM and CPU</h3>
+
+<p>NinjaTrader 8 is resource-hungry, especially when running multiple broker connections and a trade copier add-on. Minimum specs for a copier setup:</p>
+
+<div class="data-table-wrap">
+<table class="data-table">
+<thead><tr><th>Accounts</th><th>RAM (minimum)</th><th>vCPU</th><th>Storage</th></tr></thead>
+<tbody>
+<tr><td class="label">1-10 accounts</td><td>4 GB</td><td>2 cores</td><td>60 GB SSD</td></tr>
+<tr><td class="label">10-30 accounts</td><td>8 GB</td><td>4 cores</td><td>80 GB SSD</td></tr>
+<tr><td class="label">30-50+ accounts</td><td>16 GB</td><td>4-6 cores</td><td>120 GB SSD</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>SSD storage is non-negotiable. NinjaTrader writes to disk constantly (logs, workspace data, tick data). A spinning HDD adds latency to every disk operation and will cause NinjaTrader to lag under load.</p>
+
+<h3>Uptime guarantee</h3>
+
+<p>Look for 99.99%+ uptime guarantees. At 99.9%, you are accepting up to 8.7 hours of downtime per year. At 99.99%, that drops to under 53 minutes. For a copier managing funded prop firm accounts, every minute of downtime is a minute where follower positions are unmanaged.</p>
+
+<h2><span class="section-num">03</span>VPS options for NinjaTrader traders in 2026</h2>
+
+<p>Several VPS providers specifically target NinjaTrader and futures traders. The landscape includes trading-specific providers (pre-configured for NinjaTrader) and general cloud providers (you configure yourself). Both work. The trade-off is convenience vs cost.</p>
+
+<h3>Trading-specific VPS providers</h3>
+
+<p>These come pre-configured with Windows Server, NinjaTrader-ready environments, and data centres in Chicago or New York. Pricing typically starts at $50-$80/month for basic plans and scales to $150-$300/month for high-performance setups. The advantage is zero configuration — you connect via Remote Desktop and start running NinjaTrader immediately.</p>
+
+<h3>General cloud providers</h3>
+
+<p>AWS, DigitalOcean, Google Cloud, and Azure all offer Windows Server VPS instances. You configure NinjaTrader yourself. Pricing can be lower ($30-$60/month for equivalent specs) but requires more technical knowledge for initial setup. AWS has a data centre in us-east-2 (Ohio) which is close to Chicago. DigitalOcean has New York and Toronto.</p>
+
+<div class="data-table-wrap">
+<table class="data-table">
+<thead><tr><th>Provider type</th><th>Typical cost</th><th>Setup time</th><th>Pre-configured?</th><th>Best for</th></tr></thead>
+<tbody>
+<tr><td class="label">Trading-specific VPS</td><td>$50-$300/mo</td><td>Minutes</td><td class="ck">✓ Yes</td><td>Traders who want zero config — just start trading</td></tr>
+<tr><td class="label">General cloud (AWS, DO, Azure)</td><td>$30-$150/mo</td><td>1-2 hours</td><td class="cx">✗ No</td><td>Technical traders who want cost control and customisation</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2><span class="section-num">04</span>How a VPS reduces ghost orders</h2>
+
+<p><a href="/guides/bracket-orders-trade-copier">Ghost orders</a> — phantom positions that appear in NinjaTrader but do not exist at the broker level — are one of the most frustrating issues in any copier setup. They are caused by connection interruptions between NinjaTrader and the broker's data feed. When the connection drops and reconnects, NinjaTrader can lose sync with the broker's actual position state.</p>
+
+<p>A VPS with enterprise-grade internet (redundant connections, low-latency routing) experiences far fewer connection drops than a home internet setup. The connection between NinjaTrader on your VPS and the Rithmic/CQG servers stays stable because both are in data centres with direct peering — not routing through your ISP's consumer network.</p>
+
+<p>Ghost orders do not disappear entirely on a VPS. They are a NinjaTrader-level issue that any local copier inherits regardless of infrastructure. But the frequency drops dramatically when the underlying connection is stable.</p>
+
+<h2><span class="section-num">05</span>VPS setup checklist for copier traders</h2>
+
+<div class="feature-grid">
+  <div class="feature-card">
+    <span class="feature-card-num">01</span>
+    <h4>Choose Windows Server 2022</h4>
+    <p>NinjaTrader 8 requires Windows. Windows Server 2022 is the current standard. Avoid Windows 10/11 desktop licences on VPS — server editions are optimised for always-on operation.</p>
+  </div>
+  <div class="feature-card">
+    <span class="feature-card-num">02</span>
+    <h4>Install NinjaTrader + copier add-on</h4>
+    <p>Download NinjaTrader 8 from ninjatrader.com. Import your copier add-on via Tools → Import → NinjaScript Add-On. Connect all broker accounts (leader + followers).</p>
+  </div>
+  <div class="feature-card">
+    <span class="feature-card-num">03</span>
+    <h4>Disable Windows Update auto-restart</h4>
+    <p>Windows Updates will restart your VPS during trading hours if you do not disable auto-restart. Set active hours to cover the full trading session or defer restarts to weekends.</p>
+  </div>
+  <div class="feature-card">
+    <span class="feature-card-num">04</span>
+    <h4>Set NinjaTrader to auto-start</h4>
+    <p>If the VPS restarts (maintenance, crash), NinjaTrader should start automatically. Add NinjaTrader to Windows Startup and configure your workspace to load on launch. Some traders use a watchdog script that detects crashes and relaunches.</p>
+  </div>
+  <div class="feature-card">
+    <span class="feature-card-num">05</span>
+    <h4>Test everything in simulation</h4>
+    <p>Before connecting live accounts, run the full copier setup in simulation on the VPS. Place trades on the leader, verify every follower copies correctly — entry, stop, target, modification, and close.</p>
+  </div>
+  <div class="feature-card">
+    <span class="feature-card-num">06</span>
+    <h4>Monitor remotely</h4>
+    <p>Use Remote Desktop from your phone or laptop to check the VPS during the trading session. Some providers offer mobile apps. Set up email or Discord alerts for connection drops or account issues.</p>
+  </div>
+</div>
+
+<h2><span class="section-num">06</span>Running multiple prop firms on one VPS</h2>
+
+<p>Most prop firm copier traders run accounts from multiple firms simultaneously — Apex, Topstep, Take Profit Trader, Bulenox, Tradeify, and others. A single NinjaTrader instance on one VPS can connect to all of these, provided each account's data feed is configured correctly.</p>
+
+<p><strong>Rithmic accounts</strong> (Bulenox, some Apex and TPT accounts) connect through a single Rithmic login with multiple account IDs. NinjaTrader handles this natively — you add each account under the same Rithmic connection and the copier addresses them individually.</p>
+
+<p><strong>CQG accounts</strong> (some TPT and Topstep accounts) use a different connection type. You can run both Rithmic and CQG connections simultaneously in a single NinjaTrader instance. The copier sees all connected accounts regardless of data feed provider.</p>
+
+<p><strong>Tradovate accounts</strong> connect through their own integration. If you mix Tradovate-connected accounts with Rithmic-connected accounts, verify that your copier supports cross-connection copying. Not all copiers do. Some only copy between accounts on the same data feed.</p>
+
+<p>The practical limit is not the number of accounts but the RAM and CPU on your VPS. Each connected account consumes resources for order management, position tracking, and data feed processing. With 20+ accounts across multiple data feeds, 8 GB RAM is the realistic minimum. With 40+ accounts, go to 16 GB and consider whether you need a second NinjaTrader instance or VPS to distribute the load.</p>
+
+<h2><span class="section-num">07</span>Monthly cost of a copier VPS — realistic budget</h2>
+
+<p>Here is what a realistic VPS budget looks like for different scales of operation.</p>
+
+<div class="data-table-wrap">
+<table class="data-table">
+<thead><tr><th>Setup</th><th>VPS spec</th><th>Monthly cost</th><th>Context</th></tr></thead>
+<tbody>
+<tr><td class="label">Starter (5-10 accounts)</td><td>4 GB RAM, 2 vCPU, 60 GB SSD</td><td>$50-$80/mo</td><td>Solo trader with one firm, basic copier setup</td></tr>
+<tr><td class="label">Growth (10-25 accounts)</td><td>8 GB RAM, 4 vCPU, 80 GB SSD</td><td>$80-$150/mo</td><td>Multi-firm trader with copier + monitoring</td></tr>
+<tr><td class="label">Professional (25-50+ accounts)</td><td>16 GB RAM, 4-6 vCPU, 120 GB SSD</td><td>$150-$300/mo</td><td>Heavy multi-firm operation, may need 2 VPS instances</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Compare the VPS cost to the value it protects. If you run 10 funded accounts averaging $50K each, those accounts represent thousands of dollars in evaluation fees, activation fees, and months of effort. A $100/month VPS that prevents one blown account per year pays for itself many times over.</p>
+
+<p>Some traders try to save money by running NinjaTrader on their home computer and only using a VPS for backup. This defeats the purpose. The VPS is not a backup — it is the primary system. Your home computer is the backup. The copier should run on the VPS 24/5, and you should only connect from home to manage settings or monitor positions.</p>
+
+<h2><span class="section-num">08</span>Monitoring and alerting</h2>
+
+<p>A VPS running unattended needs a monitoring layer. If NinjaTrader crashes at 9:35 AM and you do not notice until 10:30 AM, every follower account has been sitting unmanaged for 55 minutes during the most volatile period of the trading session.</p>
+
+<p><strong>UptimeRobot (free tier):</strong> Monitors your VPS's internet connectivity. If the VPS goes offline, you get an email or SMS alert within minutes. This covers VPS-level failures but does not detect NinjaTrader application crashes.</p>
+
+<p><strong>Watchdog scripts:</strong> A simple PowerShell or batch script that checks whether the NinjaTrader process is running every 60 seconds. If the process is not found, the script relaunches NinjaTrader and sends an alert (email, Discord webhook, or SMS via a service like Pushover). This is the single most valuable monitoring tool for copier traders — it catches application crashes that UptimeRobot would miss.</p>
+
+<p><strong>Daily position reconciliation:</strong> At the end of each trading day, compare the positions tab in NinjaTrader with the positions shown in each broker's web portal (Rithmic R|Trader, Tradovate dashboard, etc.). If there is a mismatch, you have a ghost order or a missed copy. Catching this daily prevents compounding errors across multiple sessions.</p>
+
+<p><strong>Remote Desktop on mobile:</strong> Both Microsoft Remote Desktop (iOS/Android) and third-party clients like Parsec let you check your VPS from your phone. Get in the habit of checking once before the open and once after the close. A 30-second visual inspection catches most issues before they become expensive.</p>
+
+<h2><span class="section-num">09</span>Common VPS issues and how to fix them</h2>
+
+<p><strong>NinjaTrader freezes after overnight session.</strong> NinjaTrader occasionally hangs when the data feed reconnects at the start of a new trading day (5:00 PM CT Sunday or after a daily reset). The fix is a scheduled task that restarts NinjaTrader 5 minutes before the session open — kill the process, wait 30 seconds, relaunch. This prevents the freeze and ensures a clean startup.</p>
+
+<p><strong>Remote Desktop session disconnects kill NinjaTrader.</strong> By default, disconnecting from a Remote Desktop session may suspend processes on some VPS configurations. Ensure your VPS is configured to keep all processes running when the RDP session is disconnected. On Windows Server, this is controlled through Group Policy settings for session time limits. Trading-specific VPS providers typically configure this correctly out of the box.</p>
+
+<p><strong>Rithmic connection drops during high-volume periods.</strong> The first 5 minutes of the US open (9:30 AM ET) generates the highest message volume on Rithmic's servers. Connection drops during this period are more common than at any other time. If your copier misses a fill during a Rithmic reconnection, the leader will have a position that the followers do not. Monitor the Rithmic connection status icon in NinjaTrader's Control Center and have a procedure for manually reconciling positions if a disconnect occurs during the open.</p>
+
+<p><strong>Disk space fills up with NinjaTrader logs.</strong> NinjaTrader writes logs continuously. Over weeks and months, the log folder can grow to several gigabytes. Schedule a monthly cleanup of the NinjaTrader log directory (Documents/NinjaTrader 8/log/) to prevent the SSD from filling up. A full disk causes NinjaTrader to behave unpredictably — from slow performance to crashes.</p>
+
+<p><strong>Time zone mismatch.</strong> Set your VPS's system time zone to match the exchange time zone (US Central for CME) or your local time zone — whichever you are more comfortable reading. NinjaTrader displays chart times based on the system clock. If your VPS is set to UTC and you are used to reading Central Time, every timestamp will be off by 5-6 hours. This does not affect trade execution but causes confusion when reviewing session times and log entries.</p>
+
+
+<p><strong>Bandwidth usage is minimal.</strong> NinjaTrader consumes very little bandwidth — the data feed is a low-volume stream of tick data and order updates. Even with 20+ connected accounts, total bandwidth usage rarely exceeds 10 Mbps sustained. This means you do not need a VPS with expensive high-bandwidth plans. The minimum bandwidth offered by any reputable VPS provider (100 Mbps or 1 Gbps shared) is more than sufficient. The priority is latency and stability, not raw throughput.</p>
+
+<div class="pull-quote">A VPS is not a luxury for copier traders. It is the infrastructure that makes the difference between a scalable multi-account operation and a setup that can breach 10 funded accounts simultaneously because your home internet dropped for 30 seconds.</div>
+
+
+    <div class="cta-banner">
+      <h3>Copy Trades Reliably Across Every Account</h3>
+      <p>Tradecovex is a local NinjaTrader add-on — run it on your VPS alongside NinjaTrader and it copies trades to every follower account automatically.</p>
+      <a href="/" class="btn btn-primary btn-lg" style="position:relative;z-index:1">Get Started</a>
+      <div class="cta-perks">
+        <span class="cta-perk">7-day free trial</span>
+        <span class="cta-perk">No credit card</span>
+        <span class="cta-perk">NinjaTrader add-on</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container">
+    <div style="text-align:center">
+      <span class="section-tag">FAQ</span>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q">Do I need a VPS to run a NinjaTrader trade copier?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Technically no — a copier runs on any Windows machine. Practically yes — if you are copying trades to multiple prop firm accounts, your copier must run reliably 24/5. A home computer with consumer internet is a single point of failure. A VPS in a Chicago or New York data centre gives you enterprise uptime, low latency to the exchange, and eliminates your home connection as a risk factor.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How much does a trading VPS cost?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Trading-specific VPS providers typically charge $50-$300/month depending on specs. General cloud providers (AWS, DigitalOcean, Azure) can cost $30-$150/month for equivalent specifications but require self-configuration. For most prop firm copier setups running 10-30 accounts, expect to spend $60-$120/month.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Which data centre location is best for futures trading?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Chicago is the best location — it is closest to the CME where futures orders are matched. New York is a strong second choice. Avoid West Coast US, Europe, or Asia for CME futures trading — the added latency is unnecessary and compounds when copying across multiple accounts.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Does a VPS eliminate ghost orders?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">No, but it significantly reduces their frequency. Ghost orders are a NinjaTrader-level issue caused by connection interruptions between NinjaTrader and the broker data feed. A VPS with enterprise-grade internet experiences far fewer disconnections than a home setup, which means fewer ghost orders — but they do not disappear entirely.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How much RAM do I need for a NinjaTrader copier VPS?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">For 1-10 accounts: 4 GB minimum. For 10-30 accounts: 8 GB. For 30-50+ accounts: 16 GB. NinjaTrader 8 is resource-intensive, especially with multiple broker connections and a copier add-on running simultaneously. SSD storage is essential — avoid spinning HDDs.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Can I run NinjaTrader on a Linux VPS?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">No. NinjaTrader 8 requires Windows. Some traders attempt Wine or virtual machine workarounds on Linux, but these add instability to the exact system that needs to be the most reliable component in your setup. Use Windows Server 2022 on your VPS.</div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-wide">
+    <div style="text-align:center">
+      <span class="section-tag">Related Guides</span>
+      <h2>Keep reading</h2>
+    </div>
+    <div class="related-grid">
+    <a href="/guides/bracket-orders-trade-copier" class="related-card">
+      <span class="related-tag">Copier</span>
+      <h4>Bracket Orders & Trade Copiers</h4>
+      <p>How ATM strategies interact with trade copiers — and common failure modes.</p>
+    </a>
+    <a href="/guides/ninjatrader-trade-copier" class="related-card">
+      <span class="related-tag">Copier</span>
+      <h4>NinjaTrader Trade Copier Guide</h4>
+      <p>The complete guide to copying trades on NinjaTrader.</p>
+    </a>
+    <a href="/guides/trade-copier-latency" class="related-card">
+      <span class="related-tag">Copier</span>
+      <h4>Trade Copier Latency</h4>
+      <p>How latency affects copier performance across follower accounts.</p>
+    </a>
+    <a href="/compare/tradecovex-vs-replikanto" class="related-card">
+      <span class="related-tag">Comparison</span>
+      <h4>Tradecovex vs Replikanto</h4>
+      <p>How two local NinjaTrader copiers compare — including VPS considerations.</p>
+    </a>
+    <a href="/compare/best-ninjatrader-trade-copiers-2026" class="related-card">
+      <span class="related-tag">Comparison</span>
+      <h4>Best NinjaTrader Trade Copiers 2026</h4>
+      <p>Side-by-side comparison of every copier option for NinjaTrader.</p>
+    </a>
+    <a href="/guides/ninjatrader-8-setup" class="related-card">
+      <span class="related-tag">Setup</span>
+      <h4>NinjaTrader 8 Setup Guide</h4>
+      <p>How to set up NinjaTrader 8 for prop firm trading.</p>
+    </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="/"><img src="/logo.png" alt="Tradecovex" class="footer-logo"></a>
+        <p class="footer-tagline">The smartest trade copier for NinjaTrader — copy trades and let the AI tell you why.</p>
+        <div class="footer-social">
+          <a href="#" title="Twitter / X" aria-label="Twitter">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" title="YouTube" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#how">How It Works</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="/#waitlist">Join Waitlist</a></li>
+          <li><a href="/guides/">All Guides</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/#privacy">Privacy Policy</a></li>
+          <li><a href="/#terms">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Partners</h4>
+        <ul>
+          <li><a href="#" class="footer-aff">Affiliates — Earn $15–$45/signup</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-risk">
+      <strong>⚠ Risk Disclosure:</strong> Futures trading involves substantial risk of loss and is not suitable for all investors. You can lose more than your initial investment. Past performance is not indicative of future results. Tradecovex is a software tool — it does not provide investment advice and does not guarantee trading results. Use of a trade copier does not guarantee compliance with prop firm rules. All trading decisions are your responsibility. Only trade with capital you can afford to lose.
+    </div>
+    <div class="footer-risk" style="margin-top:10px">
+      <strong>No Investment Advice:</strong> Tradecovex is a software tool for trade copying and journaling. IVAAN INC is not registered as an investment adviser with the Ontario Securities Commission, CIRO, the SEC, or any other regulatory body. Nothing in Tradecovex — including the AI journal analysis feature — constitutes investment advice, financial advice, or a recommendation to buy or sell any security, futures contract, or other financial instrument. The AI journal provides analytical observations about your historical trading patterns for informational purposes only. All trading decisions are made solely by you.
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Tradecovex. All rights reserved. Built by IVAAN INC, Ontario, Canada.</span>
+      <span class="footer-copy">Canadian users served from Toronto · US users served from New York · PIPEDA compliant</span>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+const hamburger=document.getElementById('hamburger');const mobileMenu=document.getElementById('mobile-menu');if(hamburger){hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');});}
+document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{q.parentElement.classList.toggle('open');});});
+</script>
+
+</body>
+</html>

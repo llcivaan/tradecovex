@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Tradeify Rules 2026 — SELECT Evaluation, Sim Funded, and Elite Rules Explained</title>
+<meta name="description" content="Every Tradeify rule in 2026: SELECT evaluation with 3-day minimum, 40% consistency, EOD drawdown, no activation fee, Sim Funded payout rules, Select Daily vs Flex, the path to Tradeify Elite live capital, 90/10 profit split, contract limits, and NinjaTrader platform support.">
+<link rel="canonical" href="https://tradecovex.com/guides/tradeify-rules-2026">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tradeify Rules 2026 — SELECT Evaluation, Sim Funded, and Elite Rules Explained">
+<meta property="og:description" content="Every Tradeify rule in 2026: SELECT evaluation with 3-day minimum, 40% consistency, EOD drawdown, no activation fee, Sim Funded payout rules, Select Daily vs Flex, the path to Tradeify Elite live capital, 90/10 profit split, contract limits, and NinjaTrader platform support.">
+<meta property="og:url" content="https://tradecovex.com/guides/tradeify-rules-2026">
+<meta property="og:image" content="https://tradecovex.com/logo.png">
+<meta property="og:site_name" content="Tradecovex">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tradeify Rules 2026 — SELECT Evaluation, Sim Funded, and Elite Rules Explained">
+<meta name="twitter:description" content="Every Tradeify rule in 2026: SELECT evaluation with 3-day minimum, 40% consistency, EOD drawdown, no activation fee, Sim Funded payout rules, Select Daily vs Flex, the path to Tradeify Elite live capital, 90/10 profit split, contract limits, and NinjaTrader platform support.">
+<meta name="twitter:image" content="https://tradecovex.com/logo.png">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="author" content="Tradecovex / IVAAN INC">
+<link rel="icon" type="image/png" href="/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://tradecovex.com/guides/tradeify-rules-2026#article",
+      "headline": "Tradeify Rules 2026 \u2014 SELECT Evaluation, Sim Funded, and Elite Rules Explained",
+      "description": "Every Tradeify rule in 2026: SELECT evaluation with 3-day minimum, 40% consistency, EOD drawdown, no activation fee, Sim Funded payout rules, Select Daily vs Flex, the path to Tradeify Elite live capital, 90/10 profit split, contract limits, and NinjaTrader platform support.",
+      "image": "https://tradecovex.com/logo.png",
+      "datePublished": "2026-04-15T00:00:00+00:00",
+      "dateModified": "2026-04-15T00:00:00+00:00",
+      "author": {
+        "@type": "Organization",
+        "name": "Tradecovex",
+        "url": "https://tradecovex.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Tradecovex",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://tradecovex.com/logo.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://tradecovex.com/guides/tradeify-rules-2026"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://tradecovex.com/guides/tradeify-rules-2026#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does Tradeify charge an activation fee?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Tradeify does not charge an activation fee after passing the SELECT evaluation. You move directly from evaluation to a Sim Funded account at no additional cost. This is one of their biggest advantages \u2014 competitors charge $130-$349 for this step."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What type of drawdown does Tradeify use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "End-of-day (EOD) trailing drawdown at every stage \u2014 evaluation, Sim Funded, and Elite. The drawdown recalculates only at end-of-day, so intraday dips that recover before the close do not move your floor. Unlike Take Profit Trader, the drawdown mechanic does not change between stages."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between Select Daily and Select Flex?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Select Daily allows daily payout requests with lower per-withdrawal caps. Select Flex requires 5 winning days before each payout but offers higher withdrawal caps. Both use a 90/10 profit split and EOD trailing drawdown. You choose your path after passing the evaluation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Tradeify Elite?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tradeify Elite is a live-market account you qualify for after 5 successful payouts on a Sim Funded account. Your orders are routed to the exchange through a regulated broker. Elite maintains the same 90/10 profit split and EOD trailing drawdown as earlier stages."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many Tradeify accounts can I have?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Up to 5 Sim Funded or Elite accounts can be active simultaneously. You can run multiple evaluations in parallel as well."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Tradeify have a consistency rule?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. During the SELECT evaluation, no single day's profit can exceed 40% of your total profit. On Sim Funded accounts, this tightens to 35%. The consistency rule is designed to prevent passing or withdrawing based on a single outsized winning day."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:#0F172A;background:#fff;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+:root{
+  --blue:#2563EB;
+  --blue-dark:#1d4ed8;
+  --navy:#0A1628;
+  --slate:#4B5E7A;
+  --slate-light:#64748B;
+  --light:#F0F4FF;
+  --border:#DDE3EF;
+  --radius:12px;
+  --shadow-sm:0 1px 3px rgba(10,22,40,.08),0 1px 2px rgba(10,22,40,.06);
+  --shadow-md:0 4px 16px rgba(10,22,40,.1),0 2px 6px rgba(10,22,40,.06);
+  --shadow-lg:0 12px 40px rgba(10,22,40,.14),0 4px 12px rgba(10,22,40,.08);
+}
+
+/* NAV — matches homepage exactly */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px}
+.nav-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav-logo{height:40px;width:auto}
+.nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+.nav-links a{font-size:.88rem;font-weight:600;color:var(--slate);transition:color .2s;letter-spacing:.01em}
+.nav-links a:hover{color:var(--navy)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 26px;border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;transition:all .18s;border:none;text-decoration:none;letter-spacing:.01em}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 2px 8px rgba(37,99,235,.3)}
+.btn-primary:hover{background:var(--blue-dark);transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,99,235,.4)}
+.btn-outline{background:transparent;color:var(--navy);border:2px solid #C4CEDD}
+.btn-outline:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn-outline-white{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35)}
+.btn-outline-white:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.btn-lg{padding:16px 38px;font-size:.98rem;border-radius:14px}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;transition:all .25s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:20px 24px;z-index:199;flex-direction:column;gap:0;box-shadow:var(--shadow-lg)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{display:block;padding:14px 0;font-size:1rem;font-weight:600;color:var(--slate);border-bottom:1px solid var(--border)}
+.mobile-menu a.btn{margin-top:16px;width:100%;border-bottom:none;justify-content:center}
+
+/* HERO — adapted for guide pages */
+.guide-hero{padding:140px 24px 60px;text-align:center;position:relative;overflow:hidden;background:#fff}
+.guide-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 90% 60% at 50% -10%,rgba(37,99,235,.08) 0%,transparent 65%);pointer-events:none}
+.guide-hero::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background-image:radial-gradient(circle at 1px 1px, rgba(37,99,235,.06) 1px, transparent 0);background-size:32px 32px;pointer-events:none;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 0%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 0%,transparent 70%)}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:100px;padding:7px 18px;font-size:.75rem;font-weight:700;color:var(--blue);letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px;position:relative;z-index:1}
+.hero-eyebrow span.dot{width:7px;height:7px;background:var(--blue);border-radius:50%;animation:blink 2s ease infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+h1{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(2.2rem,4.5vw,3.4rem);line-height:1.08;letter-spacing:-.03em;color:var(--navy);max-width:900px;margin:0 auto 24px;position:relative;z-index:1}
+h1 .accent{color:var(--blue)}
+.guide-meta{display:flex;justify-content:center;gap:24px;margin-bottom:20px;flex-wrap:wrap;font-size:.82rem;color:var(--slate-light);position:relative;z-index:1}
+.guide-meta span{display:inline-flex;align-items:center;gap:6px}
+.breadcrumb{font-size:.78rem;color:var(--slate-light);margin-bottom:24px;position:relative;z-index:1}
+.breadcrumb a{color:var(--blue);font-weight:600}
+.breadcrumb a:hover{text-decoration:underline}
+
+/* ANSWER BOX — featured snippet style */
+.answer-box{max-width:780px;margin:0 auto 50px;background:linear-gradient(135deg,#EFF6FF,#F0F4FF);border:2px solid #BFDBFE;border-radius:18px;padding:32px 36px;text-align:left;position:relative;z-index:1;box-shadow:var(--shadow-md)}
+.answer-box-label{display:inline-block;font-size:.68rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.14em;background:#fff;border:1.5px solid #BFDBFE;border-radius:100px;padding:5px 14px;margin-bottom:14px}
+.answer-box p{font-size:1.02rem;color:var(--navy);line-height:1.75;font-weight:500}
+.answer-box p strong{font-weight:700;color:var(--navy)}
+
+/* SHARED SECTION STYLES */
+.section{padding:80px 24px}
+.section-light{background:var(--light)}
+.section-tag{display:inline-block;font-size:.7rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.14em;margin-bottom:16px;background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:100px;padding:5px 14px}
+h2{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(1.7rem,3.2vw,2.4rem);line-height:1.12;letter-spacing:-.025em;color:var(--navy);margin-bottom:18px}
+h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.3rem;color:var(--navy);margin:32px 0 14px;letter-spacing:-.015em}
+h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08rem;color:var(--navy);margin:24px 0 10px;letter-spacing:-.01em}
+.container{max-width:880px;margin:0 auto}
+.container-wide{max-width:1120px;margin:0 auto}
+
+/* PROSE STYLES */
+.prose p{font-size:1rem;color:var(--slate);line-height:1.85;margin-bottom:20px}
+.prose p strong{color:var(--navy);font-weight:700}
+.prose ul,.prose ol{margin:16px 0 24px 22px;color:var(--slate);font-size:1rem;line-height:1.85}
+.prose li{margin-bottom:10px}
+.prose li strong{color:var(--navy);font-weight:700}
+.prose a{color:var(--blue);font-weight:600;border-bottom:1.5px solid rgba(37,99,235,.3);transition:border .2s}
+.prose a:hover{border-bottom-color:var(--blue)}
+.section-num{display:inline-block;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:.78rem;color:var(--blue);background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:8px;padding:4px 10px;margin-bottom:12px;letter-spacing:.06em}
+
+/* PULL QUOTE */
+.pull-quote{background:linear-gradient(135deg,#EFF6FF,#F0F4FF);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:24px 28px;margin:32px 0;font-family:'Barlow Semi Condensed',sans-serif;font-size:1.18rem;font-weight:600;color:var(--navy);line-height:1.55;letter-spacing:-.01em}
+
+/* CALLOUT BOXES */
+.callout{background:#fff;border:1.5px solid var(--border);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:22px 26px;margin:28px 0;box-shadow:var(--shadow-sm)}
+.callout-title{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1rem;color:var(--navy);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.callout p{font-size:.92rem;color:var(--slate);line-height:1.75;margin:0}
+.callout-warn{border-left-color:#DC2626;background:#FEF2F2}
+.callout-warn .callout-title{color:#991B1B}
+.callout-success{border-left-color:#16A34A;background:#F0FDF4}
+.callout-success .callout-title{color:#166534}
+
+/* FEATURE CARD GRID */
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin:32px 0}
+.feature-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:26px;transition:all .25s;box-shadow:var(--shadow-sm)}
+.feature-card:hover{border-color:#93C5FD;box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.feature-card-num{display:inline-block;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:.7rem;color:var(--blue);background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:6px;padding:3px 8px;margin-bottom:12px;letter-spacing:.06em}
+.feature-card h4{margin:0 0 10px;font-size:1.08rem}
+.feature-card p{font-size:.88rem;color:var(--slate);line-height:1.75;margin:0}
+
+/* DATA TABLE */
+.data-table-wrap{overflow-x:auto;border-radius:14px;border:1.5px solid var(--border);box-shadow:var(--shadow-md);margin:28px 0}
+.data-table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:580px;background:#fff}
+.data-table th{padding:14px 18px;text-align:left;font-weight:700;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;background:#F1F5F9;color:var(--slate);border-bottom:2px solid var(--border)}
+.data-table td{padding:13px 18px;border-bottom:1px solid var(--border);color:var(--slate);vertical-align:middle}
+.data-table tr:last-child td{border-bottom:none}
+.data-table tr.tc-row td{background:#EFF6FF;color:var(--navy);font-weight:600}
+.data-table tr.tc-row td:first-child::before{content:'★ ';color:var(--blue)}
+.data-table td.label{font-weight:600;color:var(--navy);background:#FAFBFF}
+.ck{color:#16A34A;font-weight:700}
+.cx{color:#DC2626;font-weight:700}
+.cm{color:#D97706;font-weight:600;font-size:.85rem}
+
+/* VIDEO EMBED */
+.video-wrap{max-width:780px;margin:36px auto;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-lg);background:var(--navy);position:relative;padding-bottom:56.25%;height:0}
+.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.video-caption{font-size:.82rem;color:var(--slate-light);text-align:center;margin-top:14px;font-style:italic}
+
+/* CTA BANNER */
+.cta-banner{background:linear-gradient(135deg,#0A1628,#0F2460,#1d4ed8);border-radius:18px;padding:56px 48px;margin:48px 0;text-align:center;position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
+.cta-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 100%,rgba(37,99,235,.25) 0%,transparent 65%);pointer-events:none}
+.cta-banner h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:1.85rem;color:#fff;margin:0 0 14px;letter-spacing:-.025em;position:relative;z-index:1}
+.cta-banner p{font-size:1rem;color:#93C5FD;max-width:540px;margin:0 auto 26px;line-height:1.7;position:relative;z-index:1}
+.cta-perks{display:flex;gap:22px;justify-content:center;margin-top:22px;flex-wrap:wrap;position:relative;z-index:1}
+.cta-perk{font-size:.78rem;color:#60A5FA;font-weight:600;display:inline-flex;align-items:center;gap:6px}
+.cta-perk::before{content:'✓';font-weight:800}
+
+/* FAQ */
+.faq-list{max-width:780px;margin:0 auto}
+.faq-item{border-bottom:1.5px solid var(--border)}
+.faq-q{width:100%;text-align:left;padding:22px 0;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.97rem;color:var(--navy);line-height:1.45;letter-spacing:-.01em}
+.faq-icon{width:24px;height:24px;min-width:24px;border-radius:50%;border:2px solid var(--blue);display:flex;align-items:center;justify-content:center;transition:all .25s;flex-shrink:0}
+.faq-icon svg{width:12px;height:12px;stroke:var(--blue);fill:none;stroke-width:2.5;stroke-linecap:round;transition:transform .25s}
+.faq-item.open .faq-icon{background:var(--blue)}
+.faq-item.open .faq-icon svg{stroke:#fff;transform:rotate(45deg)}
+.faq-a{display:none;padding:0 0 22px;font-size:.92rem;color:var(--slate);line-height:1.85;max-width:680px}
+.faq-item.open .faq-a{display:block}
+
+/* RELATED GUIDES */
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:30px}
+.related-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:24px;transition:all .25s;display:block;box-shadow:var(--shadow-sm)}
+.related-card:hover{border-color:#93C5FD;box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.related-tag{display:inline-block;font-size:.66rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.1em;background:#EFF6FF;border:1px solid #BFDBFE;border-radius:6px;padding:3px 8px;margin-bottom:12px}
+.related-card h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.02rem;color:var(--navy);margin:0 0 8px;line-height:1.35}
+.related-card p{font-size:.84rem;color:var(--slate);line-height:1.65;margin:0}
+
+/* FOOTER — matches homepage */
+.footer{background:#fff;border-top:1.5px solid var(--border);padding:60px 24px 36px}
+.footer-inner{max-width:1120px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1.5px solid var(--border);margin-bottom:30px}
+.footer-logo{height:48px;width:auto;margin-bottom:14px}
+.footer-tagline{font-size:.85rem;color:var(--slate);max-width:220px;line-height:1.7;margin-bottom:20px;font-weight:400}
+.footer-social{display:flex;gap:10px}
+.footer-social a{width:36px;height:36px;border:1.5px solid var(--border);border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--slate);transition:all .2s}
+.footer-social a:hover{border-color:var(--blue);color:var(--blue);background:#EFF6FF}
+.footer-social svg{width:16px;height:16px;fill:currentColor}
+.footer-col h4{font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:#94A3B8;margin:0 0 16px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;padding:0}
+.footer-col a{font-size:.875rem;color:var(--slate);transition:color .18s;font-weight:500}
+.footer-col a:hover{color:var(--navy)}
+.footer-aff{font-size:.82rem;color:var(--blue);font-weight:700}
+.footer-risk{background:var(--light);border:1.5px solid var(--border);border-radius:12px;padding:18px 22px;margin-bottom:16px;font-size:.75rem;color:#5B7399;line-height:1.75}
+.footer-risk strong{color:var(--slate);font-weight:700}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:6px}
+.footer-copy{font-size:.75rem;color:#94A3B8;font-weight:500}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .nav-links{display:none}
+  .nav-cta-desktop{display:none !important}
+  .hamburger{display:flex}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .feature-grid,.related-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .footer-top{grid-template-columns:1fr}
+  h1{font-size:2rem}
+  h2{font-size:1.6rem}
+  .answer-box{padding:24px 22px}
+  .cta-banner{padding:42px 28px}
+  .cta-banner h3{font-size:1.5rem}
+}
+
+
+</style>
+
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" aria-label="Tradecovex home"><img src="/logo.png" alt="Tradecovex" class="nav-logo"></a>
+    <ul class="nav-links">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/guides/">Guides</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+    </ul>
+    <a href="/#waitlist" class="btn btn-primary nav-cta-desktop" style="display:inline-flex">Join Waitlist</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/#features">Features</a>
+  <a href="/guides/">Guides</a>
+  <a href="/#pricing">Pricing</a>
+  <a href="/#faq">FAQ</a>
+  <a href="/#waitlist" class="btn btn-primary">Join Waitlist</a>
+</div>
+
+<section class="guide-hero">
+  <div class="hero-eyebrow"><span class="dot"></span>TRADEIFY RULES REFERENCE</div>
+  <p class="breadcrumb"><a href="/">Home</a> › <a href="/guides/">Guides</a> › Tradeify Rules 2026</p>
+  <h1>Tradeify Rules 2026 — <span class="accent">The Complete Reference</span></h1>
+  <div class="guide-meta">
+    <span>📅 Updated April 2026</span>
+    <span>⏱ 14 min read</span>
+    <span>✍ Tradecovex Team</span>
+  </div>
+  <div class="answer-box">
+    <span class="answer-box-label">Quick Answer</span>
+    <p>Tradeify is one of the fastest-growing futures prop firms in 2026, built around <strong>no activation fees</strong> and <strong>EOD trailing drawdown at every stage</strong>. The SELECT evaluation requires a minimum of 3 trading days with a 40% consistency rule. After passing, you choose between <strong>Select Daily</strong> (daily payouts, lower caps) or <strong>Select Flex</strong> (5 winning days, higher caps). The profit split is 90/10 from day one. After 5 successful payouts, you can transition to <strong>Tradeify Elite</strong> — a live-market account. No daily loss limit during evaluation. This page covers every rule at every stage.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container prose">
+    
+
+<h2><span class="section-num">01</span>How Tradeify works</h2>
+
+<p>Tradeify is a futures prop firm that has grown rapidly through 2025-2026 by focusing on low total cost of funding and trader-friendly drawdown mechanics. Their model eliminates the activation fee that most competitors charge after passing evaluation, which significantly reduces the total cost from evaluation to first payout.</p>
+
+<p>The structure runs in three stages: SELECT Evaluation → Sim Funded Account (Select Daily or Select Flex) → Tradeify Elite (live capital). All stages use <strong>end-of-day (EOD) trailing drawdown</strong>, which is the single biggest advantage Tradeify has over firms like Apex (intraday trailing everywhere) and Take Profit Trader (intraday trailing on funded accounts).</p>
+
+<h2><span class="section-num">02</span>Stage 1 — SELECT Evaluation</h2>
+
+<p>The SELECT evaluation is Tradeify's unified one-step evaluation. You trade a simulated account, hit the profit target, and follow the risk rules. Once you pass, you choose your funded path — Daily or Flex. There is no additional activation fee.</p>
+
+<h3>Account sizes and targets</h3>
+
+<div class="data-table-wrap">
+<table class="data-table">
+<thead><tr><th>Account size</th><th>Profit target</th><th>Trailing drawdown (EOD)</th><th>Max contracts</th><th>Evaluation fee</th></tr></thead>
+<tbody>
+<tr><td class="label">$50,000</td><td>$3,000</td><td>$2,000</td><td>6 (60 micros)</td><td>~$103-$111/mo</td></tr>
+<tr><td class="label">$100,000</td><td>$6,000</td><td>$3,000</td><td>12 (120 micros)</td><td>~$181/mo</td></tr>
+<tr><td class="label">$150,000</td><td>$9,000</td><td>$4,500</td><td>15 (150 micros)</td><td>~$215/mo</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>Pricing is a recurring monthly subscription until you pass or cancel. Tradeify runs frequent promotional pricing — always check the website for current rates.</p>
+
+<h3>Evaluation rules</h3>
+
+<p><strong>EOD trailing drawdown.</strong> The drawdown recalculates only at end-of-day. Intraday dips that recover before the close do not move the floor. The drawdown trails upward with your peak end-of-day balance and stops once it reaches the starting balance. This is the most forgiving drawdown mechanic in futures prop firm evaluations.</p>
+
+<p><strong>No daily loss limit during evaluation.</strong> The only risk rule is the EOD trailing drawdown. No separate daily circuit breaker applies during the SELECT evaluation.</p>
+
+<p><strong>40% consistency rule.</strong> No single trading day can account for more than 40% of your total profit. If your total is $5,000, your best day must be $2,000 or less.</p>
+
+<p><strong>Minimum 3 trading days.</strong> You must trade on at least 3 separate days to pass.</p>
+
+<p><strong>No activation fee.</strong> After passing, there is no additional fee to activate your funded account. Competitors charge $130-$349 for this step. Tradeify skips it entirely.</p>
+
+<p><strong>Trading hours:</strong> Standard CME hours. All positions must be closed before the daily cutoff.</p>
+
+<div class="callout-success callout">
+  <div class="callout-title">✓ Lowest total cost of funding in 2026</div>
+  <p>For a $50K account, the path from evaluation to first payout at Tradeify can cost as little as $103 (one month of evaluation, no activation fee). Compare that to Topstep ($49 + $149 activation = $198 minimum), Take Profit Trader ($180 + $130 activation = $310), or Apex ($167/mo + $130-$160 activation). This cost advantage is why Tradeify is growing faster than almost any other firm.</p>
+</div>
+
+<h2><span class="section-num">03</span>Stage 2 — Sim Funded Account</h2>
+
+<p>After passing SELECT, you choose between two funded paths. Both are simulated accounts with real payouts. Both maintain the 90/10 profit split and EOD trailing drawdown.</p>
+
+<h3>Select Daily vs Select Flex</h3>
+
+<div class="data-table-wrap">
+<table class="data-table">
+<thead><tr><th>Feature</th><th>Select Daily</th><th>Select Flex</th></tr></thead>
+<tbody>
+<tr><td class="label">Payout frequency</td><td>Daily</td><td>After 5 winning days</td></tr>
+<tr><td class="label">Profit split</td><td>90/10</td><td>90/10</td></tr>
+<tr><td class="label">Drawdown type</td><td>EOD trailing</td><td>EOD trailing</td></tr>
+<tr><td class="label">Consistency rule (funded)</td><td>35%</td><td>35%</td></tr>
+<tr><td class="label">Min balance for payout</td><td>No minimum balance requirement</td><td>No minimum balance requirement</td></tr>
+<tr><td class="label">Best for</td><td>Traders wanting daily cash flow</td><td>Traders building toward larger payouts</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><strong>Select Daily</strong> lets you request a payout at the end of each profitable trading day. Caps are lower per withdrawal, but the frequency means consistent traders can generate daily cash flow. This is attractive for traders who prefer regular small withdrawals.</p>
+
+<p><strong>Select Flex</strong> requires 5 winning days before each payout request, but the withdrawal caps are higher. This path suits traders who can wait longer for larger lump sums.</p>
+
+<h3>Funded account rules (both paths)</h3>
+
+<p><strong>EOD trailing drawdown.</strong> Same mechanic as the evaluation — no intraday floor ratcheting. This consistency between evaluation and funded stages is a significant advantage. At TPT, the drawdown switches from EOD to intraday when you get funded, catching traders off guard. Tradeify keeps it the same at every stage.</p>
+
+<p><strong>35% consistency rule.</strong> On funded accounts, the consistency rule tightens from 40% (evaluation) to 35%. No single day's profit can exceed 35% of your total profit at the time of payout.</p>
+
+<p><strong>Weekly activity.</strong> You must place at least one trade per week to keep the account active.</p>
+
+<p><strong>News trading restrictions.</strong> Traders must be flat during major economic announcements. Specific restricted events are listed on the Tradeify dashboard.</p>
+
+<p><strong>No hedging.</strong> Counter positions in the same or correlated instruments are not permitted.</p>
+
+<p><strong>Account limit:</strong> Up to 5 funded accounts can be active simultaneously.</p>
+
+<h2><span class="section-num">04</span>Stage 3 — Tradeify Elite (Live Capital)</h2>
+
+<p>After 5 successful payouts on a Sim Funded account, you become eligible for Tradeify Elite — a live-market account where your orders are routed to the exchange. Elite maintains the 90/10 profit split and EOD trailing drawdown. The transition to Elite is Tradeify's equivalent of what TPT calls PRO+ or what Bulenox calls the Funded Account transition.</p>
+
+<p>Elite accounts represent the end goal — real capital, real market execution, with the same rule set you have already been trading under. No rule surprises at transition.</p>
+
+<h2><span class="section-num">05</span>Total cost of funding — the math that matters</h2>
+
+<p>The reason Tradeify has grown so fast is not any single feature — it is the total cost from evaluation to first payout. Here is the actual math compared to every major competitor, using a $50K account.</p>
+
+<div class="data-table-wrap">
+<table class="data-table">
+<thead><tr><th>Firm</th><th>Monthly eval fee</th><th>Activation fee</th><th>Total (1-month pass)</th><th>Total (2-month pass)</th></tr></thead>
+<tbody>
+<tr class="tc-row"><td class="label">Tradeify SELECT</td><td>~$103-$111</td><td>$0</td><td>~$103</td><td>~$206</td></tr>
+<tr><td class="label">Topstep Standard</td><td>$49</td><td>$149</td><td>$198</td><td>$247</td></tr>
+<tr><td class="label">Topstep No Act. Fee</td><td>Higher (~$109)</td><td>$0</td><td>~$109</td><td>~$218</td></tr>
+<tr><td class="label">Take Profit Trader</td><td>$180</td><td>$130</td><td>$310</td><td>$490</td></tr>
+<tr><td class="label">Bulenox EOD (Opt 2)</td><td>$145</td><td>~$148</td><td>$293</td><td>$438</td></tr>
+<tr><td class="label">Apex (one-time)</td><td>~$167 (one-time)</td><td>$130-$160</td><td>~$297</td><td>~$297 + reset</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>For traders who expect to pass in one attempt, Tradeify and Topstep No Activation Fee are nearly identical in cost. For traders who take two or more attempts, Tradeify's lower monthly cost and zero activation fee compounds into meaningful savings — especially for traders running multiple evaluations in parallel.</p>
+
+<p>The cost advantage is not just about saving $100. Prop firm traders routinely run 3-5 evaluations simultaneously to maximise their chance of having multiple funded accounts. At 5 concurrent evaluations, the monthly cost difference between Tradeify ($515-$555) and Take Profit Trader ($900) is $345-$385 per month. Over two months of attempts, that is nearly $800 saved — enough to fund additional evaluations.</p>
+
+<h2><span class="section-num">06</span>Select Daily vs Select Flex — which to choose</h2>
+
+<p>The choice between Daily and Flex is really a question about your cash flow preferences and trading rhythm.</p>
+
+<p><strong>Choose Select Daily if:</strong> You trade every day, you want regular income, and you are comfortable with lower per-withdrawal caps. Daily payouts turn your funded account into something resembling a salary — small, consistent deposits. This works well for traders who are using prop firm income to cover living expenses or reinvest into additional accounts.</p>
+
+<p><strong>Choose Select Flex if:</strong> You do not trade every day, you prefer to let profits accumulate, or you want higher withdrawal caps. Flex requires 5 winning days per payout window, so it suits traders who trade 3-4 days per week and want to pull a larger lump sum. If you go through a stretch where you only trade 2-3 days in a week, Daily would still let you withdraw each profitable day — Flex would make you wait until you accumulate 5 winning days.</p>
+
+<p><strong>For copier traders:</strong> If you run multiple Tradeify accounts through a <a href="/guides/ninjatrader-trade-copier">trade copier</a>, Select Daily across all accounts means daily withdrawals from every account — which quickly becomes an administrative task. Select Flex consolidates payouts into less frequent, larger batches. Consider your withdrawal management bandwidth when choosing.</p>
+
+<h2><span class="section-num">07</span>What changed in 2025-2026</h2>
+
+<p>Tradeify has iterated rapidly. The SELECT evaluation replaced an earlier multi-plan system that was more complicated to navigate. The key changes in the 2025-2026 period include the unified SELECT evaluation structure, the introduction of the Daily vs Flex choice after passing, the removal of activation fees across all account sizes, and the establishment of the Elite progression path for live capital. The 90/10 profit split from day one was already in place but became a stronger differentiator as competitors adjusted their own splits.</p>
+
+<p>The competitive landscape among futures prop firms in 2026 is heavily influenced by Tradeify's pricing pressure. Multiple firms have responded by lowering activation fees, introducing their own no-activation-fee paths, or restructuring their evaluation pricing. Tradeify did not invent EOD drawdown or high profit splits, but they packaged the full combination (EOD + no activation + 90/10 + low monthly cost) in a way that forced the industry to respond.</p>
+
+<h2><span class="section-num">08</span>Platforms supported</h2>
+
+<p>Tradeify supports NinjaTrader, Tradovate, TradingView, Quantower, and several other platforms through Rithmic and CQG data feeds. The primary platforms for futures day traders running a <a href="/guides/ninjatrader-trade-copier">trade copier</a> are NinjaTrader (via Rithmic) and Tradovate.</p>
+
+<p>Tradeify has not published an explicit policy banning or permitting trade copiers. If you plan to use a copier across multiple Tradeify accounts, verify the current policy directly with their support team before activating.</p>
+
+<h2><span class="section-num">09</span>How Tradeify compares</h2>
+
+<div class="data-table-wrap">
+<table class="data-table">
+<thead><tr><th>Feature</th><th>Tradeify</th><th>Topstep</th><th>Take Profit Trader</th><th>Apex</th><th>Bulenox</th></tr></thead>
+<tbody>
+<tr><td class="label">Activation fee</td><td class="ck">None</td><td>$149 (Standard)</td><td>$130</td><td>$130-$160</td><td>$98-$348</td></tr>
+<tr><td class="label">Eval drawdown</td><td>EOD trailing</td><td>EOD trailing</td><td>EOD trailing</td><td>Intraday trailing</td><td>Trailing or EOD</td></tr>
+<tr><td class="label">Funded drawdown</td><td>EOD trailing</td><td>EOD trailing</td><td>Intraday trailing</td><td>Intraday trailing</td><td>Trailing or EOD</td></tr>
+<tr><td class="label">Drawdown change?</td><td class="ck">No — same everywhere</td><td class="ck">No</td><td class="cx">Yes — EOD → Intraday</td><td class="ck">No</td><td class="ck">No</td></tr>
+<tr><td class="label">Consistency rule</td><td>40% eval / 35% funded</td><td>50% or 40%</td><td>50% (eval only)</td><td>30%</td><td>40% (funded only)</td></tr>
+<tr><td class="label">Profit split</td><td>90/10</td><td>90/10</td><td>80/20 → 90/10</td><td>100% first $25K, then 90/10</td><td>100% first $10K, then 90/10</td></tr>
+<tr><td class="label">Daily loss limit</td><td class="ck">None (eval)</td><td>Yes</td><td class="ck">None</td><td>Yes (trailing)</td><td>Option 2 only</td></tr>
+<tr><td class="label">Max funded accounts</td><td>5</td><td>Multiple</td><td>5 PRO + 5 PRO+</td><td>20</td><td>11 total (3 active)</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="pull-quote">Tradeify's edge is consistency: EOD drawdown everywhere, no activation fee, and a 90/10 split from day one. If you want the lowest total cost from evaluation to payout with the most forgiving drawdown mechanic, Tradeify is the firm to beat in 2026.</div>
+
+<h2><span class="section-num">10</span>Risk rules to watch for</h2>
+
+<p>While Tradeify's rule set is among the most trader-friendly, there are specific areas where traders get caught.</p>
+
+<p><strong>The 35% funded consistency rule is tighter than the 40% evaluation rule.</strong> Traders who pass the evaluation with a best-day ratio of 38% assume they are safe — but the funded rule is 35%, not 40%. If you carry aggressive winning-day patterns from evaluation into the funded stage, you may find your first payout request blocked. Start tracking your consistency ratio from day one of your funded account.</p>
+
+<p><strong>The news trading restriction is firm-specific.</strong> Unlike the evaluation, funded accounts require you to be flat during major economic releases. The restricted events are published on the Tradeify dashboard, not on a public web page. Check the dashboard before each session to know which events are restricted that day. Missing a news restriction and holding through FOMC or NFP can result in a rule violation on your funded account.</p>
+
+<p><strong>The weekly activity requirement means you must place at least one trade per week.</strong> If you go on vacation or simply do not see a setup for 7+ calendar days, your account may be flagged as inactive. Set a calendar reminder to place a small position each week if you are in a slow stretch.</p>
+
+<p><strong>Position close time is enforced strictly.</strong> All positions must be closed before the daily cutoff. Tradeify's system will auto-liquidate anything open past the deadline. If you are in a winning trade at 3:55 PM CT, close it manually before the cutoff rather than risking the auto-liquidation price, which may be worse than your current unrealised profit.</p>
+
+<p>As with all prop firm rules references on this site, verify current rules directly on the Tradeify website before purchasing an evaluation. Futures prop firms update rules frequently, and pricing or policies may have changed since this page was last updated.</p>
+
+
+<p>One area where Tradeify differs from most competitors is the absence of a published scaling plan or position-size progression on funded accounts. Other firms like Apex increase contract limits as you hit profit milestones. Tradeify gives you the full contract limit for your account size from day one of the funded stage. This simplifies position management when using a trade copier — you do not need to adjust size multipliers as the account progresses. The size you configure on day one stays valid throughout the life of the account.</p>
+
+<p>Tradeify also does not currently offer a formal referral or affiliate programme through an external platform, though this may change. If you are a YouTube creator or community member interested in promoting Tradeify, check their website for any partnership or discount code programmes. Some firms offer direct referral commissions; others rely on discount codes tracked internally.</p>
+
+<h2><span class="section-num">11</span>What a trade copier changes about Tradeify</h2>
+
+<p>With up to 5 funded accounts allowed, traders managing multiple Tradeify accounts can benefit significantly from a <a href="/guides/ninjatrader-trade-copier">NinjaTrader trade copier</a>. Execute once on your lead account, and every follower mirrors the trade. The AI journal in a tool like Tradecovex then tracks performance across all accounts, helping you spot which accounts are profitable and which are dragging.</p>
+
+<p>If you run Tradeify alongside accounts at other firms (Apex, Bulenox, TPT), a copier lets you manage the entire portfolio from a single NinjaTrader instance — one trade, every account, every firm.</p>
+
+
+    <div class="cta-banner">
+      <h3>Scale Your Tradeify Accounts with a Copier</h3>
+      <p>Tradecovex copies your NinjaTrader trades to every follower account — and the AI journal shows you exactly what is working across all of them.</p>
+      <a href="/" class="btn btn-primary btn-lg" style="position:relative;z-index:1">Get Started</a>
+      <div class="cta-perks">
+        <span class="cta-perk">7-day free trial</span>
+        <span class="cta-perk">No credit card</span>
+        <span class="cta-perk">NinjaTrader add-on</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container">
+    <div style="text-align:center">
+      <span class="section-tag">FAQ</span>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q">Does Tradeify charge an activation fee?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">No. Tradeify does not charge an activation fee after passing the SELECT evaluation. You move directly from evaluation to a Sim Funded account at no additional cost. This is one of their biggest advantages — competitors charge $130-$349 for this step.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What type of drawdown does Tradeify use?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">End-of-day (EOD) trailing drawdown at every stage — evaluation, Sim Funded, and Elite. The drawdown recalculates only at end-of-day, so intraday dips that recover before the close do not move your floor. Unlike Take Profit Trader, the drawdown mechanic does not change between stages.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What is the difference between Select Daily and Select Flex?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Select Daily allows daily payout requests with lower per-withdrawal caps. Select Flex requires 5 winning days before each payout but offers higher withdrawal caps. Both use a 90/10 profit split and EOD trailing drawdown. You choose your path after passing the evaluation.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What is Tradeify Elite?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Tradeify Elite is a live-market account you qualify for after 5 successful payouts on a Sim Funded account. Your orders are routed to the exchange through a regulated broker. Elite maintains the same 90/10 profit split and EOD trailing drawdown as earlier stages.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How many Tradeify accounts can I have?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Up to 5 Sim Funded or Elite accounts can be active simultaneously. You can run multiple evaluations in parallel as well.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Does Tradeify have a consistency rule?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Yes. During the SELECT evaluation, no single day's profit can exceed 40% of your total profit. On Sim Funded accounts, this tightens to 35%. The consistency rule is designed to prevent passing or withdrawing based on a single outsized winning day.</div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-wide">
+    <div style="text-align:center">
+      <span class="section-tag">Related Guides</span>
+      <h2>Keep reading</h2>
+    </div>
+    <div class="related-grid">
+    <a href="/guides/take-profit-trader-rules-2026" class="related-card">
+      <span class="related-tag">Rules</span>
+      <h4>Take Profit Trader Rules 2026</h4>
+      <p>TPT's three-stage model — including the drawdown switch that catches traders off guard.</p>
+    </a>
+    <a href="/guides/bulenox-rules-2026" class="related-card">
+      <span class="related-tag">Rules</span>
+      <h4>Bulenox Rules 2026</h4>
+      <p>Bulenox rules including the 40% consistency rule and flipping policy.</p>
+    </a>
+    <a href="/guides/topstep-combine-rules-2026" class="related-card">
+      <span class="related-tag">Rules</span>
+      <h4>Topstep Combine Rules 2026</h4>
+      <p>Complete Topstep rules reference — the longest-running futures prop firm.</p>
+    </a>
+    <a href="/guides/trailing-drawdown" class="related-card">
+      <span class="related-tag">Prop Rules</span>
+      <h4>What is Trailing Drawdown?</h4>
+      <p>EOD vs intraday trailing — the mechanic that kills most funded accounts.</p>
+    </a>
+    <a href="/guides/prop-firm-rules-2026" class="related-card">
+      <span class="related-tag">Hub</span>
+      <h4>Prop Firm Rules Hub 2026</h4>
+      <p>All prop firm rules references in one place.</p>
+    </a>
+    <a href="/guides/ninjatrader-trade-copier" class="related-card">
+      <span class="related-tag">Copier</span>
+      <h4>NinjaTrader Trade Copier Guide</h4>
+      <p>How trade copiers work with multiple prop firm accounts.</p>
+    </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="/"><img src="/logo.png" alt="Tradecovex" class="footer-logo"></a>
+        <p class="footer-tagline">The smartest trade copier for NinjaTrader — copy trades and let the AI tell you why.</p>
+        <div class="footer-social">
+          <a href="#" title="Twitter / X" aria-label="Twitter">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" title="YouTube" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#how">How It Works</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="/#waitlist">Join Waitlist</a></li>
+          <li><a href="/guides/">All Guides</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/#privacy">Privacy Policy</a></li>
+          <li><a href="/#terms">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Partners</h4>
+        <ul>
+          <li><a href="#" class="footer-aff">Affiliates — Earn $15–$45/signup</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-risk">
+      <strong>⚠ Risk Disclosure:</strong> Futures trading involves substantial risk of loss and is not suitable for all investors. You can lose more than your initial investment. Past performance is not indicative of future results. Tradecovex is a software tool — it does not provide investment advice and does not guarantee trading results. Use of a trade copier does not guarantee compliance with prop firm rules. All trading decisions are your responsibility. Only trade with capital you can afford to lose.
+    </div>
+    <div class="footer-risk" style="margin-top:10px">
+      <strong>No Investment Advice:</strong> Tradecovex is a software tool for trade copying and journaling. IVAAN INC is not registered as an investment adviser with the Ontario Securities Commission, CIRO, the SEC, or any other regulatory body. Nothing in Tradecovex — including the AI journal analysis feature — constitutes investment advice, financial advice, or a recommendation to buy or sell any security, futures contract, or other financial instrument. The AI journal provides analytical observations about your historical trading patterns for informational purposes only. All trading decisions are made solely by you.
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Tradecovex. All rights reserved. Built by IVAAN INC, Ontario, Canada.</span>
+      <span class="footer-copy">Canadian users served from Toronto · US users served from New York · PIPEDA compliant</span>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+const hamburger=document.getElementById('hamburger');const mobileMenu=document.getElementById('mobile-menu');if(hamburger){hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');});}
+document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{q.parentElement.classList.toggle('open');});});
+</script>
+
+</body>
+</html>
