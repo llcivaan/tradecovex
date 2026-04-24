@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Apex EOD vs Intraday Drawdown 2026: Which One Should You Pick? [Full Breakdown]</title>
+<meta name="description" content="Apex Trader Funding now makes you choose between EOD and Intraday trailing drawdown. How each one works, which one is safer, and which fits your trading style in 2026.">
+<link rel="canonical" href="https://tradecovex.com/guides/apex-eod-vs-intraday-2026">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Apex EOD vs Intraday Drawdown 2026: Which One Should You Pick? [Full Breakdown]">
+<meta property="og:description" content="Apex Trader Funding now makes you choose between EOD and Intraday trailing drawdown. How each one works, which one is safer, and which fits your trading style in 2026.">
+<meta property="og:url" content="https://tradecovex.com/guides/apex-eod-vs-intraday-2026">
+<meta property="og:image" content="https://tradecovex.com/logo.png">
+<meta property="og:site_name" content="Tradecovex">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Apex EOD vs Intraday Drawdown 2026: Which One Should You Pick? [Full Breakdown]">
+<meta name="twitter:description" content="Apex Trader Funding now makes you choose between EOD and Intraday trailing drawdown. How each one works, which one is safer, and which fits your trading style in 2026.">
+<meta name="twitter:image" content="https://tradecovex.com/logo.png">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="author" content="Tradecovex / IVAAN INC">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://tradecovex.com/guides/apex-eod-vs-intraday-2026#article",
+      "headline": "Apex EOD vs Intraday Trailing Drawdown 2026 — Which One Should You Pick?",
+      "description": "Full breakdown of Apex Trader Funding's EOD and Intraday trailing drawdown options after the March 2026 overhaul. How each one works, the Daily Loss Limit difference, Safety Net math, and which option fits which trading style.",
+      "image": "https://tradecovex.com/logo.png",
+      "datePublished": "2026-04-24T00:00:00+00:00",
+      "dateModified": "2026-04-24T00:00:00+00:00",
+      "author": {
+        "@type": "Organization",
+        "name": "Tradecovex",
+        "url": "https://tradecovex.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Tradecovex",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://tradecovex.com/logo.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://tradecovex.com/guides/apex-eod-vs-intraday-2026"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://tradecovex.com/guides/apex-eod-vs-intraday-2026#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can I switch between EOD and Intraday after I start my Apex evaluation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. You choose EOD or Intraday when you purchase your evaluation, and you cannot switch after. The drawdown type stays the same through the evaluation and into your funded Performance Account. Pick before you buy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which Apex drawdown type is better for scalpers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "EOD is generally better for scalpers. Scalpers often have large intraday equity swings relative to their final closed P&L. With Intraday, each peak in unrealized profit ratchets the drawdown floor higher in real time, even if the trade is closed for less. EOD only recalculates at 4:59 PM ET based on closed positions, so intraday swings do not affect your trailing drawdown."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the Daily Loss Limit on Apex EOD accounts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Daily Loss Limit (DLL) is a per-day maximum loss that only applies to EOD accounts. For a 50K account, the DLL is $1,000. For a 100K account, it is $2,000. Intraday accounts do not have a DLL. The DLL resets at 4:59 PM ET each day."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the Apex Safety Net change between EOD and Intraday?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Safety Net formula is the same for both: your trailing drawdown floor plus $100. However, because EOD and Intraday trail differently, the actual Safety Net number can differ. EOD trails based on end-of-day closed balance, so the Safety Net moves more slowly. Intraday trails real-time peaks including unrealized gains, so the Safety Net can ratchet up faster."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Apex Intraday drawdown the same as Topstep trailing drawdown?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "They are similar but not identical. Both trail the peak balance in real time including unrealized gains. The key difference is that Apex Intraday has no Daily Loss Limit, while Topstep has a separate Daily Loss Limit on funded accounts. The trailing mechanics are comparable, but the surrounding rules differ."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:#0F172A;background:#fff;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+:root{
+  --blue:#2563EB;
+  --blue-dark:#1d4ed8;
+  --navy:#0A1628;
+  --slate:#4B5E7A;
+  --slate-light:#64748B;
+  --light:#F0F4FF;
+  --border:#DDE3EF;
+  --radius:12px;
+  --shadow-sm:0 1px 3px rgba(10,22,40,.08),0 1px 2px rgba(10,22,40,.06);
+  --shadow-md:0 4px 16px rgba(10,22,40,.1),0 2px 6px rgba(10,22,40,.06);
+  --shadow-lg:0 12px 40px rgba(10,22,40,.14),0 4px 12px rgba(10,22,40,.08);
+}
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px}
+.nav-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav-logo{height:40px;width:auto}
+.nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+.nav-links a{font-size:.88rem;font-weight:600;color:var(--slate);transition:color .2s;letter-spacing:.01em}
+.nav-links a:hover{color:var(--navy)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 26px;border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;transition:all .18s;border:none;text-decoration:none;letter-spacing:.01em}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 2px 8px rgba(37,99,235,.3)}
+.btn-primary:hover{background:var(--blue-dark);transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,99,235,.4)}
+.btn-outline{background:transparent;color:var(--navy);border:2px solid #C4CEDD}
+.btn-outline:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn-lg{padding:16px 38px;font-size:.98rem;border-radius:14px}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;transition:all .25s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:20px 24px;z-index:199;flex-direction:column;gap:0;box-shadow:var(--shadow-lg)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{display:block;padding:14px 0;font-size:1rem;font-weight:600;color:var(--slate);border-bottom:1px solid var(--border)}
+.mobile-menu a.btn{margin-top:16px;width:100%;border-bottom:none;justify-content:center}
+.guide-hero{padding:140px 24px 60px;text-align:center;position:relative;overflow:hidden;background:#fff}
+.guide-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 90% 60% at 50% -10%,rgba(37,99,235,.08) 0%,transparent 65%);pointer-events:none}
+.guide-hero::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background-image:radial-gradient(circle at 1px 1px, rgba(37,99,235,.06) 1px, transparent 0);background-size:32px 32px;pointer-events:none;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 0%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 0%,transparent 70%)}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:100px;padding:7px 18px;font-size:.75rem;font-weight:700;color:var(--blue);letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px;position:relative;z-index:1}
+.hero-eyebrow span.dot{width:7px;height:7px;background:var(--blue);border-radius:50%;animation:blink 2s ease infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+h1{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(2.2rem,4.5vw,3.4rem);line-height:1.08;letter-spacing:-.03em;color:var(--navy);max-width:900px;margin:0 auto 24px;position:relative;z-index:1}
+h1 .accent{color:var(--blue)}
+.guide-meta{display:flex;justify-content:center;gap:24px;margin-bottom:20px;flex-wrap:wrap;font-size:.82rem;color:var(--slate-light);position:relative;z-index:1}
+.guide-meta span{display:inline-flex;align-items:center;gap:6px}
+.breadcrumb{font-size:.78rem;color:var(--slate-light);margin-bottom:24px;position:relative;z-index:1}
+.breadcrumb a{color:var(--blue);font-weight:600}
+.breadcrumb a:hover{text-decoration:underline}
+.answer-box{max-width:780px;margin:0 auto 50px;background:linear-gradient(135deg,#EFF6FF,#F0F4FF);border:2px solid #BFDBFE;border-radius:18px;padding:32px 36px;text-align:left;position:relative;z-index:1;box-shadow:var(--shadow-md)}
+.answer-box-label{display:inline-block;font-size:.68rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.14em;background:#fff;border:1.5px solid #BFDBFE;border-radius:100px;padding:5px 14px;margin-bottom:14px}
+.answer-box p{font-size:1.02rem;color:var(--navy);line-height:1.75;font-weight:500}
+.answer-box p strong{font-weight:700;color:var(--navy)}
+.section{padding:80px 24px}
+.section-light{background:var(--light)}
+.section-tag{display:inline-block;font-size:.7rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.14em;margin-bottom:16px;background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:100px;padding:5px 14px}
+h2{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(1.7rem,3.2vw,2.4rem);line-height:1.12;letter-spacing:-.025em;color:var(--navy);margin-bottom:18px}
+h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.3rem;color:var(--navy);margin:32px 0 14px;letter-spacing:-.015em}
+h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08rem;color:var(--navy);margin:24px 0 10px;letter-spacing:-.01em}
+.container{max-width:880px;margin:0 auto}
+.container-wide{max-width:1120px;margin:0 auto}
+.prose p{font-size:1rem;color:var(--slate);line-height:1.85;margin-bottom:20px}
+.prose p strong{color:var(--navy);font-weight:700}
+.prose ul,.prose ol{margin:16px 0 24px 22px;color:var(--slate);font-size:1rem;line-height:1.85}
+.prose li{margin-bottom:10px}
+.prose li strong{color:var(--navy);font-weight:700}
+.prose a{color:var(--blue);font-weight:600;border-bottom:1.5px solid rgba(37,99,235,.3);transition:border .2s}
+.prose a:hover{border-bottom-color:var(--blue)}
+.section-num{display:inline-block;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:.78rem;color:var(--blue);background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:8px;padding:4px 10px;margin-bottom:12px;letter-spacing:.06em}
+.pull-quote{background:linear-gradient(135deg,#EFF6FF,#F0F4FF);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:24px 28px;margin:32px 0;font-family:'Barlow Semi Condensed',sans-serif;font-size:1.18rem;font-weight:600;color:var(--navy);line-height:1.55;letter-spacing:-.01em}
+.callout{background:#fff;border:1.5px solid var(--border);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:22px 26px;margin:28px 0;box-shadow:var(--shadow-sm)}
+.callout-title{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1rem;color:var(--navy);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.callout p{font-size:.92rem;color:var(--slate);line-height:1.75;margin:0}
+.callout-warn{border-left-color:#DC2626;background:#FEF2F2}
+.callout-warn .callout-title{color:#991B1B}
+.callout-success{border-left-color:#16A34A;background:#F0FDF4}
+.callout-success .callout-title{color:#166534}
+.data-table-wrap{overflow-x:auto;border-radius:14px;border:1.5px solid var(--border);box-shadow:var(--shadow-md);margin:28px 0}
+.data-table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:580px;background:#fff}
+.data-table th{padding:14px 18px;text-align:left;font-weight:700;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;background:#F1F5F9;color:var(--slate);border-bottom:2px solid var(--border)}
+.data-table td{padding:13px 18px;border-bottom:1px solid var(--border);color:var(--slate);vertical-align:middle}
+.data-table tr:last-child td{border-bottom:none}
+.data-table tr.tc-row td{background:#EFF6FF;color:var(--navy);font-weight:600}
+.data-table td.label{font-weight:600;color:var(--navy);background:#FAFBFF}
+.ck{color:#16A34A;font-weight:700}
+.cx{color:#DC2626;font-weight:700}
+.cm{color:#D97706;font-weight:600;font-size:.85rem}
+.cta-banner{background:linear-gradient(135deg,#0A1628,#0F2460,#1d4ed8);border-radius:18px;padding:56px 48px;margin:48px 0;text-align:center;position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
+.cta-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 100%,rgba(37,99,235,.25) 0%,transparent 65%);pointer-events:none}
+.cta-banner h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:1.85rem;color:#fff;margin:0 0 14px;letter-spacing:-.025em;position:relative;z-index:1}
+.cta-banner p{font-size:1rem;color:#93C5FD;max-width:540px;margin:0 auto 26px;line-height:1.7;position:relative;z-index:1}
+.cta-perks{display:flex;gap:22px;justify-content:center;margin-top:22px;flex-wrap:wrap;position:relative;z-index:1}
+.cta-perk{font-size:.78rem;color:#60A5FA;font-weight:600;display:inline-flex;align-items:center;gap:6px}
+.cta-perk::before{content:'&#x2713;';font-weight:800}.cta-banner .btn-primary{color:#fff !important;border-bottom:0;text-decoration:none}
+.faq-list{max-width:780px;margin:0 auto}
+.faq-item{border-bottom:1.5px solid var(--border)}
+.faq-q{width:100%;text-align:left;padding:22px 0;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.97rem;color:var(--navy);line-height:1.45;letter-spacing:-.01em}
+.faq-icon{width:24px;height:24px;min-width:24px;border-radius:50%;border:2px solid var(--blue);display:flex;align-items:center;justify-content:center;transition:all .25s;flex-shrink:0}
+.faq-icon svg{width:12px;height:12px;stroke:var(--blue);fill:none;stroke-width:2.5;stroke-linecap:round;transition:transform .25s}
+.faq-item.open .faq-icon{background:var(--blue)}
+.faq-item.open .faq-icon svg{stroke:#fff;transform:rotate(45deg)}
+.faq-a{display:none;padding:0 0 22px;font-size:.92rem;color:var(--slate);line-height:1.85;max-width:680px}
+.faq-item.open .faq-a{display:block}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:30px}
+.related-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:24px;transition:all .25s;display:block;box-shadow:var(--shadow-sm)}
+.related-card:hover{border-color:#93C5FD;box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.related-tag{display:inline-block;font-size:.66rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.1em;background:#EFF6FF;border:1px solid #BFDBFE;border-radius:6px;padding:3px 8px;margin-bottom:12px}
+.related-card h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.02rem;color:var(--navy);margin:0 0 8px;line-height:1.35}
+.related-card p{font-size:.84rem;color:var(--slate);line-height:1.65;margin:0}
+.footer{background:#fff;border-top:1.5px solid var(--border);padding:60px 24px 36px}
+.footer-inner{max-width:1120px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1.5px solid var(--border);margin-bottom:30px}
+.footer-logo{height:48px;width:auto;margin-bottom:14px}
+.footer-tagline{font-size:.85rem;color:var(--slate);max-width:220px;line-height:1.7;margin-bottom:20px;font-weight:400}
+.footer-social{display:flex;gap:10px}
+.footer-social a{width:36px;height:36px;border:1.5px solid var(--border);border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--slate);transition:all .2s}
+.footer-social a:hover{border-color:var(--blue);color:var(--blue);background:#EFF6FF}
+.footer-social svg{width:16px;height:16px;fill:currentColor}
+.footer-col h4{font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:#94A3B8;margin:0 0 16px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;padding:0}
+.footer-col a{font-size:.875rem;color:var(--slate);transition:color .18s;font-weight:500}
+.footer-col a:hover{color:var(--navy)}
+.footer-aff{font-size:.82rem;color:var(--blue);font-weight:700}
+.footer-risk{background:var(--light);border:1.5px solid var(--border);border-radius:12px;padding:18px 22px;margin-bottom:16px;font-size:.75rem;color:#5B7399;line-height:1.75}
+.footer-risk strong{color:var(--slate);font-weight:700}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:6px}
+.footer-copy{font-size:.75rem;color:#94A3B8;font-weight:500}
+@media(max-width:960px){
+  .nav-links{display:none}
+  .nav-cta-desktop{display:none !important}
+  .hamburger{display:flex}
+  .footer-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .footer-top{grid-template-columns:1fr}
+  h1{font-size:2rem}
+  h2{font-size:1.6rem}
+  .answer-box{padding:24px 22px}
+  .cta-banner{padding:42px 28px}
+  .cta-banner h3{font-size:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" aria-label="Tradecovex home"><img src="/logo.png" alt="Tradecovex" class="nav-logo"></a>
+    <ul class="nav-links">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/guides/">Guides</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+    </ul>
+    <a href="/#waitlist" class="btn btn-primary nav-cta-desktop" style="display:inline-flex">Join Waitlist</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/#features">Features</a>
+  <a href="/guides/">Guides</a>
+  <a href="/#pricing">Pricing</a>
+  <a href="/#faq">FAQ</a>
+  <a href="/#waitlist" class="btn btn-primary">Join Waitlist</a>
+</div>
+
+<section class="guide-hero">
+  <div class="hero-eyebrow"><span class="dot"></span>APEX TRADER FUNDING</div>
+  <p class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/guides/">Guides</a> &rsaquo; Apex EOD vs Intraday</p>
+  <h1>Apex EOD vs Intraday Drawdown &mdash; <span class="accent">Which One Should You Pick</span> in 2026?</h1>
+  <div class="guide-meta">
+    <span>&#x1F4C5; Updated April 2026</span>
+    <span>&#x23F1; 12 min read</span>
+    <span>&#x270D; Tradecovex Team</span>
+  </div>
+  <div class="answer-box">
+    <span class="answer-box-label">Quick Answer</span>
+    <p><strong>Pick EOD if you want a more forgiving drawdown.</strong> EOD recalculates your trailing drawdown floor once per day at market close (4:59 PM ET), so intraday equity swings do not ratchet it up. EOD also comes with a Daily Loss Limit, which caps how much you can lose in a single session. <strong>Pick Intraday if you want no daily loss cap and are confident your strategy does not give back large unrealized gains.</strong> Intraday trails your peak balance in real time &mdash; including unrealized P&amp;L &mdash; but has no Daily Loss Limit. For most traders, especially those running multiple prop accounts with a <a href="/guides/copy-trades-apex-accounts">trade copier</a>, EOD is the safer choice.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container prose">
+
+<h2><span class="section-num">01</span>What changed on March 1, 2026</h2>
+
+<p>Apex Trader Funding overhauled its entire product on March 1, 2026. The old system had a single trailing drawdown that followed your account&rsquo;s peak balance in real time. Every trader got the same mechanic. That system is gone.</p>
+
+<p>Now, when you purchase an evaluation, you choose one of two trailing drawdown types: <strong>EOD (End of Day)</strong> or <strong>Intraday</strong>. This choice is permanent. You cannot switch after purchase. The drawdown type carries through from your evaluation into your funded Performance Account (PA). Several other rules were also removed in the March overhaul &mdash; the MAE rule is gone, the 5:1 reward-to-risk ratio is gone, and bracket orders are now mandatory. For the full rule set, see <a href="/guides/apex-trader-funding-rules-2026">Apex Trader Funding Rules 2026</a>.</p>
+
+<p>This page focuses entirely on the EOD vs Intraday decision because it is the single most consequential choice you make when starting an Apex evaluation in 2026.</p>
+
+<h2><span class="section-num">02</span>How EOD trailing drawdown works</h2>
+
+<p>EOD stands for End of Day. Your trailing drawdown floor is recalculated once per day at 4:59 PM ET, based on your <strong>closed</strong> account balance at that moment. Any equity swings that happen during the trading session &mdash; unrealized gains, unrealized losses, intraday peaks &mdash; do not affect the trailing drawdown calculation as long as your positions are closed before the recalculation.</p>
+
+<h3>EOD example &mdash; 50K account</h3>
+
+<p>You start a 50K evaluation with a $2,500 trailing drawdown. Your initial drawdown floor is $47,500. On Day 1, you have a trade that runs up $800 in unrealized profit, pulls back, and you close it for $400. During the session, your equity peaked at $50,800 &mdash; but that does not matter. At 4:59 PM ET, your closed balance is $50,400. The drawdown floor moves up to $47,900 ($50,400 minus $2,500). The intraday peak of $50,800 is ignored completely.</p>
+
+<p>On Day 2, you take a trade that runs up $1,200 unrealized, reverses, and you close it for a $200 loss. Your closed balance drops to $50,200. Because the drawdown floor only moves up (never down), it stays at $47,900 from the previous day. The trailing drawdown floor is now $2,300 below your current balance instead of the original $2,500, because it already ratcheted up on Day 1.</p>
+
+<h3>Daily Loss Limit &mdash; EOD only</h3>
+
+<p>EOD accounts have a <strong>Daily Loss Limit (DLL)</strong> that Intraday accounts do not. This is a per-day maximum loss that resets at 4:59 PM ET. For a 50K account, the DLL is <strong>$1,000</strong>. For a 100K account, the DLL is <strong>$2,000</strong>. If you hit the DLL at any point during the session, your account is in violation &mdash; even if your trailing drawdown has plenty of room left.</p>
+
+<div class="callout callout-warn">
+  <div class="callout-title">&#x26A0; DLL is the hidden risk of EOD</div>
+  <p>The EOD trailing drawdown is more forgiving, but the Daily Loss Limit restricts how much you can lose in a single session. If your strategy has occasional large losing days, the DLL can stop you out even though your overall drawdown is fine. Factor this into your decision.</p>
+</div>
+
+<h2><span class="section-num">03</span>How Intraday trailing drawdown works</h2>
+
+<p>Intraday trailing drawdown follows your account&rsquo;s <strong>peak equity in real time</strong>, including unrealized gains. Every new high-water mark your account reaches &mdash; even for a moment while a trade is open &mdash; ratchets the drawdown floor higher. It does not wait for the session to close. It does not wait for you to close the trade. It moves immediately.</p>
+
+<h3>Intraday example &mdash; 50K account</h3>
+
+<p>You start a 50K evaluation with a $2,500 trailing drawdown. Your initial drawdown floor is $47,500. You enter a trade that runs up $1,500 in unrealized profit. Your equity peaks at $51,500, and the drawdown floor immediately moves to $49,000 ($51,500 minus $2,500). The trade reverses and you close it for $300 profit. Your closed balance is $50,300, but your drawdown floor is already at $49,000 because it locked in at the unrealized peak. You now have only $1,300 of breathing room instead of $2,500.</p>
+
+<p>This is the core risk of Intraday drawdown. If your trading style involves letting winners run and they frequently pull back before you close, the trailing floor ratchets up at the peak of the move. You lose drawdown space you never actually captured as closed profit.</p>
+
+<h3>No Daily Loss Limit</h3>
+
+<p>Intraday accounts have <strong>no Daily Loss Limit</strong>. Your only constraint is the trailing drawdown floor. If you have $2,000 of room left before the floor, you can lose all $2,000 in a single session without violating any per-day rule. This is the main advantage of Intraday for traders who prefer not to be capped on daily loss.</p>
+
+<h2><span class="section-num">04</span>Side-by-side comparison</h2>
+
+<div class="data-table-wrap">
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>EOD</th>
+        <th>Intraday</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="label">Drawdown recalculation</td>
+        <td>Once daily at 4:59 PM ET</td>
+        <td>Real time, tick by tick</td>
+      </tr>
+      <tr>
+        <td class="label">Tracks unrealized P&amp;L?</td>
+        <td><span class="ck">No</span> &mdash; closed balance only</td>
+        <td><span class="cx">Yes</span> &mdash; includes open positions</td>
+      </tr>
+      <tr>
+        <td class="label">Daily Loss Limit (50K)</td>
+        <td>$1,000 per day</td>
+        <td>None</td>
+      </tr>
+      <tr>
+        <td class="label">Daily Loss Limit (100K)</td>
+        <td>$2,000 per day</td>
+        <td>None</td>
+      </tr>
+      <tr>
+        <td class="label">Trailing drawdown (50K)</td>
+        <td>$2,500</td>
+        <td>$2,500</td>
+      </tr>
+      <tr>
+        <td class="label">Trailing drawdown (100K)</td>
+        <td>$3,000</td>
+        <td>$3,000</td>
+      </tr>
+      <tr>
+        <td class="label">Payout min daily profit (50K)</td>
+        <td>$250</td>
+        <td>$200</td>
+      </tr>
+      <tr>
+        <td class="label">Payout min daily profit (100K)</td>
+        <td>$300</td>
+        <td>$250</td>
+      </tr>
+      <tr>
+        <td class="label">Safety Net formula</td>
+        <td>Drawdown floor + $100</td>
+        <td>Drawdown floor + $100</td>
+      </tr>
+      <tr>
+        <td class="label">Best for</td>
+        <td>Scalpers, swing traders, copier users</td>
+        <td>Momentum traders who hold through pullbacks</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2><span class="section-num">05</span>Which one is better for trade copier users?</h2>
+
+<p>If you run multiple funded Apex accounts with a <a href="/">trade copier</a>, <strong>EOD is almost always the better choice</strong>. Here is why.</p>
+
+<p>A copier replicates your lead account trades across 5, 10, or 20 follower accounts simultaneously. Execution timing varies slightly between accounts &mdash; fills may differ by a tick or two, and different accounts may see slightly different unrealized peaks during a trade. With Intraday drawdown, each follower account trails its own real-time peak independently. A trade that peaks at $51,300 on one account might peak at $51,500 on another due to fill differences. Each account&rsquo;s drawdown floor locks in at its own peak.</p>
+
+<p>With EOD drawdown, none of this matters. All accounts are evaluated on their closed balance at end of day. Minor fill differences between copier accounts do not ratchet drawdown floors differently. Every account with the same closed P&amp;L will have the same drawdown floor. This makes managing multiple accounts significantly easier and more predictable.</p>
+
+<div class="callout callout-success">
+  <div class="callout-title">&#x2705; Copier recommendation</div>
+  <p>If you use Tradecovex or any other NinjaTrader trade copier to manage multiple Apex accounts, choose EOD for every account. The consistency across accounts is worth the Daily Loss Limit trade-off.</p>
+</div>
+
+<h2><span class="section-num">06</span>Who should pick EOD</h2>
+
+<ul>
+  <li><strong>Scalpers</strong> who take quick trades with tight targets. Scalping often produces large intraday equity swings relative to closed P&amp;L. EOD ignores those swings.</li>
+  <li><strong>Traders running multiple prop accounts</strong> who want consistent drawdown behavior across all accounts.</li>
+  <li><strong>Traders who let winners run but take partial profits.</strong> If your trade runs up $1,000 and you close half, then the rest pulls back &mdash; EOD only cares about your closed balance at 4:59 PM.</li>
+  <li><strong>Newer traders</strong> who are still refining their exit timing. EOD is more forgiving of imperfect exits.</li>
+  <li><strong>Traders with disciplined daily loss control.</strong> If you already stop trading after a set dollar loss, the DLL will not be a problem because your own limits are tighter.</li>
+</ul>
+
+<h2><span class="section-num">07</span>Who should pick Intraday</h2>
+
+<ul>
+  <li><strong>Momentum traders</strong> who catch large moves and hold positions through pullbacks without closing. If your strategy captures 90%+ of the move before exiting, the trailing unrealized peak is close to your closed profit anyway.</li>
+  <li><strong>Traders who occasionally have large losing days</strong> but make it back over the week. The DLL on EOD accounts would stop them out on those bad days even if their overall performance is fine.</li>
+  <li><strong>Traders with a strict max position size</strong> who do not let unrealized P&amp;L swing wildly. If your average trade peak-to-close variance is small, Intraday trailing costs you very little drawdown room.</li>
+</ul>
+
+<h2><span class="section-num">08</span>The Safety Net &mdash; EOD vs Intraday</h2>
+
+<p>On funded Performance Accounts, Apex applies a Safety Net. The Safety Net is calculated as your trailing drawdown floor plus $100. When your account balance drops to the Safety Net level, your account enters a restricted state.</p>
+
+<p>Because EOD and Intraday trail differently, the Safety Net number diverges over time. EOD trails end-of-day closed balances, so the Safety Net moves more slowly and predictably. Intraday trails real-time peaks, so the Safety Net can jump up during a single trade if unrealized P&amp;L spikes. For copier users running many accounts, the EOD Safety Net is easier to track because it only changes once per day.</p>
+
+<h2><span class="section-num">09</span>Common mistakes traders make with this decision</h2>
+
+<h3>Mistake 1: Picking Intraday because it has no Daily Loss Limit</h3>
+
+<p>The lack of a DLL sounds like more freedom, but the real-time trailing drawdown is a much harder constraint than the DLL for most trading styles. Losing your DLL for the day just means you stop trading until tomorrow. Losing drawdown room to an unrealized peak you never closed is permanent &mdash; that room is gone for the life of the account.</p>
+
+<h3>Mistake 2: Assuming EOD means your drawdown never trails during the day</h3>
+
+<p>EOD means the <strong>trailing drawdown floor</strong> is recalculated at end of day. You can still violate the existing floor at any point during the session. If your current floor is $48,000 and your equity drops to $47,999 at 10:30 AM, you are in violation even though EOD does not recalculate until 4:59 PM. The floor does not move during the day, but it is always enforced.</p>
+
+<h3>Mistake 3: Not considering payout minimums</h3>
+
+<p>EOD and Intraday have different minimum daily profit requirements for payouts. On a 50K account, EOD requires $250 per qualifying day while Intraday requires $200. On a 100K account, EOD requires $300 versus $250 for Intraday. If your average daily profit is close to these thresholds, this difference matters for how quickly you accumulate qualifying days.</p>
+
+<div class="pull-quote">The drawdown type you choose affects every aspect of your funded account &mdash; from daily risk limits to payout qualification speed to Safety Net behavior. This is not a minor settings choice. Pick deliberately.</div>
+
+<div class="cta-banner">
+  <h3>Track Every Trade Across All Your Apex Accounts</h3>
+  <p>Tradecovex copies your trades from one NinjaTrader lead account to all your funded accounts &mdash; and the AI journal tells you exactly which patterns are costing you drawdown.</p>
+  <a href="/#waitlist" class="btn btn-primary btn-lg">Join the Waitlist &mdash; Free</a>
+  <div class="cta-perks">
+    <span class="cta-perk">NinjaTrader native</span>
+    <span class="cta-perk">Up to 100 accounts</span>
+    <span class="cta-perk">AI trade journal built in</span>
+  </div>
+</div>
+
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">Can I switch between EOD and Intraday after I start my evaluation?<span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-a">No. You choose EOD or Intraday when you purchase your evaluation, and you cannot switch after. The drawdown type stays the same through the evaluation and into your funded Performance Account. Pick before you buy.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Which drawdown type is better for scalpers?<span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-a">EOD is generally better for scalpers. Scalpers often have large intraday equity swings relative to their final closed P&amp;L. With Intraday, each peak in unrealized profit ratchets the drawdown floor higher in real time, even if the trade is closed for less. EOD only recalculates at 4:59 PM ET based on closed positions, so intraday swings do not affect your trailing drawdown.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What is the Daily Loss Limit on Apex EOD accounts?<span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-a">The Daily Loss Limit (DLL) is a per-day maximum loss that only applies to EOD accounts. For a 50K account, the DLL is $1,000. For a 100K account, it is $2,000. Intraday accounts do not have a DLL. The DLL resets at 4:59 PM ET each day.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Does the Safety Net differ between EOD and Intraday?<span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-a">The formula is the same &mdash; trailing drawdown floor plus $100. But because EOD and Intraday trail differently, the actual Safety Net number diverges over time. EOD trails end-of-day closed balances, so the Safety Net moves slowly. Intraday trails real-time peaks including unrealized gains, so the Safety Net can ratchet up faster.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Is Apex Intraday the same as Topstep trailing drawdown?<span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-a">They are similar but not identical. Both trail the peak balance in real time including unrealized gains. The key difference is that Apex Intraday has no Daily Loss Limit, while Topstep has a separate Daily Loss Limit on funded accounts. The trailing mechanics are comparable, but the surrounding rules differ. For a full comparison, see <a href="/compare/apex-vs-topstep">Apex vs Topstep 2026</a>.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Related Guides</h2>
+    <div class="related-grid">
+      <a href="/guides/apex-trader-funding-rules-2026" class="related-card">
+        <span class="related-tag">GUIDE</span>
+        <h4>Apex Trader Funding Rules 2026</h4>
+        <p>The complete rule-by-rule reference for Apex after the March 2026 overhaul. EOD vs Intraday, payouts, consistency rule.</p>
+      </a>
+      <a href="/guides/apex-payout-rules-2026" class="related-card">
+        <span class="related-tag">GUIDE</span>
+        <h4>Apex Payout Rules 2026</h4>
+        <p>Minimum daily profit, qualifying days, the 50% consistency rule, payout ladders, and the 6-payout cap explained.</p>
+      </a>
+      <a href="/guides/trailing-drawdown" class="related-card">
+        <span class="related-tag">GUIDE</span>
+        <h4>Trailing Drawdown Explained</h4>
+        <p>How trailing drawdown works across prop firms. EOD vs Intraday mechanics with real examples.</p>
+      </a>
+      <a href="/compare/apex-vs-topstep" class="related-card">
+        <span class="related-tag">COMPARISON</span>
+        <h4>Apex vs Topstep 2026</h4>
+        <p>Head-to-head comparison of both firms after the 2026 rule changes. Drawdown, profit splits, pricing.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="/"><img src="/logo.png" alt="Tradecovex" class="footer-logo"></a>
+        <p class="footer-tagline">The smartest trade copier for NinjaTrader &mdash; copy trades and let the AI tell you why.</p>
+        <div class="footer-social">
+          <a href="#" title="Twitter / X" aria-label="Twitter">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" title="YouTube" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#how">How It Works</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="/#waitlist">Join Waitlist</a></li>
+          <li><a href="/guides/">All Guides</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/#privacy">Privacy Policy</a></li>
+          <li><a href="/#terms">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Partners</h4>
+        <ul>
+          <li><a href="#" class="footer-aff">Affiliates &mdash; Earn $15&ndash;$45/signup</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-risk">
+      <strong>&#x26A0; Risk Disclosure:</strong> Futures trading involves substantial risk of loss and is not suitable for all investors. You can lose more than your initial investment. Past performance is not indicative of future results. Tradecovex is a software tool &mdash; it does not provide investment advice and does not guarantee trading results. Use of a trade copier does not guarantee compliance with prop firm rules. All trading decisions are your responsibility. Only trade with capital you can afford to lose.
+    </div>
+    <div class="footer-risk" style="margin-top:10px">
+      <strong>No Investment Advice:</strong> Tradecovex is a software tool for trade copying and journaling. IVAAN INC is not registered as an investment adviser with the Ontario Securities Commission, CIRO, the SEC, or any other regulatory body. Nothing in Tradecovex &mdash; including the AI journal analysis feature &mdash; constitutes investment advice, financial advice, or a recommendation to buy or sell any security, futures contract, or other financial instrument. The AI journal provides analytical observations about your historical trading patterns for informational purposes only. All trading decisions are made solely by you.
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2026 Tradecovex. All rights reserved. Built by IVAAN INC, Ontario, Canada.</span>
+      <span class="footer-copy">Canadian users served from Toronto &middot; US users served from New York &middot; PIPEDA compliant</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const hamburger=document.getElementById('hamburger');const mobileMenu=document.getElementById('mobile-menu');if(hamburger){hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');});;}
+document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{q.parentElement.classList.toggle('open');});});
+</script>
+</body>
+</html>

@@ -3,7 +3,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://tradecovex.com/</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -11,19 +11,19 @@
   <!-- Cluster A: Trade Copier -->
   <url>
     <loc>https://tradecovex.com/guides/ninjatrader-trade-copier</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/guides/copy-trades-apex-accounts</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/guides/trade-copier-latency</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -31,19 +31,19 @@
   <!-- Cluster B: AI Journal -->
   <url>
     <loc>https://tradecovex.com/guides/ai-trading-journal</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/guides/futures-trading-metrics</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/guides/manual-journal-fails</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -51,19 +51,19 @@
   <!-- Cluster C: Prop Firm Painful Moments -->
   <url>
     <loc>https://tradecovex.com/guides/pass-topstep-combine</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/guides/myfundedfutures-rules</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/guides/stop-revenge-trading</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -71,25 +71,25 @@
   <!-- Cluster D: Comparisons -->
   <url>
     <loc>https://tradecovex.com/compare/tradecovex-vs-tradesyncer</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/compare/tradecovex-vs-replikanto</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/compare/tradecovex-vs-tradersync</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/compare/best-ninjatrader-trade-copiers-2026</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -97,19 +97,19 @@
   <!-- Cluster E: Prop Firm Pillars -->
   <url>
     <loc>https://tradecovex.com/guides/pass-apex-evaluation</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/guides/trailing-drawdown</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/guides/ninjatrader-8-setup</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -117,25 +117,25 @@
   <!-- Cluster F: Educational -->
   <url>
     <loc>https://tradecovex.com/guides/position-size-calculator</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/guides/best-times-day-trade-futures</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/guides/sim-to-funded</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/guides/canadian-prop-firm-tax-guide</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -155,13 +155,13 @@
   </url>
   <url>
     <loc>https://tradecovex.com/compare/trade-copier-pricing</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/compare/tradecovex-vs-tradezella</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -169,31 +169,31 @@
   <!-- Cluster H: Trader Psychology (Wave 4 Part 1) -->
   <url>
     <loc>https://tradecovex.com/guides/trading-losing-streaks</loc>
-    <lastmod>2026-04-13</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/guides/build-trading-discipline</loc>
-    <lastmod>2026-04-13</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/guides/fomo-in-trading</loc>
-    <lastmod>2026-04-13</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/guides/trading-anxiety</loc>
-    <lastmod>2026-04-13</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/guides/self-sabotage-before-passing</loc>
-    <lastmod>2026-04-13</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -201,31 +201,31 @@
   <!-- Cluster H: Trader Psychology (Wave 4 Part 2) -->
   <url>
     <loc>https://tradecovex.com/guides/cognitive-biases-futures-traders</loc>
-    <lastmod>2026-04-13</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/guides/pre-market-routine</loc>
-    <lastmod>2026-04-13</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/guides/trading-journal-prompts</loc>
-    <lastmod>2026-04-13</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/guides/funded-account-survival-guide</loc>
-    <lastmod>2026-04-13</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/guides/why-you-blow-funded-accounts</loc>
-    <lastmod>2026-04-13</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -233,25 +233,25 @@
   <!-- Cluster I: Prop Firm Rules Reference (Wave 5) -->
   <url>
     <loc>https://tradecovex.com/guides/topstep-combine-rules-2026</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/guides/apex-trader-funding-rules-2026</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/guides/myfundedfutures-rules-2026</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/guides/prop-firm-rules-2026</loc>
-    <lastmod>2026-04-15</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -259,19 +259,19 @@
   <!-- Cluster J: Wave 6 — Rules Expansion + Copier Guides -->
   <url>
     <loc>https://tradecovex.com/guides/take-profit-trader-rules-2026</loc>
-    <lastmod>2026-04-15</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/guides/bulenox-rules-2026</loc>
-    <lastmod>2026-04-15</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/guides/tradeify-rules-2026</loc>
-    <lastmod>2026-04-15</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
@@ -283,7 +283,7 @@
   </url>
   <url>
     <loc>https://tradecovex.com/guides/best-vps-ninjatrader-copier</loc>
-    <lastmod>2026-04-15</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -291,31 +291,31 @@
   <!-- Cluster K: Wave 7 Batch 1 — GSC Gap Pages -->
   <url>
     <loc>https://tradecovex.com/compare/tradesyncer-pricing-2026</loc>
-    <lastmod>2026-04-16</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/guides/variance-futures-trading-hours</loc>
-    <lastmod>2026-04-16</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/guides/projectx-trade-copier</loc>
-    <lastmod>2026-04-16</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/guides/topstep-combine-account-sizes-profit-targets-2026</loc>
-    <lastmod>2026-04-16</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/guides/how-many-combines-passed-express-topstep-2025</loc>
-    <lastmod>2026-04-16</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -323,31 +323,31 @@
   <!-- Cluster L: Wave 7 Batch 2 — Prop Firm Versus Pages -->
   <url>
     <loc>https://tradecovex.com/compare/apex-vs-bulenox</loc>
-    <lastmod>2026-04-16</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/compare/topstep-vs-tradeify</loc>
-    <lastmod>2026-04-16</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/compare/tpt-vs-apex</loc>
-    <lastmod>2026-04-16</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/compare/mffu-vs-tradeify</loc>
-    <lastmod>2026-04-16</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/compare/tpt-vs-topstep</loc>
-    <lastmod>2026-04-16</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -355,31 +355,43 @@
   <!-- Cluster M: Batch 3 — Prop Firm Versus Pages (Wave 2) -->
   <url>
     <loc>https://tradecovex.com/compare/apex-vs-tradeify</loc>
-    <lastmod>2026-04-17</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/compare/topstep-vs-bulenox</loc>
-    <lastmod>2026-04-17</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/compare/mffu-vs-topstep</loc>
-    <lastmod>2026-04-17</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/compare/apex-vs-mffu</loc>
-    <lastmod>2026-04-17</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://tradecovex.com/compare/bulenox-vs-tradeify</loc>
-    <lastmod>2026-04-17</lastmod>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://tradecovex.com/guides/apex-eod-vs-intraday-2026</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://tradecovex.com/guides/apex-payout-rules-2026</loc>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
