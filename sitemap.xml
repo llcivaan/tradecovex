@@ -143,7 +143,13 @@
   <!-- Cluster G: Comparisons Wave 3 -->
   <url>
     <loc>https://tradecovex.com/compare/apex-vs-topstep-vs-myfundedfutures</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://tradecovex.com/compare/apex-vs-topstep</loc>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -271,7 +277,7 @@
   </url>
   <url>
     <loc>https://tradecovex.com/guides/bracket-orders-trade-copier</loc>
-    <lastmod>2026-04-15</lastmod>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
