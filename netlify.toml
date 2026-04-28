@@ -49,3 +49,48 @@
   to = "/guides/:splat"
   status = 301
   force = true
+
+# Bing 400-499 fix: redirect old/wrong URLs
+[[redirects]]
+  from = "/ninjatrader-trade-copier"
+  to = "/guides/ninjatrader-trade-copier"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/guides/trading-metrics-futures"
+  to = "/guides/futures-trading-metrics"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/guides/copy-trades-apex-trader-funding"
+  to = "/guides/copy-trades-apex-accounts"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/risk"
+  to = "/#waitlist"
+  status = 301
+  force = true
+
+# MFFU signal consolidation: old URL → 2026 version
+[[redirects]]
+  from = "/guides/myfundedfutures-rules"
+  to = "/guides/myfundedfutures-rules-2026"
+  status = 301
+  force = true
+
+# Compare and guides directory indexes
+[[redirects]]
+  from = "/compare"
+  to = "/guides/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/compare/"
+  to = "/guides/"
+  status = 301
+  force = true

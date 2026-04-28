@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Prop Firm Guides &amp; Comparisons 2026 | Tradecovex</title>
+<meta name="description" content="Free guides for futures prop firm traders. Topstep, Apex, MyFundedFutures rules, payout policies, trade copier setup, and AI journal strategies for NinjaTrader.">
+<link rel="canonical" href="https://tradecovex.com/guides/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Prop Firm Guides &amp; Comparisons 2026 | Tradecovex">
+<meta property="og:description" content="Free guides for futures prop firm traders. Rules, payouts, copier setup, and AI journal strategies.">
+<meta property="og:url" content="https://tradecovex.com/guides/">
+<meta property="og:image" content="https://tradecovex.com/logo.png">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:#0F172A;background:#fff;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+:root{--blue:#2563EB;--blue-dark:#1d4ed8;--navy:#0A1628;--slate:#4B5E7A;--slate-light:#64748B;--light:#F0F4FF;--border:#DDE3EF;--radius:12px;--shadow-sm:0 1px 3px rgba(10,22,40,.08),0 1px 2px rgba(10,22,40,.06);--shadow-md:0 4px 16px rgba(10,22,40,.1),0 2px 6px rgba(10,22,40,.06);--shadow-lg:0 12px 40px rgba(10,22,40,.14),0 4px 12px rgba(10,22,40,.08)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px}
+.nav-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav-logo{height:40px;width:auto}
+.nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+.nav-links a{font-size:.88rem;font-weight:600;color:var(--slate);transition:color .2s;letter-spacing:.01em}
+.nav-links a:hover{color:var(--navy)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 26px;border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;transition:all .18s;border:none;text-decoration:none;letter-spacing:.01em}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 2px 8px rgba(37,99,235,.3)}
+.btn-primary:hover{background:var(--blue-dark);transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,99,235,.4)}
+.btn-lg{padding:16px 38px;font-size:.98rem;border-radius:14px}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;transition:all .25s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:20px 24px;z-index:199;flex-direction:column;gap:0;box-shadow:var(--shadow-lg)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{display:block;padding:14px 0;font-size:1rem;font-weight:600;color:var(--slate);border-bottom:1px solid var(--border)}
+.mobile-menu a.btn{margin-top:16px;width:100%;border-bottom:none;justify-content:center}
+.guide-hero{padding:140px 24px 60px;text-align:center;position:relative;overflow:hidden;background:#fff}
+.guide-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 90% 60% at 50% -10%,rgba(37,99,235,.08) 0%,transparent 65%);pointer-events:none}
+.guide-hero::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background-image:radial-gradient(circle at 1px 1px, rgba(37,99,235,.06) 1px, transparent 0);background-size:32px 32px;pointer-events:none;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 0%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 0%,transparent 70%)}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:100px;padding:7px 18px;font-size:.75rem;font-weight:700;color:var(--blue);letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px;position:relative;z-index:1}
+.hero-eyebrow span.dot{width:7px;height:7px;background:var(--blue);border-radius:50%;animation:blink 2s ease infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+h1{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(2.2rem,4.5vw,3.4rem);line-height:1.08;letter-spacing:-.03em;color:var(--navy);max-width:900px;margin:0 auto 24px;position:relative;z-index:1}
+h1 .accent{color:var(--blue)}
+.guide-meta{display:flex;justify-content:center;gap:24px;margin-bottom:20px;flex-wrap:wrap;font-size:.82rem;color:var(--slate-light);position:relative;z-index:1}
+.guide-meta span{display:inline-flex;align-items:center;gap:6px}
+.breadcrumb{font-size:.78rem;color:var(--slate-light);margin-bottom:24px;position:relative;z-index:1}
+.breadcrumb a{color:var(--blue);font-weight:600}
+.breadcrumb a:hover{text-decoration:underline}
+.answer-box{max-width:780px;margin:0 auto 50px;background:linear-gradient(135deg,#EFF6FF,#F0F4FF);border:2px solid #BFDBFE;border-radius:18px;padding:32px 36px;text-align:left;position:relative;z-index:1;box-shadow:var(--shadow-md)}
+.answer-box-label{display:inline-block;font-size:.68rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.14em;background:#fff;border:1.5px solid #BFDBFE;border-radius:100px;padding:5px 14px;margin-bottom:14px}
+.answer-box p{font-size:1.02rem;color:var(--navy);line-height:1.75;font-weight:500}
+.answer-box p strong{font-weight:700;color:var(--navy)}
+.section{padding:80px 24px}
+.section-light{background:var(--light)}
+h2{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(1.7rem,3.2vw,2.4rem);line-height:1.12;letter-spacing:-.025em;color:var(--navy);margin-bottom:18px}
+h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.3rem;color:var(--navy);margin:32px 0 14px;letter-spacing:-.015em}
+.container{max-width:880px;margin:0 auto}
+.prose p{font-size:1rem;color:var(--slate);line-height:1.85;margin-bottom:20px}
+.prose p strong{color:var(--navy);font-weight:700}
+.prose ul,.prose ol{margin:16px 0 24px 22px;color:var(--slate);font-size:1rem;line-height:1.85}
+.prose li{margin-bottom:10px}
+.prose li strong{color:var(--navy);font-weight:700}
+.prose a{color:var(--blue);font-weight:600;border-bottom:1.5px solid rgba(37,99,235,.3);transition:border .2s}
+.prose a:hover{border-bottom-color:var(--blue)}
+.section-num{display:inline-block;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:.78rem;color:var(--blue);background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:8px;padding:4px 10px;margin-bottom:12px;letter-spacing:.06em}
+.pull-quote{background:linear-gradient(135deg,#EFF6FF,#F0F4FF);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:24px 28px;margin:32px 0;font-family:'Barlow Semi Condensed',sans-serif;font-size:1.18rem;font-weight:600;color:var(--navy);line-height:1.55;letter-spacing:-.01em}
+.callout{background:#fff;border:1.5px solid var(--border);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:22px 26px;margin:28px 0;box-shadow:var(--shadow-sm)}
+.callout-title{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1rem;color:var(--navy);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.callout p{font-size:.92rem;color:var(--slate);line-height:1.75;margin:0}
+.callout-warn{border-left-color:#DC2626;background:#FEF2F2}
+.callout-warn .callout-title{color:#991B1B}
+.data-table-wrap{overflow-x:auto;border-radius:14px;border:1.5px solid var(--border);box-shadow:var(--shadow-md);margin:28px 0}
+.data-table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:480px;background:#fff}
+.data-table th{padding:14px 18px;text-align:left;font-weight:700;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;background:#F1F5F9;color:var(--slate);border-bottom:2px solid var(--border)}
+.data-table td{padding:13px 18px;border-bottom:1px solid var(--border);color:var(--slate);vertical-align:middle}
+.data-table tr:last-child td{border-bottom:none}
+.data-table td.label{font-weight:600;color:var(--navy);background:#FAFBFF}
+.data-table td code{background:#EFF6FF;padding:2px 6px;border-radius:4px;font-size:.85rem;font-weight:600;color:var(--navy)}
+.cta-banner{background:linear-gradient(135deg,#0A1628,#0F2460,#1d4ed8);border-radius:18px;padding:56px 48px;margin:48px 0;text-align:center;position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
+.cta-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 100%,rgba(37,99,235,.25) 0%,transparent 65%);pointer-events:none}
+.cta-banner h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:1.85rem;color:#fff;margin:0 0 14px;letter-spacing:-.025em;position:relative;z-index:1}
+.cta-banner p{font-size:1rem;color:#93C5FD;max-width:540px;margin:0 auto 26px;line-height:1.7;position:relative;z-index:1}
+.cta-perks{display:flex;gap:22px;justify-content:center;margin-top:22px;flex-wrap:wrap;position:relative;z-index:1}
+.cta-perk{font-size:.78rem;color:#60A5FA;font-weight:600;display:inline-flex;align-items:center;gap:6px}
+.cta-perk::before{content:'&#x2713;';font-weight:800}.cta-banner .btn-primary{color:#fff !important;border-bottom:0;text-decoration:none}
+.faq-list{max-width:780px;margin:0 auto}
+.faq-item{border-bottom:1.5px solid var(--border)}
+.faq-q{width:100%;text-align:left;padding:22px 0;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.97rem;color:var(--navy);line-height:1.45;letter-spacing:-.01em}
+.faq-icon{width:24px;height:24px;min-width:24px;border-radius:50%;border:2px solid var(--blue);display:flex;align-items:center;justify-content:center;transition:all .25s;flex-shrink:0}
+.faq-icon svg{width:12px;height:12px;stroke:var(--blue);fill:none;stroke-width:2.5;stroke-linecap:round;transition:transform .25s}
+.faq-item.open .faq-icon{background:var(--blue)}
+.faq-item.open .faq-icon svg{stroke:#fff;transform:rotate(45deg)}
+.faq-a{display:none;padding:0 0 22px;font-size:.92rem;color:var(--slate);line-height:1.85;max-width:680px}
+.faq-item.open .faq-a{display:block}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:30px}
+.related-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:24px;transition:all .25s;display:block;box-shadow:var(--shadow-sm)}
+.related-card:hover{border-color:#93C5FD;box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.related-tag{display:inline-block;font-size:.66rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.1em;background:#EFF6FF;border:1px solid #BFDBFE;border-radius:6px;padding:3px 8px;margin-bottom:12px}
+.related-card h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.02rem;color:var(--navy);margin:0 0 8px;line-height:1.35}
+.related-card p{font-size:.84rem;color:var(--slate);line-height:1.65;margin:0}
+.footer{background:#fff;border-top:1.5px solid var(--border);padding:60px 24px 36px}
+.footer-inner{max-width:1120px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1.5px solid var(--border);margin-bottom:30px}
+.footer-logo{height:48px;width:auto;margin-bottom:14px}
+.footer-tagline{font-size:.85rem;color:var(--slate);max-width:220px;line-height:1.7;margin-bottom:20px;font-weight:400}
+.footer-social{display:flex;gap:10px}
+.footer-social a{width:36px;height:36px;border:1.5px solid var(--border);border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--slate);transition:all .2s}
+.footer-social a:hover{border-color:var(--blue);color:var(--blue);background:#EFF6FF}
+.footer-social svg{width:16px;height:16px;fill:currentColor}
+.footer-col h4{font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:#94A3B8;margin:0 0 16px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;padding:0}
+.footer-col a{font-size:.875rem;color:var(--slate);transition:color .18s;font-weight:500}
+.footer-col a:hover{color:var(--navy)}
+.footer-aff{font-size:.82rem;color:var(--blue);font-weight:700}
+.footer-risk{background:var(--light);border:1.5px solid var(--border);border-radius:12px;padding:18px 22px;margin-bottom:16px;font-size:.75rem;color:#5B7399;line-height:1.75}
+.footer-risk strong{color:var(--slate);font-weight:700}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:6px}
+.footer-copy{font-size:.75rem;color:#94A3B8;font-weight:500}
+@media(max-width:960px){.nav-links{display:none}.nav-cta-desktop{display:none !important}.hamburger{display:flex}.footer-top{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.footer-top{grid-template-columns:1fr}h1{font-size:2rem}h2{font-size:1.6rem}.answer-box{padding:24px 22px}.cta-banner{padding:42px 28px}.cta-banner h3{font-size:1.5rem}}
+
+.guide-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;margin-top:30px}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" aria-label="Tradecovex home"><img src="/logo.png" alt="Tradecovex" class="nav-logo"></a>
+    <ul class="nav-links">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/guides/">Guides</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+    </ul>
+    <a href="/#waitlist" class="btn btn-primary nav-cta-desktop" style="display:inline-flex">Join Waitlist</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/#features">Features</a>
+  <a href="/guides/">Guides</a>
+  <a href="/#pricing">Pricing</a>
+  <a href="/#faq">FAQ</a>
+  <a href="/#waitlist" class="btn btn-primary">Join Waitlist</a>
+</div>
+
+<section class="guide-hero">
+  <div class="hero-eyebrow"><span class="dot"></span>TRADECOVEX GUIDES</div>
+  <p class="breadcrumb"><a href="/">Home</a> &rsaquo; Guides</p>
+  <h1>Prop Firm Guides &amp; <span class="accent">Comparisons 2026</span></h1>
+  <div class="guide-meta">
+    <span>&#x1F4DA; 42 Guides</span>
+    <span>&#x2696; 19 Comparisons</span>
+    <span>&#x270D; Tradecovex Team</span>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:1100px">
+    <h2>Guides</h2>
+    <div class="guide-grid">
+      <a href="/guides/ai-trading-journal" class="related-card">
+        <span class="related-tag">GUIDE</span>
+        <h4>AI Trading Journal for Futures Traders (2026)</h4>
+        <p>How AI trading journals work for futures traders. What they catch that manual journals miss, and how to spot real AI vs </p>
+      </a>
+      <a href="/guides/apex-eod-vs-intraday-2026" class="related-card">
+        <span class="related-tag">APEX</span>
+        <h4>Apex EOD vs Intraday Drawdown 2026: Which Should You Pick?</h4>
+        <p>Apex Trader Funding now makes you choose between EOD and Intraday trailing drawdown. How each one works, which one is sa</p>
+      </a>
+      <a href="/guides/apex-payout-rules-2026" class="related-card">
+        <span class="related-tag">APEX</span>
+        <h4>Apex Payout Rules 2026: Profit Split, Caps &amp; Ladder</h4>
+        <p>How Apex Trader Funding payouts work in 2026. The $250 minimum daily profit, 5 qualifying days, 50% consistency rule, pa</p>
+      </a>
+      <a href="/guides/apex-trader-funding-rules-2026" class="related-card">
+        <span class="related-tag">APEX</span>
+        <h4>Apex 4.0 Rules 2026: The 5 Changes That Fail Traders</h4>
+        <p>The 5 Apex 4.0 changes nobody warned you about — bracket order mandate, DCA ban, 50% consistency rule, new payout ladder</p>
+      </a>
+      <a href="/guides/best-times-day-trade-futures" class="related-card">
+        <span class="related-tag">GUIDE</span>
+        <h4>Best Times to Day Trade Futures: The 3-Hour Rule 2026</h4>
+        <p>Only 3 hours of the day matter for futures day traders — and most lose money in the other 6. Hour-by-hour NQ/ES guide. [</p>
+      </a>
+      <a href="/guides/best-vps-ninjatrader-copier" class="related-card">
+        <span class="related-tag">GUIDE</span>
+        <h4>Best VPS for NinjaTrader Trade Copier (2026)</h4>
+        <p>Why a VPS matters for NinjaTrader trade copiers. Latency, uptime, specs to look for, and top providers compared for prop</p>
+      </a>
+      <a href="/guides/bracket-orders-trade-copier" class="related-card">
+        <span class="related-tag">GUIDE</span>
+        <h4>Bracket Trade Copier 2026: How Stops &amp; Targets Copy Across NinjaTrader Accou</h4>
+        <p>How NinjaTrader bracket orders and ATM strategies work with trade copiers. Stop-loss and profit-target replication acros</p>
+      </a>
+      <a href="/guides/build-trading-discipline" class="related-card">
+        <span class="related-tag">GUIDE</span>
+        <h4>How to Build Trading Discipline (Real Guide)</h4>
+        <p>Why willpower fails and what actually builds trading discipline. Systems, routines, and infrastructure that keep you con</p>
+      </a>
+      <a href="/guides/bulenox-rules-2026" class="related-card">
+        <span class="related-tag">BULENOX</span>
+        <h4>Bulenox Rules 2026: Complete Reference Guide</h4>
+        <p>Every Bulenox rule in 2026. Qualification, Master Account, funded rules. Drawdown options, 40% consistency, weekly payou</p>
+      </a>
+      <a href="/guides/canadian-prop-firm-tax-guide" class="related-card">
+        <span class="related-tag">GUIDE</span>
+        <h4>Prop Firm Taxes Canada 2026: What the CRA Actually Wants</h4>
+        <p>How the CRA taxes prop firm income in 2026 — business vs personal, HST, deductions, and the 3 mistakes that trigger audi</p>
+      </a>
+      <a href="/guides/cognitive-biases-futures-traders" class="related-card">
+        <span class="related-tag">GUIDE</span>
+        <h4>10 Cognitive Biases That Destroy Futures Traders</h4>
+        <p>Loss aversion, anchoring, sunk cost fallacy, recency bias, and more. The cognitive biases wrecking your prop firm tradin</p>
+      </a>
+      <a href="/guides/copy-trades-apex-accounts" class="related-card">
+        <span class="related-tag">APEX</span>
+        <h4>Copy Trades Across Apex Accounts 2026: The 4.0 Workaround</h4>
+        <p>How to copy trades across Apex accounts under the new 4.0 bracket rule — the workaround that keeps your accounts complia</p>
+      </a>
+      <a href="/guides/fomo-in-trading" class="related-card">
+        <span class="related-tag">GUIDE</span>
+        <h4>FOMO in Trading: Why You Chase and How to Stop</h4>
+        <p>Why your brain treats a missed move like a real loss. The anatomy of a chase trade and a system to stop FOMO from wrecki</p>
+      </a>
+      <a href="/guides/funded-account-survival-guide" class="related-card">
+        <span class="related-tag">GUIDE</span>
+        <h4>Funded Account Survival Guide: First 30 Days</h4>
+        <p>Getting funded is day zero, not the finish line. The five traps that blow most funded accounts in the first month and ho</p>
+      </a>
+      <a href="/guides/futures-trading-metrics" class="related-card">
+        <span class="related-tag">GUIDE</span>
+        <h4>12 Futures Trading Metrics You Must Track (2026)</h4>
+        <p>The 12 metrics that predict prop firm success. Target numbers, what they mean, and how to track them on NinjaTrader.</p>
+      </a>
+      <a href="/guides/how-many-combines-passed-express-topstep-2025" class="related-card">
+        <span class="related-tag">TOPSTEP</span>
+        <h4>Topstep Pass Rate 2025: Only 16.8% Make It (Real Data)</h4>
+        <p>Topstep official data: only 16.8% pass the Combine, 51.8% of funded get paid. Full funnel breakdown and what separates w</p>
+      </a>
+      <a href="/guides/manual-journal-fails" class="related-card">
+        <span class="related-tag">GUIDE</span>
+        <h4>Why Manual Trade Journals Fail (2026 Fix)</h4>
+        <p>The math of why spreadsheet journals get abandoned in 3 weeks. What AI journals do differently and why they actually sti</p>
+      </a>
+      <a href="/guides/myfundedfutures-rules-2026" class="related-card">
+        <span class="related-tag">MYFUNDEDFUTURES</span>
+        <h4>MFFU Rules 2026: Every Trap in Core, Rapid &amp; Pro Plans</h4>
+        <p>Every MFFU rule in 2026 — plus the drawdown trap in Rapid that kills funded accounts fastest. Core vs Rapid vs Pro fully</p>
+      </a>
+      <a href="/guides/myfundedfutures-rules" class="related-card">
+        <span class="related-tag">MYFUNDEDFUTURES</span>
+        <h4>MyFundedFutures 2026: The Rule That Kills Funded Accounts</h4>
+        <p>Why MFFU Rapid blows funded accounts most — EOD vs intraday drawdown, Tier 1 news trap, Core vs Rapid vs Pro. [Updated A</p>
+      </a>
+      <a href="/guides/ninjatrader-8-setup" class="related-card">
+        <span class="related-tag">GUIDE</span>
+        <h4>NinjaTrader 8 Setup for Prop Firm Traders (2026)</h4>
+        <p>Step-by-step NinjaTrader 8 setup for prop firms. Rithmic connection, Tradovate setup, ATM strategies, and workspace conf</p>
+      </a>
+      <a href="/guides/ninjatrader-trade-copier" class="related-card">
+        <span class="related-tag">GUIDE</span>
+        <h4>NinjaTrader Trade Copier 2026: The 4 That Actually Work</h4>
+        <p>4 NinjaTrader trade copiers that actually work in 2026 — local vs cloud, prop firm compatibility, pricing, and setup gui</p>
+      </a>
+      <a href="/guides/pass-apex-evaluation" class="related-card">
+        <span class="related-tag">APEX</span>
+        <h4>How to Pass Apex 2026: The Rule Change That Breaks 70%</h4>
+        <p>The Apex 4.0 rule change that blew up 70% of funded accounts — and the exact strategy that still works. Bracket orders, </p>
+      </a>
+      <a href="/guides/pass-topstep-combine" class="related-card">
+        <span class="related-tag">TOPSTEP</span>
+        <h4>How to Pass Topstep 2026: The 7 Rules That Kill Most Traders</h4>
+        <p>Why 83% fail the Topstep Combine in 2026 — and the 7-step plan funded traders actually use. Trailing MLL trap, 90/10 spl</p>
+      </a>
+      <a href="/guides/position-size-calculator" class="related-card">
+        <span class="related-tag">GUIDE</span>
+        <h4>Futures Position Size Calculator (2026 Guide)</h4>
+        <p>How to calculate position size for futures trading. Tick values, risk per trade, account-size math, and contract scaling</p>
+      </a>
+      <a href="/guides/pre-market-routine" class="related-card">
+        <span class="related-tag">GUIDE</span>
+        <h4>Pre-Market Routine for Futures Traders (2026)</h4>
+        <p>A 30-minute pre-market routine for futures day traders. Physical prep, overnight recap, economic calendar, and journal r</p>
+      </a>
+      <a href="/guides/projectx-trade-copier" class="related-card">
+        <span class="related-tag">GUIDE</span>
+        <h4>ProjectX Trade Copier 2026: What Works and What Fails</h4>
+        <p>Which copiers work with ProjectX in 2026 — Topstep, Tradeify, Luckyday API. Real limitations and workarounds inside. [Up</p>
+      </a>
+      <a href="/guides/prop-firm-rules-2026" class="related-card">
+        <span class="related-tag">GUIDE</span>
+        <h4>Prop Firm Rules 2026: 6 Firms Compared (The Honest Version)</h4>
+        <p>6 futures prop firms compared on every 2026 rule — Topstep, Apex, MFFU, TPT, Bulenox, Tradeify. Drawdown, splits, consis</p>
+      </a>
+      <a href="/guides/self-sabotage-before-passing" class="related-card">
+        <span class="related-tag">GUIDE</span>
+        <h4>Why Traders Self-Sabotage Before Passing (2026)</h4>
+        <p>The pattern where traders blow up at 80-95% eval completion. Why it happens, the psychology behind it, and how to break </p>
+      </a>
+      <a href="/guides/sim-to-funded" class="related-card">
+        <span class="related-tag">GUIDE</span>
+        <h4>Sim to Funded Trading: Psychology Playbook (2026)</h4>
+        <p>Why most traders fail the jump from sim to funded. The mental shifts, the common traps, and a step-by-step system that w</p>
+      </a>
+      <a href="/guides/stop-revenge-trading" class="related-card">
+        <span class="related-tag">GUIDE</span>
+        <h4>How to Stop Revenge Trading: 5-Step System</h4>
+        <p>A complete guide to revenge trading. The neuroscience behind it, why it happens, and the 5-step system that actually sto</p>
+      </a>
+      <a href="/guides/take-profit-trader-rules-2026" class="related-card">
+        <span class="related-tag">GUIDE</span>
+        <h4>Take Profit Trader Rules 2026: Test, PRO, PRO+</h4>
+        <p>Every TPT rule in 2026. Profit targets, EOD-to-intraday drawdown shift, buffer zone, 50% consistency, and payout structu</p>
+      </a>
+      <a href="/guides/topstep-combine-account-sizes-profit-targets-2026" class="related-card">
+        <span class="related-tag">TOPSTEP</span>
+        <h4>Topstep 50K vs 100K vs 150K: Which Combine to Pick 2026</h4>
+        <p>50K vs 100K vs 150K Topstep Combine — which one actually pays off? Full profit target, drawdown, and pricing breakdown. </p>
+      </a>
+      <a href="/guides/topstep-combine-rules-2026" class="related-card">
+        <span class="related-tag">TOPSTEP</span>
+        <h4>Topstep 2026: Every Rule That Kills Combines [April Update]</h4>
+        <p>Every Topstep Trading Combine rule in 2026 explained — profit targets, trailing MLL, 90/10 split, Standard vs Consistenc</p>
+      </a>
+      <a href="/guides/topstep-permitted-products-2026" class="related-card">
+        <span class="related-tag">TOPSTEP</span>
+        <h4>Topstep Permitted Products List 2026: Every Futures Contract You Can Trade [Full</h4>
+        <p>The complete list of futures contracts you can trade in the Topstep Trading Combine and Funded Accounts in 2026 — CME, N</p>
+      </a>
+      <a href="/guides/trade-copier-latency" class="related-card">
+        <span class="related-tag">GUIDE</span>
+        <h4>Trade Copier Latency: Why Milliseconds Matter</h4>
+        <p>How trade copier latency works, why 5ms beats 200ms on prop accounts, and how to measure and reduce execution delay.</p>
+      </a>
+      <a href="/guides/tradeify-rules-2026" class="related-card">
+        <span class="related-tag">TRADEIFY</span>
+        <h4>Tradeify Rules 2026: Select, Growth &amp; Lightning</h4>
+        <p>Every Tradeify rule in 2026. Select evaluation, Growth path, Lightning instant funding. Drawdown, consistency, and payou</p>
+      </a>
+      <a href="/guides/trading-anxiety" class="related-card">
+        <span class="related-tag">GUIDE</span>
+        <h4>Trading Anxiety: The Fear Loop and How to Stop It</h4>
+        <p>The pre-market dread most prop firm traders know. Why it happens, why it makes you miss setups, and a system to break th</p>
+      </a>
+      <a href="/guides/trading-journal-prompts" class="related-card">
+        <span class="related-tag">GUIDE</span>
+        <h4>12 Trading Journal Prompts That Work (2026)</h4>
+        <p>The 12 questions every journal entry should answer. Prompts that surface emotional state, rule deviations, and patterns </p>
+      </a>
+      <a href="/guides/trading-losing-streaks" class="related-card">
+        <span class="related-tag">GUIDE</span>
+        <h4>Losing Streaks: How to Trade Through Drawdowns</h4>
+        <p>What happens in your head during a losing streak, why 'trade through it' is bad advice, and what actually works on prop </p>
+      </a>
+      <a href="/guides/trailing-drawdown" class="related-card">
+        <span class="related-tag">GUIDE</span>
+        <h4>Trailing Drawdown Explained: The Rule That Kills 80% [2026]</h4>
+        <p>Why trailing drawdown kills 80% of prop firm traders — EOD vs intraday, how the floor locks, and which firms use which t</p>
+      </a>
+      <a href="/guides/variance-futures-trading-hours" class="related-card">
+        <span class="related-tag">GUIDE</span>
+        <h4>Variance Futures Hours 2026: Full Session Schedule (VA)</h4>
+        <p>Cboe S&amp;P 500 Variance Futures (VA) 2026 hours — Mon-Fri 8:30am-3:15pm CT. Complete holiday + half-day schedule insid</p>
+      </a>
+      <a href="/guides/why-you-blow-funded-accounts" class="related-card">
+        <span class="related-tag">GUIDE</span>
+        <h4>Why You Keep Blowing Funded Accounts (5 Patterns)</h4>
+        <p>Five specific patterns behind almost every blown funded account. Size drift, rule creep, consistency traps, and how to f</p>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container" style="max-width:1100px">
+    <h2>Comparisons</h2>
+    <div class="guide-grid">
+      <a href="/compare/apex-vs-bulenox" class="related-card">
+        <span class="related-tag">COMPARISON</span>
+        <h4>Apex vs Bulenox 2026: Rules, Pricing &amp; Payouts</h4>
+        <p>Apex Trader Funding vs Bulenox side-by-side. Drawdown, eval cost, profit splits, payout speed, and consistency rules com</p>
+      </a>
+      <a href="/compare/apex-vs-mffu" class="related-card">
+        <span class="related-tag">COMPARISON</span>
+        <h4>Apex vs MyFundedFutures 2026: Full Comparison</h4>
+        <p>Apex Trader Funding vs MyFundedFutures for 2026. Account limits, drawdown, consistency rules, profit splits, pricing, an</p>
+      </a>
+      <a href="/compare/apex-vs-topstep-vs-myfundedfutures" class="related-card">
+        <span class="related-tag">COMPARISON</span>
+        <h4>Apex vs Topstep vs MFFU 2026: Which Actually Pays Best?</h4>
+        <p>The 2026 prop firm you should pick — Apex vs Topstep vs MFFU on rules, pricing, drawdown, profit splits, and real payout</p>
+      </a>
+      <a href="/compare/apex-vs-topstep" class="related-card">
+        <span class="related-tag">COMPARISON</span>
+        <h4>Apex vs Topstep 2026: Rules, Payouts, Drawdown Compared [Winner?]</h4>
+        <p>Apex Trader Funding vs Topstep in 2026 after both firms changed their rules. EOD vs trailing drawdown, profit splits, pa</p>
+      </a>
+      <a href="/compare/apex-vs-tradeify" class="related-card">
+        <span class="related-tag">COMPARISON</span>
+        <h4>Apex vs Tradeify 2026: Rules & Pricing Compared</h4>
+        <p>Apex Trader Funding vs Tradeify for 2026. Drawdown, evaluation cost, profit splits, payout speed, consistency rules, and</p>
+      </a>
+      <a href="/compare/best-ninjatrader-trade-copiers-2026" class="related-card">
+        <span class="related-tag">COMPARISON</span>
+        <h4>Best NinjaTrader Trade Copiers 2026 (Ranked)</h4>
+        <p>Honest ranking of every NinjaTrader trade copier in 2026. Replikanto, TradeSyncer, ETP, and Tradecovex compared on price</p>
+      </a>
+      <a href="/compare/bulenox-vs-tradeify" class="related-card">
+        <span class="related-tag">COMPARISON</span>
+        <h4>Bulenox vs Tradeify 2026: Budget Firms Compared</h4>
+        <p>Bulenox vs Tradeify for 2026. The two budget-friendly futures prop firms compared on pricing, drawdown, payouts, copier </p>
+      </a>
+      <a href="/compare/mffu-vs-topstep" class="related-card">
+        <span class="related-tag">COMPARISON</span>
+        <h4>MFFU vs Topstep 2026: Rules & Plans Compared</h4>
+        <p>MyFundedFutures vs Topstep for 2026. Core, Rapid, Pro vs Trading Combine. Drawdown, pricing, profit splits, payouts, and</p>
+      </a>
+      <a href="/compare/mffu-vs-tradeify" class="related-card">
+        <span class="related-tag">COMPARISON</span>
+        <h4>MFFU vs Tradeify 2026: Rules &amp; Pricing Compared</h4>
+        <p>MyFundedFutures vs Tradeify head-to-head. Core/Rapid/Pro vs Select/Growth/Lightning. Drawdown, payouts, and consistency </p>
+      </a>
+      <a href="/compare/topstep-vs-bulenox" class="related-card">
+        <span class="related-tag">COMPARISON</span>
+        <h4>Topstep vs Bulenox 2026: Rules & Pricing Compared</h4>
+        <p>Topstep vs Bulenox for 2026. Evaluation pricing, drawdown rules, profit splits, payout schedules, consistency rules, and</p>
+      </a>
+      <a href="/compare/topstep-vs-tradeify" class="related-card">
+        <span class="related-tag">COMPARISON</span>
+        <h4>Topstep vs Tradeify 2026: Full Head-to-Head</h4>
+        <p>Topstep vs Tradeify for 2026. Evaluation cost, drawdown mechanics, profit splits, payout frequency, and consistency rule</p>
+      </a>
+      <a href="/compare/tpt-vs-apex" class="related-card">
+        <span class="related-tag">COMPARISON</span>
+        <h4>Take Profit Trader vs Apex 2026: Compared</h4>
+        <p>TPT vs Apex Trader Funding for 2026. Pricing, EOD vs intraday drawdown, payout speed, profit splits, and buffer rules co</p>
+      </a>
+      <a href="/compare/tpt-vs-topstep" class="related-card">
+        <span class="related-tag">COMPARISON</span>
+        <h4>Take Profit Trader vs Topstep 2026: Compared</h4>
+        <p>TPT vs Topstep head-to-head. Drawdown rules, eval pricing, payout structures, and consistency rules compared for 2026.</p>
+      </a>
+      <a href="/compare/trade-copier-pricing" class="related-card">
+        <span class="related-tag">COMPARISON</span>
+        <h4>Trade Copier Pricing 2026: The Real Cost (All 7 Compared)</h4>
+        <p>What every NinjaTrader trade copier actually costs in 2026 — including the hidden fees. 7 tools compared on monthly, ann</p>
+      </a>
+      <a href="/compare/tradecovex-vs-replikanto" class="related-card">
+        <span class="related-tag">COMPARISON</span>
+        <h4>Tradecovex vs Replikanto: NinjaTrader Copier 2026</h4>
+        <p>Honest comparison of Tradecovex and Replikanto. Local add-on architecture, AI journal, pricing, and feature differences </p>
+      </a>
+      <a href="/compare/tradecovex-vs-tradersync" class="related-card">
+        <span class="related-tag">COMPARISON</span>
+        <h4>Tradecovex vs TraderSync 2026: Copier vs Journal</h4>
+        <p>Tradecovex vs TraderSync for futures traders. Trade copier with AI journal vs standalone journal. Features, pricing, and</p>
+      </a>
+      <a href="/compare/tradecovex-vs-tradesyncer" class="related-card">
+        <span class="related-tag">COMPARISON</span>
+        <h4>Tradecovex vs TradeSyncer 2026: Full Comparison</h4>
+        <p>Tradecovex vs TradeSyncer for NinjaTrader. Local vs cloud copier, AI journal, pricing tiers, and feature differences com</p>
+      </a>
+      <a href="/compare/tradecovex-vs-tradezella" class="related-card">
+        <span class="related-tag">COMPARISON</span>
+        <h4>Tradecovex vs TradeZella 2026: Copier vs Journal</h4>
+        <p>Tradecovex vs TradeZella for prop firm traders. Integrated copier plus AI journal vs pure journal tool. Features and pri</p>
+      </a>
+      <a href="/compare/tradesyncer-pricing-2026" class="related-card">
+        <span class="related-tag">COMPARISON</span>
+        <h4>TradeSyncer Pricing 2026: Is It Worth $99/mo?</h4>
+        <p>TradeSyncer 2026 pricing breakdown — Basic $49, Pro $99, Flex $149. Connection limits, annual discounts, and the hidden </p>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="/"><img src="/logo.png" alt="Tradecovex" class="footer-logo"></a>
+        <p class="footer-tagline">The smartest trade copier for NinjaTrader &mdash; copy trades and let the AI tell you why.</p>
+        <div class="footer-social">
+          <a href="#" title="Twitter / X" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="#" title="YouTube" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Product</h4><ul><li><a href="/#features">Features</a></li><li><a href="/#how">How It Works</a></li><li><a href="/#pricing">Pricing</a></li><li><a href="/#waitlist">Join Waitlist</a></li><li><a href="/guides/">All Guides</a></li></ul></div>
+      <div class="footer-col"><h4>Legal</h4><ul><li><a href="/#privacy">Privacy Policy</a></li><li><a href="/#terms">Terms of Service</a></li></ul></div>
+      <div class="footer-col"><h4>Partners</h4><ul><li><a href="#" class="footer-aff">Affiliates &mdash; Earn $15&ndash;$45/signup</a></li></ul></div>
+    </div>
+    <div class="footer-risk"><strong>&#x26A0; Risk Disclosure:</strong> Futures trading involves substantial risk of loss and is not suitable for all investors. You can lose more than your initial investment. Past performance is not indicative of future results. Tradecovex is a software tool &mdash; it does not provide investment advice and does not guarantee trading results. Use of a trade copier does not guarantee compliance with prop firm rules. All trading decisions are your responsibility. Only trade with capital you can afford to lose.</div>
+    <div class="footer-risk" style="margin-top:10px"><strong>No Investment Advice:</strong> Tradecovex is a software tool for trade copying and journaling. IVAAN INC is not registered as an investment adviser with the Ontario Securities Commission, CIRO, the SEC, or any other regulatory body. Nothing in Tradecovex &mdash; including the AI journal analysis feature &mdash; constitutes investment advice, financial advice, or a recommendation to buy or sell any security, futures contract, or other financial instrument. The AI journal provides analytical observations about your historical trading patterns for informational purposes only. All trading decisions are made solely by you.</div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2026 Tradecovex. All rights reserved. Built by IVAAN INC, Ontario, Canada.</span>
+      <span class="footer-copy">Canadian users served from Toronto &middot; US users served from New York &middot; PIPEDA compliant</span>
+    </div>
+  </div>
+</footer>
+<script>
+const hamburger=document.getElementById('hamburger');const mobileMenu=document.getElementById('mobile-menu');if(hamburger){hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');});}
+document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{q.parentElement.classList.toggle('open');});});
+</script>
+</body>
+</html>
