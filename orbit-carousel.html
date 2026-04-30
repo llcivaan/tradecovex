@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Orbit Carousel</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0A1628;
+    --card-w: 660px;
+    --card-h: 490px;
+    --radius: 18px;
+
+    /* Demo's exact dark palette (used by ring overlay) */
+    --panel-bg: #060D1B;
+    --surface-3: #1B2E4A;
+    --slate-2: #5A6B82;
+    --green-2: #5FE5B0;
+    --blue-2: #7AA0FF;
+    --purple: #A78BFA;
+    --line: #18263A;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background: var(--bg);
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Helvetica Neue", Arial, sans-serif;
+    color: #E6EDF7;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 50%,
+        rgba(59, 130, 246, 0.08) 0%,
+        rgba(10, 22, 40, 0) 60%),
+      radial-gradient(ellipse 50% 40% at 50% 100%,
+        rgba(139, 92, 246, 0.06) 0%,
+        rgba(10, 22, 40, 0) 70%);
+    pointer-events: none;
+  }
+
+  .stage {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    perspective: 1800px;
+    perspective-origin: 50% 50%;
+    z-index: 2;            /* above .connection (z-index:1) so cards
+                              physically occlude the wire when they
+                              swing forward */
+  }
+
+  .track {
+    position: relative;
+    width: var(--card-w);
+    height: var(--card-h);
+    transform-style: preserve-3d;
+  }
+
+  .card {
+    position: absolute;
+    inset: 0;
+    width: var(--card-w);
+    height: var(--card-h);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transform-style: preserve-3d;
+    will-change: transform, filter, opacity;
+  }
+
+  .card .front-face,
+  .card .back-face {
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    box-shadow:
+      0 40px 80px -20px rgba(0, 0, 0, 0.6),
+      0 20px 40px -10px rgba(0, 0, 0, 0.4),
+      0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+  }
+  /* Push front face forward 1px in Z; push back face back 1px.
+     Without this, both faces share the same Z plane and the
+     later-painted .back-face occludes the .front-face when the
+     card is at angle 0 (no rotation). Tiny offset is invisible
+     but keeps backface-visibility working reliably. */
+  .card .front-face {
+    transform: translateZ(1px);
+  }
+  .card .back-face {
+    transform: rotateY(180deg) translateZ(1px);
+  }
+
+  /* Card A's front-face bg matches the dashboard panel surface,
+     so any sub-pixel rounding gap reads as a panel edge, not a
+     dark void. Card B's front-face is white to match the cwin. */
+  #cardA .front-face { background: #0B1728; }
+  #cardB .front-face { background: #FAFAFA; }
+
+  #cardA .back-face { background: #000000; }
+  #cardB .back-face {
+    background: #FFFFFF;
+    box-shadow:
+      0 40px 80px -20px rgba(0, 0, 0, 0.6),
+      0 20px 40px -10px rgba(0, 0, 0, 0.4),
+      0 0 0 1px rgba(0, 0, 0, 0.05) inset;
+  }
+
+  .card .screenshot {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    opacity: 1;
+  }
+  /* Hide dashboard fallback once iframe loads */
+  #cardA .screenshot { opacity: 1; z-index: 1; }
+  /* Card B uses a STATIC screenshot (no iframe) — keep it visible.
+     `object-fit: contain` preserves the screenshot's exact crop with
+     no distortion; any leftover area letterboxes against #FAFAFA
+     (matches the screenshot's own page bg, so it's invisible). The
+     chip-shimmer SVG sits at the same `inset:0` and JS computes the
+     image's actual rendered bounds within the card so the chip
+     overlays align with the underlying chips. */
+  #cardB .copier-static {
+    opacity: 1;
+    object-fit: contain;
+    object-position: center center;
+    background: #FAFAFA;
+  }
+
+  /* Sidebar overlay on the dashboard card.
+     The demo's own dashboard sidebar (#cardA iframe .sb) is hidden
+     in embed mode (rule injected from tradecovex-demo.html). We
+     replace it with the user-provided sidebar screenshot (which has
+     the full Tradecovex logo + nav baked in).
+
+     The iframe is rendered at 1500px wide and CSS-scaled to 0.6267
+     to fit the 940-wide card. The native sidebar inside the demo
+     occupies left:0, width:232px, height:1118px (full iframe height).
+     We size THIS overlay in iframe-source coordinates and apply the
+     SAME 0.6267 scale + transform-origin so it lands pixel-aligned
+     with where the demo's sidebar used to be. */
+  #cardA .sidebar-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 232px;
+    height: 1118px;
+    transform: scale(0.44);
+    transform-origin: top left;
+    object-fit: contain;
+    object-position: top left;
+    z-index: 3;
+    pointer-events: none;
+    background: #0B1728;
+  }
+
+  /* Chip-shimmer overlay for the static copier (851×712 screenshot).
+     Card is 660×490, image object-fit:contain renders at 586×490
+     with 37px letterbox each side. SVG sized to the image bounds
+     so percentage chip rects align with the screenshot. */
+  #cardB .chip-shimmer {
+    position: absolute;
+    left: 37px;
+    top: 0;
+    width: 586px;
+    height: 490px;
+    pointer-events: none;
+    z-index: 3;
+    overflow: visible;
+  }
+  #cardB .chip-shimmer .chip {
+    fill: #C8F7DC;
+    fill-opacity: 0;
+    stroke: #2E8B57;
+    stroke-opacity: 0;
+    stroke-width: 0.25;
+    rx: 0.6;
+    ry: 0.6;
+    transition:
+      fill-opacity 300ms ease,
+      stroke-opacity 300ms ease,
+      filter 300ms ease;
+    filter: drop-shadow(0 0 0 rgba(63, 167, 106, 0));
+  }
+  #cardB .chip-shimmer .chip.lit {
+    fill-opacity: 0.55;
+    stroke-opacity: 0.9;
+    filter: drop-shadow(0 0 4px rgba(63, 167, 106, 0.7));
+  }
+
+  /* ---------------- LIVE DEMO IFRAMES ----------------
+     Each card hosts an iframe of the actual Tradecovex demo
+     (`tradecovex-demo.html`) loaded with ?view=dashboard or
+     ?view=copier. Embed mode strips out everything except the
+     panel content and matches body bg to panel bg so the iframe
+     is edge-to-edge with no transparent or off-color frame.
+
+     We render the iframe at a high source resolution (1280px wide)
+     and CSS-scale it down to the card. Chrome re-rasterizes text
+     under `transform: scale`, so type stays crisp. Each card's
+     overflow:hidden clips any sub-pixel overshoot. */
+  .card .liveframe {
+    position: absolute;
+    border: 0;
+    background: transparent;
+    pointer-events: none;
+    transform-origin: 0 0;
+    z-index: 2;
+    image-rendering: crisp-edges;
+  }
+
+  /* DASHBOARD card (660 × 490):
+     Scale = 660/1500 = 0.44 */
+  #cardA .liveframe {
+    width: 1500px;
+    height: 1118px;
+    transform: scale(0.44);
+  }
+
+  /* COPIER card (940 × 700):
+     Demo's .cwin sits at native left=220, width=840, top=-4, height=769.
+     Scale: 940/840 ≈ 1.119 so cwin fills card width.
+     Cwin scaled height = 860 — taller than card (700). Anchor at TOP
+     so the brand header ("Tradecovex Copier") is fully visible; the
+     bottom ~160px of cwin (extra account rows) is cropped — those
+     rows are present anyway and the brand is the priority. */
+  #cardB .liveframe {
+    width: 1280px;
+    height: 770px;
+    transform: scale(1.119) translate(-220px, 4px);
+  }
+
+  /* ---------------- PARTICLE NETWORK CANVAS ----------------
+     Canvas sits BEHIND the cards (z-index 1). Cards at z-index 2+
+     physically occlude particles when they swing forward. */
+  #particleCanvas {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    :root {
+      --card-w: 280px;
+      --card-h: 210px;
+      --radius: 12px;
+    }
+    .stage {
+      perspective: 1000px;
+    }
+    /* Scale down dashboard iframe */
+    #cardA .liveframe {
+      transform: scale(0.187); /* 280/1500 */
+    }
+    #cardA .sidebar-overlay {
+      transform: scale(0.187);
+    }
+    /* Chip shimmer repositioned for smaller card.
+       Image 851×712, card 280×210, object-fit:contain
+       → rendered: 251×210, letterbox 14.5px each side */
+    #cardB .chip-shimmer {
+      left: 15px;
+      width: 251px;
+      height: 210px;
+    }
+  }
+
+</style>
+</head>
+<body>
+  <div class="stage" aria-hidden="true">
+    <div class="track">
+
+      <!-- CARD A: Dashboard — live demo iframe.
+           ?view=dashboard skips the demo's intro/tour and renders the
+           daily-brief post-session panel in isolation. The parent
+           script posts {type:'retriggerDashboard'} each cycle so the
+           demo's native fu / arcDraw / ringfill / fadeUp cascade
+           re-fires from frame zero — exactly the same animations the
+           demo itself runs at Stop 3/4. Static screenshot is layered
+           BENEATH as an instant-paint fallback while the iframe boots. -->
+      <div class="card" id="cardA">
+        <div class="front-face">
+          <img class="screenshot" src="/assets/dashboard-clean.png" alt="" draggable="false" />
+          <iframe class="liveframe" id="frameA"
+                  src="/demo.html?view=dashboard&v=8"
+                  loading="eager"
+                  scrolling="no"
+                  allow="autoplay"
+                  title="Dashboard"></iframe>
+          <!-- Sidebar overlay: replaces the dashboard's left nav with
+               a clean Tradecovex-branded sidebar screenshot. Sits ABOVE
+               the iframe so it always paints regardless of what the
+               dashboard sidebar is doing underneath (the demo's .sb is
+               hidden in embed mode anyway). -->
+          <img class="sidebar-overlay" src="/assets/sidebar-overlay.png" alt="Tradecovex sidebar" draggable="false" />
+        </div>
+        <div class="back-face"></div>
+      </div>
+
+      <!-- CARD B: Copier — STATIC screenshot version.
+           User wants the exact crop from `assets/copier-static.png` so
+           the borders are clean. We layer a transparent SVG overlay on
+           top that shimmers the green account chips in a diagonal
+           cascade (replicates `shimmerCopier()` from the demo). -->
+      <div class="card" id="cardB">
+        <div class="front-face">
+          <img class="screenshot copier-static" src="/assets/copier-static.png" alt="" draggable="false" />
+          <!-- Chip-shimmer overlay. Each <rect> sits over a green tile.
+               JS toggles "lit" class in diagonal cascade order.
+               Coordinates are percentages of the 851×712 screenshot. -->
+          <svg class="chip-shimmer" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          </svg>
+        </div>
+        <div class="back-face"></div>
+      </div>
+
+    </div>
+
+    <!-- PARTICLE NETWORK CANVAS (BEHIND CARDS via z-index) -->
+    <canvas id="particleCanvas"></canvas>
+  </div>
+
+<script>
+(() => {
+  const cardA = document.getElementById('cardA');
+  const cardB = document.getElementById('cardB');
+  const frameA = document.getElementById('frameA');
+  const chipShimmer = cardB.querySelector('.chip-shimmer');
+  const canvas = document.getElementById('particleCanvas');
+  const ctx = canvas.getContext('2d');
+
+  const isMobile = window.innerWidth <= 768;
+
+  // ============================================================
+  // PARTICLE NETWORK — flows BETWEEN the two cards, bouncing
+  // gently back and forth to represent data movement
+  // ============================================================
+  const PARTICLE_COUNT = isMobile ? 20 : 40;
+  const CONNECTION_DIST = isMobile ? 80 : 120;
+  const SPREAD = isMobile ? 80 : 160;
+  const FLOW_SPEED = 8.0; // base speed along axis (10x original)
+  const particles = [];
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
+  let particlesReady = false;
+
+  function initParticles() {
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+      const t = Math.random(); // 0-1 position along axis
+      const dir = Math.random() > 0.5 ? 1 : -1; // heading toward A or B
+      const speed = FLOW_SPEED * (0.5 + Math.random() * 0.8);
+      particles.push({
+        t: t,  // progress along A→B axis (0=A, 1=B)
+        perp: (Math.random() - 0.5) * SPREAD * 2,  // offset from axis
+        perpV: (Math.random() - 0.5) * 0.3,  // perpendicular wander
+        dir: dir,
+        speed: speed,
+        r: 1.2 + Math.random() * 1.8,
+        alpha: 0.25 + Math.random() * 0.55,
+        x: 0, y: 0 // computed each frame
+      });
+    }
+    particlesReady = true;
+  }
+
+  function isOccluded(x, y, rects) {
+    for (const r of rects) {
+      if (x > r.left - 2 && x < r.right + 2 &&
+          y > r.top - 2 && y < r.bottom + 2) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  function drawParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    const a = cardA.getBoundingClientRect();
+    const b = cardB.getBoundingClientRect();
+    const rects = [a, b];
+    const ax = a.left + a.width / 2;
+    const ay = a.top + a.height / 2;
+    const bx = b.left + b.width / 2;
+    const by = b.top + b.height / 2;
+
+    if (!particlesReady) { initParticles(); return; }
+
+    const dx = bx - ax;
+    const dy = by - ay;
+    const len = Math.sqrt(dx * dx + dy * dy);
+    if (len < 50) return;
+
+    // Unit vectors
+    const ux = dx / len;
+    const uy = dy / len;
+    const nx = -uy;
+    const ny = ux;
+
+    // Update and compute screen positions
+    for (const p of particles) {
+      // Move along axis
+      p.t += p.dir * p.speed * 0.002;
+
+      // Bounce at ends (near the cards)
+      if (p.t > 1.05) {
+        p.dir = -1;
+        p.t = 1.05;
+      } else if (p.t < -0.05) {
+        p.dir = 1;
+        p.t = -0.05;
+      }
+
+      // Perpendicular wander
+      p.perp += p.perpV;
+      if (Math.abs(p.perp) > SPREAD) {
+        p.perpV *= -0.8;
+        p.perp = Math.sign(p.perp) * SPREAD;
+      }
+      p.perpV += (Math.random() - 0.5) * 0.06;
+      p.perpV *= 0.98;
+
+      // Convert to screen position
+      p.x = ax + ux * len * p.t + nx * p.perp;
+      p.y = ay + uy * len * p.t + ny * p.perp;
+    }
+
+    // Draw connections
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const pa = particles[i];
+        const pb = particles[j];
+        const ddx = pa.x - pb.x;
+        const ddy = pa.y - pb.y;
+        const dist = Math.sqrt(ddx * ddx + ddy * ddy);
+        if (dist < CONNECTION_DIST) {
+          const mx = (pa.x + pb.x) / 2;
+          const my = (pa.y + pb.y) / 2;
+          if (isOccluded(mx, my, rects)) continue;
+          if (isOccluded(pa.x, pa.y, rects) || isOccluded(pb.x, pb.y, rects)) continue;
+          const lineAlpha = (1 - dist / CONNECTION_DIST) * 0.3;
+          ctx.beginPath();
+          ctx.moveTo(pa.x, pa.y);
+          ctx.lineTo(pb.x, pb.y);
+          ctx.strokeStyle = `rgba(100, 160, 255, ${lineAlpha})`;
+          ctx.lineWidth = 0.7;
+          ctx.stroke();
+        }
+      }
+    }
+
+    // Draw dots
+    for (const p of particles) {
+      if (isOccluded(p.x, p.y, rects)) continue;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r * 3.5, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(60, 120, 255, ${p.alpha * 0.12})`;
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(100, 170, 255, ${p.alpha})`;
+      ctx.fill();
+    }
+  }
+
+  // ============================================================
+  // CHIP-SHIMMER OVERLAY (static copier card — 851×712 screenshot)
+  // ============================================================
+  // Green tile grid measured from copier-static.png (851×712):
+  //   Tile size: ~19.62% × 7.30%
+  //   4 cols × 5 rows, last row only 3 tiles (no col 4)
+  const COLS_PCT = [1.88, 22.56, 43.24, 63.92];
+  const ROWS_PCT = [27.81, 36.45, 45.08, 53.79, 62.64];
+  const CHIP_W   = 19.62;
+  const CHIP_H   = 7.30;
+  const SKIP = new Set(['4,3']);   // row 4 col 3 doesn't exist
+
+  const chipMap = {};
+  const NS = 'http://www.w3.org/2000/svg';
+  for (let r = 0; r < ROWS_PCT.length; r++) {
+    for (let c = 0; c < COLS_PCT.length; c++) {
+      if (SKIP.has(r + ',' + c)) continue;
+      const rect = document.createElementNS(NS, 'rect');
+      rect.setAttribute('class', 'chip');
+      rect.setAttribute('x', COLS_PCT[c]);
+      rect.setAttribute('y', ROWS_PCT[r]);
+      rect.setAttribute('width',  CHIP_W);
+      rect.setAttribute('height', CHIP_H);
+      chipShimmer.appendChild(rect);
+      chipMap[r + ',' + c] = rect;
+    }
+  }
+
+  // Diagonal cascade: top-right rolling down-left
+  function shimmerCopier() {
+    const STEP = 80;
+    const HOLD = 500;
+    const LAST_COL = COLS_PCT.length - 1;
+    Object.entries(chipMap).forEach(([key, el]) => {
+      const [r, c] = key.split(',').map(Number);
+      const delay = ((LAST_COL - c) + r) * STEP;
+      el.classList.remove('lit');
+      void el.getBoundingClientRect().width;
+      setTimeout(() => {
+        el.classList.add('lit');
+        setTimeout(() => el.classList.remove('lit'), HOLD);
+      }, delay);
+    });
+  }
+
+  // ============================================================
+  // LIVE-DEMO RETRIGGER VIA postMessage
+  // ============================================================
+  // Card A still hosts the live dashboard iframe. Card B is now a
+  // static screenshot driven by the local shimmerCopier() above.
+  function retriggerDashboard() {
+    try { frameA.contentWindow.postMessage({type:'retriggerDashboard'}, '*'); }
+    catch(_) {}
+  }
+  function retriggerCopier() {
+    shimmerCopier();
+  }
+
+  // Hide the static dashboard fallback once the iframe signals ready.
+  // (Card B no longer has an iframe — its image stays visible.)
+  window.addEventListener('message', (e) => {
+    if (e.data && e.data.type === 'embedReady' && e.data.view === 'dashboard') {
+      const fallback = cardA.querySelector('.screenshot');
+      if (fallback) fallback.style.opacity = '0';
+    }
+  });
+
+  // ============================================================
+  // SHARED ORBIT TIMING
+  // ============================================================
+  // ONE master clock; card B = card A + π. They share pace exactly.
+
+  const CYCLE = 7000;   // ms per HALF-orbit (front → back)
+  const PAUSE = 2400;   // hold per side; long enough for ring redraw
+  const PERIOD = (CYCLE + PAUSE) * 2;
+
+  const ORBIT_X = isMobile ? 160 : 400;
+  const ORBIT_Z = isMobile ? 120 : 280;
+
+  function easeInOutCubic(t) {
+    return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3) / 2;
+  }
+
+  function masterAngle(p) {
+    if (p < PAUSE) {
+      return { angle: 0, phase: 'pauseA' };
+    } else if (p < PAUSE + CYCLE) {
+      const tp = (p - PAUSE) / CYCLE;
+      return { angle: easeInOutCubic(tp) * Math.PI, phase: 'travel1' };
+    } else if (p < PAUSE * 2 + CYCLE) {
+      return { angle: Math.PI, phase: 'pauseB' };
+    } else {
+      const tp = (p - PAUSE * 2 - CYCLE) / CYCLE;
+      return { angle: Math.PI + easeInOutCubic(tp) * Math.PI, phase: 'travel2' };
+    }
+  }
+
+  let lastPhase = '';
+  function onPhaseChange(newPhase) {
+    if (newPhase === 'pauseA') {
+      retriggerDashboard();
+    } else if (newPhase === 'pauseB') {
+      retriggerCopier();
+    }
+  }
+
+  function applyCard(card, angle) {
+    // Normalize to [0, 2π) BEFORE deriving rotY. Without this,
+    // card B (which is angle + π) can drift to e.g. -360.01° via
+    // floating-point accumulation, and backface-visibility treats
+    // that as "flipped" — the back face wins and occludes the front.
+    const normAngle = ((angle % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
+
+    const x = -Math.sin(normAngle) * ORBIT_X;
+    const z = Math.cos(normAngle) * ORBIT_Z;
+    const depth = (z + ORBIT_Z) / (2 * ORBIT_Z);
+    const scale = 0.55 + depth * 0.45;
+    const opacity = 0.85 + depth * 0.15;
+    const blur = (1 - depth) * 3;
+    const rotY = -(normAngle * 180 / Math.PI);
+
+    card.style.transform =
+      `translate3d(${x}px, 0, ${z - ORBIT_Z}px) ` +
+      `rotateY(${rotY}deg) ` +
+      `scale(${scale})`;
+    card.style.opacity = opacity.toFixed(3);
+    card.style.filter = blur > 0.1 ? `blur(${blur.toFixed(2)}px)` : 'none';
+    card.style.zIndex = Math.round(depth * 1000);
+  }
+
+  const t0 = performance.now();
+  function frame(now) {
+    const t = now - t0;
+    const p = ((t % PERIOD) + PERIOD) % PERIOD;
+    const { angle, phase } = masterAngle(p);
+
+    if (phase !== lastPhase) {
+      onPhaseChange(phase);
+      lastPhase = phase;
+    }
+
+    applyCard(cardA, angle);
+    applyCard(cardB, angle + Math.PI);
+    drawParticles();
+
+    requestAnimationFrame(frame);
+  }
+
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
