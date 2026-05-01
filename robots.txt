@@ -4,5 +4,6 @@
 User-agent: *
 Allow: /
 
-# Sitemap location
+# Sitemap locations
 Sitemap: https://tradecovex.com/sitemap.xml
+Sitemap: https://tradecovex.com/video-sitemap.xml

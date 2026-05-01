@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+
+  <!-- Topstep Rule Changes 2026 -->
+  <url>
+    <loc>https://tradecovex.com/guides/topstep-rule-changes-2026</loc>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/rDlmtYWym24/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>Topstep NEW Rules 2026 — Every Change Explained for Funded Traders</video:title>
+      <video:description>Complete walkthrough of every Topstep rule change from November 2025 to April 28, 2026 — the new payout caps on No Activation Fee accounts, the Standard vs Consistency paths, the 90/10 split, the two-rule payout structure, the Futures Desk acquisition, and what each change means for traders.</video:description>
+      <video:content_loc>https://www.youtube.com/watch?v=rDlmtYWym24</video:content_loc>
+      <video:player_loc>https://www.youtube.com/embed/rDlmtYWym24</video:player_loc>
+      <video:publication_date>2026-05-01T00:00:00+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+
+  <!-- Apex EOD vs Intraday 2026 -->
+  <url>
+    <loc>https://tradecovex.com/guides/apex-eod-vs-intraday-2026</loc>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/N-UfHZrYzyo/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>Apex EOD vs Intraday Trailing Drawdown 2026 — Which One Should You Pick?</video:title>
+      <video:description>Full walkthrough of Apex Trader Funding's EOD versus Intraday trailing drawdown choice introduced in the March 2026 overhaul. How each one works in practice, the Daily Loss Limit difference, the Safety Net math, and which option fits which trading style.</video:description>
+      <video:content_loc>https://www.youtube.com/watch?v=N-UfHZrYzyo</video:content_loc>
+      <video:player_loc>https://www.youtube.com/embed/N-UfHZrYzyo</video:player_loc>
+      <video:publication_date>2026-04-30T00:00:00+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+
+  <!-- Apex Trader Funding Rules 2026 -->
+  <url>
+    <loc>https://tradecovex.com/guides/apex-trader-funding-rules-2026</loc>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/PqL736jRxP8/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>Apex Trader Funding Rules 2026 — Complete Breakdown of the March Overhaul</video:title>
+      <video:description>Walkthrough of every Apex Trader Funding rule change in 2026 — the EOD versus Intraday trailing drawdown choice, the removal of MAE and the 5:1 ratio, mandatory bracket orders, the Safety Net mechanic, and what each change means for traders running evaluations and Performance Accounts.</video:description>
+      <video:content_loc>https://www.youtube.com/watch?v=PqL736jRxP8</video:content_loc>
+      <video:player_loc>https://www.youtube.com/embed/PqL736jRxP8</video:player_loc>
+      <video:publication_date>2026-04-30T00:00:00+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+
+  <!-- Pass Topstep Combine 2026 -->
+  <url>
+    <loc>https://tradecovex.com/guides/pass-topstep-combine</loc>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/fdLYBL6TzEc/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>How to Pass a Topstep Combine in 2026 — Step-by-Step Walkthrough</video:title>
+      <video:description>The complete 2026 Topstep Combine playbook — exactly how to pass under the current rules. Position sizing, daily discipline, the 50 percent consistency math, the trailing Maximum Loss Limit trap, and the specific behaviour patterns that separate the traders who pass from the ones who reset over and over.</video:description>
+      <video:content_loc>https://www.youtube.com/watch?v=fdLYBL6TzEc</video:content_loc>
+      <video:player_loc>https://www.youtube.com/embed/fdLYBL6TzEc</video:player_loc>
+      <video:publication_date>2026-04-30T00:00:00+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+
+  <!-- MyFundedFutures Rules 2026 -->
+  <url>
+    <loc>https://tradecovex.com/guides/myfundedfutures-rules-2026</loc>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/xR24UEM9PIQ/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>MyFundedFutures Rules 2026 — Complete Walkthrough</video:title>
+      <video:description>Every MyFundedFutures rule in 2026 explained — Core, Rapid, and Pro account drawdowns, the EOD versus intraday MLL split that kills most Rapid funded accounts, news trading rules, consistency, profit splits, and which account type fits which trading style.</video:description>
+      <video:content_loc>https://www.youtube.com/watch?v=xR24UEM9PIQ</video:content_loc>
+      <video:player_loc>https://www.youtube.com/embed/xR24UEM9PIQ</video:player_loc>
+      <video:publication_date>2026-04-30T00:00:00+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+
+</urlset>
