@@ -188,6 +188,7 @@ a{text-decoration:none;color:inherit}
   object-position:10% center;
   opacity:1;
   z-index:0;
+  pointer-events:none;          /* prevent iOS Safari from showing tap-to-play overlay */
   mask-image:linear-gradient(to right, black 0%, black 40%, transparent 80%);
   -webkit-mask-image:linear-gradient(to right, black 0%, black 40%, transparent 80%);
 }
@@ -2626,21 +2627,23 @@ a{text-decoration:none;color:inherit}
         <div class="pricing-tier">Starter</div>
         <div class="pricing-price"><span class="dollar">$</span><span class="amount">19</span><span class="suffix">/mo</span></div>
         <div class="pricing-annual">$168/yr · save 26%</div>
-        <div class="pricing-desc">Solo trader — up to 20 prop accounts</div>
+        <div class="pricing-desc">Up to 20 prop accounts</div>
         <div class="pricing-features">
-        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trade copying up to 20 accounts</span></div>
-        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>AI journal — lead account auto-capture</span></div>
-        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Basic AI pattern insights (weekly)</span></div>
-        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Basic performance stats</span></div>
-        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Time-of-day breakdown</span></div>
-        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Basic mistake pattern detection</span></div>
-        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Daily review summary</span></div>
+        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trade copier — up to 20 follower accounts</span></div>
+        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>AI journal — auto-capture from your lead account</span></div>
+        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Daily Brief — AI-narrated pre-market, live, post-session reads</span></div>
+        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Daily Review — pre-trade plan, post-trade reflection, market trend</span></div>
+        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Edge page — pattern library (Timing, Setup, Behaviour)</span></div>
+        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trading Identity — your strengths and blind spots</span></div>
+        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Tilt detection during live session</span></div>
+        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Multi-account dashboard with drift detection</span></div>
+        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Prop firm challenge tracker — gap to pass, DD buffer, expiry</span></div>
+        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Economic events calendar</span></div>
+        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Propfirm Deals — exclusive promo codes</span></div>
         <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>CSV / Excel trade import</span></div>
-        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>30-day AI insight history</span></div>
-        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Drawdown tracker</span></div>
-        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Real-time P&amp;L dashboard</span></div>
-        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Basic follower sync alerts</span></div>
-        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Email support</span></div>
+        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Full data export (PIPEDA-compliant)</span></div>
+        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Up to 3 active custom rules</span></div>
+        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>AI support agent (24/7) + email backup within 24h</span></div>
         </div>
         <div class="pricing-cta">
           <a class="pricing-btn pricing-btn-outline" href="#waitlist">Join Waitlist</a>
@@ -2652,21 +2655,18 @@ a{text-decoration:none;color:inherit}
         <div class="pricing-tier">Pro</div>
         <div class="pricing-price"><span class="dollar">$</span><span class="amount">39</span><span class="suffix">/mo</span></div>
         <div class="pricing-annual">$348/yr · save 26%</div>
-        <div class="pricing-desc">Active trader — up to 40 prop accounts</div>
+        <div class="pricing-desc">Up to 40 prop accounts</div>
         <div class="pricing-features">
         <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Everything in Starter</span></div>
-        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trade copying up to 40 accounts</span></div>
-        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Daily AI pattern insights</span></div>
-        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Full behavioural analysis</span></div>
-        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Advanced mistake pattern detection</span></div>
-        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>6-month AI insight history</span></div>
-        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Prop firm challenge tracker</span></div>
-        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Custom threshold alerts</span></div>
-        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Economic news alerts in dashboard</span></div>
-        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Prop firm news and updates</span></div>
-        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Full follower sync monitoring</span></div>
-        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Data export (CSV)</span></div>
-        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Email + Discord support</span></div>
+        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trade copier — up to 40 follower accounts</span></div>
+        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Unlimited active custom rules</span></div>
+        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Pattern Library — Risk patterns unlocked</span></div>
+        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Decision Cost Analysis — what your exits actually cost you</span></div>
+        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>AI Read of every session — narrative tied to your 90-day patterns</span></div>
+        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Tomorrow's Focus — surfaces on next day's Daily Brief</span></div>
+        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>MoneyFlow analysis — where your capital actually goes</span></div>
+        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Financial news feed — MarketWatch, CNBC, Reuters, Bloomberg</span></div>
+        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Propfirm Updates — rule changes from Apex, Topstep, MFF and others as they happen</span></div>
         </div>
         <div class="pricing-cta">
           <a class="pricing-btn pricing-btn-fill" href="#waitlist">Join Waitlist</a>
@@ -2677,16 +2677,13 @@ a{text-decoration:none;color:inherit}
         <div class="pricing-tier">Elite</div>
         <div class="pricing-price"><span class="dollar">$</span><span class="amount">79</span><span class="suffix">/mo</span></div>
         <div class="pricing-annual">$708/yr · save 25%</div>
-        <div class="pricing-desc">Professional — up to 100 prop accounts</div>
+        <div class="pricing-desc">Up to 100 prop accounts</div>
         <div class="pricing-features">
         <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Everything in Pro</span></div>
-        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trade copying up to 100 accounts</span></div>
-        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Real-time AI pattern insights</span></div>
-        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Unlimited AI insight history</span></div>
-        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>AI chat — ask about your trade history</span></div>
-        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Market-moving news feed</span></div>
-        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Priority support — same day response</span></div>
-        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Onboarding call included</span></div>
+        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Trade copier — up to 100 follower accounts</span></div>
+        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>AI Coach — ask anything about your trade history, patterns, edge, discipline</span></div>
+        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>AI account sequencing — how to prioritize multiple accounts</span></div>
+        <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>AI challenge progress analysis — Elite-only insights on Accounts page</span></div>
         </div>
         <div class="pricing-cta">
           <a class="pricing-btn pricing-btn-outline" href="#waitlist">Join Waitlist</a>
@@ -2967,7 +2964,7 @@ a{text-decoration:none;color:inherit}
     <div class="footer-col">
       <div class="footer-col-title">Partners</div>
       <ul>
-        <li><a class="is-blue" href="https://tradecovex.lemonsqueezy.com/affiliates" target="_blank" rel="noopener">Affiliates — Earn $15–$45/signup</a></li>
+        <li><a class="is-blue" href="/affiliates.html">Affiliates — Earn $15–$45/signup</a></li>
       </ul>
     </div>
   </div>
@@ -3570,12 +3567,31 @@ document.querySelectorAll('.faq-q').forEach(btn => {
 (function(){
   const video = document.querySelector('.hero-video');
   if (!video) return;
-  // Try playing immediately
-  const tryPlay = () => video.play().catch(() => {});
+
+  // Hard-set attributes again at runtime in case browser stripped them
+  video.muted = true;
+  video.defaultMuted = true;
+  video.playsInline = true;
+  video.setAttribute('muted', '');
+  video.setAttribute('playsinline', '');
+  video.setAttribute('webkit-playsinline', '');
+
+  const tryPlay = () => {
+    const p = video.play();
+    if (p && typeof p.catch === 'function') p.catch(() => {});
+  };
+
+  // Try once now
   tryPlay();
-  // If autoplay was blocked, retry on first user gesture
-  ['touchstart','click','scroll'].forEach(evt => {
-    document.addEventListener(evt, tryPlay, { once: true, passive: true });
+  // Try again when video metadata loads
+  video.addEventListener('loadedmetadata', tryPlay);
+  // Try every time the page becomes visible
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) tryPlay();
+  });
+  // Retry on the first sign of any user interaction
+  ['touchstart','touchend','click','scroll','keydown'].forEach(evt => {
+    document.addEventListener(evt, tryPlay, { passive: true });
   });
 })();
 </script>
