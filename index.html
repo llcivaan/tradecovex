@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -3612,6 +3612,7 @@ document.querySelectorAll('.faq-q').forEach(btn => {
 })();
 </script>
 
+
 <!-- TRADECOVEX-SUPPORT-WIDGET -->
 <style>
   :root {
@@ -3623,13 +3624,12 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   #tcx-launcher:hover { transform: scale(1.08); box-shadow: 0 12px 36px rgba(37, 99, 235, 0.55); }
   #tcx-launcher svg { width: 28px; height: 28px; fill: white; }
   #tcx-launcher.tcx-open svg { display: none; }
-  #tcx-launcher.tcx-open::after { content: 'Ã—'; color: white; font-size: 32px; font-weight: 300; line-height: 1; }
+  #tcx-launcher.tcx-open::after { content: '\00d7'; color: white; font-size: 32px; font-weight: 300; line-height: 1; }
   #tcx-panel { position: fixed; bottom: 100px; right: 24px; width: 380px; height: 580px; max-height: calc(100vh - 130px); background: var(--tcx-bg); border-radius: 16px; box-shadow: 0 20px 60px rgba(10, 22, 40, 0.25); z-index: 9998; display: none; flex-direction: column; overflow: hidden; font-family: 'DM Sans', sans-serif; animation: tcx-slide-up 0.25s ease; }
   #tcx-panel.tcx-open { display: flex; }
   @keyframes tcx-slide-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   #tcx-widget .tcx-header { background: var(--tcx-navy); color: white; padding: 16px 20px; display: flex; align-items: center; gap: 12px; }
   #tcx-widget .tcx-avatar { width: 42px; height: 42px; border-radius: 50%; background: linear-gradient(135deg, #4B5E7A, #2563EB); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 600; font-size: 16px; flex-shrink: 0; overflow: hidden; position: relative; }
-  #tcx-widget .tcx-avatar img { width: 100%; height: 100%; object-fit: cover; }
   #tcx-widget .tcx-avatar::after { content: ''; position: absolute; bottom: 0; right: 0; width: 11px; height: 11px; background: #22c55e; border-radius: 50%; border: 2px solid var(--tcx-navy); }
   #tcx-widget .tcx-header-info { flex: 1; min-width: 0; }
   #tcx-widget .tcx-header-name { font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 600; font-size: 15px; line-height: 1.2; }
@@ -3679,7 +3679,7 @@ document.querySelectorAll('.faq-q').forEach(btn => {
       <div class="tcx-avatar"><span>M</span></div>
       <div class="tcx-header-info">
         <div class="tcx-header-name">Maya</div>
-        <div class="tcx-header-status">Tradecovex Support Â· Usually replies in a few minutes</div>
+        <div class="tcx-header-status">Tradecovex Support &middot; Usually replies in a few minutes</div>
       </div>
     </div>
     <div class="tcx-messages" id="tcx-messages"></div>
@@ -3695,41 +3695,175 @@ document.querySelectorAll('.faq-q').forEach(btn => {
 
 <script>
 (function() {
-  const AGENT = { name: 'Maya', initial: 'M' };
-  const KB_URL = '/widget-kb.json';
-  const SUPPORT_ENDPOINT = 'https://b126d666.sibforms.com/serve/MUIFAE7VOF_AeAWtGfP2bzNZaJmgRubii9ooUAWve9PPP5AJ-014DUkypC1ggrqeGHbc0FndtWK4GkgX-sLvmMOdAzVhKfbtNbjXZCY-wEsGYFg7vWihymtUGlleKjko1btwg6ZX6s46jsEjALp7JVDIiiqbyTfKDAm4NpHNHSxD8QyAjL8kuQfdADYpCBRf4AgWLnPMLnEd4HlryA==';
-  const TYPING_BASE_MS = 1100, TYPING_PER_CHAR_MS = 22, TYPING_MAX_MS = 3800;
-  let KB = [], kbLoaded = false;
-  const DEFLECT_KEYWORDS = ['configure','configuration','setup my','set up my','install','how do i set','connect my account','add my account','link my broker','not working',"isn't working",'isnt working','bug','error','crash','broken','troubleshoot','fix','support ticket','my account','my dashboard','my journal','my copier','my trades','license','activation key','reactivate','change my plan','upgrade my plan','downgrade','cancel my subscription'];
-  const DEFLECT_REPLY = "Great question â€” but that one needs access to the dashboard to answer properly, and I'm only set up for pre-trial questions out here. The moment you start your free trial you'll get full in-app support that can pull up your account and walk you through it. Want me to point you to the signup?";
-  const TRADING_ADVICE_KEYWORDS = ['should i buy','should i sell','should i trade','is now a good time','will price','price prediction','market forecast','what stock','which stock','best strategy','trade idea','signal','entry point','exit point'];
-  const TRADING_ADVICE_REPLY = "I can't give trading advice â€” Tradecovex is a tool for analyzing your <i>own</i> trades, not a signal service. Happy to tell you anything about the product itself though.";
-  let conversation = [], clarifyCount = 0, panelOpen = false, isTyping = false;
-  const launcher = document.getElementById('tcx-launcher');
-  const panel = document.getElementById('tcx-panel');
-  const messages = document.getElementById('tcx-messages');
-  const input = document.getElementById('tcx-input');
-  const sendBtn = document.getElementById('tcx-send');
-  fetch(KB_URL, { cache: 'no-cache' }).then(r => r.json()).then(data => { KB = data.entries || []; kbLoaded = true; }).catch(() => { kbLoaded = true; });
-  launcher.addEventListener('click', () => { panelOpen = !panelOpen; panel.classList.toggle('tcx-open', panelOpen); launcher.classList.toggle('tcx-open', panelOpen); if (panelOpen && conversation.length === 0) showIdleState(); if (panelOpen) setTimeout(() => input.focus(), 300); });
+  var AGENT = { name: 'Maya', initial: 'M' };
+  var KB_URL = '/widget-kb.json';
+  var SUPPORT_ENDPOINT = 'https://b126d666.sibforms.com/serve/MUIFAE7VOF_AeAWtGfP2bzNZaJmgRubii9ooUAWve9PPP5AJ-014DUkypC1ggrqeGHbc0FndtWK4GkgX-sLvmMOdAzVhKfbtNbjXZCY-wEsGYFg7vWihymtUGlleKjko1btwg6ZX6s46jsEjALp7JVDIiiqbyTfKDAm4NpHNHSxD8QyAjL8kuQfdADYpCBRf4AgWLnPMLnEd4HlryA==';
+  var TYPING_BASE_MS = 1100, TYPING_PER_CHAR_MS = 22, TYPING_MAX_MS = 3800;
+  var KB = [], kbLoaded = false;
+  var firstReply = true;
+  var GREETING_PREFIX = "Hi there! ";
+
+  var DEFLECT_KEYWORDS = ['configure','configuration','setup my','set up my','install','how do i set','connect my account','add my account','link my broker','not working',"isn't working",'isnt working','bug','error','crash','broken','troubleshoot','fix','support ticket','my account','my dashboard','my journal','my copier','my trades','license','activation key','reactivate','change my plan','upgrade my plan','downgrade','cancel my subscription'];
+  var DEFLECT_REPLY = "Great question, but that one needs access to the dashboard to answer properly, and I'm only set up for pre-trial questions out here. The moment you start your free trial you'll get full in-app support that can pull up your account and walk you through it. Want me to point you to the signup?";
+  var TRADING_ADVICE_KEYWORDS = ['should i buy','should i sell','should i trade','is now a good time','will price','price prediction','market forecast','what stock','which stock','best strategy','trade idea','signal','entry point','exit point'];
+  var TRADING_ADVICE_REPLY = "I can't give trading advice. Tradecovex is a tool for analyzing your <i>own</i> trades, not a signal service. Happy to tell you anything about the product itself though.";
+
+  var conversation = [], clarifyCount = 0, panelOpen = false, isTyping = false;
+  var launcher = document.getElementById('tcx-launcher');
+  var panel = document.getElementById('tcx-panel');
+  var messages = document.getElementById('tcx-messages');
+  var input = document.getElementById('tcx-input');
+  var sendBtn = document.getElementById('tcx-send');
+
+  fetch(KB_URL, { cache: 'no-cache' }).then(function(r){ return r.json(); }).then(function(data){ KB = data.entries || []; kbLoaded = true; }).catch(function(){ kbLoaded = true; });
+
+  launcher.addEventListener('click', function(){
+    panelOpen = !panelOpen;
+    panel.classList.toggle('tcx-open', panelOpen);
+    launcher.classList.toggle('tcx-open', panelOpen);
+    if (panelOpen && conversation.length === 0) showIdleState();
+    if (panelOpen) setTimeout(function(){ input.focus(); }, 300);
+  });
   sendBtn.addEventListener('click', handleSend);
-  input.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); handleSend(); } });
-  function handleSend() { const text = input.value.trim(); if (!text || isTyping) return; const idle = document.getElementById('tcx-idle'); if (idle) idle.remove(); input.value = ''; userSay(text); respond(text); }
-  function showIdleState() { const idle = document.createElement('div'); idle.id = 'tcx-idle'; idle.innerHTML = '<div class="tcx-idle-title">Ask us anything</div><div>Pricing &middot; Free trial &middot; How the copier works &middot; When we launch</div>'; messages.appendChild(idle); }
-  function userSay(text) { conversation.push({ role: 'user', text }); const row = document.createElement('div'); row.className = 'tcx-msg-row tcx-user'; row.innerHTML = '<div class="tcx-bubble">' + escapeHtml(text) + '</div>'; messages.appendChild(row); scrollDown(); }
-  function agentSay(html) { conversation.push({ role: 'agent', text: html }); const row = document.createElement('div'); row.className = 'tcx-msg-row tcx-agent'; row.innerHTML = '<div class="tcx-msg-avatar">' + AGENT.initial + '</div><div class="tcx-bubble">' + html + '</div>'; messages.appendChild(row); scrollDown(); }
-  function showTyping() { isTyping = true; const row = document.createElement('div'); row.className = 'tcx-msg-row tcx-agent'; row.id = 'tcx-typing-row'; row.innerHTML = '<div class="tcx-msg-avatar">' + AGENT.initial + '</div><div class="tcx-typing"><span></span><span></span><span></span></div>'; messages.appendChild(row); scrollDown(); }
-  function hideTyping() { isTyping = false; const r = document.getElementById('tcx-typing-row'); if (r) r.remove(); }
-  function scrollDown() { setTimeout(() => { messages.scrollTop = messages.scrollHeight; }, 50); }
-  function escapeHtml(s) { return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
-  function respond(userText) { if (!kbLoaded) { setTimeout(() => respond(userText), 300); return; } const lower = userText.toLowerCase(); if (matchAny(lower, TRADING_ADVICE_KEYWORDS)) { replyWithTyping(TRADING_ADVICE_REPLY); return; } if (matchAny(lower, DEFLECT_KEYWORDS)) { replyWithTyping(DEFLECT_REPLY); return; } const hit = findKBMatch(lower); if (hit) { clarifyCount = 0; replyWithTyping(hit.reply); return; } if (clarifyCount === 0) { clarifyCount++; replyWithTyping("I want to make sure I get this right â€” could you give me a bit more detail on what you're asking about? (For example: pricing, the free trial, what platforms we support, or how the copier works.)"); } else { clarifyCount++; replyWithTyping("That's a good question and I want to make sure you get the right answer â€” let me get one of the team to reply directly. Drop your email below and we'll get back to you within 24 hours.", () => renderEmailForm(userText)); } }
-  function matchAny(lower, list) { return list.some(kw => lower.includes(kw)); }
-  function findKBMatch(lower) { let best = null, bestScore = 0; for (const entry of KB) { const score = entry.keywords.reduce((acc, kw) => acc + (lower.includes(kw.toLowerCase()) ? kw.length : 0), 0); if (score > bestScore) { bestScore = score; best = entry; } } return bestScore >= 3 ? best : null; }
-  function replyWithTyping(html, afterCb) { showTyping(); const delay = Math.min(TYPING_BASE_MS + (html.length * TYPING_PER_CHAR_MS), TYPING_MAX_MS); setTimeout(() => { hideTyping(); agentSay(html); if (afterCb) setTimeout(afterCb, 400); }, delay); }
-  function renderEmailForm(originalQuestion) { const form = document.createElement('div'); form.className = 'tcx-msg-row tcx-agent'; form.innerHTML = '<div class="tcx-msg-avatar">' + AGENT.initial + '</div><div style="flex:1;max-width:78%;"><div class="tcx-email-form"><input type="email" id="tcx-email-input" placeholder="your@email.com" required><button id="tcx-email-submit">Send to the team</button></div></div>'; messages.appendChild(form); scrollDown(); document.getElementById('tcx-email-submit').addEventListener('click', () => { const email = document.getElementById('tcx-email-input').value.trim(); if (!validEmail(email)) { document.getElementById('tcx-email-input').style.borderColor = '#ef4444'; return; } submitToSupport(email, originalQuestion, form); }); }
+  input.addEventListener('keydown', function(e){ if (e.key === 'Enter') { e.preventDefault(); handleSend(); } });
+
+  function handleSend() {
+    var text = input.value.trim();
+    if (!text || isTyping) return;
+    var idle = document.getElementById('tcx-idle');
+    if (idle) idle.remove();
+    input.value = '';
+    userSay(text);
+    respond(text);
+  }
+
+  function showIdleState() {
+    var idle = document.createElement('div');
+    idle.id = 'tcx-idle';
+    idle.innerHTML = '<div class="tcx-idle-title">Ask us anything</div><div>Pricing &middot; Free trial &middot; How the copier works &middot; When we launch</div>';
+    messages.appendChild(idle);
+  }
+
+  function userSay(text) {
+    conversation.push({ role: 'user', text: text });
+    var row = document.createElement('div');
+    row.className = 'tcx-msg-row tcx-user';
+    row.innerHTML = '<div class="tcx-bubble">' + escapeHtml(text) + '</div>';
+    messages.appendChild(row);
+    scrollDown();
+  }
+
+  function agentSay(html) {
+    conversation.push({ role: 'agent', text: html });
+    var row = document.createElement('div');
+    row.className = 'tcx-msg-row tcx-agent';
+    row.innerHTML = '<div class="tcx-msg-avatar">' + AGENT.initial + '</div><div class="tcx-bubble">' + html + '</div>';
+    messages.appendChild(row);
+    scrollDown();
+  }
+
+  function showTyping() {
+    isTyping = true;
+    var row = document.createElement('div');
+    row.className = 'tcx-msg-row tcx-agent';
+    row.id = 'tcx-typing-row';
+    row.innerHTML = '<div class="tcx-msg-avatar">' + AGENT.initial + '</div><div class="tcx-typing"><span></span><span></span><span></span></div>';
+    messages.appendChild(row);
+    scrollDown();
+  }
+
+  function hideTyping() {
+    isTyping = false;
+    var r = document.getElementById('tcx-typing-row');
+    if (r) r.remove();
+  }
+
+  function scrollDown() { setTimeout(function(){ messages.scrollTop = messages.scrollHeight; }, 50); }
+  function escapeHtml(s) { return s.replace(/[&<>"']/g, function(c){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); }
+
+  function respond(userText) {
+    if (!kbLoaded) { setTimeout(function(){ respond(userText); }, 300); return; }
+    var lower = userText.toLowerCase();
+
+    if (matchAny(lower, TRADING_ADVICE_KEYWORDS)) { replyWithTyping(maybeGreet(TRADING_ADVICE_REPLY)); return; }
+    if (matchAny(lower, DEFLECT_KEYWORDS)) { replyWithTyping(maybeGreet(DEFLECT_REPLY)); return; }
+
+    var hit = findKBMatch(lower);
+    if (hit) { clarifyCount = 0; replyWithTyping(maybeGreet(hit.reply)); return; }
+
+    if (clarifyCount === 0) {
+      clarifyCount++;
+      replyWithTyping(maybeGreet("I want to make sure I get this right &mdash; could you give me a bit more detail on what you're asking about? (For example: pricing, the free trial, what platforms we support, or how the copier works.)"));
+    } else {
+      clarifyCount++;
+      replyWithTyping(
+        "That's a good question and I want to make sure you get the right answer &mdash; let me get one of the team to reply directly. Drop your email below and we'll get back to you within 24 hours.",
+        function(){ renderEmailForm(userText); }
+      );
+    }
+  }
+
+  function maybeGreet(reply) {
+    if (firstReply) {
+      firstReply = false;
+      // Skip greeting for greeting-type replies (avoid 'Hi there! Hey what can I help')
+      if (/^(hey|hi|hello)/i.test(reply)) return reply;
+      return GREETING_PREFIX + reply;
+    }
+    return reply;
+  }
+
+  function matchAny(lower, list) { return list.some(function(kw){ return lower.indexOf(kw) !== -1; }); }
+
+  function findKBMatch(lower) {
+    var best = null, bestScore = 0;
+    for (var i = 0; i < KB.length; i++) {
+      var entry = KB[i];
+      var score = entry.keywords.reduce(function(acc, kw){ return acc + (lower.indexOf(kw.toLowerCase()) !== -1 ? kw.length : 0); }, 0);
+      if (score > bestScore) { bestScore = score; best = entry; }
+    }
+    return bestScore >= 3 ? best : null;
+  }
+
+  function replyWithTyping(html, afterCb) {
+    showTyping();
+    var delay = Math.min(TYPING_BASE_MS + (html.length * TYPING_PER_CHAR_MS), TYPING_MAX_MS);
+    setTimeout(function(){ hideTyping(); agentSay(html); if (afterCb) setTimeout(afterCb, 400); }, delay);
+  }
+
+  function renderEmailForm(originalQuestion) {
+    var form = document.createElement('div');
+    form.className = 'tcx-msg-row tcx-agent';
+    form.innerHTML = '<div class="tcx-msg-avatar">' + AGENT.initial + '</div><div style="flex:1;max-width:78%;"><div class="tcx-email-form"><input type="email" id="tcx-email-input" placeholder="your@email.com" required><button id="tcx-email-submit">Send to the team</button></div></div>';
+    messages.appendChild(form);
+    scrollDown();
+    document.getElementById('tcx-email-submit').addEventListener('click', function(){
+      var email = document.getElementById('tcx-email-input').value.trim();
+      if (!validEmail(email)) { document.getElementById('tcx-email-input').style.borderColor = '#ef4444'; return; }
+      submitToSupport(email, originalQuestion, form);
+    });
+  }
+
   function validEmail(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
-  function submitToSupport(email, question, formEl) { const fullTranscript = conversation.map(m => (m.role === 'user' ? 'User' : AGENT.name) + ': ' + m.text.replace(/<[^>]+>/g, '')).join('\n'); const truncate = (s, n) => s.length > n ? s.slice(0, n - 3) + '...' : s; const data = new FormData(); data.append('EMAIL', email); data.append('ORIGINAL_QUESTION', truncate(question, 195)); data.append('FULL_TRANSCRIPT', truncate(fullTranscript, 195)); data.append('SOURCE', 'tradecovex.com widget'); data.append('email_address_check', ''); data.append('locale', 'en'); fetch(SUPPORT_ENDPOINT, { method: 'POST', body: data, mode: 'no-cors' }).then(() => onSubmitSuccess(formEl)).catch(() => onSubmitSuccess(formEl)); }
-  function onSubmitSuccess(formEl) { formEl.remove(); clarifyCount = 0; replyWithTyping("Got it â€” the team will get back to you within 24 hours. In the meantime, anything else I can help with?"); }
+
+  function submitToSupport(email, question, formEl) {
+    var fullTranscript = conversation.map(function(m){ return (m.role === 'user' ? 'User' : AGENT.name) + ': ' + m.text.replace(/<[^>]+>/g, ''); }).join('\n');
+    var truncate = function(s, n){ return s.length > n ? s.slice(0, n - 3) + '...' : s; };
+    var data = new FormData();
+    data.append('EMAIL', email);
+    data.append('ORIGINAL_QUESTION', truncate(question, 195));
+    data.append('FULL_TRANSCRIPT', truncate(fullTranscript, 195));
+    data.append('SOURCE', 'tradecovex.com widget');
+    data.append('email_address_check', '');
+    data.append('locale', 'en');
+    fetch(SUPPORT_ENDPOINT, { method: 'POST', body: data, mode: 'no-cors' }).then(function(){ onSubmitSuccess(formEl); }).catch(function(){ onSubmitSuccess(formEl); });
+  }
+
+  function onSubmitSuccess(formEl) {
+    formEl.remove();
+    clarifyCount = 0;
+    replyWithTyping("Got it &mdash; the team will get back to you within 24 hours. In the meantime, anything else I can help with?");
+  }
 })();
 </script>
 <!-- END TRADECOVEX-SUPPORT-WIDGET -->
