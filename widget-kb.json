@@ -1,6 +1,6 @@
 ﻿{
-    "version":  "2026-05-22-1040",
-    "generated":  "2026-05-22T10:40:29.3500099-04:00",
+    "version":  "2026-05-22-1049",
+    "generated":  "2026-05-22T10:49:30.9710259-04:00",
     "entries":  [
                     {
                         "id":  "greeting",
@@ -43,7 +43,7 @@
                                          "annual",
                                          "yearly"
                                      ],
-                        "reply":  "We have three plans:\u003cbr\u003e\u003cbr\u003eâ€¢ \u003cb\u003eStarter â€” $19/mo\u003c/b\u003e (up to 20 accounts)\u003cbr\u003eâ€¢ \u003cb\u003ePro â€” $39/mo\u003c/b\u003e (up to 40 accounts) â€” most popular\u003cbr\u003eâ€¢ \u003cb\u003eElite â€” $79/mo\u003c/b\u003e (up to 100 accounts)\u003cbr\u003e\u003cbr\u003eAnnual saves you around 26%. All plans come with a 14-day free trial, no credit card required. Want me to walk you through which one fits you best?"
+                        "reply":  "We have three plans:\u003cbr\u003e\u003cbr\u003e\u0026bull; \u003cb\u003eStarter \u0026mdash; $19/mo\u003c/b\u003e (up to 20 accounts)\u003cbr\u003e\u0026bull; \u003cb\u003ePro \u0026mdash; $39/mo\u003c/b\u003e (up to 40 accounts) \u0026mdash; most popular\u003cbr\u003e\u0026bull; \u003cb\u003eElite \u0026mdash; $79/mo\u003c/b\u003e (up to 100 accounts)\u003cbr\u003e\u003cbr\u003eAnnual saves you around 26%. All plans come with a 14-day free trial, no credit card required. Want me to walk you through which one fits you best?"
                     },
                     {
                         "id":  "trial",
@@ -55,7 +55,7 @@
                                          "test it",
                                          "credit card"
                                      ],
-                        "reply":  "Yes â€” \u003cb\u003e14-day free trial\u003c/b\u003e on every plan, no credit card needed. You can cancel any time. Join the waitlist on this page and you\u0027ll be first in when we open access."
+                        "reply":  "Yes \u0026mdash; \u003cb\u003e14-day free trial\u003c/b\u003e on every plan, no credit card needed. You can cancel any time. Join the waitlist on this page and you\u0027ll be first in when we open access."
                     },
                     {
                         "id":  "what-is",
@@ -69,7 +69,7 @@
                                          "what do you do",
                                          "what kind of"
                                      ],
-                        "reply":  "Tradecovex is a NinjaTrader trade copier with a built-in AI journal. Copy your trades across all your prop accounts in one click, and the AI tells you exactly why your trades are working or failing â€” automatically. Anything specific you\u0027d like to know?"
+                        "reply":  "Tradecovex is a NinjaTrader trade copier with a built-in AI journal. Copy your trades across all your prop accounts in one click, and the AI tells you exactly why your trades are working or failing \u0026mdash; automatically. Anything specific you\u0027d like to know?"
                     },
                     {
                         "id":  "platforms",
@@ -101,7 +101,7 @@
                                          "prop firm",
                                          "funded"
                                      ],
-                        "reply":  "Yes â€” Tradecovex works with any prop firm that runs on NinjaTrader. That covers Apex, Topstep, MyFundedFutures, Take Profit Trader, Tradeify, Bulenox, and the rest. Copy across all your funded accounts at once."
+                        "reply":  "Yes \u0026mdash; Tradecovex works with any prop firm that runs on NinjaTrader. That covers Apex, Topstep, MyFundedFutures, Take Profit Trader, Tradeify, Bulenox, and the rest. Copy across all your funded accounts at once."
                     },
                     {
                         "id":  "when-launch",
@@ -121,7 +121,7 @@
                                          "go live",
                                          "ready"
                                      ],
-                        "reply":  "We\u0027re in private testing right now. Beta opens soon â€” join the waitlist on this page and you\u0027ll be among the first invited, plus you\u0027ll lock in founding-member pricing for life."
+                        "reply":  "We\u0027re in private testing right now. Beta opens soon \u0026mdash; join the waitlist on this page and you\u0027ll be among the first invited, plus you\u0027ll lock in founding-member pricing for life."
                     },
                     {
                         "id":  "refund",
@@ -131,7 +131,7 @@
                                          "guarantee",
                                          "cancel"
                                      ],
-                        "reply":  "Cancel any time from your account â€” no lock-in. The 14-day free trial means you can try everything risk-free before you pay a cent."
+                        "reply":  "Cancel any time from your account \u0026mdash; no lock-in. The 14-day free trial means you can try everything risk-free before you pay a cent."
                     },
                     {
                         "id":  "copier-basic",
@@ -146,7 +146,7 @@
                                          "multiple account",
                                          "copy trade"
                                      ],
-                        "reply":  "You set one lead account, and every trade you take on it copies instantly to all your follower accounts â€” up to 20, 40, or 100 depending on your plan. The full setup walkthrough lives inside the dashboard once you start your free trial."
+                        "reply":  "You set one lead account, and every trade you take on it copies instantly to all your follower accounts \u0026mdash; up to 20, 40, or 100 depending on your plan. The full setup walkthrough lives inside the dashboard once you start your free trial."
                     },
                     {
                         "id":  "ai-basic",
@@ -157,7 +157,7 @@
                                          "insights",
                                          "analyze"
                                      ],
-                        "reply":  "The AI watches your trades and surfaces patterns you\u0027d miss â€” what times of day you\u0027re profitable, which setups break down under pressure, where the same mistake keeps killing your challenges. Behavioural insight, not trade advice. You\u0027ll see it in action the moment you start your trial."
+                        "reply":  "The AI watches your trades and surfaces patterns you\u0027d miss \u0026mdash; what times of day you\u0027re profitable, which setups break down under pressure, where the same mistake keeps killing your challenges. Behavioural insight, not trade advice. You\u0027ll see it in action the moment you start your trial."
                     },
                     {
                         "id":  "affiliate",
@@ -167,7 +167,7 @@
                                          "commission",
                                          "partner"
                                      ],
-                        "reply":  "Yes â€” we have an affiliate programme launching with the product. $15 / $25 / $45 per signup depending on the plan they choose. Drop your email and I\u0027ll have the team send you the details when it opens."
+                        "reply":  "Yes \u0026mdash; we have an affiliate programme launching with the product. $15 / $25 / $45 per signup depending on the plan they choose. Drop your email and I\u0027ll have the team send you the details when it opens."
                     },
                     {
                         "id":  "security",
@@ -179,7 +179,7 @@
                                          "password",
                                          "login data"
                                      ],
-                        "reply":  "Tradecovex runs locally inside your NinjaTrader installation â€” there\u0027s no central server intercepting your trades. Your broker credentials stay on your machine. We host on Canadian servers (Toronto plus NYC for US users) with full PIPEDA compliance."
+                        "reply":  "Tradecovex runs locally inside your NinjaTrader installation \u0026mdash; there\u0027s no central server intercepting your trades. Your broker credentials stay on your machine. We host on Canadian servers (Toronto plus NYC for US users) with full PIPEDA compliance."
                     }
                 ]
 }
