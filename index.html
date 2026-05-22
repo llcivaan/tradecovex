@@ -3613,23 +3613,21 @@ document.querySelectorAll('.faq-q').forEach(btn => {
 </script>
 
 
+
 <!-- TRADECOVEX-SUPPORT-WIDGET -->
 <style>
-  :root {
-    --tcx-blue: #2563EB; --tcx-blue-dark: #1d4ed8; --tcx-navy: #0A1628;
-    --tcx-slate: #4B5E7A; --tcx-bg: #ffffff; --tcx-bubble-agent: #F1F4F9; --tcx-border: #E5EAF0;
-  }
+  :root { --tcx-blue: #2563EB; --tcx-blue-dark: #1d4ed8; --tcx-navy: #0A1628; --tcx-slate: #4B5E7A; --tcx-bubble-agent: #F1F4F9; --tcx-border: #E5EAF0; }
   #tcx-widget * { box-sizing: border-box; }
-  #tcx-launcher { position: fixed; bottom: 24px; right: 24px; width: 64px; height: 64px; border-radius: 50%; background: var(--tcx-blue); border: none; cursor: pointer; box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4); z-index: 9999; display: flex; align-items: center; justify-content: center; transition: transform 0.2s ease, box-shadow 0.2s ease; }
-  #tcx-launcher:hover { transform: scale(1.08); box-shadow: 0 12px 36px rgba(37, 99, 235, 0.55); }
+  #tcx-launcher { position: fixed; bottom: 24px; right: 24px; width: 64px; height: 64px; border-radius: 50%; background: var(--tcx-blue); border: none; cursor: pointer; box-shadow: 0 10px 30px rgba(37,99,235,.4); z-index: 9999; display: flex; align-items: center; justify-content: center; transition: transform .2s, box-shadow .2s; }
+  #tcx-launcher:hover { transform: scale(1.08); box-shadow: 0 12px 36px rgba(37,99,235,.55); }
   #tcx-launcher svg { width: 28px; height: 28px; fill: white; }
   #tcx-launcher.tcx-open svg { display: none; }
   #tcx-launcher.tcx-open::after { content: '\00d7'; color: white; font-size: 32px; font-weight: 300; line-height: 1; }
-  #tcx-panel { position: fixed; bottom: 100px; right: 24px; width: 380px; height: 580px; max-height: calc(100vh - 130px); background: var(--tcx-bg); border-radius: 16px; box-shadow: 0 20px 60px rgba(10, 22, 40, 0.25); z-index: 9998; display: none; flex-direction: column; overflow: hidden; font-family: 'DM Sans', sans-serif; animation: tcx-slide-up 0.25s ease; }
+  #tcx-panel { position: fixed; bottom: 100px; right: 24px; width: 380px; height: 580px; max-height: calc(100vh - 130px); background: white; border-radius: 16px; box-shadow: 0 20px 60px rgba(10,22,40,.25); z-index: 9998; display: none; flex-direction: column; overflow: hidden; font-family: 'DM Sans', sans-serif; animation: tcx-slide-up .25s; }
   #tcx-panel.tcx-open { display: flex; }
   @keyframes tcx-slide-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   #tcx-widget .tcx-header { background: var(--tcx-navy); color: white; padding: 16px 20px; display: flex; align-items: center; gap: 12px; }
-  #tcx-widget .tcx-avatar { width: 42px; height: 42px; border-radius: 50%; background: linear-gradient(135deg, #4B5E7A, #2563EB); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 600; font-size: 16px; flex-shrink: 0; overflow: hidden; position: relative; }
+  #tcx-widget .tcx-avatar { width: 42px; height: 42px; border-radius: 50%; background: linear-gradient(135deg, #4B5E7A, #2563EB); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 600; font-size: 16px; flex-shrink: 0; position: relative; }
   #tcx-widget .tcx-avatar::after { content: ''; position: absolute; bottom: 0; right: 0; width: 11px; height: 11px; background: #22c55e; border-radius: 50%; border: 2px solid var(--tcx-navy); }
   #tcx-widget .tcx-header-info { flex: 1; min-width: 0; }
   #tcx-widget .tcx-header-name { font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 600; font-size: 15px; line-height: 1.2; }
@@ -3637,20 +3635,24 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   #tcx-widget .tcx-messages { flex: 1; overflow-y: auto; padding: 20px 16px; background: #FAFBFD; display: flex; flex-direction: column; gap: 12px; }
   #tcx-widget .tcx-messages::-webkit-scrollbar { width: 6px; }
   #tcx-widget .tcx-messages::-webkit-scrollbar-thumb { background: #d1d8e0; border-radius: 3px; }
-  #tcx-widget .tcx-msg-row { display: flex; gap: 8px; max-width: 100%; animation: tcx-fade-in 0.25s ease; }
+  #tcx-widget .tcx-msg-row { display: flex; gap: 8px; max-width: 100%; animation: tcx-fade-in .25s; }
   @keyframes tcx-fade-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
   #tcx-widget .tcx-msg-row.tcx-user { justify-content: flex-end; }
   #tcx-widget .tcx-msg-avatar { width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, #4B5E7A, #2563EB); flex-shrink: 0; align-self: flex-end; display: flex; align-items: center; justify-content: center; color: white; font-size: 11px; font-weight: 600; }
   #tcx-widget .tcx-bubble { padding: 10px 14px; border-radius: 16px; font-size: 14px; line-height: 1.45; max-width: 78%; word-wrap: break-word; }
   #tcx-widget .tcx-msg-row.tcx-agent .tcx-bubble { background: var(--tcx-bubble-agent); color: var(--tcx-navy); border-bottom-left-radius: 4px; }
   #tcx-widget .tcx-msg-row.tcx-user .tcx-bubble { background: var(--tcx-blue); color: white; border-bottom-right-radius: 4px; }
-  #tcx-idle { text-align: center; padding: 60px 24px 20px; color: var(--tcx-slate); font-size: 13px; line-height: 1.5; font-family: 'DM Sans', sans-serif; }
+  #tcx-idle { padding: 40px 20px 16px; color: var(--tcx-slate); font-size: 13px; line-height: 1.5; font-family: 'DM Sans', sans-serif; text-align: center; }
   #tcx-idle .tcx-idle-title { font-family: 'Barlow Semi Condensed', sans-serif; font-size: 18px; font-weight: 600; color: var(--tcx-navy); margin-bottom: 8px; }
+  #tcx-idle .tcx-idle-sub { margin-bottom: 16px; }
+  .tcx-chips { display: flex; flex-direction: column; gap: 6px; padding: 0 8px; }
+  .tcx-chip { background: white; border: 1px solid var(--tcx-border); color: var(--tcx-navy); padding: 8px 12px; border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 13px; cursor: pointer; text-align: left; transition: background .15s, border-color .15s; }
+  .tcx-chip:hover { background: #EEF4FF; border-color: var(--tcx-blue); }
   #tcx-widget .tcx-typing { display: flex; gap: 4px; padding: 14px 16px; background: var(--tcx-bubble-agent); border-radius: 16px; border-bottom-left-radius: 4px; width: fit-content; }
   #tcx-widget .tcx-typing span { width: 7px; height: 7px; background: var(--tcx-slate); border-radius: 50%; animation: tcx-bounce 1.2s infinite ease-in-out; }
-  #tcx-widget .tcx-typing span:nth-child(2) { animation-delay: 0.15s; }
-  #tcx-widget .tcx-typing span:nth-child(3) { animation-delay: 0.3s; }
-  @keyframes tcx-bounce { 0%, 60%, 100% { transform: translateY(0); opacity: 0.5; } 30% { transform: translateY(-6px); opacity: 1; } }
+  #tcx-widget .tcx-typing span:nth-child(2) { animation-delay: .15s; }
+  #tcx-widget .tcx-typing span:nth-child(3) { animation-delay: .3s; }
+  @keyframes tcx-bounce { 0%,60%,100% { transform: translateY(0); opacity: .5; } 30% { transform: translateY(-6px); opacity: 1; } }
   #tcx-widget .tcx-input-area { border-top: 1px solid var(--tcx-border); padding: 12px 16px; background: white; }
   #tcx-widget .tcx-input-row { display: flex; gap: 8px; align-items: center; }
   #tcx-input { flex: 1; border: 1px solid var(--tcx-border); border-radius: 20px; padding: 10px 16px; font-family: 'DM Sans', sans-serif; font-size: 14px; outline: none; color: var(--tcx-navy); background: #FAFBFD; }
@@ -3664,10 +3666,7 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   #tcx-widget .tcx-email-form input:focus { border-color: var(--tcx-blue); }
   #tcx-widget .tcx-email-form button { width: 100%; background: var(--tcx-blue); color: white; border: none; border-radius: 8px; padding: 9px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; }
   #tcx-widget .tcx-email-form button:hover { background: var(--tcx-blue-dark); }
-  @media (max-width: 480px) {
-    #tcx-panel { width: calc(100vw - 24px); right: 12px; bottom: 90px; height: calc(100vh - 110px); }
-    #tcx-launcher { right: 16px; bottom: 16px; }
-  }
+  @media (max-width: 480px) { #tcx-panel { width: calc(100vw - 24px); right: 12px; bottom: 90px; height: calc(100vh - 110px); } #tcx-launcher { right: 16px; bottom: 16px; } }
 </style>
 
 <div id="tcx-widget">
@@ -3700,22 +3699,24 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   var SUPPORT_ENDPOINT = 'https://b126d666.sibforms.com/serve/MUIFAE7VOF_AeAWtGfP2bzNZaJmgRubii9ooUAWve9PPP5AJ-014DUkypC1ggrqeGHbc0FndtWK4GkgX-sLvmMOdAzVhKfbtNbjXZCY-wEsGYFg7vWihymtUGlleKjko1btwg6ZX6s46jsEjALp7JVDIiiqbyTfKDAm4NpHNHSxD8QyAjL8kuQfdADYpCBRf4AgWLnPMLnEd4HlryA==';
   var TYPING_BASE_MS = 1100, TYPING_PER_CHAR_MS = 22, TYPING_MAX_MS = 3800;
   var KB = [], kbLoaded = false;
-  var firstReply = true;
-  var GREETING_PREFIX = "Hi there! ";
-
-  var DEFLECT_KEYWORDS = ['configure','configuration','setup my','set up my','install','how do i set','connect my account','add my account','link my broker','not working',"isn't working",'isnt working','bug','error','crash','broken','troubleshoot','fix','support ticket','my account','my dashboard','my journal','my copier','my trades','license','activation key','reactivate','change my plan','upgrade my plan','downgrade','cancel my subscription'];
-  var DEFLECT_REPLY = "Great question, but that one needs access to the dashboard to answer properly, and I'm only set up for pre-trial questions out here. The moment you start your free trial you'll get full in-app support that can pull up your account and walk you through it. Want me to point you to the signup?";
-  var TRADING_ADVICE_KEYWORDS = ['should i buy','should i sell','should i trade','is now a good time','will price','price prediction','market forecast','what stock','which stock','best strategy','trade idea','signal','entry point','exit point'];
-  var TRADING_ADVICE_REPLY = "I can't give trading advice. Tradecovex is a tool for analyzing your <i>own</i> trades, not a signal service. Happy to tell you anything about the product itself though.";
-
   var conversation = [], clarifyCount = 0, panelOpen = false, isTyping = false;
+
+  var EMAIL_INTENT_KEYWORDS = ['give my email','give you my email','share my email','my email is','my email address','email me','notify me','ping me','let me know when','send me an email','contact me','reach out','have someone email','team email me','you can email me','i can give my email','can i give my email','can i give you my email','drop my email','leave my email','take my email','keep me posted','keep me in the loop','send the info'];
+  var EMAIL_REGEX = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
+
+  var DEFLECT_KEYWORDS = ['configure my','setup my','set up my','install','how do i set up my','connect my account','add my account','link my broker','not working','isn\'t working','isnt working','my bug','my error','my crash','it crashed','app crash','troubleshoot my','fix my','my issue','my dashboard','my journal','my copier','my trades','license','activation key','reactivate','upgrade my plan','downgrade my plan','cancel my subscription'];
+  var DEFLECT_REPLY = "That one needs access to the dashboard to answer properly, and I'm only set up for pre-trial questions out here. Once you start your free trial you'll get full in-app support that can pull up your account and walk you through it.";
+
+  var TRADING_ADVICE_KEYWORDS = ['should i buy','should i sell','should i trade','should i go long','should i go short','is now a good time','will price go','price prediction','market forecast','what stock should','which stock should','best strategy to trade','what trade should i','entry point for','exit point for'];
+  var TRADING_ADVICE_REPLY = "I can't give trading advice. Tradecovex analyzes your <i>own</i> trades, it doesn't tell you what to buy or sell. Anything about the product itself I'm happy to help with.";
+
   var launcher = document.getElementById('tcx-launcher');
   var panel = document.getElementById('tcx-panel');
   var messages = document.getElementById('tcx-messages');
   var input = document.getElementById('tcx-input');
   var sendBtn = document.getElementById('tcx-send');
 
-  fetch(KB_URL, { cache: 'no-cache' }).then(function(r){ return r.json(); }).then(function(data){ KB = data.entries || []; kbLoaded = true; }).catch(function(){ kbLoaded = true; });
+  fetch(KB_URL, { cache: 'no-cache' }).then(function(r){ return r.json(); }).then(function(d){ KB = d.entries || []; kbLoaded = true; }).catch(function(){ kbLoaded = true; });
 
   launcher.addEventListener('click', function(){
     panelOpen = !panelOpen;
@@ -3730,8 +3731,7 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   function handleSend() {
     var text = input.value.trim();
     if (!text || isTyping) return;
-    var idle = document.getElementById('tcx-idle');
-    if (idle) idle.remove();
+    removeIdleAndChips();
     input.value = '';
     userSay(text);
     respond(text);
@@ -3740,8 +3740,25 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   function showIdleState() {
     var idle = document.createElement('div');
     idle.id = 'tcx-idle';
-    idle.innerHTML = '<div class="tcx-idle-title">Ask us anything</div><div>Pricing &middot; Free trial &middot; How the copier works &middot; When we launch</div>';
+    idle.innerHTML = '<div class="tcx-idle-title">Ask us anything</div><div class="tcx-idle-sub">Pick a question below or type your own</div><div class="tcx-chips"><button class="tcx-chip" data-q="How much does it cost?">How much does it cost?</button><button class="tcx-chip" data-q="Is there a free trial?">Is there a free trial?</button><button class="tcx-chip" data-q="When does it launch?">When does it launch?</button><button class="tcx-chip" data-q="Does it work with Apex?">Does it work with Apex?</button></div>';
     messages.appendChild(idle);
+    idle.querySelectorAll('.tcx-chip').forEach(function(c){ c.addEventListener('click', function(){ var q = c.getAttribute('data-q'); removeIdleAndChips(); userSay(q); respond(q); }); });
+  }
+
+  function showFollowupChips() {
+    var wrap = document.createElement('div');
+    wrap.id = 'tcx-followup';
+    wrap.className = 'tcx-chips';
+    wrap.style.marginTop = '4px';
+    wrap.innerHTML = '<button class="tcx-chip" data-q="How much does it cost?">How much does it cost?</button><button class="tcx-chip" data-q="Tell me about the free trial">Tell me about the free trial</button><button class="tcx-chip" data-q="How does the copier work?">How does the copier work?</button><button class="tcx-chip" data-q="Can someone from the team email me?">Can someone from the team email me?</button>';
+    messages.appendChild(wrap);
+    wrap.querySelectorAll('.tcx-chip').forEach(function(c){ c.addEventListener('click', function(){ var q = c.getAttribute('data-q'); removeIdleAndChips(); userSay(q); respond(q); }); });
+    scrollDown();
+  }
+
+  function removeIdleAndChips() {
+    var idle = document.getElementById('tcx-idle'); if (idle) idle.remove();
+    var fu = document.getElementById('tcx-followup'); if (fu) fu.remove();
   }
 
   function userSay(text) {
@@ -3772,57 +3789,74 @@ document.querySelectorAll('.faq-q').forEach(btn => {
     scrollDown();
   }
 
-  function hideTyping() {
-    isTyping = false;
-    var r = document.getElementById('tcx-typing-row');
-    if (r) r.remove();
-  }
-
+  function hideTyping() { isTyping = false; var r = document.getElementById('tcx-typing-row'); if (r) r.remove(); }
   function scrollDown() { setTimeout(function(){ messages.scrollTop = messages.scrollHeight; }, 50); }
   function escapeHtml(s) { return s.replace(/[&<>"']/g, function(c){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); }
 
   function respond(userText) {
     if (!kbLoaded) { setTimeout(function(){ respond(userText); }, 300); return; }
     var lower = userText.toLowerCase();
+    var detectedEmail = extractEmail(userText);
 
-    if (matchAny(lower, TRADING_ADVICE_KEYWORDS)) { replyWithTyping(maybeGreet(TRADING_ADVICE_REPLY)); return; }
-    if (matchAny(lower, DEFLECT_KEYWORDS)) { replyWithTyping(maybeGreet(DEFLECT_REPLY)); return; }
+    // Priority 1: Email intent (explicit OR email typed in chat)
+    if (detectedEmail || matchAny(lower, EMAIL_INTENT_KEYWORDS)) {
+      var preMsg = detectedEmail
+        ? "Got it &mdash; let me make sure I have your email right. Confirm below and I'll pass it to the team:"
+        : "Of course. Drop your email below and we'll get back to you within 24 hours:";
+      replyWithTyping(preMsg, function(){ renderEmailForm(userText, detectedEmail); });
+      return;
+    }
 
-    var hit = findKBMatch(lower);
-    if (hit) { clarifyCount = 0; replyWithTyping(maybeGreet(hit.reply)); return; }
+    // Priority 2: Trading advice
+    if (matchAny(lower, TRADING_ADVICE_KEYWORDS)) { replyWithTyping(TRADING_ADVICE_REPLY); return; }
 
+    // Priority 3: Dashboard deflect
+    if (matchAny(lower, DEFLECT_KEYWORDS)) { replyWithTyping(DEFLECT_REPLY); return; }
+
+    // Priority 4: KB lookup (with confidence threshold)
+    var matches = findKBMatches(lower);
+    if (matches.length > 0) {
+      clarifyCount = 0;
+      var reply = matches[0].reply;
+      // Multi-intent: append second match if score is reasonably high
+      if (matches.length > 1 && matches[1].score >= matches[0].score * 0.6) {
+        reply = reply + "<br><br>" + matches[1].reply;
+      }
+      replyWithTyping(reply);
+      return;
+    }
+
+    // Priority 5: Fallback
     if (clarifyCount === 0) {
       clarifyCount++;
-      replyWithTyping(maybeGreet("I want to make sure I get this right &mdash; could you give me a bit more detail on what you're asking about? (For example: pricing, the free trial, what platforms we support, or how the copier works.)"));
+      replyWithTyping("Hmm, want to give me a bit more context? I can answer most things about pricing, the free trial, supported platforms, prop firms, and how the copier and AI journal work.", showFollowupChips);
     } else {
       clarifyCount++;
-      replyWithTyping(
-        "That's a good question and I want to make sure you get the right answer &mdash; let me get one of the team to reply directly. Drop your email below and we'll get back to you within 24 hours.",
-        function(){ renderEmailForm(userText); }
-      );
+      replyWithTyping("Let me get one of the team to reply directly. Drop your email below and we'll get back to you within 24 hours.", function(){ renderEmailForm(userText, null); });
     }
   }
 
-  function maybeGreet(reply) {
-    if (firstReply) {
-      firstReply = false;
-      // Skip greeting for greeting-type replies (avoid 'Hi there! Hey what can I help')
-      if (/^(hey|hi|hello)/i.test(reply)) return reply;
-      return GREETING_PREFIX + reply;
-    }
-    return reply;
-  }
-
+  function extractEmail(text) { var m = text.match(EMAIL_REGEX); return m ? m[0] : null; }
   function matchAny(lower, list) { return list.some(function(kw){ return lower.indexOf(kw) !== -1; }); }
 
-  function findKBMatch(lower) {
-    var best = null, bestScore = 0;
+  function findKBMatches(lower) {
+    var scored = [];
     for (var i = 0; i < KB.length; i++) {
       var entry = KB[i];
-      var score = entry.keywords.reduce(function(acc, kw){ return acc + (lower.indexOf(kw.toLowerCase()) !== -1 ? kw.length : 0); }, 0);
-      if (score > bestScore) { bestScore = score; best = entry; }
+      var hits = 0;
+      var score = entry.keywords.reduce(function(acc, kw){
+        var kwLower = kw.toLowerCase();
+        if (lower.indexOf(kwLower) !== -1) { hits++; return acc + kwLower.length; }
+        return acc;
+      }, 0);
+      // Confidence: need ((hits >= 2) OR (one keyword that's >=5 chars)) AND score >= 5
+      var maxKwLen = Math.max.apply(null, entry.keywords.map(function(k){ return k.length; }));
+      if (score >= 5 && (hits >= 2 || maxKwLen >= 5)) {
+        scored.push({ reply: entry.reply, score: score, id: entry.id, hits: hits });
+      }
     }
-    return bestScore >= 3 ? best : null;
+    scored.sort(function(a, b){ return b.score - a.score; });
+    return scored;
   }
 
   function replyWithTyping(html, afterCb) {
@@ -3831,17 +3865,21 @@ document.querySelectorAll('.faq-q').forEach(btn => {
     setTimeout(function(){ hideTyping(); agentSay(html); if (afterCb) setTimeout(afterCb, 400); }, delay);
   }
 
-  function renderEmailForm(originalQuestion) {
+  function renderEmailForm(originalQuestion, prefillEmail) {
     var form = document.createElement('div');
     form.className = 'tcx-msg-row tcx-agent';
-    form.innerHTML = '<div class="tcx-msg-avatar">' + AGENT.initial + '</div><div style="flex:1;max-width:78%;"><div class="tcx-email-form"><input type="email" id="tcx-email-input" placeholder="your@email.com" required><button id="tcx-email-submit">Send to the team</button></div></div>';
+    var prefillAttr = prefillEmail ? ' value="' + escapeHtml(prefillEmail) + '"' : '';
+    form.innerHTML = '<div class="tcx-msg-avatar">' + AGENT.initial + '</div><div style="flex:1;max-width:78%;"><div class="tcx-email-form"><input type="email" id="tcx-email-input" placeholder="your@email.com"' + prefillAttr + ' required><button id="tcx-email-submit">Send to the team</button></div></div>';
     messages.appendChild(form);
     scrollDown();
+    var inputEl = document.getElementById('tcx-email-input');
+    inputEl.focus();
     document.getElementById('tcx-email-submit').addEventListener('click', function(){
-      var email = document.getElementById('tcx-email-input').value.trim();
-      if (!validEmail(email)) { document.getElementById('tcx-email-input').style.borderColor = '#ef4444'; return; }
+      var email = inputEl.value.trim();
+      if (!validEmail(email)) { inputEl.style.borderColor = '#ef4444'; return; }
       submitToSupport(email, originalQuestion, form);
     });
+    inputEl.addEventListener('keydown', function(e){ if (e.key === 'Enter') { e.preventDefault(); document.getElementById('tcx-email-submit').click(); } });
   }
 
   function validEmail(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
@@ -3862,7 +3900,7 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   function onSubmitSuccess(formEl) {
     formEl.remove();
     clarifyCount = 0;
-    replyWithTyping("Got it &mdash; the team will get back to you within 24 hours. In the meantime, anything else I can help with?");
+    replyWithTyping("Got it. The team will get back to you within 24 hours. Anything else in the meantime?");
   }
 })();
 </script>
