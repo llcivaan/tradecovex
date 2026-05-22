@@ -3710,7 +3710,7 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   var messages = document.getElementById('tcx-messages');
   var input = document.getElementById('tcx-input');
   var sendBtn = document.getElementById('tcx-send');
-  fetch(KB_URL, { cache: 'no-cache' }).then(function(r){ return r.json(); }).then(function(d){ KB = d.entries || []; kbLoaded = true; }).catch(function(){ kbLoaded = true; });
+  fetch(KB_URL + '?v=' + Date.now(), { cache: 'no-cache' }).then(function(r){ return r.json(); }).then(function(d){ KB = d.entries || []; kbLoaded = true; }).catch(function(){ kbLoaded = true; });
   launcher.addEventListener('click', function(){ panelOpen = !panelOpen; panel.classList.toggle('tcx-open', panelOpen); launcher.classList.toggle('tcx-open', panelOpen); if (panelOpen && conversation.length === 0) showIdleState(); if (panelOpen) setTimeout(function(){ input.focus(); }, 300); });
   sendBtn.addEventListener('click', handleSend);
   input.addEventListener('keydown', function(e){ if (e.key === 'Enter') { e.preventDefault(); handleSend(); } });
@@ -3787,9 +3787,9 @@ document.querySelectorAll('.faq-q').forEach(btn => {
     data.append('SOURCE', 'tradecovex.com widget');
     data.append('email_address_check', '');
     data.append('locale', 'en');
-    fetch(SUPPORT_ENDPOINT, { method: 'POST', body: data, mode: 'no-cors' }).then(function(){ onSubmitSuccess(formEl); }).catch(function(){ onSubmitSuccess(formEl); });
+    fetch(SUPPORT_ENDPOINT, { method: 'POST', body: data, mode: 'no-cors' }).then(function(){ onSubmitSuccess(formEl, email); }).catch(function(){ onSubmitSuccess(formEl, email); });
   }
-  function onSubmitSuccess(formEl) { formEl.remove(); clarifyCount = 0; replyWithTyping("Got it. The team will get back to you within 24 hours. Anything else in the meantime?"); }
+  function onSubmitSuccess(formEl, email) { formEl.remove(); clarifyCount = 0; replyWithTyping("Got it &mdash; we have your email at <b>" + escapeHtml(email) + "</b> and the team will reply within 24 hours. Anything else in the meantime?"); }
 })();
 </script>
 <!-- END TRADECOVEX-SUPPORT-WIDGET -->
