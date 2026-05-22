@@ -3614,6 +3614,7 @@ document.querySelectorAll('.faq-q').forEach(btn => {
 
 
 
+
 <!-- TRADECOVEX-SUPPORT-WIDGET -->
 <style>
   :root { --tcx-blue: #2563EB; --tcx-blue-dark: #1d4ed8; --tcx-navy: #0A1628; --tcx-slate: #4B5E7A; --tcx-bubble-agent: #F1F4F9; --tcx-border: #E5EAF0; }
@@ -3668,11 +3669,8 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   #tcx-widget .tcx-email-form button:hover { background: var(--tcx-blue-dark); }
   @media (max-width: 480px) { #tcx-panel { width: calc(100vw - 24px); right: 12px; bottom: 90px; height: calc(100vh - 110px); } #tcx-launcher { right: 16px; bottom: 16px; } }
 </style>
-
 <div id="tcx-widget">
-  <button id="tcx-launcher" aria-label="Open support chat">
-    <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
-  </button>
+  <button id="tcx-launcher" aria-label="Open support chat"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg></button>
   <div id="tcx-panel" role="dialog" aria-label="Tradecovex Support">
     <div class="tcx-header">
       <div class="tcx-avatar"><span>M</span></div>
@@ -3691,7 +3689,6 @@ document.querySelectorAll('.faq-q').forEach(btn => {
     </div>
   </div>
 </div>
-
 <script>
 (function() {
   var AGENT = { name: 'Maya', initial: 'M' };
@@ -3700,171 +3697,73 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   var TYPING_BASE_MS = 1100, TYPING_PER_CHAR_MS = 22, TYPING_MAX_MS = 3800;
   var KB = [], kbLoaded = false;
   var conversation = [], clarifyCount = 0, panelOpen = false, isTyping = false;
-
   var EMAIL_INTENT_KEYWORDS = ['give my email','give you my email','share my email','my email is','my email address','email me','notify me','ping me','let me know when','send me an email','contact me','reach out','have someone email','team email me','you can email me','i can give my email','can i give my email','can i give you my email','drop my email','leave my email','take my email','keep me posted','keep me in the loop','send the info'];
   var EMAIL_REGEX = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
-
-  var DEFLECT_KEYWORDS = ['configure my','setup my','set up my','install','how do i set up my','connect my account','add my account','link my broker','not working','isn\'t working','isnt working','my bug','my error','my crash','it crashed','app crash','troubleshoot my','fix my','my issue','my dashboard','my journal','my copier','my trades','license','activation key','reactivate','upgrade my plan','downgrade my plan','cancel my subscription'];
+  var DEFLECT_KEYWORDS = ['configure my','setup my','set up my','install','how do i set up my','connect my account','add my account','link my broker','not working',"isn't working",'isnt working','my bug','my error','my crash','it crashed','app crash','troubleshoot my','fix my','my issue','my dashboard','my journal','my copier','my trades','license','activation key','reactivate','upgrade my plan','downgrade my plan','cancel my subscription'];
   var DEFLECT_REPLY = "That one needs access to the dashboard to answer properly, and I'm only set up for pre-trial questions out here. Once you start your free trial you'll get full in-app support that can pull up your account and walk you through it.";
-
   var TRADING_ADVICE_KEYWORDS = ['should i buy','should i sell','should i trade','should i go long','should i go short','is now a good time','will price go','price prediction','market forecast','what stock should','which stock should','best strategy to trade','what trade should i','entry point for','exit point for'];
   var TRADING_ADVICE_REPLY = "I can't give trading advice. Tradecovex analyzes your <i>own</i> trades, it doesn't tell you what to buy or sell. Anything about the product itself I'm happy to help with.";
-
+  var SHORT_GREETING_REGEX = /^\s*(hi|hello|hey|yo|sup|hola|howdy|heya|hiya|hi there|hello there|hey there|good morning|good afternoon|good evening)\s*[!.?]*\s*$/i;
+  var GREETING_REPLY = "Hey there. What can I help you with &mdash; pricing, the free trial, prop firms, or how the copier works?";
   var launcher = document.getElementById('tcx-launcher');
   var panel = document.getElementById('tcx-panel');
   var messages = document.getElementById('tcx-messages');
   var input = document.getElementById('tcx-input');
   var sendBtn = document.getElementById('tcx-send');
-
   fetch(KB_URL, { cache: 'no-cache' }).then(function(r){ return r.json(); }).then(function(d){ KB = d.entries || []; kbLoaded = true; }).catch(function(){ kbLoaded = true; });
-
-  launcher.addEventListener('click', function(){
-    panelOpen = !panelOpen;
-    panel.classList.toggle('tcx-open', panelOpen);
-    launcher.classList.toggle('tcx-open', panelOpen);
-    if (panelOpen && conversation.length === 0) showIdleState();
-    if (panelOpen) setTimeout(function(){ input.focus(); }, 300);
-  });
+  launcher.addEventListener('click', function(){ panelOpen = !panelOpen; panel.classList.toggle('tcx-open', panelOpen); launcher.classList.toggle('tcx-open', panelOpen); if (panelOpen && conversation.length === 0) showIdleState(); if (panelOpen) setTimeout(function(){ input.focus(); }, 300); });
   sendBtn.addEventListener('click', handleSend);
   input.addEventListener('keydown', function(e){ if (e.key === 'Enter') { e.preventDefault(); handleSend(); } });
-
-  function handleSend() {
-    var text = input.value.trim();
-    if (!text || isTyping) return;
-    removeIdleAndChips();
-    input.value = '';
-    userSay(text);
-    respond(text);
-  }
-
-  function showIdleState() {
-    var idle = document.createElement('div');
-    idle.id = 'tcx-idle';
-    idle.innerHTML = '<div class="tcx-idle-title">Ask us anything</div><div class="tcx-idle-sub">Pick a question below or type your own</div><div class="tcx-chips"><button class="tcx-chip" data-q="How much does it cost?">How much does it cost?</button><button class="tcx-chip" data-q="Is there a free trial?">Is there a free trial?</button><button class="tcx-chip" data-q="When does it launch?">When does it launch?</button><button class="tcx-chip" data-q="Does it work with Apex?">Does it work with Apex?</button></div>';
-    messages.appendChild(idle);
-    idle.querySelectorAll('.tcx-chip').forEach(function(c){ c.addEventListener('click', function(){ var q = c.getAttribute('data-q'); removeIdleAndChips(); userSay(q); respond(q); }); });
-  }
-
-  function showFollowupChips() {
-    var wrap = document.createElement('div');
-    wrap.id = 'tcx-followup';
-    wrap.className = 'tcx-chips';
-    wrap.style.marginTop = '4px';
-    wrap.innerHTML = '<button class="tcx-chip" data-q="How much does it cost?">How much does it cost?</button><button class="tcx-chip" data-q="Tell me about the free trial">Tell me about the free trial</button><button class="tcx-chip" data-q="How does the copier work?">How does the copier work?</button><button class="tcx-chip" data-q="Can someone from the team email me?">Can someone from the team email me?</button>';
-    messages.appendChild(wrap);
-    wrap.querySelectorAll('.tcx-chip').forEach(function(c){ c.addEventListener('click', function(){ var q = c.getAttribute('data-q'); removeIdleAndChips(); userSay(q); respond(q); }); });
-    scrollDown();
-  }
-
-  function removeIdleAndChips() {
-    var idle = document.getElementById('tcx-idle'); if (idle) idle.remove();
-    var fu = document.getElementById('tcx-followup'); if (fu) fu.remove();
-  }
-
-  function userSay(text) {
-    conversation.push({ role: 'user', text: text });
-    var row = document.createElement('div');
-    row.className = 'tcx-msg-row tcx-user';
-    row.innerHTML = '<div class="tcx-bubble">' + escapeHtml(text) + '</div>';
-    messages.appendChild(row);
-    scrollDown();
-  }
-
-  function agentSay(html) {
-    conversation.push({ role: 'agent', text: html });
-    var row = document.createElement('div');
-    row.className = 'tcx-msg-row tcx-agent';
-    row.innerHTML = '<div class="tcx-msg-avatar">' + AGENT.initial + '</div><div class="tcx-bubble">' + html + '</div>';
-    messages.appendChild(row);
-    scrollDown();
-  }
-
-  function showTyping() {
-    isTyping = true;
-    var row = document.createElement('div');
-    row.className = 'tcx-msg-row tcx-agent';
-    row.id = 'tcx-typing-row';
-    row.innerHTML = '<div class="tcx-msg-avatar">' + AGENT.initial + '</div><div class="tcx-typing"><span></span><span></span><span></span></div>';
-    messages.appendChild(row);
-    scrollDown();
-  }
-
+  function handleSend() { var text = input.value.trim(); if (!text || isTyping) return; removeIdleAndChips(); input.value = ''; userSay(text); respond(text); }
+  function showIdleState() { removeIdleAndChips(); var idle = document.createElement('div'); idle.id = 'tcx-idle'; idle.innerHTML = '<div class="tcx-idle-title">Ask us anything</div><div class="tcx-idle-sub">Pick a question below or type your own</div><div class="tcx-chips"><button class="tcx-chip" data-q="How much does it cost?">How much does it cost?</button><button class="tcx-chip" data-q="Is there a free trial?">Is there a free trial?</button><button class="tcx-chip" data-q="When does it launch?">When does it launch?</button><button class="tcx-chip" data-q="Does it work with Apex?">Does it work with Apex?</button></div>'; messages.appendChild(idle); idle.querySelectorAll('.tcx-chip').forEach(function(c){ c.addEventListener('click', function(){ var q = c.getAttribute('data-q'); removeIdleAndChips(); userSay(q); respond(q); }); }); }
+  function showFollowupChips() { removeFollowupChips(); var wrap = document.createElement('div'); wrap.id = 'tcx-followup'; wrap.className = 'tcx-chips'; wrap.style.marginTop = '4px'; wrap.innerHTML = '<button class="tcx-chip" data-q="How much does it cost?">How much does it cost?</button><button class="tcx-chip" data-q="Tell me about the free trial">Tell me about the free trial</button><button class="tcx-chip" data-q="How does the copier work?">How does the copier work?</button><button class="tcx-chip" data-q="Can someone from the team email me?">Can someone from the team email me?</button>'; messages.appendChild(wrap); wrap.querySelectorAll('.tcx-chip').forEach(function(c){ c.addEventListener('click', function(){ var q = c.getAttribute('data-q'); removeIdleAndChips(); userSay(q); respond(q); }); }); scrollDown(); }
+  function removeIdleAndChips() { var idle = document.getElementById('tcx-idle'); if (idle) idle.remove(); removeFollowupChips(); }
+  function removeFollowupChips() { var fu = document.getElementById('tcx-followup'); if (fu) fu.remove(); }
+  function userSay(text) { conversation.push({ role: 'user', text: text }); var row = document.createElement('div'); row.className = 'tcx-msg-row tcx-user'; row.innerHTML = '<div class="tcx-bubble">' + escapeHtml(text) + '</div>'; messages.appendChild(row); scrollDown(); }
+  function agentSay(html) { conversation.push({ role: 'agent', text: html }); var row = document.createElement('div'); row.className = 'tcx-msg-row tcx-agent'; row.innerHTML = '<div class="tcx-msg-avatar">' + AGENT.initial + '</div><div class="tcx-bubble">' + html + '</div>'; messages.appendChild(row); scrollDown(); }
+  function showTyping() { isTyping = true; var row = document.createElement('div'); row.className = 'tcx-msg-row tcx-agent'; row.id = 'tcx-typing-row'; row.innerHTML = '<div class="tcx-msg-avatar">' + AGENT.initial + '</div><div class="tcx-typing"><span></span><span></span><span></span></div>'; messages.appendChild(row); scrollDown(); }
   function hideTyping() { isTyping = false; var r = document.getElementById('tcx-typing-row'); if (r) r.remove(); }
   function scrollDown() { setTimeout(function(){ messages.scrollTop = messages.scrollHeight; }, 50); }
   function escapeHtml(s) { return s.replace(/[&<>"']/g, function(c){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); }
-
   function respond(userText) {
     if (!kbLoaded) { setTimeout(function(){ respond(userText); }, 300); return; }
     var lower = userText.toLowerCase();
     var detectedEmail = extractEmail(userText);
-
-    // Priority 1: Email intent (explicit OR email typed in chat)
+    if (SHORT_GREETING_REGEX.test(userText)) { replyWithTyping(GREETING_REPLY); return; }
     if (detectedEmail || matchAny(lower, EMAIL_INTENT_KEYWORDS)) {
-      var preMsg = detectedEmail
-        ? "Got it &mdash; let me make sure I have your email right. Confirm below and I'll pass it to the team:"
-        : "Of course. Drop your email below and we'll get back to you within 24 hours:";
+      var preMsg = detectedEmail ? "Got it &mdash; let me make sure I have your email right. Confirm below and I'll pass it to the team:" : "Of course. Drop your email below and we'll get back to you within 24 hours:";
       replyWithTyping(preMsg, function(){ renderEmailForm(userText, detectedEmail); });
       return;
     }
-
-    // Priority 2: Trading advice
     if (matchAny(lower, TRADING_ADVICE_KEYWORDS)) { replyWithTyping(TRADING_ADVICE_REPLY); return; }
-
-    // Priority 3: Dashboard deflect
     if (matchAny(lower, DEFLECT_KEYWORDS)) { replyWithTyping(DEFLECT_REPLY); return; }
-
-    // Priority 4: KB lookup (with confidence threshold)
     var matches = findKBMatches(lower);
     if (matches.length > 0) {
       clarifyCount = 0;
       var reply = matches[0].reply;
-      // Multi-intent: append second match if score is reasonably high
-      if (matches.length > 1 && matches[1].score >= matches[0].score * 0.6) {
-        reply = reply + "<br><br>" + matches[1].reply;
-      }
+      if (matches.length > 1 && matches[1].score >= matches[0].score * 0.6) { reply = reply + "<br><br>" + matches[1].reply; }
       replyWithTyping(reply);
       return;
     }
-
-    // Priority 5: Fallback
-    if (clarifyCount === 0) {
-      clarifyCount++;
-      replyWithTyping("Hmm, want to give me a bit more context? I can answer most things about pricing, the free trial, supported platforms, prop firms, and how the copier and AI journal work.", showFollowupChips);
-    } else {
-      clarifyCount++;
-      replyWithTyping("Let me get one of the team to reply directly. Drop your email below and we'll get back to you within 24 hours.", function(){ renderEmailForm(userText, null); });
-    }
+    if (clarifyCount === 0) { clarifyCount++; replyWithTyping("Hmm, want to give me a bit more context? I can answer most things about pricing, the free trial, supported platforms, prop firms, and how the copier and AI journal work.", showFollowupChips); }
+    else { clarifyCount++; replyWithTyping("Let me get one of the team to reply directly. Drop your email below and we'll get back to you within 24 hours.", function(){ renderEmailForm(userText, null); }); }
   }
-
   function extractEmail(text) { var m = text.match(EMAIL_REGEX); return m ? m[0] : null; }
   function matchAny(lower, list) { return list.some(function(kw){ return lower.indexOf(kw) !== -1; }); }
-
   function findKBMatches(lower) {
     var scored = [];
     for (var i = 0; i < KB.length; i++) {
       var entry = KB[i];
+      if (entry.id === 'greeting') continue;
       var hits = 0;
-      var score = entry.keywords.reduce(function(acc, kw){
-        var kwLower = kw.toLowerCase();
-        if (lower.indexOf(kwLower) !== -1) { hits++; return acc + kwLower.length; }
-        return acc;
-      }, 0);
-      // Confidence: need ((hits >= 2) OR (one keyword that's >=5 chars)) AND score >= 5
+      var score = entry.keywords.reduce(function(acc, kw){ var kwLower = kw.toLowerCase(); if (lower.indexOf(kwLower) !== -1) { hits++; return acc + kwLower.length; } return acc; }, 0);
       var maxKwLen = Math.max.apply(null, entry.keywords.map(function(k){ return k.length; }));
-      if (score >= 5 && (hits >= 2 || maxKwLen >= 5)) {
-        scored.push({ reply: entry.reply, score: score, id: entry.id, hits: hits });
-      }
+      if (score >= 5 && (hits >= 2 || maxKwLen >= 5)) { scored.push({ reply: entry.reply, score: score, id: entry.id, hits: hits }); }
     }
     scored.sort(function(a, b){ return b.score - a.score; });
     return scored;
   }
-
-  function replyWithTyping(html, afterCb) {
-    showTyping();
-    var delay = Math.min(TYPING_BASE_MS + (html.length * TYPING_PER_CHAR_MS), TYPING_MAX_MS);
-    setTimeout(function(){ hideTyping(); agentSay(html); if (afterCb) setTimeout(afterCb, 400); }, delay);
-  }
-
+  function replyWithTyping(html, afterCb) { showTyping(); var delay = Math.min(TYPING_BASE_MS + (html.length * TYPING_PER_CHAR_MS), TYPING_MAX_MS); setTimeout(function(){ hideTyping(); agentSay(html); if (afterCb) setTimeout(afterCb, 400); }, delay); }
   function renderEmailForm(originalQuestion, prefillEmail) {
     var form = document.createElement('div');
     form.className = 'tcx-msg-row tcx-agent';
@@ -3874,16 +3773,10 @@ document.querySelectorAll('.faq-q').forEach(btn => {
     scrollDown();
     var inputEl = document.getElementById('tcx-email-input');
     inputEl.focus();
-    document.getElementById('tcx-email-submit').addEventListener('click', function(){
-      var email = inputEl.value.trim();
-      if (!validEmail(email)) { inputEl.style.borderColor = '#ef4444'; return; }
-      submitToSupport(email, originalQuestion, form);
-    });
+    document.getElementById('tcx-email-submit').addEventListener('click', function(){ var email = inputEl.value.trim(); if (!validEmail(email)) { inputEl.style.borderColor = '#ef4444'; return; } submitToSupport(email, originalQuestion, form); });
     inputEl.addEventListener('keydown', function(e){ if (e.key === 'Enter') { e.preventDefault(); document.getElementById('tcx-email-submit').click(); } });
   }
-
   function validEmail(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
-
   function submitToSupport(email, question, formEl) {
     var fullTranscript = conversation.map(function(m){ return (m.role === 'user' ? 'User' : AGENT.name) + ': ' + m.text.replace(/<[^>]+>/g, ''); }).join('\n');
     var truncate = function(s, n){ return s.length > n ? s.slice(0, n - 3) + '...' : s; };
@@ -3896,12 +3789,7 @@ document.querySelectorAll('.faq-q').forEach(btn => {
     data.append('locale', 'en');
     fetch(SUPPORT_ENDPOINT, { method: 'POST', body: data, mode: 'no-cors' }).then(function(){ onSubmitSuccess(formEl); }).catch(function(){ onSubmitSuccess(formEl); });
   }
-
-  function onSubmitSuccess(formEl) {
-    formEl.remove();
-    clarifyCount = 0;
-    replyWithTyping("Got it. The team will get back to you within 24 hours. Anything else in the meantime?");
-  }
+  function onSubmitSuccess(formEl) { formEl.remove(); clarifyCount = 0; replyWithTyping("Got it. The team will get back to you within 24 hours. Anything else in the meantime?"); }
 })();
 </script>
 <!-- END TRADECOVEX-SUPPORT-WIDGET -->
