@@ -124,7 +124,7 @@ body{
 }
 a{text-decoration:none;color:inherit}
 
-/* ── NAV ── */
+/* â”€â”€ NAV â”€â”€ */
 .nav{
   position:fixed;top:0;left:0;right:0;z-index:500;
   padding:0 40px 0 36px;
@@ -163,7 +163,7 @@ a{text-decoration:none;color:inherit}
 }
 @keyframes livePulse{0%,100%{opacity:1}50%{opacity:.4}}
 
-/* ── HERO ── */
+/* â”€â”€ HERO â”€â”€ */
 .hero{
   position:relative;
   width:100%;height:100vh;min-height:700px;
@@ -271,7 +271,7 @@ a{text-decoration:none;color:inherit}
   border:none;
   background:transparent;
 }
-/* ── STICKY BOTTOM CTA ── */
+/* â”€â”€ STICKY BOTTOM CTA â”€â”€ */
 .sticky-cta{
   position:fixed;
   bottom:28px;
@@ -337,7 +337,7 @@ a{text-decoration:none;color:inherit}
 }
 .sticky-demo:hover{color:#fff}
 
-/* ── PAGE CONTENT PLACEHOLDER ── */
+/* â”€â”€ PAGE CONTENT PLACEHOLDER â”€â”€ */
 .page-content{
   position:relative;
   background:#0A1628;
@@ -352,7 +352,7 @@ a{text-decoration:none;color:inherit}
   letter-spacing:-0.02em;
 }
 
-/* ── ALL INTEGRATED SECTION ── */
+/* â”€â”€ ALL INTEGRATED SECTION â”€â”€ */
 .integrated{
   position:relative;
   background:#f9fafb;
@@ -389,7 +389,7 @@ a{text-decoration:none;color:inherit}
   z-index:2;
 }
 
-/* ── PREMIUM CARD SYSTEM ── */
+/* â”€â”€ PREMIUM CARD SYSTEM â”€â”€ */
 .icard{
   position:relative;
   width:clamp(240px, 24vw, 320px);
@@ -533,7 +533,7 @@ a{text-decoration:none;color:inherit}
   .icard-desc{ font-size:12.5px; }
 }
 
-/* ── PAIN SECTION (scroll-stacked text) ── */
+/* â”€â”€ PAIN SECTION (scroll-stacked text) â”€â”€ */
 .pain{
   position:relative;
   background:#0A1628;
@@ -577,7 +577,7 @@ a{text-decoration:none;color:inherit}
   }
 }
 
-/* ── TRADING IDENTITY SECTION ── */
+/* â”€â”€ TRADING IDENTITY SECTION â”€â”€ */
 .identity{
   position:relative;
   background:#ffffff;
@@ -714,7 +714,7 @@ a{text-decoration:none;color:inherit}
   .identity-closer{ font-size:22px; margin-top:8px; }
 }
 
-/* ── DAILY BRIEF SECTION ── */
+/* â”€â”€ DAILY BRIEF SECTION â”€â”€ */
 .brief{
   position:relative;
   height:300vh;
@@ -780,7 +780,7 @@ a{text-decoration:none;color:inherit}
   .brief-img-wrap{ width:92vw; border-radius:10px; }
 }
 
-/* ── DECISION COST SECTION ── */
+/* â”€â”€ DECISION COST SECTION â”€â”€ */
 .dcost{
   position:relative;
   height:180vh;
@@ -840,7 +840,7 @@ a{text-decoration:none;color:inherit}
   .dcost-item{ max-width:78vw; line-height:1.4; }
 }
 
-/* ── COMPARISON SECTION ── */
+/* â”€â”€ COMPARISON SECTION â”€â”€ */
 .compare{
   position:relative;
   height:240vh;
@@ -935,7 +935,7 @@ a{text-decoration:none;color:inherit}
   .compare-title{ font-size:clamp(22px,6vw,30px); }
 }
 
-/* ── HOW IT WORKS SECTION ── */
+/* â”€â”€ HOW IT WORKS SECTION â”€â”€ */
 .howitworks{
   position:relative;
   background:#0A1628;
@@ -1024,7 +1024,7 @@ a{text-decoration:none;color:inherit}
   .hiw-card-desc{ font-size:13.5px; }
 }
 
-/* ── PRICING SECTION (sticky scroll-pinned scene) ── */
+/* â”€â”€ PRICING SECTION (sticky scroll-pinned scene) â”€â”€ */
 .pricing{
   position:relative;
   background:#ffffff;
@@ -1223,10 +1223,21 @@ a{text-decoration:none;color:inherit}
 .pricing-features{
   display:flex;
   flex-direction:column;
-  flex:1;
+  flex:1 1 auto;
   margin-bottom:18px;
   min-height:0;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+  /* Fade mask hints at scrollable content if it overflows */
+  mask-image:linear-gradient(to bottom, black 0%, black 92%, transparent 100%);
+  -webkit-mask-image:linear-gradient(to bottom, black 0%, black 92%, transparent 100%);
+  /* Hide scrollbar but keep functionality */
+  scrollbar-width:thin;
+  scrollbar-color:rgba(37,99,235,0.2) transparent;
 }
+.pricing-features::-webkit-scrollbar{ width:4px; }
+.pricing-features::-webkit-scrollbar-thumb{ background:rgba(37,99,235,0.2); border-radius:4px; }
+.pricing-features::-webkit-scrollbar-track{ background:transparent; }
 .pricing-feat{
   display:flex;
   align-items:flex-start;
@@ -1244,7 +1255,7 @@ a{text-decoration:none;color:inherit}
 }
 .pricing-feat svg circle{ fill:rgba(37,99,235,0.12); }
 .pricing-feat svg path{ stroke:#2563EB; }
-.pricing-cta{ display:flex; flex-direction:column; }
+.pricing-cta{ display:flex; flex-direction:column; flex:0 0 auto; }
 .pricing-btn{
   display:block;
   width:100%;
@@ -1373,7 +1384,7 @@ a{text-decoration:none;color:inherit}
   .pricing-col-badge{ font-size:9px; padding:5px 12px; letter-spacing:1.5px; }
 }
 
-/* ── FIXED SCROLL INDICATOR ── */
+/* â”€â”€ FIXED SCROLL INDICATOR â”€â”€ */
 .scroll-indicator{
   position:fixed;
   left:24px;
@@ -1425,7 +1436,7 @@ a{text-decoration:none;color:inherit}
   .scroll-indicator-text{ font-size:10px; }
 }
 
-/* ── HAMBURGER (mobile only) ── */
+/* â”€â”€ HAMBURGER (mobile only) â”€â”€ */
 .nav-hamburger{
   display:none;
   background:none;border:none;cursor:pointer;
@@ -1463,7 +1474,7 @@ a{text-decoration:none;color:inherit}
   background:#3FD69B;box-shadow:0 0 10px #3FD69B;
 }
 
-/* ── MOBILE RESPONSIVE ── */
+/* â”€â”€ MOBILE RESPONSIVE â”€â”€ */
 @media (max-width: 768px) {
   .nav{ padding:0 16px; }
   .nav-inner{ height:60px; }
@@ -1539,9 +1550,9 @@ a{text-decoration:none;color:inherit}
 }
 
 
-/* ════════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    COMPETITIVE COMPARISON TABLE
-   ════════════════════════════════════════════════════════ */
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .compete{
   position:relative;
   background:#ffffff;
@@ -1702,9 +1713,9 @@ a{text-decoration:none;color:inherit}
   .compete-h2{ font-size:36px; }
 }
 
-/* ════════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    PLATFORM ROADMAP
-   ════════════════════════════════════════════════════════ */
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .roadmap{
   position:relative;
   background:linear-gradient(180deg,#F4F7FE 0%, #EFF3FC 100%);
@@ -1852,9 +1863,9 @@ a{text-decoration:none;color:inherit}
   .roadmap-grid{ grid-template-columns:1fr; }
 }
 
-/* ════════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    FAQ
-   ════════════════════════════════════════════════════════ */
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .faq{
   position:relative;
   background:#ffffff;
@@ -1967,9 +1978,9 @@ a{text-decoration:none;color:inherit}
   padding:0 4px 28px;
 }
 
-/* ════════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    FINAL WAITLIST CTA
-   ════════════════════════════════════════════════════════ */
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .cta-final{
   position:relative;
   background:#0A1628;
@@ -2145,9 +2156,9 @@ a{text-decoration:none;color:inherit}
   flex-shrink:0;
 }
 
-/* ════════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    FOOTER
-   ════════════════════════════════════════════════════════ */
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .footer{
   position:relative;
   background:#070E1A;
@@ -2313,7 +2324,7 @@ a{text-decoration:none;color:inherit}
 </head>
 <body>
 
-<!-- ── NAV ── -->
+<!-- â”€â”€ NAV â”€â”€ -->
 <nav class="nav" id="nav">
   <div class="nav-inner">
     <img class="nav-logo" src="/assets/logo-dark.png" alt="Tradecovex">
@@ -2343,13 +2354,13 @@ a{text-decoration:none;color:inherit}
   <li><a href="/demo.html" class="demo-link">Live Demo</a></li>
 </ul>
 
-<!-- ── FIXED SCROLL INDICATOR ── -->
+<!-- â”€â”€ FIXED SCROLL INDICATOR â”€â”€ -->
 <div class="scroll-indicator">
   <div class="scroll-indicator-dot"></div>
   <span class="scroll-indicator-text">Scroll</span>
 </div>
 
-<!-- ── HERO ── -->
+<!-- â”€â”€ HERO â”€â”€ -->
 <section class="hero">
   <!-- LEFT: Video + Copy -->
   <div class="hero-left">
@@ -2374,7 +2385,7 @@ a{text-decoration:none;color:inherit}
   </div>
 </section>
 
-<!-- ── STICKY BOTTOM CTA ── -->
+<!-- â”€â”€ STICKY BOTTOM CTA â”€â”€ -->
 <div class="sticky-cta">
   <span class="sticky-label">14-day free trial</span>
   <div class="sticky-sep"></div>
@@ -2386,7 +2397,7 @@ a{text-decoration:none;color:inherit}
   </button>
 </div>
 
-<!-- ── ALL INTEGRATED SECTION ── -->
+<!-- â”€â”€ ALL INTEGRATED SECTION â”€â”€ -->
 <section class="integrated" id="integrated">
   <div class="integrated-sticky">
     <div class="integrated-cards">
@@ -2429,7 +2440,7 @@ a{text-decoration:none;color:inherit}
   </div>
 </section>
 
-<!-- ── PAIN SECTION ── -->
+<!-- â”€â”€ PAIN SECTION â”€â”€ -->
 <section class="pain" id="pain">
   <div class="pain-sticky">
     <div class="pain-line pain-line-1" id="painLine1">Most journals just show you charts.</div>
@@ -2439,7 +2450,7 @@ a{text-decoration:none;color:inherit}
   </div>
 </section>
 
-<!-- ── DAILY BRIEF SECTION ── -->
+<!-- â”€â”€ DAILY BRIEF SECTION â”€â”€ -->
 <section class="brief" id="brief">
   <div class="brief-sticky">
     <!-- State 1: White bg, premarket (dark screenshot) -->
@@ -2464,7 +2475,7 @@ a{text-decoration:none;color:inherit}
   </div>
 </section>
 
-<!-- ── TRADING IDENTITY SECTION ── -->
+<!-- â”€â”€ TRADING IDENTITY SECTION â”€â”€ -->
 <section class="identity" id="identity">
  <div class="identity-scene">
   <div class="identity-sticky">
@@ -2497,7 +2508,7 @@ a{text-decoration:none;color:inherit}
  </div>
 </section>
 
-<!-- ── DECISION COST SECTION ── -->
+<!-- â”€â”€ DECISION COST SECTION â”€â”€ -->
 <section class="dcost" id="dcost">
   <div class="dcost-sticky">
     <div class="dcost-left">
@@ -2516,7 +2527,7 @@ a{text-decoration:none;color:inherit}
   </div>
 </section>
 
-<!-- ── COMPARISON SECTION ── -->
+<!-- â”€â”€ COMPARISON SECTION â”€â”€ -->
 <section class="compare" id="compare">
   <div class="compare-sticky">
     <div class="compare-title" id="compareTitle">Comparison with<br>other Journals</div>
@@ -2599,7 +2610,7 @@ a{text-decoration:none;color:inherit}
   </div>
 </section>
 
-<!-- ── HOW IT WORKS SECTION ── -->
+<!-- â”€â”€ HOW IT WORKS SECTION â”€â”€ -->
 <section class="howitworks" id="howitworks">
   <div class="howitworks-sticky">
     <div class="howitworks-eyebrow">How It Works</div>
@@ -2624,7 +2635,7 @@ a{text-decoration:none;color:inherit}
   </div>
 </section>
 
-<!-- ── PRICING SECTION ── -->
+<!-- â”€â”€ PRICING SECTION â”€â”€ -->
 <section class="pricing" id="pricing">
   <div class="pricing-scene">
     <div class="pricing-sticky">
@@ -2661,7 +2672,7 @@ a{text-decoration:none;color:inherit}
         <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>AI support agent (24/7) + email backup within 24h</span></div>
         </div>
         <div class="pricing-cta">
-          <a class="pricing-btn pricing-btn-outline" href="#waitlist">Join Waitlist</a>
+          <a class="pricing-btn pricing-btn-outline" href="https://app.tradecovex.com/signup?tier=starter">Start 14-Day Free Trial</a>
           <div class="pricing-trial">14-day free trial · No credit card required</div>
         </div>
       </div>
@@ -2684,7 +2695,7 @@ a{text-decoration:none;color:inherit}
         <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Propfirm Updates — rule changes from Apex, Topstep, MFF and others as they happen</span></div>
         </div>
         <div class="pricing-cta">
-          <a class="pricing-btn pricing-btn-fill" href="#waitlist">Join Waitlist</a>
+          <a class="pricing-btn pricing-btn-fill" href="https://app.tradecovex.com/signup?tier=pro">Start 14-Day Free Trial</a>
           <div class="pricing-trial">14-day free trial · No credit card required</div>
         </div>
       </div>
@@ -2701,7 +2712,7 @@ a{text-decoration:none;color:inherit}
         <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>AI challenge progress analysis — Elite-only insights on Accounts page</span></div>
         </div>
         <div class="pricing-cta">
-          <a class="pricing-btn pricing-btn-outline" href="#waitlist">Join Waitlist</a>
+          <a class="pricing-btn pricing-btn-outline" href="https://app.tradecovex.com/signup?tier=elite">Start 14-Day Free Trial</a>
           <div class="pricing-trial">14-day free trial · No credit card required</div>
         </div>
       </div>
@@ -2722,7 +2733,7 @@ a{text-decoration:none;color:inherit}
   </div>
 </section>
 
-<!-- ── COMPETITIVE COMPARISON TABLE ── -->
+<!-- â”€â”€ COMPETITIVE COMPARISON TABLE â”€â”€ -->
 <section class="compete" id="compete">
   <div class="compete-head">
     <div class="compete-eyebrow">How We Compare</div>
@@ -2796,7 +2807,7 @@ a{text-decoration:none;color:inherit}
   </div>
 </section>
 
-<!-- ── PLATFORM ROADMAP ── -->
+<!-- â”€â”€ PLATFORM ROADMAP â”€â”€ -->
 <section class="roadmap" id="roadmap">
   <div class="roadmap-head">
     <div class="roadmap-eyebrow">Roadmap</div>
@@ -2828,7 +2839,7 @@ a{text-decoration:none;color:inherit}
   </div>
 </section>
 
-<!-- ── FAQ ── -->
+<!-- â”€â”€ FAQ â”€â”€ -->
 <section class="faq" id="faq">
   <div class="faq-head">
     <div class="faq-eyebrow">FAQ</div>
@@ -2907,10 +2918,17 @@ a{text-decoration:none;color:inherit}
         </button>
         <div class="faq-a">Yes. You can upload a CSV or Excel file of your historical trade data to populate the journal with past trades before going live. This lets the AI start building insights from your trading history immediately.</div>
       </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">
+          <span>Does Tradecovex work with Topstep accounts?</span>
+          <span class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></span>
+        </button>
+        <div class="faq-a">Yes &mdash; on Topstep Combine and Express Funded accounts via the TopstepX API. Tradecovex is not permitted on Topstep Live Funded accounts per Topstep policy. The TopstepX API ($29/mo, paid directly to ProjectX) is required for any third-party tool connection to Topstep accounts. Topstep does not provide support for Tradecovex &mdash; all support comes directly from us at <a href="mailto:support@tradecovex.com">support@tradecovex.com</a>.</div>
+      </div>
   </div>
 </section>
 
-<!-- ── FINAL WAITLIST CTA ── -->
+<!-- â”€â”€ FINAL WAITLIST CTA â”€â”€ -->
 <section class="cta-final" id="waitlist">
   <div class="cta-final-inner">
     <div class="cta-final-eyebrow">Early Access</div>
@@ -2938,7 +2956,7 @@ a{text-decoration:none;color:inherit}
   </div>
 </section>
 
-<!-- ── FOOTER ── -->
+<!-- â”€â”€ FOOTER â”€â”€ -->
 <footer class="footer">
   <div class="footer-grid">
     <div class="footer-brand">
@@ -2994,7 +3012,7 @@ a{text-decoration:none;color:inherit}
   </div>
 
   <div class="footer-meta">
-    <div>© 2026 Tradecovex. All rights reserved. Built by IVAAN INC, Ontario, Canada.</div>
+    <div>Â© 2026 Tradecovex. All rights reserved. Built by IVAAN INC, Ontario, Canada.</div>
     <div class="footer-meta-info">
       <span>Canadian users served from Toronto</span>
       <span>US users served from New York</span>
@@ -3026,7 +3044,7 @@ mobileMenu.querySelectorAll('a').forEach(a => {
   });
 });
 
-// ── ALL INTEGRATED: scroll-driven card slide-in ──
+// â”€â”€ ALL INTEGRATED: scroll-driven card slide-in â”€â”€
 (function(){
   const section = document.getElementById('integrated');
   if (!section) return;
@@ -3071,7 +3089,7 @@ mobileMenu.querySelectorAll('a').forEach(a => {
   requestAnimationFrame(update);
 })();
 
-// ── PAIN SECTION: scroll-stacked text (4 lines) ──
+// â”€â”€ PAIN SECTION: scroll-stacked text (4 lines) â”€â”€
 (function(){
   const section = document.getElementById('pain');
   if (!section) return;
@@ -3132,7 +3150,7 @@ mobileMenu.querySelectorAll('a').forEach(a => {
   requestAnimationFrame(update);
 })();
 
-// ── HOW IT WORKS: cards emerge from below, locked to title ──
+// â”€â”€ HOW IT WORKS: cards emerge from below, locked to title â”€â”€
 (function(){
   const section = document.getElementById('howitworks');
   if (!section) return;
@@ -3182,7 +3200,7 @@ mobileMenu.querySelectorAll('a').forEach(a => {
   requestAnimationFrame(update);
 })();
 
-// ── DAILY BRIEF: scroll-driven wipe transitions ──
+// â”€â”€ DAILY BRIEF: scroll-driven wipe transitions â”€â”€
 (function(){
   const section = document.getElementById('brief');
   if (!section) return;
@@ -3226,7 +3244,7 @@ mobileMenu.querySelectorAll('a').forEach(a => {
   requestAnimationFrame(update);
 })();
 
-// ── DECISION COST: curved arc animation with scroll-boosted speed ──
+// â”€â”€ DECISION COST: curved arc animation with scroll-boosted speed â”€â”€
 (function(){
   const section = document.getElementById('dcost');
   const container = document.getElementById('dcostRight');
@@ -3284,7 +3302,7 @@ mobileMenu.querySelectorAll('a').forEach(a => {
         // Position along arc (0=bottom, 0.5=center-left, 1=top)
         let pos = (i * ITEM_SPACING + renderPhase) % 1;
 
-        // Angle: pos 0 → bottom (π/2), pos 0.5 → center (0), pos 1 → top (-π/2)
+        // Angle: pos 0 → bottom (Ï€/2), pos 0.5 → center (0), pos 1 → top (-Ï€/2)
         const angle = (0.5 - pos) * Math.PI;
 
         // Items at edges (top/bottom) sit right, curve left at center
@@ -3312,7 +3330,7 @@ mobileMenu.querySelectorAll('a').forEach(a => {
   requestAnimationFrame(update);
 })();
 
-// ── COMPARISON: scroll-driven cards alternating left/right, 2× speed ──
+// â”€â”€ COMPARISON: scroll-driven cards alternating left/right, 2× speed â”€â”€
 (function(){
   const section = document.getElementById('compare');
   if (!section) return;
@@ -3335,7 +3353,7 @@ mobileMenu.querySelectorAll('a').forEach(a => {
     const CARD_WINDOW = 0.8;
     const CARD_GAP = 0.15;
 
-    // ── Cards ──
+    // â”€â”€ Cards â”€â”€
     for (let i = 0; i < N; i++){
       const card = cards[i];
       const side = card.dataset.side;
@@ -3362,7 +3380,7 @@ mobileMenu.querySelectorAll('a').forEach(a => {
       card.style.top = '50%';
     }
 
-    // ── Title: rides in with card 0, sticks at center, rides out with last card ──
+    // â”€â”€ Title: rides in with card 0, sticks at center, rides out with last card â”€â”€
     const firstStart = 0;
     const firstP = clamp(s / CARD_WINDOW, 0, 1); // card 0 progress
     const lastStart = (N - 1) * (CARD_WINDOW - CARD_GAP);
@@ -3391,7 +3409,7 @@ mobileMenu.querySelectorAll('a').forEach(a => {
   requestAnimationFrame(update);
 })();
 
-// ── PRICING: sticky scene with chevron unveil ──
+// â”€â”€ PRICING: sticky scene with chevron unveil â”€â”€
 (function(){
   const section = document.getElementById('pricing');
   if (!section) return;
@@ -3417,7 +3435,7 @@ mobileMenu.querySelectorAll('a').forEach(a => {
     const scrolled = clamp(-rect.top, 0, total);
     const p = total > 0 ? scrolled / total : 0;
 
-    // ── Headline transform: massive+centered → small+top
+    // â”€â”€ Headline transform: massive+centered → small+top
     // Mobile uses a smaller peak scale so "Lock In Your Rate." doesn't clip horizontally.
     const headP = clamp(p / 0.45, 0, 1);
     const headEased = easeInOut(headP);
@@ -3431,7 +3449,7 @@ mobileMenu.querySelectorAll('a').forEach(a => {
       h.style.transform = `translate(-50%, ${ty}px) scale(${scale})`;
     });
 
-    // ── Chevron clip-path: closed → open
+    // â”€â”€ Chevron clip-path: closed → open
     const chevP = clamp((p - 0.18) / 0.60, 0, 1);
     const chevEased = easeInOut(chevP);
     const apexY = clamp(100 - 130 * chevEased, 0, 100);
@@ -3439,7 +3457,7 @@ mobileMenu.querySelectorAll('a').forEach(a => {
     cover.style.clipPath = `polygon(0 0, 100% 0, 100% ${baseY}%, 50% ${apexY}%, 0 ${baseY}%)`;
 
     if (!mobile){
-      // ── DESKTOP: stagger fall-in (Pro lands first, Starter+Elite follow)
+      // â”€â”€ DESKTOP: stagger fall-in (Pro lands first, Starter+Elite follow)
       cols.forEach(c => {
         const isPopular = c.classList.contains('popular');
         const cardStart = isPopular ? 0.55 : 0.65;
@@ -3463,8 +3481,8 @@ mobileMenu.querySelectorAll('a').forEach(a => {
         }
       });
     } else {
-      // ── MOBILE: cards stacked absolutely, swap one at a time as scroll progresses.
-      // After chevron is mostly peeled (p ≈ 0.50), Starter slides in.
+      // â”€â”€ MOBILE: cards stacked absolutely, swap one at a time as scroll progresses.
+      // After chevron is mostly peeled (p â‰ˆ 0.50), Starter slides in.
       // Pro takes over around 0.68. Elite takes over around 0.86.
       // Each card: slide in from right (translateX 100% → 0) and slide out to left (0 → -100%),
       // with opacity ramping in/out over a small range so transitions feel smooth.
@@ -3510,7 +3528,7 @@ mobileMenu.querySelectorAll('a').forEach(a => {
   requestAnimationFrame(update);
 })();
 
-// ── SCROLL INDICATOR: adapt to light/dark sections ──
+// â”€â”€ SCROLL INDICATOR: adapt to light/dark sections â”€â”€
 (function(){
   const indicator = document.querySelector('.scroll-indicator');
   if (!indicator) return;
@@ -3530,7 +3548,7 @@ mobileMenu.querySelectorAll('a').forEach(a => {
 })();
 
 
-// ── FAQ accordion ──
+// â”€â”€ FAQ accordion â”€â”€
 document.querySelectorAll('.faq-q').forEach(btn => {
   btn.addEventListener('click', () => {
     const item = btn.closest('.faq-item');
@@ -3538,7 +3556,7 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   });
 });
 
-// ── Waitlist form: submit in background, show inline success ──
+// â”€â”€ Waitlist form: submit in background, show inline success â”€â”€
 (function(){
   const form = document.getElementById('waitlistForm');
   if (!form) return;
@@ -3579,7 +3597,7 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   });
 })();
 
-// ── Force play hero video on first user interaction (iOS Safari fallback) ──
+// â”€â”€ Force play hero video on first user interaction (iOS Safari fallback) â”€â”€
 (function(){
   const video = document.querySelector('.hero-video');
   if (!video) return;
@@ -3611,5 +3629,188 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   });
 })();
 </script>
+
+
+
+
+<!-- TRADECOVEX-SUPPORT-WIDGET -->
+<style>
+  :root { --tcx-blue: #2563EB; --tcx-blue-dark: #1d4ed8; --tcx-navy: #0A1628; --tcx-slate: #4B5E7A; --tcx-bubble-agent: #F1F4F9; --tcx-border: #E5EAF0; }
+  #tcx-widget * { box-sizing: border-box; }
+  #tcx-launcher { position: fixed; bottom: 24px; right: 24px; width: 64px; height: 64px; border-radius: 50%; background: var(--tcx-blue); border: none; cursor: pointer; box-shadow: 0 10px 30px rgba(37,99,235,.4); z-index: 9999; display: flex; align-items: center; justify-content: center; transition: transform .2s, box-shadow .2s; }
+  #tcx-launcher:hover { transform: scale(1.08); box-shadow: 0 12px 36px rgba(37,99,235,.55); }
+  #tcx-launcher svg { width: 28px; height: 28px; fill: white; }
+  #tcx-launcher.tcx-open svg { display: none; }
+  #tcx-launcher.tcx-open::after { content: '\00d7'; color: white; font-size: 32px; font-weight: 300; line-height: 1; }
+  #tcx-panel { position: fixed; bottom: 100px; right: 24px; width: 380px; height: 580px; max-height: calc(100vh - 130px); background: white; border-radius: 16px; box-shadow: 0 20px 60px rgba(10,22,40,.25); z-index: 9998; display: none; flex-direction: column; overflow: hidden; font-family: 'DM Sans', sans-serif; animation: tcx-slide-up .25s; }
+  #tcx-panel.tcx-open { display: flex; }
+  @keyframes tcx-slide-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  #tcx-widget .tcx-header { background: var(--tcx-navy); color: white; padding: 16px 20px; display: flex; align-items: center; gap: 12px; }
+  #tcx-widget .tcx-avatar { width: 42px; height: 42px; border-radius: 50%; background: linear-gradient(135deg, #4B5E7A, #2563EB); display: flex; align-items: center; justify-content: center; color: white; font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 600; font-size: 16px; flex-shrink: 0; position: relative; }
+  #tcx-widget .tcx-avatar::after { content: ''; position: absolute; bottom: 0; right: 0; width: 11px; height: 11px; background: #22c55e; border-radius: 50%; border: 2px solid var(--tcx-navy); }
+  #tcx-widget .tcx-header-info { flex: 1; min-width: 0; }
+  #tcx-widget .tcx-header-name { font-family: 'Barlow Semi Condensed', sans-serif; font-weight: 600; font-size: 15px; line-height: 1.2; }
+  #tcx-widget .tcx-header-status { font-size: 12px; color: #93a3b8; margin-top: 2px; }
+  #tcx-widget .tcx-messages { flex: 1; overflow-y: auto; padding: 20px 16px; background: #FAFBFD; display: flex; flex-direction: column; gap: 12px; }
+  #tcx-widget .tcx-messages::-webkit-scrollbar { width: 6px; }
+  #tcx-widget .tcx-messages::-webkit-scrollbar-thumb { background: #d1d8e0; border-radius: 3px; }
+  #tcx-widget .tcx-msg-row { display: flex; gap: 8px; max-width: 100%; animation: tcx-fade-in .25s; }
+  @keyframes tcx-fade-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+  #tcx-widget .tcx-msg-row.tcx-user { justify-content: flex-end; }
+  #tcx-widget .tcx-msg-avatar { width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, #4B5E7A, #2563EB); flex-shrink: 0; align-self: flex-end; display: flex; align-items: center; justify-content: center; color: white; font-size: 11px; font-weight: 600; }
+  #tcx-widget .tcx-bubble { padding: 10px 14px; border-radius: 16px; font-size: 14px; line-height: 1.45; max-width: 78%; word-wrap: break-word; }
+  #tcx-widget .tcx-msg-row.tcx-agent .tcx-bubble { background: var(--tcx-bubble-agent); color: var(--tcx-navy); border-bottom-left-radius: 4px; }
+  #tcx-widget .tcx-msg-row.tcx-user .tcx-bubble { background: var(--tcx-blue); color: white; border-bottom-right-radius: 4px; }
+  #tcx-idle { padding: 40px 20px 16px; color: var(--tcx-slate); font-size: 13px; line-height: 1.5; font-family: 'DM Sans', sans-serif; text-align: center; }
+  #tcx-idle .tcx-idle-title { font-family: 'Barlow Semi Condensed', sans-serif; font-size: 18px; font-weight: 600; color: var(--tcx-navy); margin-bottom: 8px; }
+  #tcx-idle .tcx-idle-sub { margin-bottom: 16px; }
+  .tcx-chips { display: flex; flex-direction: column; gap: 6px; padding: 0 8px; }
+  .tcx-chip { background: white; border: 1px solid var(--tcx-border); color: var(--tcx-navy); padding: 8px 12px; border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 13px; cursor: pointer; text-align: left; transition: background .15s, border-color .15s; }
+  .tcx-chip:hover { background: #EEF4FF; border-color: var(--tcx-blue); }
+  #tcx-widget .tcx-typing { display: flex; gap: 4px; padding: 14px 16px; background: var(--tcx-bubble-agent); border-radius: 16px; border-bottom-left-radius: 4px; width: fit-content; }
+  #tcx-widget .tcx-typing span { width: 7px; height: 7px; background: var(--tcx-slate); border-radius: 50%; animation: tcx-bounce 1.2s infinite ease-in-out; }
+  #tcx-widget .tcx-typing span:nth-child(2) { animation-delay: .15s; }
+  #tcx-widget .tcx-typing span:nth-child(3) { animation-delay: .3s; }
+  @keyframes tcx-bounce { 0%,60%,100% { transform: translateY(0); opacity: .5; } 30% { transform: translateY(-6px); opacity: 1; } }
+  #tcx-widget .tcx-input-area { border-top: 1px solid var(--tcx-border); padding: 12px 16px; background: white; }
+  #tcx-widget .tcx-input-row { display: flex; gap: 8px; align-items: center; }
+  #tcx-input { flex: 1; border: 1px solid var(--tcx-border); border-radius: 20px; padding: 10px 16px; font-family: 'DM Sans', sans-serif; font-size: 14px; outline: none; color: var(--tcx-navy); background: #FAFBFD; }
+  #tcx-input:focus { border-color: var(--tcx-blue); background: white; }
+  #tcx-send { background: var(--tcx-blue); border: none; width: 38px; height: 38px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+  #tcx-send:hover { background: var(--tcx-blue-dark); }
+  #tcx-send svg { width: 16px; height: 16px; fill: white; }
+  #tcx-widget .tcx-footer { text-align: center; font-size: 11px; color: var(--tcx-slate); padding: 6px 0 8px; background: white; }
+  #tcx-widget .tcx-email-form { background: white; border: 1px solid var(--tcx-border); border-radius: 12px; padding: 12px; margin-top: 4px; }
+  #tcx-widget .tcx-email-form input { width: 100%; border: 1px solid var(--tcx-border); border-radius: 8px; padding: 9px 12px; font-family: 'DM Sans', sans-serif; font-size: 13px; margin-bottom: 8px; outline: none; }
+  #tcx-widget .tcx-email-form input:focus { border-color: var(--tcx-blue); }
+  #tcx-widget .tcx-email-form button { width: 100%; background: var(--tcx-blue); color: white; border: none; border-radius: 8px; padding: 9px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; }
+  #tcx-widget .tcx-email-form button:hover { background: var(--tcx-blue-dark); }
+  @media (max-width: 480px) { #tcx-panel { width: calc(100vw - 24px); right: 12px; bottom: 90px; height: calc(100vh - 110px); } #tcx-launcher { right: 16px; bottom: 16px; } }
+</style>
+<div id="tcx-widget">
+  <button id="tcx-launcher" aria-label="Open support chat"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg></button>
+  <div id="tcx-panel" role="dialog" aria-label="Tradecovex Support">
+    <div class="tcx-header">
+      <div class="tcx-avatar"><span>M</span></div>
+      <div class="tcx-header-info">
+        <div class="tcx-header-name">Maya</div>
+        <div class="tcx-header-status">Tradecovex Support &middot; Usually replies in a few minutes</div>
+      </div>
+    </div>
+    <div class="tcx-messages" id="tcx-messages"></div>
+    <div class="tcx-input-area">
+      <div class="tcx-input-row">
+        <input id="tcx-input" type="text" placeholder="Ask me anything..." autocomplete="off">
+        <button id="tcx-send" aria-label="Send"><svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
+      </div>
+      <div class="tcx-footer">Powered by Tradecovex</div>
+    </div>
+  </div>
+</div>
+<script>
+(function() {
+  var AGENT = { name: 'Maya', initial: 'M' };
+  var KB_URL = '/widget-kb.json';
+  var SUPPORT_ENDPOINT = 'https://b126d666.sibforms.com/serve/MUIFAE7VOF_AeAWtGfP2bzNZaJmgRubii9ooUAWve9PPP5AJ-014DUkypC1ggrqeGHbc0FndtWK4GkgX-sLvmMOdAzVhKfbtNbjXZCY-wEsGYFg7vWihymtUGlleKjko1btwg6ZX6s46jsEjALp7JVDIiiqbyTfKDAm4NpHNHSxD8QyAjL8kuQfdADYpCBRf4AgWLnPMLnEd4HlryA==';
+  var TYPING_BASE_MS = 1100, TYPING_PER_CHAR_MS = 22, TYPING_MAX_MS = 3800;
+  var KB = [], kbLoaded = false;
+  var conversation = [], clarifyCount = 0, panelOpen = false, isTyping = false;
+  var EMAIL_INTENT_KEYWORDS = ['give my email','give you my email','share my email','my email is','my email address','email me','notify me','ping me','let me know when','send me an email','contact me','reach out','have someone email','team email me','you can email me','i can give my email','can i give my email','can i give you my email','drop my email','leave my email','take my email','keep me posted','keep me in the loop','send the info'];
+  var EMAIL_REGEX = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
+  var DEFLECT_KEYWORDS = ['configure my','setup my','set up my','install','how do i set up my','connect my account','add my account','link my broker','not working',"isn't working",'isnt working','my bug','my error','my crash','it crashed','app crash','troubleshoot my','fix my','my issue','my dashboard','my journal','my copier','my trades','license','activation key','reactivate','upgrade my plan','downgrade my plan','cancel my subscription'];
+  var DEFLECT_REPLY = "That one needs access to the dashboard to answer properly, and I'm only set up for pre-trial questions out here. Once you start your free trial you'll get full in-app support that can pull up your account and walk you through it.";
+  var TRADING_ADVICE_KEYWORDS = ['should i buy','should i sell','should i trade','should i go long','should i go short','is now a good time','will price go','price prediction','market forecast','what stock should','which stock should','best strategy to trade','what trade should i','entry point for','exit point for'];
+  var TRADING_ADVICE_REPLY = "I can't give trading advice. Tradecovex analyzes your <i>own</i> trades, it doesn't tell you what to buy or sell. Anything about the product itself I'm happy to help with.";
+  var SHORT_GREETING_REGEX = /^\s*(hi|hello|hey|yo|sup|hola|howdy|heya|hiya|hi there|hello there|hey there|good morning|good afternoon|good evening)\s*[!.?]*\s*$/i;
+  var GREETING_REPLY = "Hey there. What can I help you with &mdash; pricing, the free trial, prop firms, or how the copier works?";
+  var launcher = document.getElementById('tcx-launcher');
+  var panel = document.getElementById('tcx-panel');
+  var messages = document.getElementById('tcx-messages');
+  var input = document.getElementById('tcx-input');
+  var sendBtn = document.getElementById('tcx-send');
+  fetch(KB_URL + '?v=' + Date.now(), { cache: 'no-cache' }).then(function(r){ return r.json(); }).then(function(d){ KB = d.entries || []; kbLoaded = true; }).catch(function(){ kbLoaded = true; });
+  launcher.addEventListener('click', function(){ panelOpen = !panelOpen; panel.classList.toggle('tcx-open', panelOpen); launcher.classList.toggle('tcx-open', panelOpen); if (panelOpen && conversation.length === 0) showIdleState(); if (panelOpen) setTimeout(function(){ input.focus(); }, 300); });
+  sendBtn.addEventListener('click', handleSend);
+  input.addEventListener('keydown', function(e){ if (e.key === 'Enter') { e.preventDefault(); handleSend(); } });
+  function handleSend() { var text = input.value.trim(); if (!text || isTyping) return; removeIdleAndChips(); input.value = ''; userSay(text); respond(text); }
+  function showIdleState() { removeIdleAndChips(); var idle = document.createElement('div'); idle.id = 'tcx-idle'; idle.innerHTML = '<div class="tcx-idle-title">Ask us anything</div><div class="tcx-idle-sub">Pick a question below or type your own</div><div class="tcx-chips"><button class="tcx-chip" data-q="How much does it cost?">How much does it cost?</button><button class="tcx-chip" data-q="Is there a free trial?">Is there a free trial?</button><button class="tcx-chip" data-q="When does it launch?">When does it launch?</button><button class="tcx-chip" data-q="Does it work with Apex?">Does it work with Apex?</button></div>'; messages.appendChild(idle); idle.querySelectorAll('.tcx-chip').forEach(function(c){ c.addEventListener('click', function(){ var q = c.getAttribute('data-q'); removeIdleAndChips(); userSay(q); respond(q); }); }); }
+  function showFollowupChips() { removeFollowupChips(); var wrap = document.createElement('div'); wrap.id = 'tcx-followup'; wrap.className = 'tcx-chips'; wrap.style.marginTop = '4px'; wrap.innerHTML = '<button class="tcx-chip" data-q="How much does it cost?">How much does it cost?</button><button class="tcx-chip" data-q="Tell me about the free trial">Tell me about the free trial</button><button class="tcx-chip" data-q="How does the copier work?">How does the copier work?</button><button class="tcx-chip" data-q="Can someone from the team email me?">Can someone from the team email me?</button>'; messages.appendChild(wrap); wrap.querySelectorAll('.tcx-chip').forEach(function(c){ c.addEventListener('click', function(){ var q = c.getAttribute('data-q'); removeIdleAndChips(); userSay(q); respond(q); }); }); scrollDown(); }
+  function removeIdleAndChips() { var idle = document.getElementById('tcx-idle'); if (idle) idle.remove(); removeFollowupChips(); }
+  function removeFollowupChips() { var fu = document.getElementById('tcx-followup'); if (fu) fu.remove(); }
+  function userSay(text) { conversation.push({ role: 'user', text: text }); var row = document.createElement('div'); row.className = 'tcx-msg-row tcx-user'; row.innerHTML = '<div class="tcx-bubble">' + escapeHtml(text) + '</div>'; messages.appendChild(row); scrollDown(); }
+  function agentSay(html) { conversation.push({ role: 'agent', text: html }); var row = document.createElement('div'); row.className = 'tcx-msg-row tcx-agent'; row.innerHTML = '<div class="tcx-msg-avatar">' + AGENT.initial + '</div><div class="tcx-bubble">' + html + '</div>'; messages.appendChild(row); scrollDown(); }
+  function showTyping() { isTyping = true; var row = document.createElement('div'); row.className = 'tcx-msg-row tcx-agent'; row.id = 'tcx-typing-row'; row.innerHTML = '<div class="tcx-msg-avatar">' + AGENT.initial + '</div><div class="tcx-typing"><span></span><span></span><span></span></div>'; messages.appendChild(row); scrollDown(); }
+  function hideTyping() { isTyping = false; var r = document.getElementById('tcx-typing-row'); if (r) r.remove(); }
+  function scrollDown() { setTimeout(function(){ messages.scrollTop = messages.scrollHeight; }, 50); }
+  function escapeHtml(s) { return s.replace(/[&<>"']/g, function(c){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); }
+  function respond(userText) {
+    if (!kbLoaded) { setTimeout(function(){ respond(userText); }, 300); return; }
+    var lower = userText.toLowerCase();
+    var detectedEmail = extractEmail(userText);
+    if (SHORT_GREETING_REGEX.test(userText)) { replyWithTyping(GREETING_REPLY); return; }
+    if (detectedEmail || matchAny(lower, EMAIL_INTENT_KEYWORDS)) {
+      var preMsg = detectedEmail ? "Got it &mdash; let me make sure I have your email right. Confirm below and I'll pass it to the team:" : "Of course. Drop your email below and we'll get back to you within 24 hours:";
+      replyWithTyping(preMsg, function(){ renderEmailForm(userText, detectedEmail); });
+      return;
+    }
+    if (matchAny(lower, TRADING_ADVICE_KEYWORDS)) { replyWithTyping(TRADING_ADVICE_REPLY); return; }
+    if (matchAny(lower, DEFLECT_KEYWORDS)) { replyWithTyping(DEFLECT_REPLY); return; }
+    var matches = findKBMatches(lower);
+    if (matches.length > 0) {
+      clarifyCount = 0;
+      var reply = matches[0].reply;
+      if (matches.length > 1 && matches[1].score >= matches[0].score * 0.6) { reply = reply + "<br><br>" + matches[1].reply; }
+      replyWithTyping(reply);
+      return;
+    }
+    if (clarifyCount === 0) { clarifyCount++; replyWithTyping("Hmm, want to give me a bit more context? I can answer most things about pricing, the free trial, supported platforms, prop firms, and how the copier and AI journal work.", showFollowupChips); }
+    else { clarifyCount++; replyWithTyping("Let me get one of the team to reply directly. Drop your email below and we'll get back to you within 24 hours.", function(){ renderEmailForm(userText, null); }); }
+  }
+  function extractEmail(text) { var m = text.match(EMAIL_REGEX); return m ? m[0] : null; }
+  function matchAny(lower, list) { return list.some(function(kw){ return lower.indexOf(kw) !== -1; }); }
+  function findKBMatches(lower) {
+    var scored = [];
+    for (var i = 0; i < KB.length; i++) {
+      var entry = KB[i];
+      if (entry.id === 'greeting') continue;
+      var hits = 0;
+      var score = entry.keywords.reduce(function(acc, kw){ var kwLower = kw.toLowerCase(); if (lower.indexOf(kwLower) !== -1) { hits++; return acc + kwLower.length; } return acc; }, 0);
+      var maxKwLen = Math.max.apply(null, entry.keywords.map(function(k){ return k.length; }));
+      if (score >= 5 && (hits >= 2 || maxKwLen >= 5)) { scored.push({ reply: entry.reply, score: score, id: entry.id, hits: hits }); }
+    }
+    scored.sort(function(a, b){ return b.score - a.score; });
+    return scored;
+  }
+  function replyWithTyping(html, afterCb) { showTyping(); var delay = Math.min(TYPING_BASE_MS + (html.length * TYPING_PER_CHAR_MS), TYPING_MAX_MS); setTimeout(function(){ hideTyping(); agentSay(html); if (afterCb) setTimeout(afterCb, 400); }, delay); }
+  function renderEmailForm(originalQuestion, prefillEmail) {
+    var form = document.createElement('div');
+    form.className = 'tcx-msg-row tcx-agent';
+    var prefillAttr = prefillEmail ? ' value="' + escapeHtml(prefillEmail) + '"' : '';
+    form.innerHTML = '<div class="tcx-msg-avatar">' + AGENT.initial + '</div><div style="flex:1;max-width:78%;"><div class="tcx-email-form"><input type="email" id="tcx-email-input" placeholder="your@email.com"' + prefillAttr + ' required><button id="tcx-email-submit">Send to the team</button></div></div>';
+    messages.appendChild(form);
+    scrollDown();
+    var inputEl = document.getElementById('tcx-email-input');
+    inputEl.focus();
+    document.getElementById('tcx-email-submit').addEventListener('click', function(){ var email = inputEl.value.trim(); if (!validEmail(email)) { inputEl.style.borderColor = '#ef4444'; return; } submitToSupport(email, originalQuestion, form); });
+    inputEl.addEventListener('keydown', function(e){ if (e.key === 'Enter') { e.preventDefault(); document.getElementById('tcx-email-submit').click(); } });
+  }
+  function validEmail(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
+  function submitToSupport(email, question, formEl) {
+    var fullTranscript = conversation.map(function(m){ return (m.role === 'user' ? 'User' : AGENT.name) + ': ' + m.text.replace(/<[^>]+>/g, ''); }).join('\n');
+    var truncate = function(s, n){ return s.length > n ? s.slice(0, n - 3) + '...' : s; };
+    var data = new FormData();
+    data.append('EMAIL', email);
+    data.append('ORIGINAL_QUESTION', truncate(question, 195));
+    data.append('FULL_TRANSCRIPT', truncate(fullTranscript, 195));
+    data.append('SOURCE', 'tradecovex.com widget');
+    data.append('email_address_check', '');
+    data.append('locale', 'en');
+    fetch(SUPPORT_ENDPOINT, { method: 'POST', body: data, mode: 'no-cors' }).then(function(){ onSubmitSuccess(formEl, email); }).catch(function(){ onSubmitSuccess(formEl, email); });
+  }
+  function onSubmitSuccess(formEl, email) { formEl.remove(); clarifyCount = 0; replyWithTyping("Got it &mdash; we have your email at <b>" + escapeHtml(email) + "</b> and the team will reply within 24 hours. Anything else in the meantime?"); }
+})();
+</script>
+<!-- END TRADECOVEX-SUPPORT-WIDGET -->
+
 </body>
 </html>
