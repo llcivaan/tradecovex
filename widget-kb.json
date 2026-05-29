@@ -1,358 +1,358 @@
 ﻿{
-    "version":  "2026-05-22-1204",
-    "generated":  "2026-05-22T12:04:57.1288032-04:00",
-    "entries":  [
-                    {
-                        "id":  "greeting",
-                        "keywords":  [
-                                         "hello there",
-                                         "hi there",
-                                         "hey there",
-                                         "good morning",
-                                         "good afternoon",
-                                         "good evening"
-                                     ],
-                        "reply":  "Hey, what can I help you with today?"
-                    },
-                    {
-                        "id":  "thanks",
-                        "keywords":  [
-                                         "thanks",
-                                         "thank you",
-                                         "cheers",
-                                         "appreciate"
-                                     ],
-                        "reply":  "You\u0027re welcome. Anything else I can help with?"
-                    },
-                    {
-                        "id":  "goodbye",
-                        "keywords":  [
-                                         "bye",
-                                         "goodbye",
-                                         "see you",
-                                         "talk later",
-                                         "that\u0027s all",
-                                         "thats all",
-                                         "no thanks",
-                                         "im good",
-                                         "i\u0027m good",
-                                         "im all set",
-                                         "nothing else"
-                                     ],
-                        "reply":  "Have a great one. We\u0027ll see you on the inside when the trial opens."
-                    },
-                    {
-                        "id":  "human-or-bot",
-                        "keywords":  [
-                                         "are you human",
-                                         "are you a bot",
-                                         "are you real",
-                                         "am i talking to a human",
-                                         "is this a real person",
-                                         "are you a person",
-                                         "are you ai"
-                                     ],
-                        "reply":  "Honest answer: I\u0027m an automated assistant trained on Tradecovex info, here to help with pre-trial questions. Anything I can\u0027t answer I\u0027ll forward to a real teammate within 24 hours. What can I help with?"
-                    },
-                    {
-                        "id":  "help-capabilities",
-                        "keywords":  [
-                                         "what can you help",
-                                         "what can you do",
-                                         "what do you know",
-                                         "what questions can you answer",
-                                         "how can you help"
-                                     ],
-                        "reply":  "I can help with anything pre-trial: pricing, the free trial, platforms we support, how the copier works, which prop firms we work with, the AI journal, security, and the affiliate programme. Anything dashboard-specific I\u0027ll point you to start a free trial so the in-app team can help directly."
-                    },
-                    {
-                        "id":  "pricing",
-                        "keywords":  [
-                                         "price",
-                                         "pricing",
-                                         "cost",
-                                         "how much",
-                                         "plans",
-                                         "tiers",
-                                         "subscription",
-                                         "monthly",
-                                         "annual",
-                                         "yearly",
-                                         "what does it cost"
-                                     ],
-                        "reply":  "We have three plans:\u003cbr\u003e\u003cbr\u003e\u0026bull; \u003cb\u003eStarter \u0026mdash; $19/mo\u003c/b\u003e (up to 20 accounts)\u003cbr\u003e\u0026bull; \u003cb\u003ePro \u0026mdash; $39/mo\u003c/b\u003e (up to 40 accounts) \u0026mdash; most popular\u003cbr\u003e\u0026bull; \u003cb\u003eElite \u0026mdash; $79/mo\u003c/b\u003e (up to 100 accounts)\u003cbr\u003e\u003cbr\u003eAnnual saves you around 26%. All plans come with a 14-day free trial, no credit card required."
-                    },
-                    {
-                        "id":  "tier-difference",
-                        "keywords":  [
-                                         "difference between",
-                                         "starter vs",
-                                         "pro vs",
-                                         "elite vs",
-                                         "which plan",
-                                         "what is the difference",
-                                         "compare plans"
-                                     ],
-                        "reply":  "The only practical difference is the account limit. Starter handles up to 20 accounts, Pro up to 40, Elite up to 100. All three include the full copier, the AI journal, the dashboard, and the prop-firm tracker. If you\u0027re running 2-3 prop accounts, Starter is fine. Most active prop traders end up on Pro."
-                    },
-                    {
-                        "id":  "pricing-recommend",
-                        "keywords":  [
-                                         "which plan is best",
-                                         "which one should i",
-                                         "recommend a plan",
-                                         "what should i pick",
-                                         "which plan for me"
-                                     ],
-                        "reply":  "Depends on how many accounts you run. Under 20 accounts: Starter. 20-40 accounts: Pro (most active prop traders). 40+: Elite. If you\u0027re not sure, start with the 14-day free trial on Pro \u0026mdash; you can change tier any time."
-                    },
-                    {
-                        "id":  "trial",
-                        "keywords":  [
-                                         "trial",
-                                         "free trial",
-                                         "try it",
-                                         "demo",
-                                         "test it",
-                                         "credit card",
-                                         "sign up free"
-                                     ],
-                        "reply":  "Yes \u0026mdash; \u003cb\u003e14-day free trial\u003c/b\u003e on every plan, no credit card needed. You can cancel any time. Join the waitlist on this page and you\u0027ll be first in when we open access."
-                    },
-                    {
-                        "id":  "what-is",
-                        "keywords":  [
-                                         "what is tradecovex",
-                                         "what does tradecovex do",
-                                         "tell me about tradecovex",
-                                         "about tradecovex",
-                                         "who are you guys",
-                                         "what do you do",
-                                         "what kind of product"
-                                     ],
-                        "reply":  "Tradecovex is a NinjaTrader trade copier with a built-in AI journal. Copy your trades across all your prop accounts in one click, and the AI tells you exactly why your trades are working or failing \u0026mdash; automatically."
-                    },
-                    {
-                        "id":  "platforms",
-                        "keywords":  [
-                                         "platform",
-                                         "what platform",
-                                         "work with",
-                                         "ninjatrader",
-                                         "tradovate",
-                                         "tradingview",
-                                         "mt4",
-                                         "mt5",
-                                         "metatrader",
-                                         "tradestation"
-                                     ],
-                        "reply":  "We\u0027re \u003cb\u003eNinjaTrader-only at launch\u003c/b\u003e (futures). On the roadmap: Tradovate next, then TradingView, then MT4/MT5, then TradeStation. If you\u0027re on NinjaTrader you\u0027re good to go."
-                    },
-                    {
-                        "id":  "mac-windows",
-                        "keywords":  [
-                                         "mac",
-                                         "macbook",
-                                         "macos",
-                                         "linux",
-                                         "operating system",
-                                         "os support",
-                                         "windows only"
-                                     ],
-                        "reply":  "Tradecovex runs as a NinjaTrader add-on, and NinjaTrader is Windows-only. Most Mac users run it through a Windows VPS or Parallels. If you\u0027re using a VPS already (common for prop traders), you\u0027re fine."
-                    },
-                    {
-                        "id":  "prop-firms",
-                        "keywords":  [
-                                         "apex",
-                                         "topstep",
-                                         "myfundedfutures",
-                                         "mff",
-                                         "take profit",
-                                         "tradeify",
-                                         "bulenox",
-                                         "prop firm",
-                                         "funded account",
-                                         "eval account",
-                                         "evaluation",
-                                         "pa account"
-                                     ],
-                        "reply":  "Tradecovex works with any prop firm that runs on NinjaTrader. That covers Apex, Topstep, MyFundedFutures, Take Profit Trader, Tradeify, Bulenox, and the rest. Eval and funded accounts both work."
-                    },
-                    {
-                        "id":  "prop-firm-rules",
-                        "keywords":  [
-                                         "prop firm rules",
-                                         "allowed",
-                                         "against the rules",
-                                         "banned",
-                                         "against tos",
-                                         "copier banned",
-                                         "are copiers allowed"
-                                     ],
-                        "reply":  "Trade copiers are explicitly allowed by all major futures prop firms when used to copy your \u003ci\u003eown\u003c/i\u003e trades across \u003ci\u003eyour own\u003c/i\u003e accounts. That\u0027s what Tradecovex does. Check your firm\u0027s specific rules though \u0026mdash; we can\u0027t speak for every firm\u0027s small print."
-                    },
-                    {
-                        "id":  "latency",
-                        "keywords":  [
-                                         "latency",
-                                         "how fast",
-                                         "real time",
-                                         "real-time",
-                                         "lag",
-                                         "delay",
-                                         "speed of copy",
-                                         "instant"
-                                     ],
-                        "reply":  "Copy happens locally inside NinjaTrader \u0026mdash; no cloud round-trip \u0026mdash; so it\u0027s effectively instant. Most users see sub-100ms from lead-account fill to follower-account fill."
-                    },
-                    {
-                        "id":  "signals-question",
-                        "keywords":  [
-                                         "do you provide signals",
-                                         "give me signals",
-                                         "sell signals",
-                                         "signal service",
-                                         "copy other peoples trades",
-                                         "follow other traders"
-                                     ],
-                        "reply":  "No \u0026mdash; Tradecovex copies your \u003ci\u003eown\u003c/i\u003e trades across your \u003ci\u003eown\u003c/i\u003e accounts. We\u0027re not a signal service and you can\u0027t follow other traders. The AI journal analyzes your trades but doesn\u0027t tell you what to buy."
-                    },
-                    {
-                        "id":  "when-launch",
-                        "keywords":  [
-                                         "when launch",
-                                         "when does it launch",
-                                         "launching",
-                                         "when available",
-                                         "when do you release",
-                                         "release date",
-                                         "public beta",
-                                         "when can i sign up",
-                                         "when can i use it",
-                                         "when is it ready",
-                                         "eta",
-                                         "go live"
-                                     ],
-                        "reply":  "We\u0027re in private testing right now. Beta opens soon \u0026mdash; join the waitlist on this page and you\u0027ll be among the first invited, plus you\u0027ll lock in founding-member pricing for life."
-                    },
-                    {
-                        "id":  "refund",
-                        "keywords":  [
-                                         "refund",
-                                         "money back",
-                                         "guarantee",
-                                         "cancel my subscription",
-                                         "cancellation policy"
-                                     ],
-                        "reply":  "Cancel any time from your account \u0026mdash; no lock-in. The 14-day free trial means you can try everything risk-free before you pay a cent."
-                    },
-                    {
-                        "id":  "payment",
-                        "keywords":  [
-                                         "payment",
-                                         "how do i pay",
-                                         "paypal",
-                                         "credit card accepted",
-                                         "debit card",
-                                         "billing",
-                                         "charge",
-                                         "invoice"
-                                     ],
-                        "reply":  "We accept all major credit and debit cards through Lemon Squeezy (our payment processor). They handle the billing, taxes, and invoices. Sales-tax compliant in your country automatically."
-                    },
-                    {
-                        "id":  "copier-basic",
-                        "keywords":  [
-                                         "how does copier work",
-                                         "how does it copy",
-                                         "how does it work",
-                                         "how it works",
-                                         "lead account",
-                                         "follower account",
-                                         "multi account",
-                                         "multiple accounts",
-                                         "copy trades",
-                                         "copy trade"
-                                     ],
-                        "reply":  "You set one lead account, and every trade you take on it copies instantly to all your follower accounts \u0026mdash; up to 20, 40, or 100 depending on your plan. The full setup walkthrough lives inside the dashboard once you start your free trial."
-                    },
-                    {
-                        "id":  "ai-basic",
-                        "keywords":  [
-                                         "ai journal",
-                                         "what does the ai do",
-                                         "how does ai work",
-                                         "what insights",
-                                         "analyze my trades",
-                                         "what does it tell me",
-                                         "behavioural insights",
-                                         "behavioral insights"
-                                     ],
-                        "reply":  "The AI watches your trades and surfaces patterns you\u0027d miss \u0026mdash; what times of day you\u0027re profitable, which setups break down under pressure, where the same mistake keeps killing your challenges. Behavioural insight, not trade advice."
-                    },
-                    {
-                        "id":  "copier-vs-journal",
-                        "keywords":  [
-                                         "just the copier",
-                                         "just the journal",
-                                         "can i get only",
-                                         "separate purchase",
-                                         "only the"
-                                     ],
-                        "reply":  "The copier and AI journal come bundled in every plan \u0026mdash; we don\u0027t sell them separately. They\u0027re designed to work together: the copier captures your trades, the journal analyzes them."
-                    },
-                    {
-                        "id":  "risk-management",
-                        "keywords":  [
-                                         "risk management",
-                                         "drawdown protection",
-                                         "daily loss limit",
-                                         "stop loss",
-                                         "position limit",
-                                         "auto pause",
-                                         "kill switch"
-                                     ],
-                        "reply":  "Risk-management features (drawdown protection, daily loss caps, auto-pause) are on the roadmap but not in the v1 launch. The current product is the copier plus the AI journal. We\u0027ll announce risk features when they\u0027re ready."
-                    },
-                    {
-                        "id":  "discord",
-                        "keywords":  [
-                                         "discord",
-                                         "community",
-                                         "telegram",
-                                         "slack",
-                                         "forum",
-                                         "user group",
-                                         "beta tester group"
-                                     ],
-                        "reply":  "A private Discord opens for beta users and paying members the moment we launch. Waitlist signups get the invite alongside their early access."
-                    },
-                    {
-                        "id":  "affiliate",
-                        "keywords":  [
-                                         "affiliate",
-                                         "referral",
-                                         "commission",
-                                         "partner",
-                                         "promote",
-                                         "promote your product"
-                                     ],
-                        "reply":  "Yes \u0026mdash; we have an affiliate programme launching with the product. $15 / $25 / $45 per signup depending on the plan they choose. Drop your email and I\u0027ll have the team send you the details when it opens."
-                    },
-                    {
-                        "id":  "security",
-                        "keywords":  [
-                                         "secure",
-                                         "security",
-                                         "safe",
-                                         "credentials",
-                                         "password",
-                                         "login data",
-                                         "encrypt",
-                                         "data protection"
-                                     ],
-                        "reply":  "Tradecovex runs locally inside your NinjaTrader installation \u0026mdash; there\u0027s no central server intercepting your trades. Your broker credentials stay on your machine. We host on Canadian servers (Toronto plus NYC for US users) with full PIPEDA compliance."
-                    }
-                ]
+  "version": "2026-05-22-1204",
+  "generated": "2026-05-22T12:04:57.1288032-04:00",
+  "entries": [
+    {
+      "id": "greeting",
+      "keywords": [
+        "hello there",
+        "hi there",
+        "hey there",
+        "good morning",
+        "good afternoon",
+        "good evening"
+      ],
+      "reply": "Hey, what can I help you with today?"
+    },
+    {
+      "id": "thanks",
+      "keywords": [
+        "thanks",
+        "thank you",
+        "cheers",
+        "appreciate"
+      ],
+      "reply": "You're welcome. Anything else I can help with?"
+    },
+    {
+      "id": "goodbye",
+      "keywords": [
+        "bye",
+        "goodbye",
+        "see you",
+        "talk later",
+        "that's all",
+        "thats all",
+        "no thanks",
+        "im good",
+        "i'm good",
+        "im all set",
+        "nothing else"
+      ],
+      "reply": "Have a great one. We'll see you on the inside when the trial opens."
+    },
+    {
+      "id": "human-or-bot",
+      "keywords": [
+        "are you human",
+        "are you a bot",
+        "are you real",
+        "am i talking to a human",
+        "is this a real person",
+        "are you a person",
+        "are you ai"
+      ],
+      "reply": "Honest answer: I'm an automated assistant trained on Tradecovex info, here to help with pre-trial questions. Anything I can't answer I'll forward to a real teammate within 24 hours. What can I help with?"
+    },
+    {
+      "id": "help-capabilities",
+      "keywords": [
+        "what can you help",
+        "what can you do",
+        "what do you know",
+        "what questions can you answer",
+        "how can you help"
+      ],
+      "reply": "I can help with anything pre-trial: pricing, the free trial, platforms we support, how the copier works, which prop firms we work with, the AI journal, security, and the affiliate programme. Anything dashboard-specific I'll point you to start a free trial so the in-app team can help directly."
+    },
+    {
+      "id": "pricing",
+      "keywords": [
+        "price",
+        "pricing",
+        "cost",
+        "how much",
+        "plans",
+        "tiers",
+        "subscription",
+        "monthly",
+        "annual",
+        "yearly",
+        "what does it cost"
+      ],
+      "reply": "We have three plans:<br><br>&bull; <b>Starter &mdash; $19/mo</b> (up to 20 accounts)<br>&bull; <b>Pro &mdash; $39/mo</b> (up to 40 accounts) &mdash; most popular<br>&bull; <b>Elite &mdash; $79/mo</b> (up to 100 accounts)<br><br>Annual saves you around 26%. All plans come with a 14-day free trial, no credit card required."
+    },
+    {
+      "id": "tier-difference",
+      "keywords": [
+        "difference between",
+        "starter vs",
+        "pro vs",
+        "elite vs",
+        "which plan",
+        "what is the difference",
+        "compare plans"
+      ],
+      "reply": "The only practical difference is the account limit. Starter handles up to 20 accounts, Pro up to 40, Elite up to 100. All three include the full copier, the AI journal, the dashboard, and the prop-firm tracker. If you're running 2-3 prop accounts, Starter is fine. Most active prop traders end up on Pro."
+    },
+    {
+      "id": "pricing-recommend",
+      "keywords": [
+        "which plan is best",
+        "which one should i",
+        "recommend a plan",
+        "what should i pick",
+        "which plan for me"
+      ],
+      "reply": "Depends on how many accounts you run. Under 20 accounts: Starter. 20-40 accounts: Pro (most active prop traders). 40+: Elite. If you're not sure, start with the 14-day free trial on Pro &mdash; you can change tier any time."
+    },
+    {
+      "id": "trial",
+      "keywords": [
+        "trial",
+        "free trial",
+        "try it",
+        "demo",
+        "test it",
+        "credit card",
+        "sign up free"
+      ],
+      "reply": "Yes &mdash; <b>14-day free trial</b> on every plan, no credit card needed. You can cancel any time. Start your 14-day free trial on this page — no card needed."
+    },
+    {
+      "id": "what-is",
+      "keywords": [
+        "what is tradecovex",
+        "what does tradecovex do",
+        "tell me about tradecovex",
+        "about tradecovex",
+        "who are you guys",
+        "what do you do",
+        "what kind of product"
+      ],
+      "reply": "Tradecovex is a NinjaTrader trade copier with a built-in AI journal. Copy your trades across all your prop accounts in one click, and the AI tells you exactly why your trades are working or failing &mdash; automatically."
+    },
+    {
+      "id": "platforms",
+      "keywords": [
+        "platform",
+        "what platform",
+        "work with",
+        "ninjatrader",
+        "tradovate",
+        "tradingview",
+        "mt4",
+        "mt5",
+        "metatrader",
+        "tradestation"
+      ],
+      "reply": "We're <b>NinjaTrader-only at launch</b> (futures). On the roadmap: Tradovate next, then TradingView, then MT4/MT5, then TradeStation. If you're on NinjaTrader you're good to go."
+    },
+    {
+      "id": "mac-windows",
+      "keywords": [
+        "mac",
+        "macbook",
+        "macos",
+        "linux",
+        "operating system",
+        "os support",
+        "windows only"
+      ],
+      "reply": "Tradecovex runs as a NinjaTrader add-on, and NinjaTrader is Windows-only. Most Mac users run it through a Windows VPS or Parallels. If you're using a VPS already (common for prop traders), you're fine."
+    },
+    {
+      "id": "prop-firms",
+      "keywords": [
+        "apex",
+        "topstep",
+        "myfundedfutures",
+        "mff",
+        "take profit",
+        "tradeify",
+        "bulenox",
+        "prop firm",
+        "funded account",
+        "eval account",
+        "evaluation",
+        "pa account"
+      ],
+      "reply": "Tradecovex works with any prop firm that runs on NinjaTrader. That covers Apex, Topstep, MyFundedFutures, Take Profit Trader, Tradeify, Bulenox, and the rest. Eval and funded accounts both work."
+    },
+    {
+      "id": "prop-firm-rules",
+      "keywords": [
+        "prop firm rules",
+        "allowed",
+        "against the rules",
+        "banned",
+        "against tos",
+        "copier banned",
+        "are copiers allowed"
+      ],
+      "reply": "Trade copiers are explicitly allowed by all major futures prop firms when used to copy your <i>own</i> trades across <i>your own</i> accounts. That's what Tradecovex does. Check your firm's specific rules though &mdash; we can't speak for every firm's small print."
+    },
+    {
+      "id": "latency",
+      "keywords": [
+        "latency",
+        "how fast",
+        "real time",
+        "real-time",
+        "lag",
+        "delay",
+        "speed of copy",
+        "instant"
+      ],
+      "reply": "Copy happens locally inside NinjaTrader &mdash; no cloud round-trip &mdash; so it's effectively instant. Most users see sub-100ms from lead-account fill to follower-account fill."
+    },
+    {
+      "id": "signals-question",
+      "keywords": [
+        "do you provide signals",
+        "give me signals",
+        "sell signals",
+        "signal service",
+        "copy other peoples trades",
+        "follow other traders"
+      ],
+      "reply": "No &mdash; Tradecovex copies your <i>own</i> trades across your <i>own</i> accounts. We're not a signal service and you can't follow other traders. The AI journal analyzes your trades but doesn't tell you what to buy."
+    },
+    {
+      "id": "when-launch",
+      "keywords": [
+        "when launch",
+        "when does it launch",
+        "launching",
+        "when available",
+        "when do you release",
+        "release date",
+        "public beta",
+        "when can i sign up",
+        "when can i use it",
+        "when is it ready",
+        "eta",
+        "go live"
+      ],
+      "reply": "We're in private testing right now. Beta opens soon &mdash; start your free trial on this page and you'll lock in founding-member pricing for life."
+    },
+    {
+      "id": "refund",
+      "keywords": [
+        "refund",
+        "money back",
+        "guarantee",
+        "cancel my subscription",
+        "cancellation policy"
+      ],
+      "reply": "Cancel any time from your account &mdash; no lock-in. The 14-day free trial means you can try everything risk-free before you pay a cent."
+    },
+    {
+      "id": "payment",
+      "keywords": [
+        "payment",
+        "how do i pay",
+        "paypal",
+        "credit card accepted",
+        "debit card",
+        "billing",
+        "charge",
+        "invoice"
+      ],
+      "reply": "We accept all major credit and debit cards through Lemon Squeezy (our payment processor). They handle the billing, taxes, and invoices. Sales-tax compliant in your country automatically."
+    },
+    {
+      "id": "copier-basic",
+      "keywords": [
+        "how does copier work",
+        "how does it copy",
+        "how does it work",
+        "how it works",
+        "lead account",
+        "follower account",
+        "multi account",
+        "multiple accounts",
+        "copy trades",
+        "copy trade"
+      ],
+      "reply": "You set one lead account, and every trade you take on it copies instantly to all your follower accounts &mdash; up to 20, 40, or 100 depending on your plan. The full setup walkthrough lives inside the dashboard once you start your free trial."
+    },
+    {
+      "id": "ai-basic",
+      "keywords": [
+        "ai journal",
+        "what does the ai do",
+        "how does ai work",
+        "what insights",
+        "analyze my trades",
+        "what does it tell me",
+        "behavioural insights",
+        "behavioral insights"
+      ],
+      "reply": "The AI watches your trades and surfaces patterns you'd miss &mdash; what times of day you're profitable, which setups break down under pressure, where the same mistake keeps killing your challenges. Behavioural insight, not trade advice."
+    },
+    {
+      "id": "copier-vs-journal",
+      "keywords": [
+        "just the copier",
+        "just the journal",
+        "can i get only",
+        "separate purchase",
+        "only the"
+      ],
+      "reply": "The copier and AI journal come bundled in every plan &mdash; we don't sell them separately. They're designed to work together: the copier captures your trades, the journal analyzes them."
+    },
+    {
+      "id": "risk-management",
+      "keywords": [
+        "risk management",
+        "drawdown protection",
+        "daily loss limit",
+        "stop loss",
+        "position limit",
+        "auto pause",
+        "kill switch"
+      ],
+      "reply": "Risk-management features (drawdown protection, daily loss caps, auto-pause) are on the roadmap but not in the v1 launch. The current product is the copier plus the AI journal. We'll announce risk features when they're ready."
+    },
+    {
+      "id": "discord",
+      "keywords": [
+        "discord",
+        "community",
+        "telegram",
+        "slack",
+        "forum",
+        "user group",
+        "beta tester group"
+      ],
+      "reply": "A private Discord opens for beta users and paying members the moment we launch. Trial users get the invite alongside their early access."
+    },
+    {
+      "id": "affiliate",
+      "keywords": [
+        "affiliate",
+        "referral",
+        "commission",
+        "partner",
+        "promote",
+        "promote your product"
+      ],
+      "reply": "Yes &mdash; we have an affiliate programme launching with the product. $15 / $25 / $45 per signup depending on the plan they choose. Drop your email and I'll have the team send you the details when it opens."
+    },
+    {
+      "id": "security",
+      "keywords": [
+        "secure",
+        "security",
+        "safe",
+        "credentials",
+        "password",
+        "login data",
+        "encrypt",
+        "data protection"
+      ],
+      "reply": "Tradecovex runs locally inside your NinjaTrader installation &mdash; there's no central server intercepting your trades. Your broker credentials stay on your machine. We host on Canadian servers (Toronto plus NYC for US users) with full PIPEDA compliance."
+    }
+  ]
 }
