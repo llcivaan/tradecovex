@@ -413,7 +413,7 @@ h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08
 
 <ul>
 <li><strong>Entry data:</strong> instrument, contract count, entry price, entry time, planned stop, planned target (60 seconds)</li>
-<li><strong>Exit data:</strong> exit price, exit time, realized P&L, R-multiple (45 seconds)</li>
+<li><strong>Exit data:</strong> exit price, exit time, realized P&amp;L, R-multiple (45 seconds)</li>
 <li><strong>Context tags:</strong> setup name, plan adherence (yes/no), emotional state (1-5), market conditions (60 seconds)</li>
 <li><strong>Screenshot:</strong> capture and attach (60 seconds)</li>
 <li><strong>Notes:</strong> 1-2 sentences on what worked or did not (60 seconds)</li>
@@ -460,7 +460,7 @@ h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08
 <div class="gallery-card gallery-card-bad">
 <span class="gallery-label">Manual Journal — Day 18</span>
 <h4>The spreadsheet from a typical Wednesday</h4>
-<pre><span class="h">Date    Sym  Side  Size  Entry   Exit    P&L    Notes</span>
+<pre><span class="h">Date    Sym  Side  Size  Entry   Exit    P&amp;L    Notes</span>
 04/06   ES   L     2     5240    5238    -100   stopped
 04/06   NQ   S     1     18250   18245   -25    quick
 04/06   ES   L     3     5241    5246    +375   <span class="r">[blank]</span>
@@ -503,10 +503,10 @@ h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08
 <p>An AI journal is not a fancier spreadsheet. It is a different architecture that solves the data capture problem first and applies analysis on top of complete data. Here is what changes at each layer.</p>
 
 <h3>Capture layer — automatic, not manual</h3>
-<p>The journal connects directly to the trading platform (NinjaTrader, in Tradecovex's case) and captures every fill the moment it executes. Entry time, exit time, instrument, contract count, fill price, P&L are all populated automatically. The trader does nothing. There is no data entry. The data is always current.</p>
+<p>The journal connects directly to the trading platform (NinjaTrader, in Tradecovex's case) and captures every fill the moment it executes. Entry time, exit time, instrument, contract count, fill price, P&amp;L are all populated automatically. The trader does nothing. There is no data entry. The data is always current.</p>
 
 <h3>Tag layer — derived, not manual</h3>
-<p>Context tags that traditionally required manual entry are derived from the data. Trade sequence position, time since last trade, P&L state at entry, position size relative to baseline, time of day bucket, day of week, hold duration — all calculated automatically from the captured data. The trader still adds free-text notes if they want, but the structural tags happen without effort.</p>
+<p>Context tags that traditionally required manual entry are derived from the data. Trade sequence position, time since last trade, P&amp;L state at entry, position size relative to baseline, time of day bucket, day of week, hold duration — all calculated automatically from the captured data. The trader still adds free-text notes if they want, but the structural tags happen without effort.</p>
 
 <h3>Analysis layer — continuous, not weekly</h3>
 <p>Metrics are recalculated continuously as new trades come in. The trader sees the current state of the 12 metrics any time they open the journal. There is no weekly batch process to run. The post-loss win rate updates after every loss. The instrument-specific edge updates after every fill. The patterns are visible in real time.</p>
@@ -578,7 +578,7 @@ h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08
     </div>
     <div class="faq-item">
       <button class="faq-q">What is the difference between a manual journal and an AI journal?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
-      <div class="faq-a">A manual journal is a system you maintain. You log the trades, you tag the context, you calculate the metrics, you write the notes. An AI journal is a system that maintains itself. Trades are captured automatically from the trading platform. Context fields are populated from data (time of day, sequence position, P&L state, instrument, position size relative to baseline). Metrics are calculated continuously. Patterns are surfaced for review without you having to look for them. The math is identical. The friction is what changes.</div>
+      <div class="faq-a">A manual journal is a system you maintain. You log the trades, you tag the context, you calculate the metrics, you write the notes. An AI journal is a system that maintains itself. Trades are captured automatically from the trading platform. Context fields are populated from data (time of day, sequence position, P&amp;L state, instrument, position size relative to baseline). Metrics are calculated continuously. Patterns are surfaced for review without you having to look for them. The math is identical. The friction is what changes.</div>
     </div>
     <div class="faq-item">
       <button class="faq-q">Can I use ChatGPT as my trading journal?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>

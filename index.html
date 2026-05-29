@@ -1223,21 +1223,10 @@ a{text-decoration:none;color:inherit}
 .pricing-features{
   display:flex;
   flex-direction:column;
-  flex:1 1 auto;
+  flex:1;
   margin-bottom:18px;
   min-height:0;
-  overflow-y:auto;
-  -webkit-overflow-scrolling:touch;
-  /* Fade mask hints at scrollable content if it overflows */
-  mask-image:linear-gradient(to bottom, black 0%, black 92%, transparent 100%);
-  -webkit-mask-image:linear-gradient(to bottom, black 0%, black 92%, transparent 100%);
-  /* Hide scrollbar but keep functionality */
-  scrollbar-width:thin;
-  scrollbar-color:rgba(37,99,235,0.2) transparent;
 }
-.pricing-features::-webkit-scrollbar{ width:4px; }
-.pricing-features::-webkit-scrollbar-thumb{ background:rgba(37,99,235,0.2); border-radius:4px; }
-.pricing-features::-webkit-scrollbar-track{ background:transparent; }
 .pricing-feat{
   display:flex;
   align-items:flex-start;
@@ -1255,7 +1244,7 @@ a{text-decoration:none;color:inherit}
 }
 .pricing-feat svg circle{ fill:rgba(37,99,235,0.12); }
 .pricing-feat svg path{ stroke:#2563EB; }
-.pricing-cta{ display:flex; flex-direction:column; flex:0 0 auto; }
+.pricing-cta{ display:flex; flex-direction:column; }
 .pricing-btn{
   display:block;
   width:100%;
@@ -2512,7 +2501,7 @@ a{text-decoration:none;color:inherit}
 <section class="dcost" id="dcost">
   <div class="dcost-sticky">
     <div class="dcost-left">
-      <h2 class="dcost-headline">Tradecovex doesn't just show your P&L.<br><span>It shows what your decisions cost you.</span></h2>
+      <h2 class="dcost-headline">Tradecovex doesn't just show your P&amp;L.<br><span>It shows what your decisions cost you.</span></h2>
     </div>
     <div class="dcost-right" id="dcostRight">
       <div class="dcost-item" data-i="0">You exited NQ at 21450. Price ran to 21520 in the next 12 minutes. <span class="dcost-cost">Cost of early exit: $1,400.</span></div>
@@ -2672,7 +2661,7 @@ a{text-decoration:none;color:inherit}
         <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>AI support agent (24/7) + email backup within 24h</span></div>
         </div>
         <div class="pricing-cta">
-          <a class="pricing-btn pricing-btn-outline" href="https://app.tradecovex.com/signup?tier=starter">Start 14-Day Free Trial</a>
+          <a class="pricing-btn pricing-btn-outline" href="#waitlist">Join Waitlist</a>
           <div class="pricing-trial">14-day free trial · No credit card required</div>
         </div>
       </div>
@@ -2695,7 +2684,7 @@ a{text-decoration:none;color:inherit}
         <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Propfirm Updates — rule changes from Apex, Topstep, MFF and others as they happen</span></div>
         </div>
         <div class="pricing-cta">
-          <a class="pricing-btn pricing-btn-fill" href="https://app.tradecovex.com/signup?tier=pro">Start 14-Day Free Trial</a>
+          <a class="pricing-btn pricing-btn-fill" href="#waitlist">Join Waitlist</a>
           <div class="pricing-trial">14-day free trial · No credit card required</div>
         </div>
       </div>
@@ -2712,7 +2701,7 @@ a{text-decoration:none;color:inherit}
         <div class="pricing-feat"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/><path d="M11.5 5.5L7 10 4.5 7.5" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>AI challenge progress analysis — Elite-only insights on Accounts page</span></div>
         </div>
         <div class="pricing-cta">
-          <a class="pricing-btn pricing-btn-outline" href="https://app.tradecovex.com/signup?tier=elite">Start 14-Day Free Trial</a>
+          <a class="pricing-btn pricing-btn-outline" href="#waitlist">Join Waitlist</a>
           <div class="pricing-trial">14-day free trial · No credit card required</div>
         </div>
       </div>
@@ -2917,13 +2906,6 @@ a{text-decoration:none;color:inherit}
           <span class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></span>
         </button>
         <div class="faq-a">Yes. You can upload a CSV or Excel file of your historical trade data to populate the journal with past trades before going live. This lets the AI start building insights from your trading history immediately.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" type="button">
-          <span>Does Tradecovex work with Topstep accounts?</span>
-          <span class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></span>
-        </button>
-        <div class="faq-a">Yes &mdash; on Topstep Combine and Express Funded accounts via the TopstepX API. Tradecovex is not permitted on Topstep Live Funded accounts per Topstep policy. The TopstepX API ($29/mo, paid directly to ProjectX) is required for any third-party tool connection to Topstep accounts. Topstep does not provide support for Tradecovex &mdash; all support comes directly from us at <a href="mailto:support@tradecovex.com">support@tradecovex.com</a>.</div>
       </div>
   </div>
 </section>
