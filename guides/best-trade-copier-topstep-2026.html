@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Best Trade Copier for Topstep 2026: NinjaTrader Multi-Account Guide</title>
+<meta name="description" content="The best trade copier for Topstep in 2026 for NinjaTrader traders running multiple Combine and Express Funded accounts — what to look for, the rules that matter, and how AI journaling changes the game.">
+<link rel="canonical" href="https://tradecovex.com/guides/best-trade-copier-topstep-2026">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Best Trade Copier for Topstep 2026: NinjaTrader Multi-Account Guide">
+<meta property="og:description" content="The best trade copier for Topstep in 2026 for NinjaTrader traders running multiple Combine and Express Funded accounts — what to look for, the rules that matter, and how AI journaling changes the game.">
+<meta property="og:url" content="https://tradecovex.com/guides/best-trade-copier-topstep-2026">
+<meta property="og:image" content="https://tradecovex.com/logo.png">
+<meta property="og:site_name" content="Tradecovex">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Best Trade Copier for Topstep 2026: NinjaTrader Multi-Account Guide">
+<meta name="twitter:description" content="The best trade copier for Topstep in 2026 for NinjaTrader traders running multiple Combine and Express Funded accounts.">
+<meta name="twitter:image" content="https://tradecovex.com/logo.png">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="author" content="Tradecovex / IVAAN INC">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://tradecovex.com/guides/best-trade-copier-topstep-2026#article",
+      "headline": "Best Trade Copier for Topstep in 2026 (NinjaTrader Multi-Account Guide)",
+      "description": "What to look for in a trade copier for Topstep in 2026 on NinjaTrader, the Topstep rules that actually affect copied trades, an honest copier comparison, and how an AI journal changes multi-account analysis.",
+      "image": "https://tradecovex.com/logo.png",
+      "datePublished": "2026-06-06T00:00:00+00:00",
+      "dateModified": "2026-06-06T00:00:00+00:00",
+      "author": {
+        "@type": "Organization",
+        "name": "Tradecovex",
+        "url": "https://tradecovex.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Tradecovex",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://tradecovex.com/logo.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://tradecovex.com/guides/best-trade-copier-topstep-2026"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://tradecovex.com/guides/best-trade-copier-topstep-2026#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does Topstep allow trade copying across multiple accounts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Topstep permits copy trading between your own accounts, with conditions. Copying is supported on TopstepX, NinjaTrader, Tradovate, and Quantower. The most common multi-account setup is one lead account fanning out to several follower accounts. Cross-account hedging stays prohibited and is evaluated separately from the copy-trading permission, and all activity must originate from your personal device."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I copy Topstep trades through NinjaTrader instead of TopstepX?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. You connect your Topstep accounts to NinjaTrader using the API credentials Topstep provides under Connections, then run a NinjaTrader-based copier across them. Since July 2025 new Trading Combines are issued on TopstepX, but NinjaTrader remains a supported connection for routing and copying your own Topstep accounts."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the payout auto-disable gotcha when copying Topstep accounts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "While an Express Funded Account payout request is being processed, Topstep automatically turns the copy-trading connection off, then turns it back on once the payout clears. Multi-account traders who do not know this are caught out when one account stops receiving copied trades during a payout cycle. It is expected behaviour, not a copier failure."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does the 50 percent consistency rule affect copied Topstep trades?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Topstep's 50 percent consistency rule means no single day can exceed 50 percent of your total profit. If you copy identical trades across several accounts and have one outsized day, you can trip the rule on every account at once and lock payouts on all of them. Varying size and exit timing per account spreads that exposure instead of concentrating it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which trade copier is best for Topstep on NinjaTrader in 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "There is no single answer for every trader, but the deciding factor for most Topstep multi-account traders is whether the copier only mirrors orders or also analyses them. Most copiers stop at replication. Tradecovex is a local NinjaTrader add-on that copies across up to 100 accounts and adds an AI journal that analyses every copied trade and flags per-account divergence — the analysis layer no Topstep-only copier provides."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://tradecovex.com/#software",
+      "name": "Tradecovex",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Windows, macOS",
+      "description": "NinjaTrader trade copier with built-in AI journal that automatically analyzes every copied trade.",
+      "url": "https://tradecovex.com",
+      "offers": {
+        "@type": "Offer",
+        "price": 0,
+        "priceCurrency": "USD",
+        "description": "14-day free trial \u2014 Launch pricing locked for life"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://tradecovex.com/guides/best-trade-copier-topstep-2026#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://tradecovex.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://tradecovex.com/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Best Trade Copier for Topstep 2026",
+          "item": "https://tradecovex.com/guides/best-trade-copier-topstep-2026"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:#0F172A;background:#fff;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+:root{
+  --blue:#2563EB;
+  --blue-dark:#1d4ed8;
+  --navy:#0A1628;
+  --slate:#4B5E7A;
+  --slate-light:#64748B;
+  --light:#F0F4FF;
+  --border:#DDE3EF;
+  --radius:12px;
+  --shadow-sm:0 1px 3px rgba(10,22,40,.08),0 1px 2px rgba(10,22,40,.06);
+  --shadow-md:0 4px 16px rgba(10,22,40,.1),0 2px 6px rgba(10,22,40,.06);
+  --shadow-lg:0 12px 40px rgba(10,22,40,.14),0 4px 12px rgba(10,22,40,.08);
+}
+
+/* NAV — matches homepage exactly */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px}
+.nav-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav-logo{height:40px;width:auto}
+.nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+.nav-links a{font-size:.88rem;font-weight:600;color:var(--slate);transition:color .2s;letter-spacing:.01em}
+.nav-links a:hover{color:var(--navy)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 26px;border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;transition:all .18s;border:none;text-decoration:none;letter-spacing:.01em}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 2px 8px rgba(37,99,235,.3)}
+.btn-primary:hover{background:var(--blue-dark);transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,99,235,.4)}
+.btn-outline{background:transparent;color:var(--navy);border:2px solid #C4CEDD}
+.btn-outline:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn-outline-white{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35)}
+.btn-outline-white:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.btn-lg{padding:16px 38px;font-size:.98rem;border-radius:14px}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;transition:all .25s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:20px 24px;z-index:199;flex-direction:column;gap:0;box-shadow:var(--shadow-lg)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{display:block;padding:14px 0;font-size:1rem;font-weight:600;color:var(--slate);border-bottom:1px solid var(--border)}
+.mobile-menu a.btn{margin-top:16px;width:100%;border-bottom:none;justify-content:center}
+
+/* HERO — adapted for guide pages */
+.guide-hero{padding:140px 24px 60px;text-align:center;position:relative;overflow:hidden;background:#fff}
+.guide-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 90% 60% at 50% -10%,rgba(37,99,235,.08) 0%,transparent 65%);pointer-events:none}
+.guide-hero::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background-image:radial-gradient(circle at 1px 1px, rgba(37,99,235,.06) 1px, transparent 0);background-size:32px 32px;pointer-events:none;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 0%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 0%,transparent 70%)}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:100px;padding:7px 18px;font-size:.75rem;font-weight:700;color:var(--blue);letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px;position:relative;z-index:1}
+.hero-eyebrow span.dot{width:7px;height:7px;background:var(--blue);border-radius:50%;animation:blink 2s ease infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+h1{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(2.2rem,4.5vw,3.4rem);line-height:1.08;letter-spacing:-.03em;color:var(--navy);max-width:900px;margin:0 auto 24px;position:relative;z-index:1}
+h1 .accent{color:var(--blue)}
+.guide-meta{display:flex;justify-content:center;gap:24px;margin-bottom:20px;flex-wrap:wrap;font-size:.82rem;color:var(--slate-light);position:relative;z-index:1}
+.guide-meta span{display:inline-flex;align-items:center;gap:6px}
+.breadcrumb{font-size:.78rem;color:var(--slate-light);margin-bottom:24px;position:relative;z-index:1}
+.breadcrumb a{color:var(--blue);font-weight:600}
+.breadcrumb a:hover{text-decoration:underline}
+
+/* ANSWER BOX — featured snippet style */
+.answer-box{max-width:780px;margin:0 auto 50px;background:linear-gradient(135deg,#EFF6FF,#F0F4FF);border:2px solid #BFDBFE;border-radius:18px;padding:32px 36px;text-align:left;position:relative;z-index:1;box-shadow:var(--shadow-md)}
+.answer-box-label{display:inline-block;font-size:.68rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.14em;background:#fff;border:1.5px solid #BFDBFE;border-radius:100px;padding:5px 14px;margin-bottom:14px}
+.answer-box p{font-size:1.02rem;color:var(--navy);line-height:1.75;font-weight:500}
+.answer-box p strong{font-weight:700;color:var(--navy)}
+
+/* SHARED SECTION STYLES */
+.section{padding:80px 24px}
+.section-light{background:var(--light)}
+.section-tag{display:inline-block;font-size:.7rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.14em;margin-bottom:16px;background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:100px;padding:5px 14px}
+h2{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(1.7rem,3.2vw,2.4rem);line-height:1.12;letter-spacing:-.025em;color:var(--navy);margin-bottom:18px}
+h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.3rem;color:var(--navy);margin:32px 0 14px;letter-spacing:-.015em}
+h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08rem;color:var(--navy);margin:24px 0 10px;letter-spacing:-.01em}
+.container{max-width:880px;margin:0 auto}
+.container-wide{max-width:1120px;margin:0 auto}
+
+/* PROSE STYLES */
+.prose p{font-size:1rem;color:var(--slate);line-height:1.85;margin-bottom:20px}
+.prose p strong{color:var(--navy);font-weight:700}
+.prose ul,.prose ol{margin:16px 0 24px 22px;color:var(--slate);font-size:1rem;line-height:1.85}
+.prose li{margin-bottom:10px}
+.prose li strong{color:var(--navy);font-weight:700}
+.prose a{color:var(--blue);font-weight:600;border-bottom:1.5px solid rgba(37,99,235,.3);transition:border .2s}
+.prose a:hover{border-bottom-color:var(--blue)}
+.section-num{display:inline-block;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:.78rem;color:var(--blue);background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:8px;padding:4px 10px;margin-bottom:12px;letter-spacing:.06em}
+
+/* PULL QUOTE */
+.pull-quote{background:linear-gradient(135deg,#EFF6FF,#F0F4FF);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:24px 28px;margin:32px 0;font-family:'Barlow Semi Condensed',sans-serif;font-size:1.18rem;font-weight:600;color:var(--navy);line-height:1.55;letter-spacing:-.01em}
+
+/* CALLOUT BOXES */
+.callout{background:#fff;border:1.5px solid var(--border);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:22px 26px;margin:28px 0;box-shadow:var(--shadow-sm)}
+.callout-title{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1rem;color:var(--navy);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.callout p{font-size:.92rem;color:var(--slate);line-height:1.75;margin:0}
+.callout-warn{border-left-color:#DC2626;background:#FEF2F2}
+.callout-warn .callout-title{color:#991B1B}
+.callout-success{border-left-color:#16A34A;background:#F0FDF4}
+.callout-success .callout-title{color:#166534}
+
+/* FEATURE CARD GRID */
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin:32px 0}
+.feature-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:26px;transition:all .25s;box-shadow:var(--shadow-sm)}
+.feature-card:hover{border-color:#93C5FD;box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.feature-card-num{display:inline-block;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:.7rem;color:var(--blue);background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:6px;padding:3px 8px;margin-bottom:12px;letter-spacing:.06em}
+.feature-card h4{margin:0 0 10px;font-size:1.08rem}
+.feature-card p{font-size:.88rem;color:var(--slate);line-height:1.75;margin:0}
+
+/* DATA TABLE */
+.data-table-wrap{overflow-x:auto;border-radius:14px;border:1.5px solid var(--border);box-shadow:var(--shadow-md);margin:28px 0}
+.data-table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:580px;background:#fff}
+.data-table th{padding:14px 18px;text-align:left;font-weight:700;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;background:#F1F5F9;color:var(--slate);border-bottom:2px solid var(--border)}
+.data-table td{padding:13px 18px;border-bottom:1px solid var(--border);color:var(--slate);vertical-align:middle}
+.data-table tr:last-child td{border-bottom:none}
+.data-table tr.tc-row td{background:#EFF6FF;color:var(--navy);font-weight:600}
+.data-table tr.tc-row td:first-child::before{content:'★ ';color:var(--blue)}
+.data-table td.label{font-weight:600;color:var(--navy);background:#FAFBFF}
+.ck{color:#16A34A;font-weight:700}
+.cx{color:#DC2626;font-weight:700}
+.cm{color:#D97706;font-weight:600;font-size:.85rem}
+
+/* VIDEO EMBED */
+.video-wrap{max-width:780px;margin:36px auto;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-lg);background:var(--navy);position:relative;padding-bottom:56.25%;height:0}
+.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.video-caption{font-size:.82rem;color:var(--slate-light);text-align:center;margin-top:14px;font-style:italic}
+
+/* CTA BANNER */
+.cta-banner{background:linear-gradient(135deg,#0A1628,#0F2460,#1d4ed8);border-radius:18px;padding:56px 48px;margin:48px 0;text-align:center;position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
+.cta-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 100%,rgba(37,99,235,.25) 0%,transparent 65%);pointer-events:none}
+.cta-banner h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:1.85rem;color:#fff;margin:0 0 14px;letter-spacing:-.025em;position:relative;z-index:1}
+.cta-banner p{font-size:1rem;color:#93C5FD;max-width:540px;margin:0 auto 26px;line-height:1.7;position:relative;z-index:1}
+.cta-perks{display:flex;gap:22px;justify-content:center;margin-top:22px;flex-wrap:wrap;position:relative;z-index:1}
+.cta-perk{font-size:.78rem;color:#60A5FA;font-weight:600;display:inline-flex;align-items:center;gap:6px}
+.cta-perk::before{content:'✓';font-weight:800}.cta-banner .btn-primary{color:#fff !important;border-bottom:0;text-decoration:none}
+
+/* FAQ */
+.faq-list{max-width:780px;margin:0 auto}
+.faq-item{border-bottom:1.5px solid var(--border)}
+.faq-q{width:100%;text-align:left;padding:22px 0;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.97rem;color:var(--navy);line-height:1.45;letter-spacing:-.01em}
+.faq-icon{width:24px;height:24px;min-width:24px;border-radius:50%;border:2px solid var(--blue);display:flex;align-items:center;justify-content:center;transition:all .25s;flex-shrink:0}
+.faq-icon svg{width:12px;height:12px;stroke:var(--blue);fill:none;stroke-width:2.5;stroke-linecap:round;transition:transform .25s}
+.faq-item.open .faq-icon{background:var(--blue)}
+.faq-item.open .faq-icon svg{stroke:#fff;transform:rotate(45deg)}
+.faq-a{display:none;padding:0 0 22px;font-size:.92rem;color:var(--slate);line-height:1.85;max-width:680px}
+.faq-item.open .faq-a{display:block}
+
+/* RELATED GUIDES */
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:30px}
+.related-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:24px;transition:all .25s;display:block;box-shadow:var(--shadow-sm)}
+.related-card:hover{border-color:#93C5FD;box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.related-tag{display:inline-block;font-size:.66rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.1em;background:#EFF6FF;border:1px solid #BFDBFE;border-radius:6px;padding:3px 8px;margin-bottom:12px}
+.related-card h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.02rem;color:var(--navy);margin:0 0 8px;line-height:1.35}
+.related-card p{font-size:.84rem;color:var(--slate);line-height:1.65;margin:0}
+
+/* FOOTER — matches homepage */
+.footer{background:#fff;border-top:1.5px solid var(--border);padding:60px 24px 36px}
+.footer-inner{max-width:1120px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1.5px solid var(--border);margin-bottom:30px}
+.footer-logo{height:48px;width:auto;margin-bottom:14px}
+.footer-tagline{font-size:.85rem;color:var(--slate);max-width:220px;line-height:1.7;margin-bottom:20px;font-weight:400}
+.footer-social{display:flex;gap:10px}
+.footer-social a{width:36px;height:36px;border:1.5px solid var(--border);border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--slate);transition:all .2s}
+.footer-social a:hover{border-color:var(--blue);color:var(--blue);background:#EFF6FF}
+.footer-social svg{width:16px;height:16px;fill:currentColor}
+.footer-col h4{font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:#94A3B8;margin:0 0 16px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;padding:0}
+.footer-col a{font-size:.875rem;color:var(--slate);transition:color .18s;font-weight:500}
+.footer-col a:hover{color:var(--navy)}
+.footer-aff{font-size:.82rem;color:var(--blue);font-weight:700}
+.footer-risk{background:var(--light);border:1.5px solid var(--border);border-radius:12px;padding:18px 22px;margin-bottom:16px;font-size:.75rem;color:#5B7399;line-height:1.75}
+.footer-risk strong{color:var(--slate);font-weight:700}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:6px}
+.footer-copy{font-size:.75rem;color:#94A3B8;font-weight:500}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .nav-links{display:none}
+  .nav-cta-desktop{display:none !important}
+  .hamburger{display:flex}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .feature-grid,.related-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .footer-top{grid-template-columns:1fr}
+  h1{font-size:2rem}
+  h2{font-size:1.6rem}
+  .answer-box{padding:24px 22px}
+  .cta-banner{padding:42px 28px}
+  .cta-banner h3{font-size:1.5rem}
+}
+
+
+</style>
+</head>
+<body>
+
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" aria-label="Tradecovex home"><img src="/logo.png" alt="Tradecovex" class="nav-logo"></a>
+    <ul class="nav-links">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/guides/">Guides</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+    </ul>
+    <a href="https://app.tradecovex.com/signup" class="btn btn-primary nav-cta-desktop" style="display:inline-flex">Start 14-Day Free Trial</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/#features">Features</a>
+  <a href="/guides/">Guides</a>
+  <a href="/#pricing">Pricing</a>
+  <a href="/#faq">FAQ</a>
+  <a href="https://app.tradecovex.com/signup" class="btn btn-primary">Start 14-Day Free Trial</a>
+</div>
+
+<section class="guide-hero">
+  <div class="hero-eyebrow"><span class="dot"></span>TOPSTEP TRADE COPIER GUIDE</div>
+  <p class="breadcrumb"><a href="/">Home</a> › <a href="/guides/">Guides</a> › Best Trade Copier for Topstep 2026</p>
+  <h1>The Best Trade Copier for <span class="accent">Topstep</span> in 2026</h1>
+  <div class="guide-meta">
+    <span>📅 Updated June 2026</span>
+    <span>⏱ 13 min read</span>
+    <span>✍ Tradecovex Team</span>
+  </div>
+  <div class="answer-box">
+    <span class="answer-box-label">Quick Answer</span>
+    <p>Topstep <strong>allows copy trading across your own accounts</strong>, and NinjaTrader is a supported connection — so the best trade copier for Topstep in 2026 is one that runs locally inside NinjaTrader, respects each account's own drawdown state, and doesn't force identical size and exits across every account (which trips the 50% consistency rule on all of them at once). The deciding factor for most multi-account traders is whether the copier <strong>only mirrors trades or also analyses them</strong>. Almost every copier stops at replication. The one capability that actually compounds over a season of trading five accounts is an AI journal that tells you which account is drifting and why.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container prose">
+
+<h2><span class="section-num">01</span>First: does Topstep even allow trade copying?</h2>
+
+<p>Yes — and this is the first thing to get straight, because the rumour mill says otherwise. Topstep permits copy trading <strong>between your own accounts</strong>, with conditions. Copying is supported across TopstepX, NinjaTrader, Tradovate, and Quantower. The standard setup is a single lead account that fans every order out to one or more follower accounts.</p>
+
+<p>The complication is platform history. Since July 2025, all <em>new</em> Trading Combines are issued on the TopstepX platform, and TopstepX has its own built-in copy-trading toggle. That has led a lot of traders to assume NinjaTrader is no longer in play. It is. You connect your Topstep accounts to NinjaTrader using the API credentials Topstep provides (Connections → Configure, enable Market Data and Trading), and from there a NinjaTrader-based copier replicates across them exactly as it always has.</p>
+
+<p>So the real choice for a NinjaTrader trader is not "TopstepX or nothing." It is "the basic built-in toggle, or a proper NinjaTrader copier that does more than fan out orders." That distinction is the entire point of this guide.</p>
+
+<div class="callout">
+  <div class="callout-title">📌 One permission does not unlock another</div>
+  <p>Copy-trading permission is evaluated separately from hedging. Topstep prohibits cross-account hedging regardless of whether you are copying — you cannot be long on one account and short the same instrument on another. Copying does not create an exception. Treat the two rules as independent.</p>
+</div>
+
+<h2><span class="section-num">02</span>The Topstep rules a copier actually has to respect</h2>
+
+<p>A copier is only "good for Topstep" if it works <em>with</em> Topstep's rule set instead of against it. These are the rules that matter the moment you copy a trade to more than one account. For the full rule-by-rule breakdown, see the <a href="/guides/topstep-combine-rules-2026">Topstep Combine Rules 2026 reference</a> and the <a href="/guides/topstep-payout-rules-2026">Topstep Payout Rules</a> page — this section covers only the copier-relevant ones.</p>
+
+<h3>Two different drawdown engines on the same login</h3>
+
+<p>The Combine uses an <strong>intraday trailing</strong> Maximum Loss Limit — it follows your highest live equity in real time, which makes it the harsher of the two. The Express Funded Account uses an <strong>end-of-day trailing</strong> drawdown that locks once profits push the floor up. If you are copying across a mix of Combine and Express Funded accounts, your copier is fanning the same trade into two accounts with genuinely different risk geometry. A naive copier that treats them identically will blow the Combine on an intraday spike that the Express Funded account would have shrugged off. (If trailing drawdown is new to you, read <a href="/guides/trailing-drawdown">how trailing drawdown works</a> first.)</p>
+
+<h3>The 50% consistency rule, multiplied</h3>
+
+<p>Topstep's 50% consistency rule means no single day can represent more than half your total profit. On one account that is a discipline problem. Across five copied accounts it is a structural trap: one outsized day produces the same lopsided profit distribution on every account simultaneously, and you trip the rule on all five at once. Now every payout is locked until you grind the ratio back down on each account.</p>
+
+<div class="pull-quote">Identical trades on identical accounts is the fastest way to fail five Topstep accounts on the same afternoon instead of one.</div>
+
+<p>The fix is not a copier setting you flip once. It is varying size per account and staggering exits so a big day lands differently across the portfolio. A copier that only supports a single shared multiplier cannot do this. A copier that lets you set a different multiplier and exit offset per follower account can.</p>
+
+<h3>The payout auto-disable gotcha</h3>
+
+<p>This one surprises almost everyone the first time. While an Express Funded Account payout request is being processed, Topstep <strong>automatically turns the copy-trading connection off</strong> for that account, then turns it back on once the payout clears. Traders who don't know this see one account stop receiving copied trades mid-session and assume the copier broke. It didn't — it's expected behaviour. A copier with a clear per-account connection status saves you from chasing a phantom bug during a payout cycle.</p>
+
+<h3>Personal device, and the funded-account count cap</h3>
+
+<p>All trading activity must originate from your personal device, and Topstep limits how many funded accounts you can run at once (commonly cited as up to five Express Funded Accounts — verify the current number against Topstep's Help Center before you scale). A copier doesn't change either rule; it just makes the accounts you <em>are</em> allowed to run manageable from one window.</p>
+
+<h2><span class="section-num">03</span>What "best" actually means — an honest comparison</h2>
+
+<p>There is no single best copier for every trader. There is a best copier for <em>your</em> situation, and the honest way to choose is to be clear about what each option does and does not do. Here is the landscape for a NinjaTrader-based Topstep trader in 2026.</p>
+
+<div class="data-table-wrap">
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Copier</th>
+        <th>Architecture</th>
+        <th>AI journal</th>
+        <th>Per-account analysis</th>
+        <th>Pricing</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="tc-row">
+        <td>Tradecovex</td>
+        <td>Local NinjaTrader add-on</td>
+        <td><span class="ck">✓</span> built-in</td>
+        <td><span class="ck">✓</span> divergence flagged</td>
+        <td>$19–$79/mo · 14-day trial</td>
+      </tr>
+      <tr>
+        <td>TopstepX built-in</td>
+        <td>Inside TopstepX</td>
+        <td><span class="cx">✗</span></td>
+        <td><span class="cx">✗</span></td>
+        <td>Free · Topstep only</td>
+      </tr>
+      <tr>
+        <td>Tradecopia</td>
+        <td>Broker / TopstepX-direct desktop</td>
+        <td><span class="cx">✗</span></td>
+        <td><span class="cm">partial (raw logs)</span></td>
+        <td>~$40–$90/mo</td>
+      </tr>
+      <tr>
+        <td>Replikanto</td>
+        <td>Local NinjaTrader add-on</td>
+        <td><span class="cx">✗</span></td>
+        <td><span class="cx">✗</span></td>
+        <td>$150–$250 one-time</td>
+      </tr>
+      <tr>
+        <td>NinjaTrader free copier</td>
+        <td>Built into NinjaTrader</td>
+        <td><span class="cx">✗</span></td>
+        <td><span class="cx">✗</span></td>
+        <td>Free · 19 accounts</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>Read this honestly. If all you need is to mirror orders across a handful of accounts for free, the <strong>TopstepX built-in copier or the NinjaTrader free copier</strong> will do it — and you should not pay for a tool you won't use. If you want unlimited connections at a flat monthly rate and don't care about analysis, <strong>Tradecopia</strong> is a capable broker-direct option. If you want a one-time purchase and can live without a journal, <strong>Replikanto</strong> has served NinjaTrader traders for years (note the documented ghost-orders behaviour any local copier can inherit — see our <a href="/compare/tradecovex-vs-replikanto">Tradecovex vs Replikanto comparison</a>).</p>
+
+<p>What none of them do is tell you <em>why</em> your copied trades are working or failing. That is the gap the next section is about.</p>
+
+<h2><span class="section-num">04</span>The one thing most Topstep copiers can't do: analyse the copy</h2>
+
+<p>Here is the problem with scaling to five Topstep accounts. Your profit scales by 5x — and so does your trade history. No human reviews 50 trades a day by hand, which means the moment you go multi-account you also go blind. You feel busier and you understand less. This is exactly where an <a href="/guides/ai-trading-journal">AI trading journal</a> attached to the copier earns its place, and it is the reason Tradecovex exists as more than a copier.</p>
+
+<p>An AI journal wired into the copier surfaces things a spreadsheet never will:</p>
+
+<ul>
+  <li><strong>Per-account divergence.</strong> Even when you copy the identical trade to five accounts, fill price, latency, and stop execution drift over time. The journal flags which account is consistently underperforming the lead — and tells you whether it's latency, partial fills, or a connection that keeps dropping during Topstep's payout auto-disable.</li>
+  <li><strong>Consistency-rule drift.</strong> It tracks your trailing profit distribution per account and warns you when any account is approaching the 50% threshold — before you discover it at payout time with funds locked.</li>
+  <li><strong>Time-of-day expectancy.</strong> Most traders have a best hour and a quietly-bleeding hour they've never measured. Computed across every account, the pattern is unmissable.</li>
+  <li><strong>Behavioural tags.</strong> Revenge sizing, escalation after a loss, trading outside your profitable window. On one account you might miss it. Copied across five, the same mistake costs five times as much — so you need it flagged the same day.</li>
+</ul>
+
+<p>This is also the cleanest version of what Tradecovex is allowed to do and careful to stay within: it describes your own past behaviour. It does not tell you what to trade next. Analysis of your history, not advice about your future — that line matters, and the product is built to stay on the right side of it.</p>
+
+<div class="callout callout-success">
+  <div class="callout-title">✓ Why this is only possible with a copier and a journal together</div>
+  <p>Per-account divergence — "your $100K account is filling 0.3 ticks worse than your $50K lead and it's costing you roughly $180 a month" — can only be computed when one system both places the copied trades and journals every fill. A standalone journal never sees the copier's per-account execution. A standalone copier never analyses it. The combination is the moat.</p>
+</div>
+
+<h2><span class="section-num">05</span>How to set up a Topstep copier on NinjaTrader</h2>
+
+<p>The exact sequence for a clean multi-account Topstep workflow inside NinjaTrader:</p>
+
+<ol>
+  <li><strong>Make your smallest account the lead.</strong> On Topstep, the lead should have the lowest maximum position size — typically your $50K account if you run $50K/$100K/$150K. That way every copied order scales <em>up</em> proportionally into the larger followers without ever exceeding a follower's contract cap.</li>
+  <li><strong>Connect every Topstep account to NinjaTrader.</strong> Use the API credentials from Topstep under Connections → Configure, and enable both Market Data and Trading on each. Every account must be live in the Control Center before the copier can see it.</li>
+  <li><strong>Set per-account size multipliers.</strong> Don't run every account at 1.0x. Stagger them so a big day produces different absolute profit on each account and spreads your consistency-rule exposure. Write them down before you enter them.</li>
+  <li><strong>Stagger exits where you can.</strong> Half your followers exiting a few ticks earlier or later than the lead creates natural per-account variation — the same distribution that protects you on the consistency rule.</li>
+  <li><strong>Dry-run on micros first.</strong> Place ten small micro-contract trades through the copier and watch every fill land on every account. Confirm entries, stops, and exits propagate everywhere before you size up.</li>
+  <li><strong>Watch the first live session end to end.</strong> Place three or four trades, not twenty, and verify each fill on each account before you trust it.</li>
+  <li><strong>Let every trade flow into the journal from day one.</strong> The first week is when your setup is still subtly wrong — it's exactly the week you need the data, not the week to skip it.</li>
+</ol>
+
+<h2><span class="section-num">06</span>Common mistakes running multiple Topstep accounts</h2>
+
+<ul>
+  <li><strong>Identical size on every account.</strong> Maximum correlation, maximum consistency-rule exposure. Vary it.</li>
+  <li><strong>Panicking when an account goes quiet during a payout.</strong> That's Topstep's payout auto-disable, not a broken copier. Know it before it happens.</li>
+  <li><strong>Treating Combine and Express Funded accounts as the same risk.</strong> Different drawdown engines. The intraday-trailing Combine is the one that bites.</li>
+  <li><strong>Copying onto a brand-new account with zero padding.</strong> Day one of any account is its most fragile day. Let it settle before you make it a follower.</li>
+  <li><strong>Assuming the copier handles news flattening.</strong> It doesn't. A copier is not autopilot — you're still at the screen.</li>
+  <li><strong>Going multi-account with no journal.</strong> You scaled your trades by 5x and your visibility to zero. That's backwards.</li>
+</ul>
+
+<h2><span class="section-num">07</span>Bottom line</h2>
+
+<p>For a NinjaTrader trader running multiple Topstep accounts in 2026, the "best" copier is the one that respects Topstep's two drawdown engines, lets you vary size and exits per account for the consistency rule, surfaces the payout auto-disable instead of hiding it, and — the part nothing else does — analyses every copied trade so you stay sighted as you scale.</p>
+
+<p>If you only need free order mirroring, use the built-in tools and keep your money. If you want the analysis layer that turns five accounts from a blur into a readable system, that's what Tradecovex was built for: a local NinjaTrader add-on that copies across up to 100 accounts and runs an AI journal on every fill, automatically, on your own machine.</p>
+
+    <div class="cta-banner">
+      <h3>Run every Topstep account from one NinjaTrader window</h3>
+      <p>Tradecovex copies your trades across all your Topstep accounts and runs an AI journal on every copied fill — so you see which account is drifting and why. Launch pricing locked for life.</p>
+      <a href="https://app.tradecovex.com/signup" class="btn btn-primary btn-lg">Start 14-Day Free Trial</a>
+      <div class="cta-perks">
+        <span class="cta-perk">14-day free trial</span>
+        <span class="cta-perk">No credit card required</span>
+        <span class="cta-perk">Launch pricing locked for life</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container">
+    <div style="text-align:center">
+      <span class="section-tag">Frequently Asked Questions</span>
+      <h2>Common questions about copying trades on Topstep</h2>
+    </div>
+    <div class="faq-list" style="margin-top:40px">
+    <div class="faq-item">
+      <button class="faq-q">Does Topstep allow trade copying across multiple accounts?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Yes. Topstep permits copy trading between your own accounts, with conditions. Copying is supported on TopstepX, NinjaTrader, Tradovate, and Quantower. The standard setup is one lead account fanning out to several follower accounts. Cross-account hedging stays prohibited and is evaluated separately from the copy-trading permission, and all activity must originate from your personal device.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Can I copy Topstep trades through NinjaTrader instead of TopstepX?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Yes. You connect your Topstep accounts to NinjaTrader using the API credentials Topstep provides under Connections → Configure, then run a NinjaTrader-based copier across them. Since July 2025 new Trading Combines are issued on TopstepX, but NinjaTrader remains a supported connection for routing and copying your own Topstep accounts.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What is the payout auto-disable gotcha when copying Topstep accounts?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">While an Express Funded Account payout request is being processed, Topstep automatically turns the copy-trading connection off, then turns it back on once the payout clears. Multi-account traders who do not know this are caught out when one account stops receiving copied trades during a payout cycle. It is expected behaviour, not a copier failure.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How does the 50% consistency rule affect copied Topstep trades?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Topstep's 50% consistency rule means no single day can exceed 50% of your total profit. If you copy identical trades across several accounts and have one outsized day, you can trip the rule on every account at once and lock payouts on all of them. Varying size and exit timing per account spreads that exposure instead of concentrating it.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Which trade copier is best for Topstep on NinjaTrader in 2026?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">There is no single answer for every trader, but the deciding factor for most Topstep multi-account traders is whether the copier only mirrors orders or also analyses them. Most copiers stop at replication. Tradecovex is a local NinjaTrader add-on that copies across up to 100 accounts and adds an AI journal that analyses every copied trade and flags per-account divergence — the analysis layer no Topstep-only copier provides.</div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-wide">
+    <div style="text-align:center">
+      <span class="section-tag">Related Guides</span>
+      <h2>Keep reading</h2>
+    </div>
+    <div class="related-grid">
+    <a href="/guides/ninjatrader-trade-copier" class="related-card">
+      <span class="related-tag">Pillar</span>
+      <h4>NinjaTrader Trade Copier — Complete Guide</h4>
+      <p>The full pillar guide to trade copiers on NinjaTrader for prop firm futures traders.</p>
+    </a>
+    <a href="/guides/topstep-combine-rules-2026" class="related-card">
+      <span class="related-tag">Prop Firm</span>
+      <h4>Topstep Combine Rules 2026</h4>
+      <p>Every objective, every recent change, and every edge case in the current Topstep Combine.</p>
+    </a>
+    <a href="/guides/pass-topstep-combine" class="related-card">
+      <span class="related-tag">Strategy</span>
+      <h4>How to Pass a Topstep Combine in 2026</h4>
+      <p>The drawdown traps, the consistency math, and what passing traders do differently.</p>
+    </a>
+    <a href="/guides/ai-trading-journal" class="related-card">
+      <span class="related-tag">Pillar</span>
+      <h4>AI Trading Journal for Futures Traders</h4>
+      <p>How AI actually reviews the trades your copier places on every account.</p>
+    </a>
+    <a href="/guides/copy-trades-apex-accounts" class="related-card">
+      <span class="related-tag">Prop Firm</span>
+      <h4>Copy Trades Across Apex Accounts</h4>
+      <p>If you also run Apex accounts, the 4.0 rules change how you copy.</p>
+    </a>
+    <a href="/compare/tradecovex-vs-replikanto" class="related-card">
+      <span class="related-tag">Comparison</span>
+      <h4>Tradecovex vs Replikanto</h4>
+      <p>Two local NinjaTrader copiers compared — and where the AI journal changes the math.</p>
+    </a>
+    </div>
+  </div>
+</section>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="/"><img src="/logo.png" alt="Tradecovex" class="footer-logo"></a>
+        <p class="footer-tagline">The smartest trade copier for NinjaTrader — copy trades and let the AI tell you why.</p>
+        <div class="footer-social">
+          <a href="https://x.com/_tradecovex" target="_blank" rel="noopener" title="Twitter / X" aria-label="Twitter">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@Tradecovex-k4n" target="_blank" rel="noopener" title="YouTube" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/tradecovex_official/" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/tradecovex/" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#how">How It Works</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="https://app.tradecovex.com/signup">Start 14-Day Free Trial</a></li>
+          <li><a href="/guides/">All Guides</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/privacy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Partners</h4>
+        <ul>
+          <li><a href="#" class="footer-aff">Affiliates — Earn $15–$45/signup</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-risk">
+      <strong>⚠ Risk Disclosure:</strong> Futures trading involves substantial risk of loss and is not suitable for all investors. You can lose more than your initial investment. Past performance is not indicative of future results. Tradecovex is a software tool — it does not provide investment advice and does not guarantee trading results. Use of a trade copier does not guarantee compliance with prop firm rules. All trading decisions are your responsibility. Only trade with capital you can afford to lose.
+    </div>
+    <div class="footer-risk" style="margin-top:10px">
+      <strong>No Investment Advice:</strong> Tradecovex is a software tool for trade copying and journaling. IVAAN INC is not registered as an investment adviser with the Ontario Securities Commission, CIRO, the SEC, or any other regulatory body. Nothing in Tradecovex — including the AI journal analysis feature — constitutes investment advice, financial advice, or a recommendation to buy or sell any security, futures contract, or other financial instrument. The AI journal provides analytical observations about your historical trading patterns for informational purposes only. All trading decisions are made solely by you.
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Tradecovex. All rights reserved. Built by IVAAN INC, Ontario, Canada.</span>
+      <span class="footer-copy">Canadian users served from Toronto · US users served from New York · PIPEDA compliant</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const hamburger=document.getElementById('hamburger');const mobileMenu=document.getElementById('mobile-menu');if(hamburger){hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');});}
+document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{q.parentElement.classList.toggle('open');});});
+</script>
+</body>
+</html>
