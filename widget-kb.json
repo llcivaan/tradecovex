@@ -1,4 +1,4 @@
-﻿{
+{
   "version": "2026-05-22-1204",
   "generated": "2026-05-22T12:04:57.1288032-04:00",
   "entries": [
@@ -40,6 +40,21 @@
         "nothing else"
       ],
       "reply": "Have a great one. We'll see you on the inside when the trial opens."
+    },
+    {
+      "id": "waitlist",
+      "keywords": [
+        "waitlist",
+        "wait list",
+        "join the list",
+        "early access",
+        "when can i sign up",
+        "when can i start",
+        "when is it available",
+        "is it available",
+        "can i join"
+      ],
+      "reply": "No waitlist \u2014 Tradecovex is live now. Start your 14-day free trial at <a href=\"https://app.tradecovex.com/signup\" target=\"_blank\">app.tradecovex.com</a>. No credit card needed."
     },
     {
       "id": "human-or-bot",
@@ -117,7 +132,7 @@
         "credit card",
         "sign up free"
       ],
-      "reply": "Yes &mdash; <b>14-day free trial</b> on every plan, no credit card needed. You can cancel any time. Start your 14-day free trial on this page — no card needed."
+      "reply": "Yes &mdash; <b>14-day free trial</b> on every plan, no credit card needed. You can cancel any time. Start your 14-day free trial on this page \u2014 no card needed."
     },
     {
       "id": "what-is",
