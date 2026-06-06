@@ -2958,7 +2958,7 @@ a{text-decoration:none;color:inherit}
 
 <section class="cta-final" id="waitlist">
   <div class="cta-final-inner">
-    <div class="cta-final-eyebrow">Early Access</div>
+    <div class="cta-final-eyebrow">Start Free</div>
     <h2 class="cta-final-h2">Lock in launch pricing before it goes up.</h2>
     <p class="cta-final-sub">Every account starts with a free 14-day trial. No card needed. These are launch prices &mdash; early members keep their rate locked for life when prices rise.</p>
 
@@ -2968,7 +2968,7 @@ a{text-decoration:none;color:inherit}
     </div>
 
     <div class="cta-final-bullets">
-      <span class="cta-final-bullet"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M13.3 4.3L6 11.6 2.7 8.3"/></svg>14-day free trial at launch</span>
+      <span class="cta-final-bullet"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M13.3 4.3L6 11.6 2.7 8.3"/></svg>14-day free trial — no card needed</span>
       <span class="cta-final-bullet"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M13.3 4.3L6 11.6 2.7 8.3"/></svg>No credit card required</span>
       <span class="cta-final-bullet"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M13.3 4.3L6 11.6 2.7 8.3"/></svg>Launch pricing locked for life</span>
     </div>
@@ -3711,7 +3711,7 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   sendBtn.addEventListener('click', handleSend);
   input.addEventListener('keydown', function(e){ if (e.key === 'Enter') { e.preventDefault(); handleSend(); } });
   function handleSend() { var text = input.value.trim(); if (!text || isTyping) return; removeIdleAndChips(); input.value = ''; userSay(text); respond(text); }
-  function showIdleState() { removeIdleAndChips(); var idle = document.createElement('div'); idle.id = 'tcx-idle'; idle.innerHTML = '<div class="tcx-idle-title">Ask us anything</div><div class="tcx-idle-sub">Pick a question below or type your own</div><div class="tcx-chips"><button class="tcx-chip" data-q="How much does it cost?">How much does it cost?</button><button class="tcx-chip" data-q="Is there a free trial?">Is there a free trial?</button><button class="tcx-chip" data-q="When does it launch?">When does it launch?</button><button class="tcx-chip" data-q="Does it work with Apex?">Does it work with Apex?</button></div>'; messages.appendChild(idle); idle.querySelectorAll('.tcx-chip').forEach(function(c){ c.addEventListener('click', function(){ var q = c.getAttribute('data-q'); removeIdleAndChips(); userSay(q); respond(q); }); }); }
+  function showIdleState() { removeIdleAndChips(); var idle = document.createElement('div'); idle.id = 'tcx-idle'; idle.innerHTML = '<div class="tcx-idle-title">Ask us anything</div><div class="tcx-idle-sub">Pick a question below or type your own</div><div class="tcx-chips"><button class="tcx-chip" data-q="How much does it cost?">How much does it cost?</button><button class="tcx-chip" data-q="Is there a free trial?">Is there a free trial?</button><button class="tcx-chip" data-q="How does the AI journal work?">How does the AI journal work?</button><button class="tcx-chip" data-q="Does it work with Apex?">Does it work with Apex?</button></div>'; messages.appendChild(idle); idle.querySelectorAll('.tcx-chip').forEach(function(c){ c.addEventListener('click', function(){ var q = c.getAttribute('data-q'); removeIdleAndChips(); userSay(q); respond(q); }); }); }
   function showFollowupChips() { removeFollowupChips(); var wrap = document.createElement('div'); wrap.id = 'tcx-followup'; wrap.className = 'tcx-chips'; wrap.style.marginTop = '4px'; wrap.innerHTML = '<button class="tcx-chip" data-q="How much does it cost?">How much does it cost?</button><button class="tcx-chip" data-q="Tell me about the free trial">Tell me about the free trial</button><button class="tcx-chip" data-q="How does the copier work?">How does the copier work?</button><button class="tcx-chip" data-q="Can someone from the team email me?">Can someone from the team email me?</button>'; messages.appendChild(wrap); wrap.querySelectorAll('.tcx-chip').forEach(function(c){ c.addEventListener('click', function(){ var q = c.getAttribute('data-q'); removeIdleAndChips(); userSay(q); respond(q); }); }); scrollDown(); }
   function removeIdleAndChips() { var idle = document.getElementById('tcx-idle'); if (idle) idle.remove(); removeFollowupChips(); }
   function removeFollowupChips() { var fu = document.getElementById('tcx-followup'); if (fu) fu.remove(); }
@@ -3775,15 +3775,11 @@ document.querySelectorAll('.faq-q').forEach(btn => {
   function validEmail(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
   function submitToSupport(email, question, formEl) {
     var fullTranscript = conversation.map(function(m){ return (m.role === 'user' ? 'User' : AGENT.name) + ': ' + m.text.replace(/<[^>]+>/g, ''); }).join('\n');
-    var truncate = function(s, n){ return s.length > n ? s.slice(0, n - 3) + '...' : s; };
-    var data = new FormData();
-    data.append('EMAIL', email);
-    data.append('ORIGINAL_QUESTION', truncate(question, 195));
-    data.append('FULL_TRANSCRIPT', truncate(fullTranscript, 195));
-    data.append('SOURCE', 'tradecovex.com widget');
-    data.append('email_address_check', '');
-    data.append('locale', 'en');
-    fetch(SUPPORT_ENDPOINT, { method: 'POST', body: data, mode: 'no-cors' }).then(function(){ onSubmitSuccess(formEl, email); }).catch(function(){ onSubmitSuccess(formEl, email); });
+    fetch('https://app.tradecovex.com/api/support/ticket', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, question: question, transcript: conversation.slice(-10).map(function(m){ return { role: m.role, text: m.text.replace(/<[^>]+>/g, '') }; }), last_agent: AGENT.name, tier: 'website-visitor' })
+    }).then(function(){ onSubmitSuccess(formEl, email); }).catch(function(){ onSubmitSuccess(formEl, email); });
   }
   function onSubmitSuccess(formEl, email) { formEl.remove(); clarifyCount = 0; replyWithTyping("Got it &mdash; we have your email at <b>" + escapeHtml(email) + "</b> and the team will reply within 24 hours. Anything else in the meantime?"); }
 })();
