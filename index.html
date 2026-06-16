@@ -102,7 +102,7 @@
     { "@type": "Question", "name": "Does Tradecovex work with prop firms?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Tradecovex is built specifically for prop firm traders. It works with all NinjaTrader-compatible prop firms including Apex Trader Funding, Topstep, MyFundedFutures, Take Profit Trader, Tradeify, and Bulenox." } },
     { "@type": "Question", "name": "What platforms does Tradecovex support?", "acceptedAnswer": { "@type": "Answer", "text": "Tradecovex launches on NinjaTrader and is NinjaTrader-only at launch. Other platforms are on the roadmap — Tradovate is the next priority, followed by TradingView and MT4/MT5." } },
     { "@type": "Question", "name": "Does Tradecovex support Rithmic and CQG?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Both Rithmic and CQG connections are fully supported and both work natively with Tradecovex." } },
-    { "@type": "Question", "name": "How is my data secured?", "acceptedAnswer": { "@type": "Answer", "text": "Tradecovex never stores your broker login credentials. The copier connects through NinjaTrader's native API. Trade data is encrypted at rest and in transit." } },
+    { "@type": "Question", "name": "How is my data secured?", "acceptedAnswer": { "@type": "Answer", "text": "Tradecovex runs as a NinjaScript add-on inside NinjaTrader 8 — it never connects to your broker directly and never sees your broker username, password, or session token. All order routing happens through NinjaTrader itself. Trade data is encrypted at rest and in transit." } },
     { "@type": "Question", "name": "Does Tradecovex automatically stop trading?", "acceptedAnswer": { "@type": "Answer", "text": "No. Tradecovex does not automatically stop trading on your behalf. You remain in full control of every account. The AI journal flags unusual drawdown patterns in your performance analysis." } },
     { "@type": "Question", "name": "Is Tradecovex cloud-based or local?", "acceptedAnswer": { "@type": "Answer", "text": "Tradecovex runs as a local NinjaTrader add-on installed directly on your machine or VPS. The copier code runs inside your NinjaTrader installation. There is no central server intercepting or routing your trades." } },
     { "@type": "Question", "name": "How does the AI journal work?", "acceptedAnswer": { "@type": "Answer", "text": "Every trade you place on your lead account is automatically captured and analyzed by the AI. It identifies patterns — what time of day you are most profitable, what mistakes are costing you challenges, and exactly what to change." } },
@@ -2879,7 +2879,7 @@ a{text-decoration:none;color:inherit}
           <span>Is my broker login stored securely?</span>
           <span class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></span>
         </button>
-        <div class="faq-a">Tradecovex never stores your broker login credentials. The copier connects through NinjaTrader's native API — Tradecovex never sees your broker username, password, or session token. Trade data transmitted to our servers is encrypted at rest and in transit.</div>
+        <div class="faq-a">Tradecovex runs as a NinjaScript add-on inside NinjaTrader 8 — it never connects to your broker directly and never sees your broker username, password, or session token. All order routing happens through NinjaTrader itself. Trade data transmitted to our servers is encrypted at rest and in transit.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" type="button">
@@ -2908,6 +2908,13 @@ a{text-decoration:none;color:inherit}
           <span class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></span>
         </button>
         <div class="faq-a">Yes. You can upload a CSV or Excel file of your historical trade data to populate the journal with past trades before going live. This lets the AI start building insights from your trading history immediately.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">
+          <span>Does Tradecovex work with Topstep accounts?</span>
+          <span class="faq-icon"><svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10"/><line x1="2" y1="6" x2="10" y2="6"/></svg></span>
+        </button>
+        <div class="faq-a">Yes &mdash; on Topstep Combine and Express Funded accounts via the TopstepX API. Tradecovex is not permitted on Topstep Live Funded accounts per Topstep policy. The TopstepX API ($29/mo, paid directly to ProjectX) is required for any third-party tool connection to Topstep accounts. Topstep does not provide support for Tradecovex &mdash; all support comes directly from us at <a href="mailto:support@tradecovex.com">support@tradecovex.com</a>.</div>
       </div>
   </div>
 </section>
