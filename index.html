@@ -113,7 +113,7 @@
 
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{/* scroll-behavior handled by Lenis */}
 body{
   font-family:'DM Sans',sans-serif;
   color:#E6EDF7;
@@ -142,7 +142,7 @@ a{text-decoration:none;color:inherit}
   display:flex;align-items:center;justify-content:space-between;
   height:64px;
 }
-.nav-logo{height:68px;width:auto;opacity:0.95}
+.nav-logo{height:102px;width:auto;opacity:0.95}
 .nav-links{display:flex;align-items:center;gap:22px;list-style:none}
 .nav-links a{
   font-size:.85rem;font-weight:600;
@@ -537,7 +537,7 @@ a{text-decoration:none;color:inherit}
 .pain{
   position:relative;
   background:#0A1628;
-  height:240vh;
+  height:130vh;
   overflow:visible;
 }
 .pain-sticky{
@@ -569,7 +569,7 @@ a{text-decoration:none;color:inherit}
 .pain-line-4{ color:#7AA0FF; }
 
 @media (max-width:768px){
-  .pain{ height:240vh; }
+  .pain{ height:130vh; }
   .pain-line{
     font-size:clamp(20px, 5.5vw, 32px);
     white-space:normal;
@@ -3049,6 +3049,10 @@ mobileMenu.querySelectorAll('a').forEach(a => {
   const CARD_START = mob ? 0.05 : 0.15;
   const CARD_RANGE = mob ? 0.2  : 0.35;
   const SCALE_FROM = mob ? 1.6  : 2.2;
+  const SMOOTH     = 0.06;
+
+  let smoothCard = 0;
+  let smoothText = 0;
 
   function lerp(a, b, t) { return a + (b - a) * t; }
   function clamp01(v) { return Math.max(0, Math.min(1, v)); }
@@ -3059,14 +3063,16 @@ mobileMenu.querySelectorAll('a').forEach(a => {
     const vh = window.innerHeight;
     const scrolled = -rect.top / vh;
 
-    const textProgress = clamp01(scrolled / TEXT_END);
-    const textEase = easeOut(textProgress);
+    const textTarget = clamp01(scrolled / TEXT_END);
+    smoothText = lerp(smoothText, textTarget, SMOOTH);
+    const textEase = easeOut(smoothText);
     const scale = lerp(SCALE_FROM, 1, textEase);
     heading.style.transform = `scale(${scale})`;
 
     const cardRaw = (scrolled - CARD_START) / CARD_RANGE;
-    const cardProgress = clamp01(cardRaw);
-    const cardEase = easeOut(cardProgress);
+    const cardTarget = clamp01(cardRaw);
+    smoothCard = lerp(smoothCard, cardTarget, SMOOTH);
+    const cardEase = easeOut(smoothCard);
 
     copy.style.transform = `translateX(${lerp(-120, 0, cardEase)}vw)`;
     copy.style.opacity = cardEase;
@@ -3092,6 +3098,8 @@ mobileMenu.querySelectorAll('a').forEach(a => {
   // 6 phases: line1, line2, line3, line4, DWELL on line4, exit
   // S = duration of each phase in scroll units (1/6 = ~0.167 each)
   const S = 1/6;
+  const SMOOTH = 0.04;
+  let smoothScrolled = 0;
 
   function lerp(a, b, t) { return a + (b - a) * t; }
   function clamp01(v) { return Math.max(0, Math.min(1, v)); }
@@ -3100,7 +3108,9 @@ mobileMenu.querySelectorAll('a').forEach(a => {
   function update() {
     const rect = section.getBoundingClientRect();
     const vh = window.innerHeight;
-    const scrolled = (-rect.top + vh * 0.6) / vh;
+    const target = (-rect.top + vh * 0.6) / vh;
+    smoothScrolled = lerp(smoothScrolled, target, SMOOTH);
+    const scrolled = smoothScrolled;
 
     const p1 = clamp01(scrolled / S);
     const e1 = easeOut(p1);
@@ -3761,6 +3771,39 @@ document.querySelectorAll('.faq-q').forEach(btn => {
 })();
 </script>
 <!-- END TRADECOVEX-SUPPORT-WIDGET -->
+
+<!-- ─── LENIS SMOOTH SCROLL (premium momentum feel) ─── -->
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+  if (typeof Lenis === 'undefined') return;
+
+  const lenis = new Lenis({
+    duration: 1.2,
+    easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    smoothWheel: true,
+    smoothTouch: false,
+    wheelMultiplier: 1,
+    touchMultiplier: 2,
+  });
+
+  function raf(time){ lenis.raf(time); requestAnimationFrame(raf); }
+  requestAnimationFrame(raf);
+
+  // Anchor links: route through Lenis for smooth jump
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      if (id.length > 1) {
+        const el = document.querySelector(id);
+        if (el) { e.preventDefault(); lenis.scrollTo(el, { offset: -64 }); }
+      }
+    });
+  });
+
+  window.__lenis = lenis; // for debugging
+})();
+</script>
 
 </body>
 </html>
