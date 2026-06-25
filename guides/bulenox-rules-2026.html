@@ -500,13 +500,13 @@ h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08
 
 <p><strong>Option 2 (EOD trailing + daily loss limit)</strong> only recalculates the drawdown at end-of-day. Intraday swings that recover before the close have no effect on your floor. The trade-off is a daily loss limit ($1,100 on a $50K account) that suspends trading for the day if hit — but this is not a rule violation, it is a circuit breaker. The daily loss limit is removed on the Master Account once your drawdown reaches the starting balance. Option 2 rewards traders who manage their daily risk but may take larger intraday swings.</p>
 
-<p>For prop firm traders running a <a href="/guides/ninjatrader-trade-copier">trade copier</a> across multiple Bulenox accounts, Option 2 is almost always the better choice. The intraday ratchet in Option 1 compounds across every follower account — one volatile morning can permanently degrade the drawdown cushion on 5+ accounts simultaneously.</p>
+<p>For prop firm traders running a <a href="/guides/trade-copier-for-nt">trade copier</a> across multiple Bulenox accounts, Option 2 is almost always the better choice. The intraday ratchet in Option 1 compounds across every follower account — one volatile morning can permanently degrade the drawdown cushion on 5+ accounts simultaneously.</p>
 
 <h2><span class="section-num">07</span>Platforms supported</h2>
 
 <p>Bulenox supports over 20 trading platforms through Rithmic connectivity — more than almost any other futures prop firm. Key supported platforms include NinjaTrader 8, Sierra Chart, Bookmap, Jigsaw Daytradr, ATAS, Quantower, R|Trader Pro, and MotiveWave. This platform flexibility is a genuine differentiator for traders who use specialised order flow tools.</p>
 
-<p>For traders running a <a href="/guides/ninjatrader-trade-copier">NinjaTrader trade copier</a>, Bulenox accounts connect via Rithmic — the same connection type used by many local copier add-ons. Since Bulenox explicitly allows trade copiers, you can run a copier across multiple Bulenox accounts without violating any rules.</p>
+<p>For traders running a <a href="/guides/trade-copier-for-nt">NinjaTrader trade copier</a>, Bulenox accounts connect via Rithmic — the same connection type used by many local copier add-ons. Since Bulenox explicitly allows trade copiers, you can run a copier across multiple Bulenox accounts without violating any rules.</p>
 
 <h2><span class="section-num">08</span>How Bulenox compares</h2>
 
@@ -609,7 +609,7 @@ h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08
       <h4>Apex Trader Funding Rules 2026</h4>
       <p>Every Apex rule from evaluation through Performance Account.</p>
     </a>
-    <a href="/guides/ninjatrader-trade-copier" class="related-card">
+    <a href="/guides/trade-copier-for-nt" class="related-card">
       <span class="related-tag">Copier</span>
       <h4>NinjaTrader Trade Copier Guide</h4>
       <p>How copiers work across multiple prop firm accounts.</p>

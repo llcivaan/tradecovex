@@ -100,3 +100,23 @@
 
 # Compare and guides directory indexes
 # (Removed /compare -> /guides redirect since compare hub now exists at /compare/index.html)
+
+[[redirects]]
+  from = "/guides/ninjatrader-trade-copier"
+  to = "/guides/trade-copier-for-nt"
+  status = 301
+
+[[redirects]]
+  from = "/guides/ninjatrader-8-setup"
+  to = "/guides/nt8-setup"
+  status = 301
+
+[[redirects]]
+  from = "/compare/best-ninjatrader-trade-copiers-2026"
+  to = "/compare/best-nt-trade-copiers-2026"
+  status = 301
+
+[[redirects]]
+  from = "/guides/best-vps-ninjatrader-copier"
+  to = "/guides/best-vps-nt-copier"
+  status = 301
