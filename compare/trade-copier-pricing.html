@@ -62,7 +62,7 @@
           "name": "What is the cheapest NinjaTrader trade copier?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "On a pure monthly basis, Tradecovex Starter at $39/month is the cheapest monthly subscription that includes both the copier and an AI journal. Tradesyncer entry tier is $49/month but only includes basic journaling. On a lifetime basis, Affordable Indicators Duplicate Account Actions is the cheapest at roughly $175 to $275 one-time for lifetime updates \u2014 after about 6 months of use it is cheaper than any monthly subscription."
+            "text": "On a pure monthly basis, Tradecovex Starter at $9/month is the cheapest monthly subscription that includes both the copier and an AI journal. Tradesyncer entry tier is $49/month but only includes basic journaling. On a lifetime basis, Affordable Indicators Duplicate Account Actions is the cheapest at roughly $175 to $275 one-time for lifetime updates \u2014 after about 6 months of use it is cheaper than any monthly subscription."
           }
         },
         {
@@ -94,7 +94,7 @@
           "name": "Does Tradecovex offer an annual discount?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Tradecovex's current launch pricing is structured as monthly subscriptions ($39, $79, $129). The 'launch pricing locked for life' commitment means founding members who join during launch keep their original monthly rate even after public pricing goes up \u2014 which is equivalent to a significant discount over the long term. Whether an explicit annual plan will be offered later depends on demand, but the locked-in launch rate for founding members is already a better effective discount than most annual plans."
+            "text": "Tradecovex's current launch pricing is structured as monthly subscriptions ($9, $19, $29). The 'launch pricing locked for life' commitment means founding members who join during launch keep their original monthly rate even after public pricing goes up \u2014 which is equivalent to a significant discount over the long term. Whether an explicit annual plan will be offered later depends on demand, but the locked-in launch rate for founding members is already a better effective discount than most annual plans."
           }
         },
         {
@@ -339,29 +339,50 @@ h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08
 }
 
 
+
+/* === DARK NAV OVERRIDE (match homepage) === */
+.nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:0 40px 0 36px;background:rgba(10,22,40,0.95);border-bottom:1px solid rgba(255,255,255,0.06);backdrop-filter:none;-webkit-backdrop-filter:none;transition:background .3s}
+.nav.scrolled{background:rgba(10,22,40,0.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{height:44px;width:auto;opacity:0.95}
+.nav-links{display:flex;align-items:center;gap:22px;list-style:none}
+.nav-links a{font-size:.85rem;font-weight:600;color:rgba(255,255,255,0.55);transition:color .2s;letter-spacing:.02em;text-transform:uppercase}
+.nav-links a:hover{color:#fff}
+.nav-links a.demo-link{color:#5FE5B0;display:inline-flex;align-items:center;gap:7px}
+.nav-links a.demo-link::before{content:'';width:6px;height:6px;border-radius:50%;background:#3FD69B;box-shadow:0 0 10px #3FD69B,0 0 3px #3FD69B;animation:livePulse 2s infinite}
+@keyframes livePulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hamburger span{background:#fff}
+.mobile-menu{background:rgba(10,22,40,0.97);border-bottom:1px solid rgba(255,255,255,0.06);top:64px}
+.mobile-menu a{color:rgba(255,255,255,0.55);border-bottom:1px solid rgba(255,255,255,0.06);text-transform:uppercase;font-size:.85rem;letter-spacing:.02em}
+.mobile-menu a:hover{color:#fff}
+.mobile-menu a.demo-link{color:#5FE5B0;display:flex;align-items:center;gap:7px}
+.mobile-menu a.demo-link::before{content:'';width:6px;height:6px;border-radius:50%;background:#3FD69B;box-shadow:0 0 10px #3FD69B}
+@media (max-width:768px){.nav{padding:0 16px}.nav-inner{height:60px}.nav-logo{height:40px}.nav-links{display:none}.hamburger{display:flex !important}.mobile-menu{top:60px}}
 </style>
 </head>
 <body>
 
-<nav class="nav">
+<nav class="nav" id="nav">
   <div class="nav-inner">
-    <a href="/" aria-label="Tradecovex home"><img src="/logo.png" alt="Tradecovex" class="nav-logo"></a>
+    <a href="/" aria-label="Tradecovex home"><img src="/assets/logo-dark.png" alt="Tradecovex" class="nav-logo"></a>
     <ul class="nav-links">
-      <li><a href="/#features">Features</a></li>
-      <li><a href="/guides/">Guides</a></li>
+      <li><a href="/#integrated">Features</a></li>
       <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/compare/">Compare</a></li>
+      <li><a href="/guides/">Guides</a></li>
       <li><a href="/#faq">FAQ</a></li>
+      <li><a href="/demo.html" class="demo-link">Live Demo</a></li>
     </ul>
-    <a href="https://app.tradecovex.com/signup" class="btn btn-primary nav-cta-desktop" style="display:inline-flex">Start 14-Day Free Trial</a>
-    <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
 <div class="mobile-menu" id="mobile-menu">
-  <a href="/#features">Features</a>
-  <a href="/guides/">Guides</a>
+  <a href="/#integrated">Features</a>
   <a href="/#pricing">Pricing</a>
+  <a href="/compare/">Compare</a>
+  <a href="/guides/">Guides</a>
   <a href="/#faq">FAQ</a>
-  <a href="https://app.tradecovex.com/signup" class="btn btn-primary">Start 14-Day Free Trial</a>
+  <a href="/demo.html" class="demo-link">Live Demo</a>
 </div>
 
 <section class="guide-hero">
@@ -375,7 +396,7 @@ h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08
   </div>
   <div class="answer-box">
     <span class="answer-box-label">Quick Answer</span>
-    <p>Trade copier pricing in 2026 ranges from $175 one-time (Affordable Indicators Duplicate Account Actions) to $229+ per month (MyFundedFutures Pro tier equivalents and top-tier Tradesyncer plans). Monthly pricing varies from $39 (Tradecovex Starter) to $149 (Tradesyncer top tier). Annual licenses range from $149 to $299 (Replikanto). The cheapest long-term option is Affordable Indicators DAA because it is a one-time purchase. The cheapest monthly option with a real AI journal included is Tradecovex at $39/month. The most expensive option if you add a separate journal subscription is Tradesyncer plus TraderSync at around $229/month combined. The right choice depends on whether you need a journal, how many accounts you run, and whether you prefer monthly or lifetime pricing.</p>
+    <p>Trade copier pricing in 2026 ranges from $175 one-time (Affordable Indicators Duplicate Account Actions) to $229+ per month (MyFundedFutures Pro tier equivalents and top-tier Tradesyncer plans). Monthly pricing varies from $9 (Tradecovex Starter) to $149 (Tradesyncer top tier). Annual licenses range from $149 to $299 (Replikanto). The cheapest long-term option is Affordable Indicators DAA because it is a one-time purchase. The cheapest monthly option with a real AI journal included is Tradecovex at $9/month. The most expensive option if you add a separate journal subscription is Tradesyncer plus TraderSync at around $229/month combined. The right choice depends on whether you need a journal, how many accounts you run, and whether you prefer monthly or lifetime pricing.</p>
   </div>
 </section>
 
@@ -401,7 +422,7 @@ h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08
     <tr><th>Copier</th><th>Pricing model</th><th>Entry tier</th><th>Mid tier</th><th>Top tier</th><th>Includes journal?</th></tr>
   </thead>
   <tbody>
-    <tr><td><strong>Tradecovex</strong></td><td>Monthly SaaS</td><td>$39/mo</td><td>$79/mo</td><td>$129/mo</td><td>Yes — full AI journal</td></tr>
+    <tr><td><strong>Tradecovex</strong></td><td>Monthly SaaS</td><td>$9/mo</td><td>$19/mo</td><td>$29/mo</td><td>Yes — full AI journal</td></tr>
     <tr><td><strong>Tradesyncer</strong></td><td>Monthly SaaS</td><td>$49/mo</td><td>$99/mo</td><td>$149/mo</td><td>Yes — basic log</td></tr>
     <tr><td><strong>SwiftJournal</strong></td><td>Monthly SaaS (MT4/MT5)</td><td>$49/mo</td><td>$99/mo</td><td>$129/mo</td><td>Yes — basic</td></tr>
     <tr><td><strong>ETP Trade Copier</strong></td><td>Monthly SaaS</td><td>$89/mo</td><td>$129/mo</td><td>$189/mo</td><td>No</td></tr>
@@ -438,13 +459,13 @@ h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08
     <tr><td>Affordable Indicators + TraderSync Pro</td><td>~$5 (lifetime amortized)</td><td>$29.95</td><td>~$35</td></tr>
     <tr><td>ETP + TraderSync Premium</td><td>$89</td><td>$49.95</td><td>~$139</td></tr>
     <tr><td>Tradesyncer Mid + TraderSync Premium</td><td>$99</td><td>$49.95</td><td>~$149</td></tr>
-    <tr><td>Tradecovex Pro (integrated)</td><td>$79</td><td>Included</td><td>$79</td></tr>
+    <tr><td>Tradecovex Pro (integrated)</td><td>$19</td><td>Included</td><td>$19</td></tr>
     <tr><td>Tradesyncer Top + TraderSync Elite</td><td>$149</td><td>$79.95</td><td>~$229</td></tr>
-    <tr><td>Tradecovex Elite (integrated)</td><td>$129</td><td>Included</td><td>$129</td></tr>
+    <tr><td>Tradecovex Elite (integrated)</td><td>$29</td><td>Included</td><td>$29</td></tr>
   </tbody>
 </table>
 
-<p>The two genuinely cheap stacks are Affordable Indicators plus TraderSync Pro (around $35/month total, but with all the friction of managing two separate tools and the one-time cost paid upfront) and Tradecovex Pro (at $79/month for an integrated solution with no friction). The expensive stacks are Tradesyncer paired with a high tier of TraderSync, which cross into $200+ territory quickly.</p>
+<p>The two genuinely cheap stacks are Affordable Indicators plus TraderSync Pro (around $35/month total, but with all the friction of managing two separate tools and the one-time cost paid upfront) and Tradecovex Pro (at $19/month for an integrated solution with no friction). The expensive stacks are Tradesyncer paired with a high tier of TraderSync, which cross into $200+ territory quickly.</p>
 
 <h2><span class="section-num">04</span>The hidden cost of the "cheap stack"</h2>
 
@@ -477,17 +498,17 @@ h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08
   <tbody>
     <tr><td>Affordable Indicators DAA (one-time)</td><td>$225</td><td>$0</td><td>$0</td><td><strong>$225</strong></td></tr>
     <tr><td>Replikanto Pro (annual)</td><td>$199</td><td>$199</td><td>$199</td><td><strong>$597</strong></td></tr>
-    <tr><td>Tradecovex Starter (monthly)</td><td>$468</td><td>$468</td><td>$468</td><td><strong>$1,404</strong></td></tr>
-    <tr><td>Tradecovex Pro (monthly)</td><td>$948</td><td>$948</td><td>$948</td><td><strong>$2,844</strong></td></tr>
+    <tr><td>Tradecovex Starter (monthly)</td><td>$108</td><td>$108</td><td>$108</td><td><strong>$324</strong></td></tr>
+    <tr><td>Tradecovex Pro (monthly)</td><td>$228</td><td>$228</td><td>$228</td><td><strong>$684</strong></td></tr>
     <tr><td>Tradesyncer Mid (monthly)</td><td>$1,188</td><td>$1,188</td><td>$1,188</td><td><strong>$3,564</strong></td></tr>
     <tr><td>Tradesyncer + TraderSync Premium</td><td>$1,787</td><td>$1,787</td><td>$1,787</td><td><strong>$5,361</strong></td></tr>
-    <tr><td>Tradecovex Elite (monthly)</td><td>$1,548</td><td>$1,548</td><td>$1,548</td><td><strong>$4,644</strong></td></tr>
+    <tr><td>Tradecovex Elite (monthly)</td><td>$348</td><td>$348</td><td>$348</td><td><strong>$1,044</strong></td></tr>
   </tbody>
 </table>
 
 <p>Over 3 years, Affordable Indicators is dramatically cheaper than any other option — but only if you do not need a journal and do not need active development. For a trader who just needs a reliable copier and nothing else, it is the clear value winner on raw cost.</p>
 
-<p>For a trader who needs a journal as well, the calculus changes. Adding a $30/month journal to Affordable Indicators over 3 years adds $1,080 to the total, bringing it to $1,305 — which is now more expensive than 3 years of Tradecovex Starter at $1,404 only after factoring in that Tradecovex's journal is much deeper and requires no manual import work. The "value" of the cheap option depends entirely on whether the cheap option actually solves your problem.</p>
+<p>For a trader who needs a journal as well, the calculus changes completely. Adding a $30/month journal to Affordable Indicators over 3 years adds $1,080 to the total, bringing it to roughly $1,305 — far more expensive than 3 years of Tradecovex Starter at $324, which already includes a much deeper journal and requires no manual import work. Once you need both a copier and a journal, the cheap-looking one-time option stops being cheap.</p>
 
 <h2><span class="section-num">06</span>Price vs features — what each tier actually buys you</h2>
 
@@ -565,14 +586,14 @@ h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08
 
 <p>The cheapest-on-paper option is almost never the cheapest real-world cost because the cheap options make you pay in time (CSV exports), risk (unmaintained free tools), or additional tools (separate journal subscriptions that bring the total back up). The most expensive options are justified only if you run enough accounts that the feature set justifies the cost.</p>
 
-<p>For most prop firm futures traders running 2 to 5 accounts with a real need for journaling, Tradecovex at $39 to $79/month is in the right zone on a cost-per-value basis because the integrated journal eliminates the separate tool cost and the launch pricing locked for life removes the risk of future price increases. For traders who run one account and do not need a journal, Replikanto annual or Affordable Indicators one-time are the cheapest options. For traders running 8+ accounts with complex risk requirements, Tradesyncer's top tier or ETP at higher prices become justified.</p>
+<p>For most prop firm futures traders running 2 to 5 accounts with a real need for journaling, Tradecovex at $9 to $19/month is in the right zone on a cost-per-value basis because the integrated journal eliminates the separate tool cost and the launch pricing locked for life removes the risk of future price increases. For traders who run one account and do not need a journal, Replikanto annual or Affordable Indicators one-time are the cheapest options. For traders running 8+ accounts with complex risk requirements, Tradesyncer's top tier or ETP at higher prices become justified.</p>
 
 <p>The wrong question is "which is cheapest." The right question is "which gives me the lowest total cost for the specific thing I need to do." Those are different questions and they often have different answers.</p>
 
 
     <div class="cta-banner">
       <h3>Get copier + AI journal in one subscription</h3>
-      <p>Tradecovex includes the copier and a full AI journal in one tool — no separate TraderSync or TradeZella subscription needed. $39/month Starter, launch pricing locked for life.</p>
+      <p>Tradecovex includes the copier and a full AI journal in one tool — no separate TraderSync or TradeZella subscription needed. $9/month Starter, launch pricing locked for life.</p>
       <a href="https://app.tradecovex.com/signup" class="btn btn-primary btn-lg">Start 14-Day Free Trial</a>
       <div class="cta-perks">
         <span class="cta-perk">7-day free trial</span>
@@ -592,7 +613,7 @@ h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08
     <div class="faq-list" style="margin-top:40px">
     <div class="faq-item">
       <button class="faq-q">What is the cheapest NinjaTrader trade copier?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
-      <div class="faq-a">On a pure monthly basis, Tradecovex Starter at $39/month is the cheapest monthly subscription that includes both the copier and an AI journal. Tradesyncer entry tier is $49/month but only includes basic journaling. On a lifetime basis, Affordable Indicators Duplicate Account Actions is the cheapest at roughly $175 to $275 one-time for lifetime updates — after about 6 months of use it is cheaper than any monthly subscription.</div>
+      <div class="faq-a">On a pure monthly basis, Tradecovex Starter at $9/month is the cheapest monthly subscription that includes both the copier and an AI journal. Tradesyncer entry tier is $49/month but only includes basic journaling. On a lifetime basis, Affordable Indicators Duplicate Account Actions is the cheapest at roughly $175 to $275 one-time for lifetime updates — after about 6 months of use it is cheaper than any monthly subscription.</div>
     </div>
     <div class="faq-item">
       <button class="faq-q">How much do I save by getting a copier with an AI journal included?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
@@ -608,7 +629,7 @@ h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08
     </div>
     <div class="faq-item">
       <button class="faq-q">Does Tradecovex offer an annual discount?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
-      <div class="faq-a">Tradecovex's current launch pricing is structured as monthly subscriptions ($39, $79, $129). The 'launch pricing locked for life' commitment means founding members who join during launch keep their original monthly rate even after public pricing goes up — which is equivalent to a significant discount over the long term. Whether an explicit annual plan will be offered later depends on demand, but the locked-in launch rate for founding members is already a better effective discount than most annual plans.</div>
+      <div class="faq-a">Tradecovex's current launch pricing is structured as monthly subscriptions ($9, $19, $29). The 'launch pricing locked for life' commitment means founding members who join during launch keep their original monthly rate even after public pricing goes up — which is equivalent to a significant discount over the long term. Whether an explicit annual plan will be offered later depends on demand, but the locked-in launch rate for founding members is already a better effective discount than most annual plans.</div>
     </div>
     <div class="faq-item">
       <button class="faq-q">Should I buy a cheaper copier and a separate journal, or a more expensive all-in-one?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
@@ -723,5 +744,6 @@ h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08
 const hamburger=document.getElementById('hamburger');const mobileMenu=document.getElementById('mobile-menu');if(hamburger){hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');});}
 document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{q.parentElement.classList.toggle('open');});});
 </script>
+<script>(function(){var n=document.getElementById('nav');if(n){window.addEventListener('scroll',function(){n.classList.toggle('scrolled',window.scrollY>40);});}})();</script>
 </body>
 </html>
