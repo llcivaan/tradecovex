@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Best Trade Copier for Tradeify 2026: NinjaTrader Multi-Account Guide</title>
+<meta name="description" content="The best trade copier for Tradeify in 2026 for NinjaTrader traders running Growth, Select, and Lightning accounts — how the anti-hedging rule enforces itself, the 10-second scalping threshold, and how AI journaling handles multi-account divergence.">
+<link rel="canonical" href="https://tradecovex.com/guides/best-trade-copier-tradeify-2026">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Best Trade Copier for Tradeify 2026: NinjaTrader Multi-Account Guide">
+<meta property="og:description" content="The best trade copier for Tradeify in 2026 for NinjaTrader traders running Growth, Select, and Lightning accounts.">
+<meta property="og:url" content="https://tradecovex.com/guides/best-trade-copier-tradeify-2026">
+<meta property="og:image" content="https://tradecovex.com/logo.png">
+<meta property="og:site_name" content="Tradecovex">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Best Trade Copier for Tradeify 2026">
+<meta name="twitter:description" content="Copying trades across Tradeify's Growth, Select, and Lightning accounts on NinjaTrader.">
+<meta name="twitter:image" content="https://tradecovex.com/logo.png">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="author" content="Tradecovex / IVAAN INC">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://tradecovex.com/guides/best-trade-copier-tradeify-2026#article",
+      "headline": "Best Trade Copier for Tradeify in 2026 (NinjaTrader Multi-Account Guide)",
+      "description": "What Tradeify permits for copy trading in 2026, how Growth/Select/Lightning accounts differ under a copier, the anti-hedging enforcement, the 10-second scalping threshold, and AI journaling across accounts.",
+      "image": "https://tradecovex.com/logo.png",
+      "datePublished": "2026-07-09T00:00:00+00:00",
+      "dateModified": "2026-07-09T00:00:00+00:00",
+      "author": { "@type": "Organization", "name": "Tradecovex", "url": "https://tradecovex.com" },
+      "publisher": {
+        "@type": "Organization", "name": "Tradecovex",
+        "logo": { "@type": "ImageObject", "url": "https://tradecovex.com/logo.png" }
+      },
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://tradecovex.com/guides/best-trade-copier-tradeify-2026" }
+    },
+    {
+      "@type": "VideoObject",
+      "name": "Tradeify Explained: Account Setup and Copy Trading",
+      "description": "Third-party walkthrough of Tradeify account setup and copy trading — embedded on the Tradecovex guide to the best trade copier for Tradeify in 2026.",
+      "thumbnailUrl": "https://i.ytimg.com/vi/Yci_UbOdaFY/maxresdefault.jpg",
+      "uploadDate": "2026-07-09T00:00:00+00:00",
+      "contentUrl": "https://www.youtube.com/watch?v=Yci_UbOdaFY",
+      "embedUrl": "https://www.youtube.com/embed/Yci_UbOdaFY"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://tradecovex.com/guides/best-trade-copier-tradeify-2026#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does Tradeify allow trade copying across multiple accounts?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Tradeify permits group trading between accounts you own personally, up to 5 accounts, with a combined maximum balance of $750,000. Native Tradovate Group Trading is built into Tradeify's platform and supported directly. Third-party copiers are also allowed, though used at your own risk — Tradeify's support team will not troubleshoot external software. Copying to or from accounts owned by other people is prohibited and can trigger account termination." }
+        },
+        {
+          "@type": "Question",
+          "name": "How is Tradeify's anti-hedging rule enforced when running a copier?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Tradeify enforces its anti-hedging rule with automated detection — no manual review, no warning. Any hedging position (long on one account, short on the same instrument on another) lasting longer than 10 seconds is penalized. Brief overlaps under 10 seconds during a close-and-reverse are tolerated. This is stricter than most competitors and means your copier must never let a follower hold an opposite position from the lead. A proper anti-hedging state check on every follower is not optional at Tradeify — it is what keeps the account alive." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the Tradeify 10-second scalping rule and why does it matter for a copier?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Over 50% of your trades must be held longer than 10 seconds, and over 50% of your profit must come from trades held longer than 10 seconds. This is the anti-microscalping rule and it is checked at both evaluation completion and payout request. Under a copier, this matters because the rule applies per account — every follower must independently satisfy the 50% threshold. If your lead runs a mix of scalp trades and swing trades that averages fine overall, but a specific follower ends up receiving only the scalp portion due to per-account risk filters, that follower can fail the rule while the lead passes." }
+        },
+        {
+          "@type": "Question",
+          "name": "Which Tradeify account type is best for running a copier — Growth, Select, or Lightning?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Select is generally the cleanest for copier setups because the SELECT Flex funded path has no consistency rule and no daily loss limit once funded — the copier configuration stays simple. Growth has a daily loss limit (soft breach) that pauses trading for the session, which means one bad day affects only that account, not the whole portfolio. Lightning has stricter first-payout consistency requirements (20% cap on your best day for the first payout, easing to 30% by the third), which caps how much any single day can contribute across all Lightning followers simultaneously." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Tradovate Group Trading and how does it compare to a NinjaTrader copier?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Tradovate Group Trading is Tradeify's native, platform-supported copy feature — you link accounts inside Tradovate and orders replicate automatically. Because it is built in, Tradeify's support team can help debug it and there is no third-party cost. The trade-off is that it lives inside Tradovate, not NinjaTrader, so if your workflow is NinjaTrader-based, you either give up NT-specific tooling or you run a separate copier. A NinjaTrader-based copier keeps everything in one platform and — critically — is the only path to a real AI journal on every copied trade, which native Group Trading does not provide." }
+        }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://tradecovex.com/#software",
+      "name": "Tradecovex",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Windows, macOS",
+      "description": "NinjaTrader trade copier with built-in AI journal that automatically analyzes every copied trade.",
+      "url": "https://tradecovex.com",
+      "offers": { "@type": "Offer", "price": 0, "priceCurrency": "USD", "description": "14-day free trial \u2014 Launch pricing locked for life" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://tradecovex.com/guides/best-trade-copier-tradeify-2026#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://tradecovex.com" },
+        { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://tradecovex.com/guides/" },
+        { "@type": "ListItem", "position": 3, "name": "Best Trade Copier for Tradeify 2026", "item": "https://tradecovex.com/guides/best-trade-copier-tradeify-2026" }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:#0F172A;background:#fff;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+:root{
+  --blue:#2563EB;
+  --blue-dark:#1d4ed8;
+  --navy:#0A1628;
+  --slate:#4B5E7A;
+  --slate-light:#64748B;
+  --light:#F0F4FF;
+  --border:#DDE3EF;
+  --radius:12px;
+  --shadow-sm:0 1px 3px rgba(10,22,40,.08),0 1px 2px rgba(10,22,40,.06);
+  --shadow-md:0 4px 16px rgba(10,22,40,.1),0 2px 6px rgba(10,22,40,.06);
+  --shadow-lg:0 12px 40px rgba(10,22,40,.14),0 4px 12px rgba(10,22,40,.08);
+}
+
+/* NAV — matches homepage exactly */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px}
+.nav-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav-logo{height:40px;width:auto}
+.nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+.nav-links a{font-size:.88rem;font-weight:600;color:var(--slate);transition:color .2s;letter-spacing:.01em}
+.nav-links a:hover{color:var(--navy)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 26px;border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;transition:all .18s;border:none;text-decoration:none;letter-spacing:.01em}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 2px 8px rgba(37,99,235,.3)}
+.btn-primary:hover{background:var(--blue-dark);transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,99,235,.4)}
+.btn-outline{background:transparent;color:var(--navy);border:2px solid #C4CEDD}
+.btn-outline:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn-outline-white{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35)}
+.btn-outline-white:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.btn-lg{padding:16px 38px;font-size:.98rem;border-radius:14px}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;transition:all .25s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:20px 24px;z-index:199;flex-direction:column;gap:0;box-shadow:var(--shadow-lg)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{display:block;padding:14px 0;font-size:1rem;font-weight:600;color:var(--slate);border-bottom:1px solid var(--border)}
+.mobile-menu a.btn{margin-top:16px;width:100%;border-bottom:none;justify-content:center}
+
+/* HERO — adapted for guide pages */
+.guide-hero{padding:140px 24px 60px;text-align:center;position:relative;overflow:hidden;background:#fff}
+.guide-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 90% 60% at 50% -10%,rgba(37,99,235,.08) 0%,transparent 65%);pointer-events:none}
+.guide-hero::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background-image:radial-gradient(circle at 1px 1px, rgba(37,99,235,.06) 1px, transparent 0);background-size:32px 32px;pointer-events:none;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 0%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 0%,transparent 70%)}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:100px;padding:7px 18px;font-size:.75rem;font-weight:700;color:var(--blue);letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px;position:relative;z-index:1}
+.hero-eyebrow span.dot{width:7px;height:7px;background:var(--blue);border-radius:50%;animation:blink 2s ease infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+h1{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(2.2rem,4.5vw,3.4rem);line-height:1.08;letter-spacing:-.03em;color:var(--navy);max-width:900px;margin:0 auto 24px;position:relative;z-index:1}
+h1 .accent{color:var(--blue)}
+.guide-meta{display:flex;justify-content:center;gap:24px;margin-bottom:20px;flex-wrap:wrap;font-size:.82rem;color:var(--slate-light);position:relative;z-index:1}
+.guide-meta span{display:inline-flex;align-items:center;gap:6px}
+.breadcrumb{font-size:.78rem;color:var(--slate-light);margin-bottom:24px;position:relative;z-index:1}
+.breadcrumb a{color:var(--blue);font-weight:600}
+.breadcrumb a:hover{text-decoration:underline}
+
+/* ANSWER BOX — featured snippet style */
+.answer-box{max-width:780px;margin:0 auto 50px;background:linear-gradient(135deg,#EFF6FF,#F0F4FF);border:2px solid #BFDBFE;border-radius:18px;padding:32px 36px;text-align:left;position:relative;z-index:1;box-shadow:var(--shadow-md)}
+.answer-box-label{display:inline-block;font-size:.68rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.14em;background:#fff;border:1.5px solid #BFDBFE;border-radius:100px;padding:5px 14px;margin-bottom:14px}
+.answer-box p{font-size:1.02rem;color:var(--navy);line-height:1.75;font-weight:500}
+.answer-box p strong{font-weight:700;color:var(--navy)}
+
+/* SHARED SECTION STYLES */
+.section{padding:80px 24px}
+.section-light{background:var(--light)}
+.section-tag{display:inline-block;font-size:.7rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.14em;margin-bottom:16px;background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:100px;padding:5px 14px}
+h2{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(1.7rem,3.2vw,2.4rem);line-height:1.12;letter-spacing:-.025em;color:var(--navy);margin-bottom:18px}
+h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.3rem;color:var(--navy);margin:32px 0 14px;letter-spacing:-.015em}
+h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08rem;color:var(--navy);margin:24px 0 10px;letter-spacing:-.01em}
+.container{max-width:880px;margin:0 auto}
+.container-wide{max-width:1120px;margin:0 auto}
+
+/* PROSE STYLES */
+.prose p{font-size:1rem;color:var(--slate);line-height:1.85;margin-bottom:20px}
+.prose p strong{color:var(--navy);font-weight:700}
+.prose ul,.prose ol{margin:16px 0 24px 22px;color:var(--slate);font-size:1rem;line-height:1.85}
+.prose li{margin-bottom:10px}
+.prose li strong{color:var(--navy);font-weight:700}
+.prose a{color:var(--blue);font-weight:600;border-bottom:1.5px solid rgba(37,99,235,.3);transition:border .2s}
+.prose a:hover{border-bottom-color:var(--blue)}
+.section-num{display:inline-block;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:.78rem;color:var(--blue);background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:8px;padding:4px 10px;margin-bottom:12px;letter-spacing:.06em}
+
+/* PULL QUOTE */
+.pull-quote{background:linear-gradient(135deg,#EFF6FF,#F0F4FF);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:24px 28px;margin:32px 0;font-family:'Barlow Semi Condensed',sans-serif;font-size:1.18rem;font-weight:600;color:var(--navy);line-height:1.55;letter-spacing:-.01em}
+
+/* CALLOUT BOXES */
+.callout{background:#fff;border:1.5px solid var(--border);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:22px 26px;margin:28px 0;box-shadow:var(--shadow-sm)}
+.callout-title{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1rem;color:var(--navy);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.callout p{font-size:.92rem;color:var(--slate);line-height:1.75;margin:0}
+.callout-warn{border-left-color:#DC2626;background:#FEF2F2}
+.callout-warn .callout-title{color:#991B1B}
+.callout-success{border-left-color:#16A34A;background:#F0FDF4}
+.callout-success .callout-title{color:#166534}
+
+/* FEATURE CARD GRID */
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin:32px 0}
+.feature-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:26px;transition:all .25s;box-shadow:var(--shadow-sm)}
+.feature-card:hover{border-color:#93C5FD;box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.feature-card-num{display:inline-block;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:.7rem;color:var(--blue);background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:6px;padding:3px 8px;margin-bottom:12px;letter-spacing:.06em}
+.feature-card h4{margin:0 0 10px;font-size:1.08rem}
+.feature-card p{font-size:.88rem;color:var(--slate);line-height:1.75;margin:0}
+
+/* DATA TABLE */
+.data-table-wrap{overflow-x:auto;border-radius:14px;border:1.5px solid var(--border);box-shadow:var(--shadow-md);margin:28px 0}
+.data-table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:580px;background:#fff}
+.data-table th{padding:14px 18px;text-align:left;font-weight:700;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;background:#F1F5F9;color:var(--slate);border-bottom:2px solid var(--border)}
+.data-table td{padding:13px 18px;border-bottom:1px solid var(--border);color:var(--slate);vertical-align:middle}
+.data-table tr:last-child td{border-bottom:none}
+.data-table tr.tc-row td{background:#EFF6FF;color:var(--navy);font-weight:600}
+.data-table tr.tc-row td:first-child::before{content:'★ ';color:var(--blue)}
+.data-table td.label{font-weight:600;color:var(--navy);background:#FAFBFF}
+.ck{color:#16A34A;font-weight:700}
+.cx{color:#DC2626;font-weight:700}
+.cm{color:#D97706;font-weight:600;font-size:.85rem}
+
+/* VIDEO EMBED */
+.video-wrap{max-width:780px;margin:36px auto;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-lg);background:var(--navy);position:relative;padding-bottom:56.25%;height:0}
+.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.video-caption{font-size:.82rem;color:var(--slate-light);text-align:center;margin-top:14px;font-style:italic}
+
+/* CTA BANNER */
+.cta-banner{background:linear-gradient(135deg,#0A1628,#0F2460,#1d4ed8);border-radius:18px;padding:56px 48px;margin:48px 0;text-align:center;position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
+.cta-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 100%,rgba(37,99,235,.25) 0%,transparent 65%);pointer-events:none}
+.cta-banner h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:1.85rem;color:#fff;margin:0 0 14px;letter-spacing:-.025em;position:relative;z-index:1}
+.cta-banner p{font-size:1rem;color:#93C5FD;max-width:540px;margin:0 auto 26px;line-height:1.7;position:relative;z-index:1}
+.cta-perks{display:flex;gap:22px;justify-content:center;margin-top:22px;flex-wrap:wrap;position:relative;z-index:1}
+.cta-perk{font-size:.78rem;color:#60A5FA;font-weight:600;display:inline-flex;align-items:center;gap:6px}
+.cta-perk::before{content:'✓';font-weight:800}.cta-banner .btn-primary{color:#fff !important;border-bottom:0;text-decoration:none}
+
+/* FAQ */
+.faq-list{max-width:780px;margin:0 auto}
+.faq-item{border-bottom:1.5px solid var(--border)}
+.faq-q{width:100%;text-align:left;padding:22px 0;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.97rem;color:var(--navy);line-height:1.45;letter-spacing:-.01em}
+.faq-icon{width:24px;height:24px;min-width:24px;border-radius:50%;border:2px solid var(--blue);display:flex;align-items:center;justify-content:center;transition:all .25s;flex-shrink:0}
+.faq-icon svg{width:12px;height:12px;stroke:var(--blue);fill:none;stroke-width:2.5;stroke-linecap:round;transition:transform .25s}
+.faq-item.open .faq-icon{background:var(--blue)}
+.faq-item.open .faq-icon svg{stroke:#fff;transform:rotate(45deg)}
+.faq-a{display:none;padding:0 0 22px;font-size:.92rem;color:var(--slate);line-height:1.85;max-width:680px}
+.faq-item.open .faq-a{display:block}
+
+/* RELATED GUIDES */
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:30px}
+.related-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:24px;transition:all .25s;display:block;box-shadow:var(--shadow-sm)}
+.related-card:hover{border-color:#93C5FD;box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.related-tag{display:inline-block;font-size:.66rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.1em;background:#EFF6FF;border:1px solid #BFDBFE;border-radius:6px;padding:3px 8px;margin-bottom:12px}
+.related-card h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.02rem;color:var(--navy);margin:0 0 8px;line-height:1.35}
+.related-card p{font-size:.84rem;color:var(--slate);line-height:1.65;margin:0}
+
+/* FOOTER — matches homepage */
+.footer{background:#fff;border-top:1.5px solid var(--border);padding:60px 24px 36px}
+.footer-inner{max-width:1120px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1.5px solid var(--border);margin-bottom:30px}
+.footer-logo{height:48px;width:auto;margin-bottom:14px}
+.footer-tagline{font-size:.85rem;color:var(--slate);max-width:220px;line-height:1.7;margin-bottom:20px;font-weight:400}
+.footer-social{display:flex;gap:10px}
+.footer-social a{width:36px;height:36px;border:1.5px solid var(--border);border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--slate);transition:all .2s}
+.footer-social a:hover{border-color:var(--blue);color:var(--blue);background:#EFF6FF}
+.footer-social svg{width:16px;height:16px;fill:currentColor}
+.footer-col h4{font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:#94A3B8;margin:0 0 16px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;padding:0}
+.footer-col a{font-size:.875rem;color:var(--slate);transition:color .18s;font-weight:500}
+.footer-col a:hover{color:var(--navy)}
+.footer-aff{font-size:.82rem;color:var(--blue);font-weight:700}
+.footer-risk{background:var(--light);border:1.5px solid var(--border);border-radius:12px;padding:18px 22px;margin-bottom:16px;font-size:.75rem;color:#5B7399;line-height:1.75}
+.footer-risk strong{color:var(--slate);font-weight:700}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:6px}
+.footer-copy{font-size:.75rem;color:#94A3B8;font-weight:500}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .nav-links{display:none}
+  .nav-cta-desktop{display:none !important}
+  .hamburger{display:flex}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .feature-grid,.related-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .footer-top{grid-template-columns:1fr}
+  h1{font-size:2rem}
+  h2{font-size:1.6rem}
+  .answer-box{padding:24px 22px}
+  .cta-banner{padding:42px 28px}
+  .cta-banner h3{font-size:1.5rem}
+}
+
+
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" aria-label="Tradecovex home"><img src="/logo.png" alt="Tradecovex" class="nav-logo"></a>
+    <ul class="nav-links">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/guides/">Guides</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+    </ul>
+    <a href="https://app.tradecovex.com/signup" class="btn btn-primary nav-cta-desktop" style="display:inline-flex">Start 14-Day Free Trial</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/#features">Features</a>
+  <a href="/guides/">Guides</a>
+  <a href="/#pricing">Pricing</a>
+  <a href="/#faq">FAQ</a>
+  <a href="https://app.tradecovex.com/signup" class="btn btn-primary">Start 14-Day Free Trial</a>
+</div>
+
+
+<section class="guide-hero">
+  <div class="hero-eyebrow"><span class="dot"></span>TRADEIFY TRADE COPIER GUIDE</div>
+  <p class="breadcrumb"><a href="/">Home</a> › <a href="/guides/">Guides</a> › Best Trade Copier for Tradeify 2026</p>
+  <h1>The Best Trade Copier for <span class="accent">Tradeify</span> in 2026</h1>
+  <div class="guide-meta">
+    <span>📅 Updated July 2026</span>
+    <span>⏱ 12 min read</span>
+    <span>✍ Tradecovex Team</span>
+  </div>
+  <div class="answer-box">
+    <span class="answer-box-label">Quick Answer</span>
+    <p>Tradeify <strong>permits group trading up to 5 accounts you own</strong> with a combined balance cap of $750K. The best trade copier for Tradeify in 2026 is one that handles Tradeify's two most-enforced rules mechanically: the <strong>anti-hedging rule</strong> (automated detection, 10-second tolerance) and the <strong>10-second scalping threshold</strong> (over 50% of trades and profit must be held longer than 10 seconds). Native Tradovate Group Trading works, is free, and is fully supported. But if you want the analysis layer that turns 5 accounts into a readable system — that only comes from a NinjaTrader-based copier with an AI journal wired in.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container prose">
+
+<h2><span class="section-num">01</span>What Tradeify actually permits — and what it enforces mechanically</h2>
+
+<p>Tradeify's copy trading policy is one of the cleaner ones in the futures prop firm space, but the enforcement is different from most competitors. Where Apex and Topstep use manual review for policy breaches, <strong>Tradeify uses automated detection.</strong> Two rules matter most:</p>
+
+<ul>
+  <li><strong>Copy trading between your own accounts is permitted</strong>, up to 5 accounts you personally own. Combined maximum balance across those 5 accounts is $750,000. Copying to or from accounts owned by others is prohibited and will terminate the account.</li>
+  <li><strong>Third-party copiers are allowed</strong> — but Tradeify's official language is "at your own risk." Their support team will not troubleshoot external software. Native <strong>Tradovate Group Trading</strong> is what they build the copy path around.</li>
+</ul>
+
+<p>The enforcement mechanics that matter for a copier:</p>
+
+<ul>
+  <li><strong>Anti-hedging is automated.</strong> If you are long on one account and short on the same instrument on another account for more than 10 seconds, the platform flags it. Not a person — the code. Brief overlaps under 10 seconds during a close-and-reverse are tolerated; anything longer is a violation.</li>
+  <li><strong>Anti-microscalp threshold.</strong> Over 50% of your trades must be held longer than 10 seconds, and over 50% of your profit must come from trades held longer than 10 seconds. This is checked at evaluation completion and at every payout request. It applies per account.</li>
+  <li><strong>Bots and algorithms are permitted</strong> if you are the sole owner and the bot is not shared across firms. High-frequency trading is not permitted. A NinjaTrader-based directional strategy generating 5–30 trades per session per account fits comfortably inside these limits.</li>
+</ul>
+
+<h2><span class="section-num">02</span>Growth, Select, and Lightning — which is best for a copier</h2>
+
+<p>Tradeify has three account paths, each with genuinely different rule geometry. For copy trading, the differences matter more than they look on the marketing page.</p>
+
+<div class="data-table-wrap">
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Account</th>
+        <th>Evaluation</th>
+        <th>Daily loss limit</th>
+        <th>Consistency</th>
+        <th>Copier fit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Growth</td>
+        <td>One-phase, no consistency rule</td>
+        <td>Yes (soft breach)</td>
+        <td>None during eval</td>
+        <td>Fast pass, simple copier config</td>
+      </tr>
+      <tr>
+        <td>Select</td>
+        <td>One-phase, 40% consistency</td>
+        <td>None</td>
+        <td>40% during eval</td>
+        <td>Best for funded — SELECT Flex has no consistency rule once funded</td>
+      </tr>
+      <tr>
+        <td>Lightning</td>
+        <td>None — funded instantly</td>
+        <td>Varies</td>
+        <td>20% → 25% → 30% by payout number</td>
+        <td>Trickier — first payout consistency is strictest</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>The specific insight most Tradeify content misses: <strong>Select is the cleanest for a copier because the SELECT Flex funded path has no consistency rule once funded.</strong> That means the copier configuration stays simple — you don't have to sculpt daily P&L distribution across every follower to keep the ratio balanced. You trade the strategy, you get paid, the rule doesn't fight you.</p>
+
+<p><strong>Lightning</strong> is the trickiest under a copier because the first-payout consistency rule caps your best day at 20% of total profit. On five Lightning accounts copying the same lead, a strong day trips the 20% threshold on every account simultaneously. That is exactly the failure mode a well-configured copier should prevent — vary the multipliers per follower so one big day lands differently on each.</p>
+
+<h2><span class="section-num">03</span>Video walkthrough — Tradeify account setup and copy trading</h2>
+
+<div class="video-wrap">
+  <iframe src="https://www.youtube.com/embed/Yci_UbOdaFY" title="Tradeify Explained: Account Setup and Copy Trading" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
+
+<p>Third-party walkthrough of Tradeify's account structure and native copy-trading setup. This is not our video and we do not endorse the creator's other content — it is embedded here because it accurately covers what a multi-account Tradeify trader needs to know before configuring any copier.</p>
+
+<h2><span class="section-num">04</span>Native Tradovate Group Trading vs a NinjaTrader copier</h2>
+
+<p>Tradeify's Tradovate Group Trading is a real feature and worth explaining because it is genuinely competitive with third-party copiers on the copy path itself. What it does:</p>
+
+<ul>
+  <li>Links up to 5 Tradovate-connected Tradeify accounts as one group inside the Tradovate platform</li>
+  <li>Replicates orders from a designated master account to every group follower automatically</li>
+  <li>Is free to use — no third-party subscription</li>
+  <li>Is supported directly by Tradeify's staff</li>
+</ul>
+
+<p>What it does not do:</p>
+
+<ul>
+  <li>Run inside NinjaTrader. It lives in Tradovate. If your workflow is NinjaTrader-based (Superdom, custom NinjaScript indicators, backtested strategies compiled to NT), you either give those up or you run two platforms in parallel.</li>
+  <li>Analyse the trades it copies. There is no journal, no per-account divergence detection, no behavioural analysis. It replicates orders and does not tell you anything about them afterwards.</li>
+  <li>Copy across firms. Tradovate Group Trading only groups Tradovate-connected Tradeify accounts. If you also run Apex, MFFU, or Bulenox, they cannot join the group.</li>
+</ul>
+
+<p>So the honest breakdown: if you run <strong>Tradeify-only, prefer Tradovate, and don't need analytics</strong>, native Group Trading is fine and you should not pay for a copier. If any of those three is false — you use NinjaTrader, or you run other firms alongside Tradeify, or you want to actually understand what happened on each account — then you need a NinjaTrader-based copier and the calculus changes.</p>
+
+<h2><span class="section-num">05</span>The two enforcement mechanics that fail Tradeify accounts under a copier</h2>
+
+<h3>The 10-second anti-hedging window</h3>
+
+<p>This is Tradeify's most-enforced rule for multi-account traders. The rule: if any two accounts you own are simultaneously long and short on the same instrument for longer than 10 seconds, that is a hedging violation. Enforcement is automated — the platform detects it, the platform penalises it.</p>
+
+<p>Under a normal copier setup, this should never happen — every follower moves in the same direction as the lead. Where it goes wrong is manual intervention: you close a losing trade on one follower manually, the lead flips and re-enters, and now the manually-closed follower ends up with an old opposite position while the copier is placing a new one. Ten seconds is a very short forgiveness window. A good copier's per-account state view catches this before the 10-second timer runs out. A bad one lets you find out at your next payout review.</p>
+
+<h3>The 10-second scalping threshold</h3>
+
+<p>Over 50% of your trades held longer than 10 seconds. Over 50% of your profit from trades held longer than 10 seconds. Both checked at evaluation completion and every payout request, and both applied <em>per account</em>, not to the portfolio average.</p>
+
+<div class="pull-quote">A strategy that averages fine across all accounts can still fail the 10-second rule on any specific account. Tradeify checks each account independently — the portfolio average does not save you.</div>
+
+<p>The practical consequence: if your lead runs a mix of quick scalps and longer directional trades, and per-account risk filters cause a specific follower to receive only the scalp portion, that follower can fail the rule while the lead passes. Watch this per-account, not just at the aggregate level.</p>
+
+<h2><span class="section-num">06</span>Setting up Tradeify accounts on NinjaTrader</h2>
+
+<ol>
+  <li><strong>Connect via Tradovate.</strong> Tradeify accounts route through Tradovate. In NinjaTrader 8 → Tools → Options → Connections, use the "NinjaTrader" connection type (which is the Tradovate API path). Each Tradeify account connects independently — you can run up to 5 Tradovate accounts in the same NinjaTrader instance without issue.</li>
+  <li><strong>Pick your lead based on smallest position cap.</strong> On Tradeify, the lead should have the lowest maximum contract size at your current stage. Copied orders scale up proportionally into the larger followers without exceeding any follower's cap.</li>
+  <li><strong>Enable anti-hedging state check on every follower.</strong> Non-negotiable at Tradeify. If your copier does not have this, do not use it here — the 10-second window will catch you eventually.</li>
+  <li><strong>Set consistency-rule alerts at 35% (Select) or 15% (Lightning first payout).</strong> Give yourself a 5% buffer below the actual threshold. On Growth you can skip this — no consistency rule during evaluation.</li>
+  <li><strong>Verify the anti-microscalp threshold per account.</strong> Monitor per-follower trade duration distribution — not just the lead. A follower can drift out of compliance while the lead stays in.</li>
+  <li><strong>Dry-run on micros for a full session</strong> before scaling to real size. Ten small trades reveal every misconfiguration.</li>
+</ol>
+
+<h2><span class="section-num">07</span>Honest comparison — Tradeify-specific copier options</h2>
+
+<div class="data-table-wrap">
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Copier</th>
+        <th>Architecture</th>
+        <th>Tradeify fit</th>
+        <th>AI journal</th>
+        <th>Pricing</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="tc-row">
+        <td>Tradecovex</td>
+        <td>Local NinjaTrader add-on</td>
+        <td>Via Tradovate API, up to 5 accounts</td>
+        <td><span class="ck">✓</span> per-account divergence</td>
+        <td>$19–$79/mo · 14-day trial</td>
+      </tr>
+      <tr>
+        <td>Tradovate Group Trading</td>
+        <td>Native in Tradovate</td>
+        <td>Officially supported, up to 5</td>
+        <td><span class="cx">✗</span></td>
+        <td>Free</td>
+      </tr>
+      <tr>
+        <td>Tradecopia</td>
+        <td>Broker-API-direct desktop</td>
+        <td>Tradovate direct, no NT needed</td>
+        <td><span class="cx">✗</span></td>
+        <td>~$40–$90/mo</td>
+      </tr>
+      <tr>
+        <td>Replikanto</td>
+        <td>Local NinjaTrader add-on</td>
+        <td>Full via NT + Tradovate</td>
+        <td><span class="cx">✗</span></td>
+        <td>$150–$250 one-time</td>
+      </tr>
+      <tr>
+        <td>NinjaTrader free copier</td>
+        <td>Built into NinjaTrader</td>
+        <td>Full but 19-account cap</td>
+        <td><span class="cx">✗</span></td>
+        <td>Free</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>Read this straight: if you want to trade Tradeify inside Tradovate with no analysis and no cost, <strong>use native Group Trading</strong>. It works and Tradeify supports it. Do not pay for a copier you don't need.</p>
+
+<p>If you want NinjaTrader-based execution, or if you also run accounts at other firms and want everything under one lead, you need a third-party copier. Among those, <strong>Tradecovex</strong> is the only one that adds behavioural analysis on every copied trade — which for a 5-account Tradeify setup where each account has to independently satisfy the 10-second rule is meaningfully more useful than "did the orders replicate."</p>
+
+<h2><span class="section-num">08</span>What the AI journal actually catches on a Tradeify setup</h2>
+
+<p>The specific things a journal wired into the copier surfaces on a Tradeify-shaped multi-account portfolio:</p>
+
+<ul>
+  <li><strong>Per-account 10-second compliance drift.</strong> Every follower's trade duration distribution tracked independently. When any account drifts toward the 50% threshold, the journal flags it days before payout time — not at payout time when it is too late.</li>
+  <li><strong>Consistency-rule proximity per Lightning account.</strong> First payout consistency at 20% is unforgiving. The journal tracks best-day-vs-total-profit on every Lightning follower and warns you before you hit the ceiling.</li>
+  <li><strong>Time-of-day expectancy per account.</strong> Your Select accounts might carry a different intraday shape than your Lightning accounts because of the consistency budget. The journal decomposes P&L per plan.</li>
+  <li><strong>Behavioural tags across the portfolio.</strong> Escalation after a loss on one account is bad. Copied across 5, it costs 5x and lands the same afternoon. Same-day flagging is the only useful flagging.</li>
+</ul>
+
+<h2><span class="section-num">09</span>Common mistakes running multiple Tradeify accounts</h2>
+
+<ul>
+  <li><strong>Assuming the anti-hedging tolerance is longer than 10 seconds.</strong> It is not. Ten seconds is short. A careless manual override during a fast-moving session can eat the tolerance in one hesitation.</li>
+  <li><strong>Copying an active-scalping strategy onto Lightning first-payout accounts.</strong> Lightning's 20% first-payout cap makes big scalp days a payout-blocker on every Lightning account simultaneously.</li>
+  <li><strong>Assuming Tradovate Group Trading covers all your needs.</strong> It doesn't cover cross-firm copying, doesn't analyse anything, and doesn't help if you run NinjaTrader-native tools.</li>
+  <li><strong>Ignoring the per-account 10-second scalp threshold.</strong> "Averages fine overall" doesn't save any specific follower that fails independently.</li>
+  <li><strong>Manually closing on one follower and expecting the lead to know.</strong> The copier is one-directional. Manual actions on followers create state that the lead doesn't see.</li>
+</ul>
+
+<h2><span class="section-num">10</span>Bottom line</h2>
+
+<p>Tradeify's rules are cleaner than most competitors — Select's funded phase has no consistency rule, EOD drawdown across all accounts, no daily loss limit on Select. The catch is the enforcement style: two automated rules (anti-hedging in 10 seconds, 50% of trades and profit over 10 seconds) that fail accounts without warning.</p>
+
+<p>The best trade copier for Tradeify handles both mechanically, respects per-account rule state independently rather than portfolio-average, and — the part native Group Trading skips — analyses every copied trade so you actually understand what your 5-account portfolio is doing beyond the P&L number.</p>
+
+    <div class="cta-banner">
+      <h3>Run every Tradeify account from one NinjaTrader window</h3>
+      <p>Tradecovex copies trades across all your Tradeify Growth, Select, and Lightning accounts and runs an AI journal on every copied fill. Watch the 10-second scalp threshold per account, flag anti-hedging drift before the 10-second window closes, and stay sighted as you scale.</p>
+      <a href="https://app.tradecovex.com/signup" class="btn btn-primary btn-lg">Start 14-Day Free Trial</a>
+      <div class="cta-perks">
+        <span class="cta-perk">14-day free trial</span>
+        <span class="cta-perk">No credit card required</span>
+        <span class="cta-perk">Launch pricing locked for life</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container">
+    <div style="text-align:center">
+      <span class="section-tag">Frequently Asked Questions</span>
+      <h2>Common questions about copying trades on Tradeify</h2>
+    </div>
+    <div class="faq-list" style="margin-top:40px">
+    <div class="faq-item">
+      <button class="faq-q">Does Tradeify allow trade copying across multiple accounts?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Yes. Tradeify permits group trading between accounts you own personally, up to 5 accounts, with a combined maximum balance of $750,000. Native Tradovate Group Trading is built in and supported directly. Third-party copiers are also allowed, though used at your own risk — Tradeify's support team will not troubleshoot external software. Copying to or from accounts owned by other people is prohibited and can trigger account termination.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How is Tradeify's anti-hedging rule enforced when running a copier?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Tradeify uses automated detection — no manual review. Any hedging position lasting longer than 10 seconds is penalized. Brief overlaps under 10 seconds during a close-and-reverse are tolerated. Your copier must never let a follower hold an opposite position from the lead, and a proper anti-hedging state check on every follower is essential.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What is the Tradeify 10-second scalping rule and why does it matter for a copier?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Over 50% of your trades must be held longer than 10 seconds, and over 50% of your profit must come from trades held longer than 10 seconds. Both checked per account at evaluation completion and every payout request. A strategy that averages fine across the portfolio can still fail on a specific follower — Tradeify checks each account independently.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Which Tradeify account type is best for running a copier?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Select is generally the cleanest because SELECT Flex funded has no consistency rule and no daily loss limit once funded — copier config stays simple. Growth has a daily loss limit (soft breach) that pauses trading for the session. Lightning has strict first-payout consistency (20% cap on best day for first payout, easing to 30% by third) that limits how much any single day can contribute.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What is Tradovate Group Trading and how does it compare to a NinjaTrader copier?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Tradovate Group Trading is Tradeify's native, platform-supported copy feature — links accounts inside Tradovate, replicates orders, free. Trade-off: it lives in Tradovate not NinjaTrader, and provides no analysis, journal, or per-account divergence detection. A NinjaTrader copier keeps everything in one platform and provides the analysis layer native Group Trading skips.</div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-wide">
+    <div style="text-align:center">
+      <span class="section-tag">Related Guides</span>
+      <h2>Keep reading</h2>
+    </div>
+    <div class="related-grid">
+    <a href="/guides/ninjatrader-trade-copier" class="related-card">
+      <span class="related-tag">Pillar</span>
+      <h4>NinjaTrader Trade Copier — Complete Guide</h4>
+      <p>The full pillar guide to trade copiers on NinjaTrader for prop firm futures traders.</p>
+    </a>
+    <a href="/guides/tradeify-rules-2026" class="related-card">
+      <span class="related-tag">Prop Firm</span>
+      <h4>Tradeify Rules 2026</h4>
+      <p>Every current Tradeify rule — Growth, Select, and Lightning — with drawdown mechanics and consistency thresholds.</p>
+    </a>
+    <a href="/guides/best-trade-copier-topstep-2026" class="related-card">
+      <span class="related-tag">Prop Firm</span>
+      <h4>Best Trade Copier for Topstep 2026</h4>
+      <p>Copying across multiple Topstep accounts on NinjaTrader — rules, comparison, and AI journaling.</p>
+    </a>
+    <a href="/guides/best-trade-copier-mffu-2026" class="related-card">
+      <span class="related-tag">Prop Firm</span>
+      <h4>Best Trade Copier for MyFundedFutures 2026</h4>
+      <p>Copying across MFFU Core, Rapid, and Pro accounts under the July 2025 automation policy.</p>
+    </a>
+    <a href="/guides/ai-trading-journal" class="related-card">
+      <span class="related-tag">Pillar</span>
+      <h4>AI Trading Journal for Futures Traders</h4>
+      <p>How AI actually reviews the trades your copier places on every account.</p>
+    </a>
+    <a href="/compare/tradecovex-vs-replikanto" class="related-card">
+      <span class="related-tag">Comparison</span>
+      <h4>Tradecovex vs Replikanto</h4>
+      <p>Two local NinjaTrader copiers compared — and where the AI journal changes the math.</p>
+    </a>
+    </div>
+  </div>
+</section>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="/"><img src="/logo.png" alt="Tradecovex" class="footer-logo"></a>
+        <p class="footer-tagline">The smartest trade copier for NinjaTrader — copy trades and let the AI tell you why.</p>
+        <div class="footer-social">
+          <a href="https://x.com/_tradecovex" target="_blank" rel="noopener" title="Twitter / X" aria-label="Twitter">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@Tradecovex-k4n" target="_blank" rel="noopener" title="YouTube" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/tradecovex_official/" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/tradecovex/" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#how">How It Works</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="https://app.tradecovex.com/signup">Start 14-Day Free Trial</a></li>
+          <li><a href="/guides/">All Guides</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/privacy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Partners</h4>
+        <ul>
+          <li><a href="#" class="footer-aff">Affiliates — Earn $15–$45/signup</a></li>
+        </ul>
+      </div>
+    </div>
+    <div style="text-align:center;padding:24px 0 16px"><a href="https://ninjatrader.com" target="_blank" rel="noopener" style="display:inline-block;background:#fff;border-radius:8px;padding:18px !important"><img src="/assets/ninjatrader-logo.png" alt="NinjaTrader" style="height:30px;display:block" /></a></div>
+    <div class="footer-risk">
+      <strong>⚠ Risk Disclosure:</strong> Futures and forex trading contains substantial risk and is not for every investor. An investor could potentially lose all or more than the initial investment. Risk capital is money that can be lost without jeopardizing one's financial security or lifestyle. Only risk capital should be used for trading and only those with sufficient risk capital should consider trading. Past performance is not necessarily indicative of future results. Tradecovex is a software tool — it does not provide investment advice and does not guarantee trading results. Use of a trade copier does not guarantee compliance with prop firm rules. All trading decisions are your responsibility. Only trade with capital you can afford to lose.
+    </div>
+    <div class="footer-risk" style="margin-top:10px">
+      <strong>No Investment Advice:</strong> Tradecovex is a software tool for trade copying and journaling. IVAAN INC is not registered as an investment adviser with the Ontario Securities Commission, CIRO, the SEC, or any other regulatory body. Nothing in Tradecovex — including the AI journal analysis feature — constitutes investment advice, financial advice, or a recommendation to buy or sell any security, futures contract, or other financial instrument. The AI journal provides analytical observations about your historical trading patterns for informational purposes only. All trading decisions are made solely by you.
+    </div>
+    <div class="footer-risk" style="margin-top:10px"><strong>CFTC Rule 4.41 — Hypothetical Performance Disclosure:</strong> Hypothetical performance results have many inherent limitations, some of which are described below. No representation is being made that any account will or is likely to achieve profits or losses similar to those shown; in fact, there are frequently sharp differences between hypothetical performance results and the actual results subsequently achieved by any particular trading program. One of the limitations of hypothetical performance results is that they are generally prepared with the benefit of hindsight. In addition, hypothetical trading does not involve financial risk, and no hypothetical trading record can completely account for the impact of financial risk of actual trading. For example, the ability to withstand losses or to adhere to a particular trading program despite trading losses are material points which can also adversely affect actual trading results. There are numerous other factors related to the markets in general or to the implementation of any specific trading program which cannot be fully accounted for in the preparation of hypothetical performance results and all which can adversely affect trading results.</div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Tradecovex. All rights reserved. Built by IVAAN INC, Ontario, Canada.</span>
+      <span class="footer-copy">Canadian users served from Toronto · US users served from New York · PIPEDA compliant</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const hamburger=document.getElementById('hamburger');const mobileMenu=document.getElementById('mobile-menu');if(hamburger){hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');});}
+document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{q.parentElement.classList.toggle('open');});});
+</script>
+</body>
+</html>

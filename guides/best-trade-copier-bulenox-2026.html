@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Best Trade Copier for Bulenox 2026: NinjaTrader Multi-Account Guide</title>
+<meta name="description" content="The best trade copier for Bulenox in 2026 for NinjaTrader traders — Bulenox explicitly permits EAs, bots, and copiers on all account types. Full guide to Option 1 vs Option 2, the 40% consistency rule, and up to 11 Master Accounts.">
+<link rel="canonical" href="https://tradecovex.com/guides/best-trade-copier-bulenox-2026">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Best Trade Copier for Bulenox 2026: NinjaTrader Multi-Account Guide">
+<meta property="og:description" content="Bulenox is one of the most copy-trading-permissive futures prop firms. Full multi-account NinjaTrader guide.">
+<meta property="og:url" content="https://tradecovex.com/guides/best-trade-copier-bulenox-2026">
+<meta property="og:image" content="https://tradecovex.com/logo.png">
+<meta property="og:site_name" content="Tradecovex">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Best Trade Copier for Bulenox 2026">
+<meta name="twitter:description" content="Bulenox explicitly permits copiers on all account types. NinjaTrader multi-account guide.">
+<meta name="twitter:image" content="https://tradecovex.com/logo.png">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="author" content="Tradecovex / IVAAN INC">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://tradecovex.com/guides/best-trade-copier-bulenox-2026#article",
+      "headline": "Best Trade Copier for Bulenox in 2026 (NinjaTrader Multi-Account Guide)",
+      "description": "Bulenox permits trade copiers, EAs, and bots on all account types. Complete NinjaTrader multi-account guide covering Option 1 vs Option 2, the 40% consistency rule, and scaling up to 11 Master Accounts.",
+      "image": "https://tradecovex.com/logo.png",
+      "datePublished": "2026-07-09T00:00:00+00:00",
+      "dateModified": "2026-07-09T00:00:00+00:00",
+      "author": { "@type": "Organization", "name": "Tradecovex", "url": "https://tradecovex.com" },
+      "publisher": {
+        "@type": "Organization", "name": "Tradecovex",
+        "logo": { "@type": "ImageObject", "url": "https://tradecovex.com/logo.png" }
+      },
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://tradecovex.com/guides/best-trade-copier-bulenox-2026" }
+    },
+    {
+      "@type": "VideoObject",
+      "name": "How to Get Started with Bulenox — Full Walkthrough",
+      "description": "Third-party walkthrough of getting started with Bulenox — referenced on the Tradecovex guide to the best trade copier for Bulenox in 2026.",
+      "thumbnailUrl": "https://i.ytimg.com/vi/XSLuN2aUIXE/maxresdefault.jpg",
+      "uploadDate": "2026-07-09T00:00:00+00:00",
+      "contentUrl": "https://www.youtube.com/watch?v=XSLuN2aUIXE",
+      "embedUrl": "https://www.youtube.com/embed/XSLuN2aUIXE"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://tradecovex.com/guides/best-trade-copier-bulenox-2026#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does Bulenox allow trade copying across multiple accounts?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, and explicitly. Bulenox is one of the most copy-trading-permissive futures prop firms in 2026 — EAs, bots, algorithmic strategies, and third-party trade copiers are all allowed on every account type (Qualification, Master, and Funded). This is one of Bulenox's key differentiators. Cross-account hedging is prohibited, and high-frequency trading is monitored via Rithmic. Copying between your own accounts is the standard permitted use case." }
+        },
+        {
+          "@type": "Question",
+          "name": "How many Bulenox accounts can I copy trades across?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Bulenox permits up to 11 Master Accounts simultaneously, with progressive activation — you start with 3 active Master Accounts and unlock more as each account's max drawdown reaches its starting balance. This is one of the higher account caps in the futures prop firm space. A copier that reliably fans one lead order out to 11 followers is genuinely useful at Bulenox in a way it isn't at firms capped at 5." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between Bulenox Option 1 and Option 2 and how does it affect a copier?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Every Bulenox account is sold in two flavors. Option 1 (No Scaling Account) uses real-time trailing drawdown with no daily loss limit and full contract access from day one — the drawdown floor moves up tick-by-tick as your unrealized balance prints new highs. Option 2 (EOD Account) uses end-of-day drawdown, a daily loss limit, and a scaling plan that unlocks contracts as balance grows. Under a copier, Option 1 is the harsher parent because unrealized peaks move the floor permanently. Option 2 gives you intraday breathing room but the scaling plan caps size early. Most multi-account copier setups do better on Option 2 because the drawdown behaviour is more predictable." }
+        },
+        {
+          "@type": "Question",
+          "name": "How does the Bulenox 40% consistency rule affect copied trades?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Bulenox's 40% consistency rule means no single trading day can exceed 40% of your total profit at payout time. The rule applies at the Master Account stage (not Qualification) and is checked at every payout request. Under a copier, if you fan the same trade out to identical-sized followers and have one outsized day, you trip the 40% threshold on every account simultaneously and every payout is paused. Vary size per account so a big day lands differently — that is how the rule is spread instead of concentrated." }
+        },
+        {
+          "@type": "Question",
+          "name": "Which trading platforms work best with a Bulenox copier?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Bulenox routes through Rithmic, and Bulenox supports over 20 Rithmic-compatible platforms including NinjaTrader 8, Sierra Chart, Bookmap, Jigsaw Daytradr, ATAS, Quantower, R|Trader Pro, and MotiveWave. NinjaTrader 8 is the most common choice for NT-native traders because Bulenox provides a free NT license while using a Master Account. Bulenox does not natively support TradingView — TradingView users typically bridge through PickMyTrade or similar." }
+        }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://tradecovex.com/#software",
+      "name": "Tradecovex",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Windows, macOS",
+      "description": "NinjaTrader trade copier with built-in AI journal that automatically analyzes every copied trade.",
+      "url": "https://tradecovex.com",
+      "offers": { "@type": "Offer", "price": 0, "priceCurrency": "USD", "description": "14-day free trial \u2014 Launch pricing locked for life" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://tradecovex.com/guides/best-trade-copier-bulenox-2026#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://tradecovex.com" },
+        { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://tradecovex.com/guides/" },
+        { "@type": "ListItem", "position": 3, "name": "Best Trade Copier for Bulenox 2026", "item": "https://tradecovex.com/guides/best-trade-copier-bulenox-2026" }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:#0F172A;background:#fff;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+:root{
+  --blue:#2563EB;
+  --blue-dark:#1d4ed8;
+  --navy:#0A1628;
+  --slate:#4B5E7A;
+  --slate-light:#64748B;
+  --light:#F0F4FF;
+  --border:#DDE3EF;
+  --radius:12px;
+  --shadow-sm:0 1px 3px rgba(10,22,40,.08),0 1px 2px rgba(10,22,40,.06);
+  --shadow-md:0 4px 16px rgba(10,22,40,.1),0 2px 6px rgba(10,22,40,.06);
+  --shadow-lg:0 12px 40px rgba(10,22,40,.14),0 4px 12px rgba(10,22,40,.08);
+}
+
+/* NAV — matches homepage exactly */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px}
+.nav-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav-logo{height:40px;width:auto}
+.nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+.nav-links a{font-size:.88rem;font-weight:600;color:var(--slate);transition:color .2s;letter-spacing:.01em}
+.nav-links a:hover{color:var(--navy)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 26px;border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;transition:all .18s;border:none;text-decoration:none;letter-spacing:.01em}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 2px 8px rgba(37,99,235,.3)}
+.btn-primary:hover{background:var(--blue-dark);transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,99,235,.4)}
+.btn-outline{background:transparent;color:var(--navy);border:2px solid #C4CEDD}
+.btn-outline:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn-outline-white{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35)}
+.btn-outline-white:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.btn-lg{padding:16px 38px;font-size:.98rem;border-radius:14px}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;transition:all .25s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:20px 24px;z-index:199;flex-direction:column;gap:0;box-shadow:var(--shadow-lg)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{display:block;padding:14px 0;font-size:1rem;font-weight:600;color:var(--slate);border-bottom:1px solid var(--border)}
+.mobile-menu a.btn{margin-top:16px;width:100%;border-bottom:none;justify-content:center}
+
+/* HERO — adapted for guide pages */
+.guide-hero{padding:140px 24px 60px;text-align:center;position:relative;overflow:hidden;background:#fff}
+.guide-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 90% 60% at 50% -10%,rgba(37,99,235,.08) 0%,transparent 65%);pointer-events:none}
+.guide-hero::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background-image:radial-gradient(circle at 1px 1px, rgba(37,99,235,.06) 1px, transparent 0);background-size:32px 32px;pointer-events:none;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 0%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 0%,transparent 70%)}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:100px;padding:7px 18px;font-size:.75rem;font-weight:700;color:var(--blue);letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px;position:relative;z-index:1}
+.hero-eyebrow span.dot{width:7px;height:7px;background:var(--blue);border-radius:50%;animation:blink 2s ease infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+h1{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(2.2rem,4.5vw,3.4rem);line-height:1.08;letter-spacing:-.03em;color:var(--navy);max-width:900px;margin:0 auto 24px;position:relative;z-index:1}
+h1 .accent{color:var(--blue)}
+.guide-meta{display:flex;justify-content:center;gap:24px;margin-bottom:20px;flex-wrap:wrap;font-size:.82rem;color:var(--slate-light);position:relative;z-index:1}
+.guide-meta span{display:inline-flex;align-items:center;gap:6px}
+.breadcrumb{font-size:.78rem;color:var(--slate-light);margin-bottom:24px;position:relative;z-index:1}
+.breadcrumb a{color:var(--blue);font-weight:600}
+.breadcrumb a:hover{text-decoration:underline}
+
+/* ANSWER BOX — featured snippet style */
+.answer-box{max-width:780px;margin:0 auto 50px;background:linear-gradient(135deg,#EFF6FF,#F0F4FF);border:2px solid #BFDBFE;border-radius:18px;padding:32px 36px;text-align:left;position:relative;z-index:1;box-shadow:var(--shadow-md)}
+.answer-box-label{display:inline-block;font-size:.68rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.14em;background:#fff;border:1.5px solid #BFDBFE;border-radius:100px;padding:5px 14px;margin-bottom:14px}
+.answer-box p{font-size:1.02rem;color:var(--navy);line-height:1.75;font-weight:500}
+.answer-box p strong{font-weight:700;color:var(--navy)}
+
+/* SHARED SECTION STYLES */
+.section{padding:80px 24px}
+.section-light{background:var(--light)}
+.section-tag{display:inline-block;font-size:.7rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.14em;margin-bottom:16px;background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:100px;padding:5px 14px}
+h2{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(1.7rem,3.2vw,2.4rem);line-height:1.12;letter-spacing:-.025em;color:var(--navy);margin-bottom:18px}
+h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.3rem;color:var(--navy);margin:32px 0 14px;letter-spacing:-.015em}
+h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08rem;color:var(--navy);margin:24px 0 10px;letter-spacing:-.01em}
+.container{max-width:880px;margin:0 auto}
+.container-wide{max-width:1120px;margin:0 auto}
+
+/* PROSE STYLES */
+.prose p{font-size:1rem;color:var(--slate);line-height:1.85;margin-bottom:20px}
+.prose p strong{color:var(--navy);font-weight:700}
+.prose ul,.prose ol{margin:16px 0 24px 22px;color:var(--slate);font-size:1rem;line-height:1.85}
+.prose li{margin-bottom:10px}
+.prose li strong{color:var(--navy);font-weight:700}
+.prose a{color:var(--blue);font-weight:600;border-bottom:1.5px solid rgba(37,99,235,.3);transition:border .2s}
+.prose a:hover{border-bottom-color:var(--blue)}
+.section-num{display:inline-block;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:.78rem;color:var(--blue);background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:8px;padding:4px 10px;margin-bottom:12px;letter-spacing:.06em}
+
+/* PULL QUOTE */
+.pull-quote{background:linear-gradient(135deg,#EFF6FF,#F0F4FF);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:24px 28px;margin:32px 0;font-family:'Barlow Semi Condensed',sans-serif;font-size:1.18rem;font-weight:600;color:var(--navy);line-height:1.55;letter-spacing:-.01em}
+
+/* CALLOUT BOXES */
+.callout{background:#fff;border:1.5px solid var(--border);border-left:4px solid var(--blue);border-radius:0 12px 12px 0;padding:22px 26px;margin:28px 0;box-shadow:var(--shadow-sm)}
+.callout-title{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1rem;color:var(--navy);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.callout p{font-size:.92rem;color:var(--slate);line-height:1.75;margin:0}
+.callout-warn{border-left-color:#DC2626;background:#FEF2F2}
+.callout-warn .callout-title{color:#991B1B}
+.callout-success{border-left-color:#16A34A;background:#F0FDF4}
+.callout-success .callout-title{color:#166534}
+
+/* FEATURE CARD GRID */
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin:32px 0}
+.feature-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:26px;transition:all .25s;box-shadow:var(--shadow-sm)}
+.feature-card:hover{border-color:#93C5FD;box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.feature-card-num{display:inline-block;font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:.7rem;color:var(--blue);background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:6px;padding:3px 8px;margin-bottom:12px;letter-spacing:.06em}
+.feature-card h4{margin:0 0 10px;font-size:1.08rem}
+.feature-card p{font-size:.88rem;color:var(--slate);line-height:1.75;margin:0}
+
+/* DATA TABLE */
+.data-table-wrap{overflow-x:auto;border-radius:14px;border:1.5px solid var(--border);box-shadow:var(--shadow-md);margin:28px 0}
+.data-table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:580px;background:#fff}
+.data-table th{padding:14px 18px;text-align:left;font-weight:700;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;background:#F1F5F9;color:var(--slate);border-bottom:2px solid var(--border)}
+.data-table td{padding:13px 18px;border-bottom:1px solid var(--border);color:var(--slate);vertical-align:middle}
+.data-table tr:last-child td{border-bottom:none}
+.data-table tr.tc-row td{background:#EFF6FF;color:var(--navy);font-weight:600}
+.data-table tr.tc-row td:first-child::before{content:'★ ';color:var(--blue)}
+.data-table td.label{font-weight:600;color:var(--navy);background:#FAFBFF}
+.ck{color:#16A34A;font-weight:700}
+.cx{color:#DC2626;font-weight:700}
+.cm{color:#D97706;font-weight:600;font-size:.85rem}
+
+/* VIDEO EMBED */
+.video-wrap{max-width:780px;margin:36px auto;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-lg);background:var(--navy);position:relative;padding-bottom:56.25%;height:0}
+.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.video-caption{font-size:.82rem;color:var(--slate-light);text-align:center;margin-top:14px;font-style:italic}
+
+/* CTA BANNER */
+.cta-banner{background:linear-gradient(135deg,#0A1628,#0F2460,#1d4ed8);border-radius:18px;padding:56px 48px;margin:48px 0;text-align:center;position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
+.cta-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 100%,rgba(37,99,235,.25) 0%,transparent 65%);pointer-events:none}
+.cta-banner h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:1.85rem;color:#fff;margin:0 0 14px;letter-spacing:-.025em;position:relative;z-index:1}
+.cta-banner p{font-size:1rem;color:#93C5FD;max-width:540px;margin:0 auto 26px;line-height:1.7;position:relative;z-index:1}
+.cta-perks{display:flex;gap:22px;justify-content:center;margin-top:22px;flex-wrap:wrap;position:relative;z-index:1}
+.cta-perk{font-size:.78rem;color:#60A5FA;font-weight:600;display:inline-flex;align-items:center;gap:6px}
+.cta-perk::before{content:'✓';font-weight:800}.cta-banner .btn-primary{color:#fff !important;border-bottom:0;text-decoration:none}
+
+/* FAQ */
+.faq-list{max-width:780px;margin:0 auto}
+.faq-item{border-bottom:1.5px solid var(--border)}
+.faq-q{width:100%;text-align:left;padding:22px 0;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.97rem;color:var(--navy);line-height:1.45;letter-spacing:-.01em}
+.faq-icon{width:24px;height:24px;min-width:24px;border-radius:50%;border:2px solid var(--blue);display:flex;align-items:center;justify-content:center;transition:all .25s;flex-shrink:0}
+.faq-icon svg{width:12px;height:12px;stroke:var(--blue);fill:none;stroke-width:2.5;stroke-linecap:round;transition:transform .25s}
+.faq-item.open .faq-icon{background:var(--blue)}
+.faq-item.open .faq-icon svg{stroke:#fff;transform:rotate(45deg)}
+.faq-a{display:none;padding:0 0 22px;font-size:.92rem;color:var(--slate);line-height:1.85;max-width:680px}
+.faq-item.open .faq-a{display:block}
+
+/* RELATED GUIDES */
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:30px}
+.related-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:24px;transition:all .25s;display:block;box-shadow:var(--shadow-sm)}
+.related-card:hover{border-color:#93C5FD;box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.related-tag{display:inline-block;font-size:.66rem;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.1em;background:#EFF6FF;border:1px solid #BFDBFE;border-radius:6px;padding:3px 8px;margin-bottom:12px}
+.related-card h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.02rem;color:var(--navy);margin:0 0 8px;line-height:1.35}
+.related-card p{font-size:.84rem;color:var(--slate);line-height:1.65;margin:0}
+
+/* FOOTER — matches homepage */
+.footer{background:#fff;border-top:1.5px solid var(--border);padding:60px 24px 36px}
+.footer-inner{max-width:1120px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1.5px solid var(--border);margin-bottom:30px}
+.footer-logo{height:48px;width:auto;margin-bottom:14px}
+.footer-tagline{font-size:.85rem;color:var(--slate);max-width:220px;line-height:1.7;margin-bottom:20px;font-weight:400}
+.footer-social{display:flex;gap:10px}
+.footer-social a{width:36px;height:36px;border:1.5px solid var(--border);border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--slate);transition:all .2s}
+.footer-social a:hover{border-color:var(--blue);color:var(--blue);background:#EFF6FF}
+.footer-social svg{width:16px;height:16px;fill:currentColor}
+.footer-col h4{font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:#94A3B8;margin:0 0 16px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;padding:0}
+.footer-col a{font-size:.875rem;color:var(--slate);transition:color .18s;font-weight:500}
+.footer-col a:hover{color:var(--navy)}
+.footer-aff{font-size:.82rem;color:var(--blue);font-weight:700}
+.footer-risk{background:var(--light);border:1.5px solid var(--border);border-radius:12px;padding:18px 22px;margin-bottom:16px;font-size:.75rem;color:#5B7399;line-height:1.75}
+.footer-risk strong{color:var(--slate);font-weight:700}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:6px}
+.footer-copy{font-size:.75rem;color:#94A3B8;font-weight:500}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .nav-links{display:none}
+  .nav-cta-desktop{display:none !important}
+  .hamburger{display:flex}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .feature-grid,.related-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .footer-top{grid-template-columns:1fr}
+  h1{font-size:2rem}
+  h2{font-size:1.6rem}
+  .answer-box{padding:24px 22px}
+  .cta-banner{padding:42px 28px}
+  .cta-banner h3{font-size:1.5rem}
+}
+
+
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" aria-label="Tradecovex home"><img src="/logo.png" alt="Tradecovex" class="nav-logo"></a>
+    <ul class="nav-links">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/guides/">Guides</a></li>
+      <li><a href="/#pricing">Pricing</a></li>
+      <li><a href="/#faq">FAQ</a></li>
+    </ul>
+    <a href="https://app.tradecovex.com/signup" class="btn btn-primary nav-cta-desktop" style="display:inline-flex">Start 14-Day Free Trial</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/#features">Features</a>
+  <a href="/guides/">Guides</a>
+  <a href="/#pricing">Pricing</a>
+  <a href="/#faq">FAQ</a>
+  <a href="https://app.tradecovex.com/signup" class="btn btn-primary">Start 14-Day Free Trial</a>
+</div>
+
+
+<section class="guide-hero">
+  <div class="hero-eyebrow"><span class="dot"></span>BULENOX TRADE COPIER GUIDE</div>
+  <p class="breadcrumb"><a href="/">Home</a> › <a href="/guides/">Guides</a> › Best Trade Copier for Bulenox 2026</p>
+  <h1>The Best Trade Copier for <span class="accent">Bulenox</span> in 2026</h1>
+  <div class="guide-meta">
+    <span>📅 Updated July 2026</span>
+    <span>⏱ 12 min read</span>
+    <span>✍ Tradecovex Team</span>
+  </div>
+  <div class="answer-box">
+    <span class="answer-box-label">Quick Answer</span>
+    <p>Bulenox is <strong>the most copy-trading-permissive major futures prop firm in 2026</strong>. EAs, bots, algorithmic strategies, and third-party trade copiers are all explicitly permitted on every account type — Qualification, Master, and Funded. The best trade copier for Bulenox is one that runs locally on NinjaTrader, respects the Option 1 (real-time trailing) vs Option 2 (EOD + DLL) choice each account carries, enforces the 40% consistency rule per account, and scales to Bulenox's 11-Master-Account ceiling — which is the highest in the futures prop space outside Apex.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container prose">
+
+<h2><span class="section-num">01</span>Why Bulenox is unusually copier-friendly</h2>
+
+<p>Most prop firms permit copy trading between your own accounts with some fine print. Bulenox is different: their permitted-strategies policy explicitly lists EAs, algorithmic strategies, and trade copiers as allowed on every account type. This is not a "yes but confirm with support" answer — it is the documented policy.</p>
+
+<p>What Bulenox prohibits is a short and specific list:</p>
+
+<ul>
+  <li><strong>High-frequency trading.</strong> Strategies that submit hundreds or thousands of orders per minute, cancel most without fills, or exploit co-located server latency to front-run other participants. Bulenox monitors order-to-fill ratios via Rithmic. A NinjaTrader EA running mean-reversion signals at normal frequency (5–30 trades per session) does not trigger this.</li>
+  <li><strong>Cross-account hedging.</strong> Long on one account and short on the same instrument on another is prohibited. Under a copier, followers move in the same direction as the lead, so this doesn't happen accidentally.</li>
+  <li><strong>Copying between different traders.</strong> Standard restriction — you can copy your own accounts, not someone else's.</li>
+</ul>
+
+<p>The gap between Bulenox and stricter competitors (TPT PRO, some Tradeify enforcement) is significant. If your goal is a firm where you can build multi-account automation without fighting policy at every step, Bulenox is genuinely the cleanest choice.</p>
+
+<h2><span class="section-num">02</span>The Option 1 vs Option 2 decision — the entire rest of the setup depends on this</h2>
+
+<p>Every Bulenox account is sold in two flavors at checkout. Which one you pick decides the drawdown mechanic, whether there is a daily loss limit, whether you scale contracts by balance, and how a copier should be configured. This is the most important decision at Bulenox and it is made before you place a single trade.</p>
+
+<div class="data-table-wrap">
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Option 1 (No Scaling)</th>
+        <th>Option 2 (EOD)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Drawdown</td>
+        <td>Real-time trailing (unrealized peaks move the floor)</td>
+        <td>End-of-day only (session close only)</td>
+      </tr>
+      <tr>
+        <td>Daily loss limit</td>
+        <td>None</td>
+        <td>Yes ($400 / $500 / $1,100 / $2,200 / $3,300 / $4,500 by size)</td>
+      </tr>
+      <tr>
+        <td>Contract access</td>
+        <td>Full from day one</td>
+        <td>Scaling plan — unlocks as balance grows</td>
+      </tr>
+      <tr>
+        <td>Intraday swings</td>
+        <td>Move the floor permanently</td>
+        <td>Do not affect the floor</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>Under a copier, Option 1 is the harsher parent because the drawdown floor ratchets up on unrealized peaks. If your lead prints a $600 winning trade that comes back to +$200, the floor moved up by $600 on every Option 1 follower, and you gave back $400 of drawdown room across the entire portfolio permanently. On Option 2 accounts, the same trade sequence changes nothing on the floor until session close.</p>
+
+<div class="pull-quote">Option 2 is structurally better for a copier because the drawdown behaviour is more predictable. Option 1 is better for a single account trader who trusts their exits.</div>
+
+<p>Most multi-account copier setups do better on Option 2. The scaling plan caps contract size early in the account life, but that ceiling is easy to work around by scaling into multiple accounts rather than scaling up size on one account.</p>
+
+<h2><span class="section-num">03</span>Video walkthrough — getting started with Bulenox</h2>
+
+<div class="video-wrap">
+  <iframe src="https://www.youtube.com/embed/XSLuN2aUIXE" title="How to Get Started with Bulenox — Full Walkthrough" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
+
+<p>Third-party walkthrough of Bulenox setup. This is not our video and we do not endorse the creator's other content — it is embedded here because it covers the account-selection and NinjaTrader connection steps a multi-account Bulenox trader needs before configuring any copier.</p>
+
+<h2><span class="section-num">04</span>Scaling from 3 to 11 Master Accounts</h2>
+
+<p>Bulenox uses progressive activation. You start with 3 active Master Accounts. As each account's max drawdown reaches its starting balance (which happens once the trailing drawdown has locked at the initial floor and profit exceeds the drawdown amount), an additional Master Account slot unlocks. The maximum is 11 simultaneous Master Accounts.</p>
+
+<p>Under a copier, this progression matters for a specific reason: the copier's per-account state visibility becomes the bottleneck, not the copy path. Fanning one order to 11 followers is easy. Knowing what is happening on 11 followers is where 90% of the value lives.</p>
+
+<p>Practical sequencing:</p>
+
+<ol>
+  <li><strong>Start with 3 Master Accounts on Option 2</strong>, ideally three different sizes ($50K, $100K, $150K).</li>
+  <li>Use the smallest as your lead. Copied orders scale up cleanly.</li>
+  <li>Get one account past starting balance, then add the fourth. Repeat.</li>
+  <li>By the time you reach 7–8 active accounts, the manual review of every day's trades across every account is impossible. This is where the AI journal earns its role.</li>
+</ol>
+
+<h2><span class="section-num">05</span>The 40% consistency rule at Master phase</h2>
+
+<p>Bulenox's 40% consistency rule: at every payout request, no single trading day's profit can exceed 40% of your total profit balance. If your best day is $2,000 and your total profit is $4,500, your best day is 44.4% — payout paused or rejected until the ratio balances.</p>
+
+<p>The rule applies at Master phase (not Qualification) and is checked at every payout request. Under a copier, if you fan identical trades onto identical-sized followers, you trip the 40% threshold on every account simultaneously. This is exactly the structural failure mode a smart copier configuration prevents.</p>
+
+<p>The fix is not a copier setting you flip once. It is varying multipliers per follower so a big day lands as different absolute profit on each. On an 11-account setup, per-account multiplier variation is not optional — it is the entire strategy.</p>
+
+<h2><span class="section-num">06</span>Setting up Bulenox on NinjaTrader</h2>
+
+<p>The setup sequence for a clean multi-account Bulenox copier:</p>
+
+<ol>
+  <li><strong>Take the free NinjaTrader license.</strong> Bulenox provides a free NT 8 license while trading a Master Account. Use it — no reason to pay separately.</li>
+  <li><strong>Configure the Rithmic connection.</strong> In NT 8 → Tools → Options → Connections, add a Rithmic connection using the credentials Bulenox provides in your dashboard. Each Master Account has its own credentials; add each account as a separate connection. Bulenox supports up to 11 Rithmic connections simultaneously.</li>
+  <li><strong>Note the platform ceiling.</strong> NinjaTrader Desktop cannot connect to multiple Rithmic sessions simultaneously without the Multi-Broker Add-On. Verify your setup handles the account count you plan to run before scaling.</li>
+  <li><strong>Pick your lead based on smallest contract cap.</strong> On Option 2, the scaling plan caps contract size until balance grows. Use the account with the smallest current contract limit as your lead.</li>
+  <li><strong>Set per-account multipliers for the consistency rule.</strong> Don't run identical size on identical-sized followers — the 40% rule will bite everyone at once.</li>
+  <li><strong>Configure the 3:59 PM CT auto-flatten.</strong> Bulenox does not permit overnight holding — all positions must be flat by session end. Set your copier's per-account flatten time at 3:55 PM CT to give yourself a 5-minute buffer.</li>
+  <li><strong>Dry-run on micros before scaling.</strong> Same as any prop firm setup. Ten small trades reveal every misconfiguration.</li>
+</ol>
+
+<h2><span class="section-num">07</span>Honest comparison — Bulenox-specific copier options</h2>
+
+<div class="data-table-wrap">
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Copier</th>
+        <th>Architecture</th>
+        <th>Bulenox fit</th>
+        <th>AI journal</th>
+        <th>Pricing</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="tc-row">
+        <td>Tradecovex</td>
+        <td>Local NinjaTrader add-on</td>
+        <td>Full via Rithmic, scales to 11 accounts</td>
+        <td><span class="ck">✓</span> per-account divergence</td>
+        <td>$19–$79/mo · 14-day trial</td>
+      </tr>
+      <tr>
+        <td>Replikanto</td>
+        <td>Local NinjaTrader add-on</td>
+        <td>Full via NT + Rithmic</td>
+        <td><span class="cx">✗</span></td>
+        <td>$150–$250 one-time</td>
+      </tr>
+      <tr>
+        <td>Affordable Indicators Trade Copier</td>
+        <td>Local NinjaTrader add-on</td>
+        <td>Bulenox-marketed</td>
+        <td><span class="cx">✗</span></td>
+        <td>One-time lifetime</td>
+      </tr>
+      <tr>
+        <td>Tradecopia</td>
+        <td>Broker-API-direct desktop</td>
+        <td>Rithmic direct, no NT needed</td>
+        <td><span class="cx">✗</span></td>
+        <td>~$40–$90/mo</td>
+      </tr>
+      <tr>
+        <td>NinjaTrader free copier</td>
+        <td>Built into NinjaTrader</td>
+        <td>Full but 19-account cap</td>
+        <td><span class="cx">✗</span></td>
+        <td>Free</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>Bulenox's Rithmic-based routing means every local NinjaTrader copier works with it cleanly. The competitive question isn't compatibility — it's what happens after the copy.</p>
+
+<p>On a 3-account Bulenox setup, the free NinjaTrader copier is fine. Save the money.</p>
+
+<p>On a 7–11 account setup, order replication is not the hard problem. Understanding which accounts are diverging, which are approaching the 40% consistency threshold, which have latency issues on the Rithmic feed — that is the hard problem. That is where an AI-journal-integrated copier changes what is possible.</p>
+
+<h2><span class="section-num">08</span>What the AI journal catches on a Bulenox setup</h2>
+
+<p>On a Bulenox portfolio running at scale, the specific things a journal wired into the copier surfaces:</p>
+
+<ul>
+  <li><strong>Option 1 vs Option 2 divergence.</strong> If you run a mix (some accounts on Option 1 for full contract access, some on Option 2 for the EOD drawdown), the journal decomposes P&L per account type and shows which drawdown mechanic is actually costing you money.</li>
+  <li><strong>Per-account 40% consistency proximity.</strong> Each Master Account's best-day-vs-total-profit ratio, tracked live. Warns you before any account crosses the 40% threshold — days before payout time, not at payout time.</li>
+  <li><strong>Session-timing expectancy.</strong> Bulenox permits news trading with no restriction. Your NFP performance is a real question and the journal quantifies it per account.</li>
+  <li><strong>Behavioural tags across 11 accounts.</strong> A single revenge trade at 11-account scale is 11 revenge trades. Same-day behavioural flagging matters more, not less, at scale.</li>
+</ul>
+
+<h2><span class="section-num">09</span>Common mistakes running multiple Bulenox accounts</h2>
+
+<ul>
+  <li><strong>Picking Option 1 without understanding the ratchet.</strong> "No scaling plan" sounds great until you realise the trailing drawdown moves in real time. On multi-account, this is where drawdown gets eaten quietly.</li>
+  <li><strong>Running identical multipliers on identical-sized accounts.</strong> Guarantees the 40% consistency rule trips on every account simultaneously.</li>
+  <li><strong>Trying to activate all 11 Master Accounts at once.</strong> Progressive activation exists for a reason. Run 3 well before you scale.</li>
+  <li><strong>Trading through news on Option 1.</strong> Real-time trailing drawdown + high-volatility release = accounts end fast.</li>
+  <li><strong>Forgetting the 3:59 PM CT flat rule.</strong> No overnight holding at Bulenox. Miss the flatten window and you can lose the account.</li>
+</ul>
+
+<h2><span class="section-num">10</span>Bottom line</h2>
+
+<p>Bulenox is genuinely the easiest major futures prop firm to run a copier on. The policy explicitly permits it, the account cap (11 Masters) is generous, the platform support is broad, and the rules are checked at payout time rather than enforced with instant automated detection.</p>
+
+<p>The trade-offs are the 40% consistency rule at payout (stricter than Topstep's 50%, softer than Lightning's 20%), the Option 1 vs Option 2 choice you make upfront, and the flat-by-4-PM-CT rule. Get those right and Bulenox is the firm where multi-account copier trading actually works the way it should — without policy friction, without automated enforcement traps, and without a stage where copying is prohibited.</p>
+
+<p>The remaining question at 7–11 accounts is not whether the orders replicate. It is whether you can actually understand what is happening across them. That is what the AI journal exists for.</p>
+
+    <div class="cta-banner">
+      <h3>Run every Bulenox Master Account from one NinjaTrader window</h3>
+      <p>Tradecovex copies trades across all your Bulenox Master Accounts and runs an AI journal on every copied fill. Track per-account 40% consistency proximity, flag Option 1 vs Option 2 divergence, and stay sighted at 11-account scale. Launch pricing locked for life.</p>
+      <a href="https://app.tradecovex.com/signup" class="btn btn-primary btn-lg">Start 14-Day Free Trial</a>
+      <div class="cta-perks">
+        <span class="cta-perk">14-day free trial</span>
+        <span class="cta-perk">No credit card required</span>
+        <span class="cta-perk">Launch pricing locked for life</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container">
+    <div style="text-align:center">
+      <span class="section-tag">Frequently Asked Questions</span>
+      <h2>Common questions about copying trades on Bulenox</h2>
+    </div>
+    <div class="faq-list" style="margin-top:40px">
+    <div class="faq-item">
+      <button class="faq-q">Does Bulenox allow trade copying across multiple accounts?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Yes, explicitly. Bulenox is one of the most copy-trading-permissive futures prop firms in 2026 — EAs, bots, algorithmic strategies, and third-party trade copiers are all allowed on every account type (Qualification, Master, and Funded). Cross-account hedging is prohibited and high-frequency trading is monitored via Rithmic. Copying between your own accounts is the standard permitted use case.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How many Bulenox accounts can I copy trades across?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Bulenox permits up to 11 Master Accounts simultaneously with progressive activation — you start with 3 and unlock more as each account's max drawdown reaches its starting balance. This is one of the higher account caps in the futures prop firm space. A copier that reliably fans one lead order out to 11 followers is genuinely useful at Bulenox in a way it isn't at firms capped at 5.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What is the difference between Bulenox Option 1 and Option 2 for a copier?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Option 1 (No Scaling) uses real-time trailing drawdown with no daily loss limit and full contract access from day one. Option 2 (EOD) uses end-of-day drawdown, a daily loss limit, and a scaling plan. Under a copier, Option 1 is harsher because unrealized peaks move the floor permanently. Most multi-account copier setups do better on Option 2 because the drawdown behaviour is more predictable.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How does the Bulenox 40% consistency rule affect copied trades?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">The 40% consistency rule means no single day can exceed 40% of your total profit at payout time. Applied at Master phase and checked at every payout request. Under a copier, identical trades on identical-sized followers trip the 40% threshold on every account simultaneously. Vary size per account so a big day lands as different absolute profit on each.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Which trading platforms work best with a Bulenox copier?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Bulenox routes through Rithmic and supports over 20 Rithmic-compatible platforms including NinjaTrader 8, Sierra Chart, Bookmap, Jigsaw Daytradr, ATAS, Quantower, R|Trader Pro, and MotiveWave. NinjaTrader 8 is the most common choice — Bulenox provides a free NT license with a Master Account. Bulenox does not natively support TradingView.</div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container-wide">
+    <div style="text-align:center">
+      <span class="section-tag">Related Guides</span>
+      <h2>Keep reading</h2>
+    </div>
+    <div class="related-grid">
+    <a href="/guides/ninjatrader-trade-copier" class="related-card">
+      <span class="related-tag">Pillar</span>
+      <h4>NinjaTrader Trade Copier — Complete Guide</h4>
+      <p>The full pillar guide to trade copiers on NinjaTrader for prop firm futures traders.</p>
+    </a>
+    <a href="/guides/bulenox-rules-2026" class="related-card">
+      <span class="related-tag">Prop Firm</span>
+      <h4>Bulenox Rules 2026</h4>
+      <p>Every current Bulenox rule across Qualification, Master, and Funded phases with Option 1 and Option 2 mechanics.</p>
+    </a>
+    <a href="/guides/best-trade-copier-topstep-2026" class="related-card">
+      <span class="related-tag">Prop Firm</span>
+      <h4>Best Trade Copier for Topstep 2026</h4>
+      <p>Copying across multiple Topstep accounts on NinjaTrader.</p>
+    </a>
+    <a href="/guides/best-trade-copier-mffu-2026" class="related-card">
+      <span class="related-tag">Prop Firm</span>
+      <h4>Best Trade Copier for MyFundedFutures 2026</h4>
+      <p>Copying across MFFU Core, Rapid, and Pro accounts.</p>
+    </a>
+    <a href="/guides/best-trade-copier-tradeify-2026" class="related-card">
+      <span class="related-tag">Prop Firm</span>
+      <h4>Best Trade Copier for Tradeify 2026</h4>
+      <p>Copying across Tradeify accounts with anti-hedging and 10-second rules.</p>
+    </a>
+    <a href="/guides/ai-trading-journal" class="related-card">
+      <span class="related-tag">Pillar</span>
+      <h4>AI Trading Journal for Futures Traders</h4>
+      <p>How AI actually reviews the trades your copier places on every account.</p>
+    </a>
+    </div>
+  </div>
+</section>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="/"><img src="/logo.png" alt="Tradecovex" class="footer-logo"></a>
+        <p class="footer-tagline">The smartest trade copier for NinjaTrader — copy trades and let the AI tell you why.</p>
+        <div class="footer-social">
+          <a href="https://x.com/_tradecovex" target="_blank" rel="noopener" title="Twitter / X" aria-label="Twitter">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@Tradecovex-k4n" target="_blank" rel="noopener" title="YouTube" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/tradecovex_official/" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/tradecovex/" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#how">How It Works</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="https://app.tradecovex.com/signup">Start 14-Day Free Trial</a></li>
+          <li><a href="/guides/">All Guides</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/privacy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Partners</h4>
+        <ul>
+          <li><a href="#" class="footer-aff">Affiliates — Earn $15–$45/signup</a></li>
+        </ul>
+      </div>
+    </div>
+    <div style="text-align:center;padding:24px 0 16px"><a href="https://ninjatrader.com" target="_blank" rel="noopener" style="display:inline-block;background:#fff;border-radius:8px;padding:18px !important"><img src="/assets/ninjatrader-logo.png" alt="NinjaTrader" style="height:30px;display:block" /></a></div>
+    <div class="footer-risk">
+      <strong>⚠ Risk Disclosure:</strong> Futures and forex trading contains substantial risk and is not for every investor. An investor could potentially lose all or more than the initial investment. Risk capital is money that can be lost without jeopardizing one's financial security or lifestyle. Only risk capital should be used for trading and only those with sufficient risk capital should consider trading. Past performance is not necessarily indicative of future results. Tradecovex is a software tool — it does not provide investment advice and does not guarantee trading results. Use of a trade copier does not guarantee compliance with prop firm rules. All trading decisions are your responsibility. Only trade with capital you can afford to lose.
+    </div>
+    <div class="footer-risk" style="margin-top:10px">
+      <strong>No Investment Advice:</strong> Tradecovex is a software tool for trade copying and journaling. IVAAN INC is not registered as an investment adviser with the Ontario Securities Commission, CIRO, the SEC, or any other regulatory body. Nothing in Tradecovex — including the AI journal analysis feature — constitutes investment advice, financial advice, or a recommendation to buy or sell any security, futures contract, or other financial instrument. The AI journal provides analytical observations about your historical trading patterns for informational purposes only. All trading decisions are made solely by you.
+    </div>
+    <div class="footer-risk" style="margin-top:10px"><strong>CFTC Rule 4.41 — Hypothetical Performance Disclosure:</strong> Hypothetical performance results have many inherent limitations, some of which are described below. No representation is being made that any account will or is likely to achieve profits or losses similar to those shown; in fact, there are frequently sharp differences between hypothetical performance results and the actual results subsequently achieved by any particular trading program. One of the limitations of hypothetical performance results is that they are generally prepared with the benefit of hindsight. In addition, hypothetical trading does not involve financial risk, and no hypothetical trading record can completely account for the impact of financial risk of actual trading. For example, the ability to withstand losses or to adhere to a particular trading program despite trading losses are material points which can also adversely affect actual trading results. There are numerous other factors related to the markets in general or to the implementation of any specific trading program which cannot be fully accounted for in the preparation of hypothetical performance results and all which can adversely affect trading results.</div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Tradecovex. All rights reserved. Built by IVAAN INC, Ontario, Canada.</span>
+      <span class="footer-copy">Canadian users served from Toronto · US users served from New York · PIPEDA compliant</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const hamburger=document.getElementById('hamburger');const mobileMenu=document.getElementById('mobile-menu');if(hamburger){hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');});}
+document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{q.parentElement.classList.toggle('open');});});
+</script>
+</body>
+</html>

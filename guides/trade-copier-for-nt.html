@@ -193,52 +193,23 @@ h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.3r
   h1{font-size:2rem}
   h2{font-size:1.7rem}
 }
-
-/* === DARK NAV OVERRIDE (match homepage) === */
-.nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:0 40px 0 36px;background:rgba(10,22,40,0.95);border-bottom:1px solid rgba(255,255,255,0.06);backdrop-filter:none;-webkit-backdrop-filter:none;transition:background .3s}
-.nav.scrolled{background:rgba(10,22,40,0.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px)}
-.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
-.nav-logo{height:102px;width:auto;opacity:0.95}
-.nav-links{display:flex;align-items:center;gap:22px;list-style:none}
-.nav-links a{font-size:.85rem;font-weight:600;color:rgba(255,255,255,0.55);transition:color .2s;letter-spacing:.02em;text-transform:uppercase}
-.nav-links a:hover{color:#fff}
-.nav-links a.demo-link{color:#5FE5B0;display:inline-flex;align-items:center;gap:7px}
-.nav-links a.demo-link::before{content:'';width:6px;height:6px;border-radius:50%;background:#3FD69B;box-shadow:0 0 10px #3FD69B,0 0 3px #3FD69B;animation:livePulse 2s infinite}
-@keyframes livePulse{0%,100%{opacity:1}50%{opacity:.4}}
-.hamburger span{background:#fff}
-.mobile-menu{background:rgba(10,22,40,0.97);border-bottom:1px solid rgba(255,255,255,0.06);top:64px}
-.mobile-menu a{color:rgba(255,255,255,0.55);border-bottom:1px solid rgba(255,255,255,0.06);text-transform:uppercase;font-size:.85rem;letter-spacing:.02em}
-.mobile-menu a:hover{color:#fff}
-.mobile-menu a.demo-link{color:#5FE5B0;display:flex;align-items:center;gap:7px}
-.mobile-menu a.demo-link::before{content:'';width:6px;height:6px;border-radius:50%;background:#3FD69B;box-shadow:0 0 10px #3FD69B}
-@media (max-width:768px){.nav{padding:0 16px}.nav-inner{height:60px}.nav-logo{height:50px}.nav-links{display:none}.hamburger{display:flex !important}.mobile-menu{top:60px}}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav class="nav" id="nav">
+<nav class="nav">
   <div class="nav-inner">
-    <a href="/" aria-label="Tradecovex home"><img src="/assets/logo-dark.png" alt="Tradecovex" class="nav-logo"></a>
+    <a href="/"><img src="/logo.png" alt="Tradecovex" class="nav-logo"></a>
     <ul class="nav-links">
-      <li><a href="/#integrated">Features</a></li>
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/guides">Guides</a></li>
       <li><a href="/#pricing">Pricing</a></li>
-      <li><a href="/compare/">Compare</a></li>
-      <li><a href="/guides/">Guides</a></li>
       <li><a href="/#faq">FAQ</a></li>
-      <li><a href="/demo.html" class="demo-link">Live Demo</a></li>
     </ul>
-    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <a href="https://app.tradecovex.com/signup" class="btn btn-primary">Start 14-Day Free Trial</a>
   </div>
 </nav>
-<div class="mobile-menu" id="mobile-menu">
-  <a href="/#integrated">Features</a>
-  <a href="/#pricing">Pricing</a>
-  <a href="/compare/">Compare</a>
-  <a href="/guides/">Guides</a>
-  <a href="/#faq">FAQ</a>
-  <a href="/demo.html" class="demo-link">Live Demo</a>
-</div>
 
 <!-- ARTICLE HERO -->
 <section class="article-hero">
@@ -553,6 +524,31 @@ h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.3r
       <h2>Related guides</h2>
     </div>
     <div class="related-grid">
+      <a href="/guides/best-trade-copier-topstep-2026" class="related-card">
+        <span class="cat">Trade Copier</span>
+        <h4>Best Trade Copier for Topstep in 2026</h4>
+        <span class="arrow">Read guide →</span>
+      </a>
+      <a href="/guides/best-trade-copier-mffu-2026" class="related-card">
+        <span class="cat">Trade Copier</span>
+        <h4>Best Trade Copier for MyFundedFutures 2026</h4>
+        <span class="arrow">Read guide →</span>
+      </a>
+      <a href="/guides/best-trade-copier-tradeify-2026" class="related-card">
+        <span class="cat">Trade Copier</span>
+        <h4>Best Trade Copier for Tradeify 2026</h4>
+        <span class="arrow">Read guide →</span>
+      </a>
+      <a href="/guides/best-trade-copier-take-profit-trader-2026" class="related-card">
+        <span class="cat">Trade Copier</span>
+        <h4>Best Trade Copier for Take Profit Trader 2026</h4>
+        <span class="arrow">Read guide →</span>
+      </a>
+      <a href="/guides/best-trade-copier-bulenox-2026" class="related-card">
+        <span class="cat">Trade Copier</span>
+        <h4>Best Trade Copier for Bulenox 2026</h4>
+        <span class="arrow">Read guide →</span>
+      </a>
       <a href="/guides/copy-trades-apex-trader-funding" class="related-card">
         <span class="cat">Trade Copier</span>
         <h4>How to Copy Trades Across Multiple Apex Accounts</h4>
@@ -633,7 +629,7 @@ h3{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.3r
         </ul>
       </div>
     </div>
-    <div style="text-align:center;padding:24px 0 16px"><a href="https://ninjatraderus.pxf.io/X4GzXX" target="_blank" rel="noopener" style="display:inline-block;background:#fff;border-radius:8px;padding:18px !important"><img src="/assets/ninjatrader-logo.png" alt="NinjaTrader" style="height:30px;display:block" /></a></div>
+    <div style="text-align:center;padding:24px 0 16px"><a href="https://ninjatrader.com" target="_blank" rel="noopener" style="display:inline-block;background:#fff;border-radius:8px;padding:18px !important"><img src="/assets/ninjatrader-logo.png" alt="NinjaTrader" style="height:30px;display:block" /></a></div>
     <div class="footer-risk">
       <strong>&#x26A0; Risk Disclosure:</strong> Futures and forex trading contains substantial risk and is not for every investor. An investor could potentially lose all or more than the initial investment. Risk capital is money that can be lost without jeopardizing one's financial security or lifestyle. Only risk capital should be used for trading and only those with sufficient risk capital should consider trading. Past performance is not necessarily indicative of future results. Tradecovex is a software tool &mdash; it does not provide investment advice and does not guarantee trading results. Use of a trade copier does not guarantee compliance with prop firm rules. All trading decisions are your responsibility. Only trade with capital you can afford to lose.
     </div>
@@ -659,6 +655,5 @@ document.querySelectorAll('.faq-q').forEach(btn => {
 });
 </script>
 
-<script>(function(){var n=document.getElementById('nav');if(n){window.addEventListener('scroll',function(){n.classList.toggle('scrolled',window.scrollY>40);});}var h=document.getElementById('hamburger'),m=document.getElementById('mobile-menu');if(h&&m){h.addEventListener('click',function(){h.classList.toggle('open');m.classList.toggle('open');});}})();</script>
 </body>
 </html>
