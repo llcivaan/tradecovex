@@ -120,3 +120,11 @@
   from = "/guides/best-vps-ninjatrader-copier"
   to = "/guides/best-vps-nt-copier"
   status = 301
+
+# Legacy backlink fix: this page used to live under /guides/ before the
+# compare/ directory existed. GSC flagged this as a 404 (Jul 18, 2026) —
+# an old external backlink or cached URL still points here.
+[[redirects]]
+  from = "/guides/best-ninjatrader-trade-copiers-2026"
+  to = "/compare/best-nt-trade-copiers-2026"
+  status = 301
