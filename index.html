@@ -1311,7 +1311,7 @@ a{text-decoration:none;color:inherit}
   /* Sticky scene preserved on mobile — full animation runs.
      Cards stack absolutely on top of each other inside the pin and the JS swaps them
      one at a time as scroll progresses (Starter → Pro → Elite). */
-  .pricing-scene{ height:280vh; }
+  .pricing-scene{ height:460vh; }
 
   /* Smaller headline so the peak scale doesn't overflow horizontally */
   .pricing-headline{
@@ -3498,7 +3498,13 @@ mobileMenu.querySelectorAll('a').forEach(a => {
 
     // â”€â”€ Headline transform: massive+centered → small+top
     // Mobile uses a smaller peak scale so "Lock In Your Rate." doesn't clip horizontally.
-    const headP = clamp(p / 0.45, 0, 1);
+    // Mobile also uses tighter head/chevron fractions so the curtain finishes opening
+    // well before card-swapping starts (previously they overlapped, causing Starter
+    // to already be swapped out by the time the curtain was fully open).
+    const headFrac  = mobile ? 0.27  : 0.45;
+    const chevStart = mobile ? 0.11  : 0.18;
+    const chevWidth = mobile ? 0.365 : 0.60;
+    const headP = clamp(p / headFrac, 0, 1);
     const headEased = easeInOut(headP);
     const startScale = mobile ? 1.45 : 1.85;
     const endScale   = 1.0;
@@ -3511,7 +3517,7 @@ mobileMenu.querySelectorAll('a').forEach(a => {
     });
 
     // â”€â”€ Chevron clip-path: closed → open
-    const chevP = clamp((p - 0.18) / 0.60, 0, 1);
+    const chevP = clamp((p - chevStart) / chevWidth, 0, 1);
     const chevEased = easeInOut(chevP);
     const apexY = clamp(100 - 130 * chevEased, 0, 100);
     const baseY = clamp(100 - 100 * chevEased, 0, 100);
@@ -3543,41 +3549,61 @@ mobileMenu.querySelectorAll('a').forEach(a => {
       });
     } else {
       // â”€â”€ MOBILE: cards stacked absolutely, swap one at a time as scroll progresses.
-      // After chevron is mostly peeled (p â‰ˆ 0.50), Starter slides in.
-      // Pro takes over around 0.68. Elite takes over around 0.86.
-      // Each card: slide in from right (translateX 100% → 0) and slide out to left (0 → -100%),
-      // with opacity ramping in/out over a small range so transitions feel smooth.
+      // SWAP_START matches where the chevron finishes opening, so card swapping
+      // never starts until the curtain is fully peeled back. Starter is guaranteed
+      // full opacity at swapP=0 (the exact moment the curtain finishes), then each
+      // card gets a real static "plateau" before crossfading to the next — no card
+      // is ever fully hidden mid-transition (no double-zero gap like before).
       const SWAP_START = 0.50;
       const SWAP_END   = 1.00;
       const swapP = clamp((p - SWAP_START) / (SWAP_END - SWAP_START), 0, 1);
-      // 3 cards across 1.0 of swap progress = each gets 1/3 = 0.333 of swap window
-      // HTML order = Starter (0), Pro (1), Elite (2)
-      const N = cols.length;
-      const SLOT = 1 / N;
-      const FADE = 0.18; // fraction of a slot used for fade in/out
+
+      // Explicit timeline for exactly 3 cards (Starter, Pro, Elite) across swapP 0→1:
+      //   [0.00–0.15] Starter solo, full opacity, centered
+      //   [0.15–0.35] Starter → Pro crossfade
+      //   [0.35–0.65] Pro solo, full opacity, centered
+      //   [0.65–0.85] Pro → Elite crossfade
+      //   [0.85–1.00] Elite solo, full opacity, centered
+      function cardOpacity(i, t){
+        if (i === 0){ // Starter
+          if (t <= 0.15) return 1;
+          if (t <= 0.35) return 1 - (t - 0.15) / 0.20;
+          return 0;
+        }
+        if (i === 1){ // Pro
+          if (t <= 0.15) return 0;
+          if (t <= 0.35) return (t - 0.15) / 0.20;
+          if (t <= 0.65) return 1;
+          if (t <= 0.85) return 1 - (t - 0.65) / 0.20;
+          return 0;
+        }
+        // Elite
+        if (t <= 0.65) return 0;
+        if (t <= 0.85) return (t - 0.65) / 0.20;
+        return 1;
+      }
+      function cardTx(i, t){
+        if (i === 0){ // Starter: static, then slides left as it fades out
+          if (t <= 0.15) return 0;
+          if (t <= 0.35) return -60 * ((t - 0.15) / 0.20);
+          return -60;
+        }
+        if (i === 1){ // Pro: slides in from right, static, slides out left
+          if (t <= 0.15) return 60;
+          if (t <= 0.35) return 60 * (1 - (t - 0.15) / 0.20);
+          if (t <= 0.65) return 0;
+          if (t <= 0.85) return -60 * ((t - 0.65) / 0.20);
+          return -60;
+        }
+        // Elite: slides in from right, then static
+        if (t <= 0.65) return 60;
+        if (t <= 0.85) return 60 * (1 - (t - 0.65) / 0.20);
+        return 0;
+      }
 
       cols.forEach((c, i) => {
-        const slotCenter = (i + 0.5) * SLOT;
-        const dist = swapP - slotCenter;            // negative = card hasn't entered yet
-        const absDist = Math.abs(dist);
-        let opacity, tx;
-        if (absDist < SLOT * 0.5 - FADE){
-          // Fully visible, centered
-          opacity = 1;
-          tx = 0;
-        } else if (absDist < SLOT * 0.5 + FADE){
-          // Fading edge — easing in or out
-          const t = (absDist - (SLOT * 0.5 - FADE)) / (FADE * 2);
-          const eased = easeInOut(clamp(t, 0, 1));
-          opacity = 1 - eased;
-          // Direction: if card hasn't been reached yet (dist < 0), it's coming from right;
-          // if it's been passed (dist > 0), it's leaving to the left.
-          tx = (dist < 0 ? 1 : -1) * eased * 60;     // % of card width
-        } else {
-          // Fully hidden, parked on appropriate side
-          opacity = 0;
-          tx = dist < 0 ? 60 : -60;
-        }
+        const opacity = cardOpacity(i, swapP);
+        const tx = cardTx(i, swapP);
         c.style.opacity = String(opacity);
         c.style.transform = `translateX(${tx}%)`;
         c.classList.toggle('in', opacity > 0.5);
