@@ -2410,7 +2410,7 @@ a{text-decoration:none;color:inherit}
 <div class="sticky-cta">
   <span class="sticky-label">14-day free trial</span>
   <div class="sticky-sep"></div>
-  <button class="sticky-btn" onclick="window.location.href='https://app.tradecovex.com/signup'">
+  <button class="sticky-btn" onclick="window.location.href=window.tcxSignupUrl ? window.tcxSignupUrl() : 'https://app.tradecovex.com/signup'">
     Start Free Trial <span class="arrow">→</span>
   </button>
   <button class="sticky-demo" onclick="window.location.href='demo.html'">
@@ -3891,6 +3891,62 @@ document.querySelectorAll('.faq-q').forEach(btn => {
 })();
 </script>
 
+<script>
+(function () {
+  var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign'];
+  var UTM_WINDOW_MS = 30 * 60 * 1000; // 30 minutes
+
+  // 1. Capture fresh UTM params from the current URL, if present.
+  var params = new URLSearchParams(window.location.search);
+  var hasFreshUTM = UTM_KEYS.some(function (k) { return params.get(k); });
+
+  if (hasFreshUTM) {
+    UTM_KEYS.forEach(function (k) {
+      var v = params.get(k);
+      if (v) localStorage.setItem(k, v);
+    });
+    localStorage.setItem('utm_timestamp', String(Date.now()));
+  }
+
+  // 2. Only return UTM values if they were set within the trust window.
+  function getValidUTM() {
+    var ts = Number(localStorage.getItem('utm_timestamp') || 0);
+    var age = Date.now() - ts;
+    var result = {};
+    if (ts && age < UTM_WINDOW_MS) {
+      UTM_KEYS.forEach(function (k) {
+        var v = localStorage.getItem(k);
+        if (v) result[k] = v;
+      });
+    }
+    return result;
+  }
+
+  // 3. Append valid UTM params onto a signup URL, preserving any existing query (e.g. ?tier=pro).
+  function withUTM(url) {
+    var utm = getValidUTM();
+    var keys = Object.keys(utm);
+    if (keys.length === 0) return url;
+    var separator = url.indexOf('?') > -1 ? '&' : '?';
+    var query = keys
+      .map(function (k) { return k + '=' + encodeURIComponent(utm[k]); })
+      .join('&');
+    return url + separator + query;
+  }
+
+  // 4. Rewrite every existing signup <a href> in place, so plain hardcoded
+  //    links (pricing buttons, footer, final CTA) carry UTM automatically.
+  document.querySelectorAll('a[href*="app.tradecovex.com/signup"]').forEach(function (link) {
+    link.setAttribute('href', withUTM(link.getAttribute('href')));
+  });
+
+  // 5. Expose a helper for the one CTA that navigates via onclick/JS
+  //    instead of a plain href (the sticky "Start Free Trial" button).
+  window.tcxSignupUrl = function (base) {
+    return withUTM(base || 'https://app.tradecovex.com/signup');
+  };
+})();
+</script>
 </body>
 </html>
 
