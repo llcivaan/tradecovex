@@ -128,3 +128,13 @@
   from = "/guides/best-ninjatrader-trade-copiers-2026"
   to = "/compare/best-nt-trade-copiers-2026"
   status = 301
+
+# NinjaTrader Ecosystem listing traffic tracking.
+# This is a REWRITE (status 200), not a redirect — the browser URL bar stays
+# as /nt while homepage content is served, so Clarity logs every visit here
+# as its own page. Give NT Ecosystem (Chris Sanders / vendor listing team)
+# this exact URL to link to: https://tradecovex.com/nt
+[[redirects]]
+  from = "/nt"
+  to = "/index.html"
+  status = 200
