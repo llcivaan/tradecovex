@@ -30,11 +30,12 @@
 <!-- Favicon -->
 <link rel="icon" type="image/png" href="/assets/favicon.png">
 
-<!-- Performance: preconnect to font origins, preload critical assets -->
+<!-- Performance: preconnect to font origins, preload LCP poster image -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="video" href="/tradecovex.mp4" type="video/mp4">
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="/hero-poster.webp" fetchpriority="high">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet"></noscript>
 
 <!-- JSON-LD: Organization -->
 <script type="application/ld+json">
