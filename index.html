@@ -210,6 +210,35 @@ a{text-decoration:none;color:inherit}
   content:'';width:32px;height:1px;
   background:linear-gradient(90deg,#7AA0FF,transparent);
 }
+.hero-free-badge{
+  display:inline-flex;align-items:center;gap:10px;
+  text-decoration:none;
+  background:linear-gradient(135deg,#5FE5B0,#34D399);
+  border-radius:100px;
+  padding:9px 18px 9px 14px;
+  margin-bottom:20px;
+  box-shadow:0 4px 20px -4px rgba(95,229,176,0.5), 0 0 0 1px rgba(95,229,176,0.25);
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.hero-free-badge:hover{
+  transform:translateY(-1px);
+  box-shadow:0 6px 26px -4px rgba(95,229,176,0.65), 0 0 0 1px rgba(95,229,176,0.4);
+}
+.hero-free-badge .dot{
+  width:8px;height:8px;border-radius:50%;
+  background:#0A1628;flex-shrink:0;
+  animation:livePulse 1.8s ease-in-out infinite;
+}
+.hero-free-badge .txt{
+  font-family:'Barlow Semi Condensed',sans-serif;
+  font-size:15px;font-weight:800;
+  letter-spacing:-0.01em;
+  color:#0A1628;
+  white-space:nowrap;
+}
+@media (max-width:480px){
+  .hero-free-badge .txt{ font-size:13px; white-space:normal; }
+}
 .hero-h1{
   font-family:'Barlow Semi Condensed',sans-serif;
   font-size:clamp(36px, 4vw, 56px);
@@ -1024,6 +1053,66 @@ a{text-decoration:none;color:inherit}
   .hiw-card{ padding:28px 24px; }
   .hiw-card-title{ font-size:20px; }
   .hiw-card-desc{ font-size:13.5px; }
+}
+
+/* Free tier banner — sits above the animated pricing scene, normal document flow */
+.free-tier-banner{
+  background:linear-gradient(135deg,#0A1628 0%,#132038 100%);
+  padding:clamp(36px,5vw,56px) clamp(20px,4vw,60px);
+}
+.free-tier-inner{
+  max-width:1000px;
+  margin:0 auto;
+  background:linear-gradient(135deg,#5FE5B0 0%,#34D399 100%);
+  border-radius:20px;
+  padding:clamp(26px,3vw,36px) clamp(24px,3.4vw,40px);
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;
+  box-shadow:0 20px 60px -20px rgba(95,229,176,0.35);
+}
+.free-tier-copy{ flex:1; min-width:260px; }
+.free-tier-tag{
+  display:inline-block;
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;
+  color:#0A1628;
+  background:rgba(10,22,40,0.12);
+  border-radius:6px;
+  padding:4px 10px;
+  margin-bottom:12px;
+}
+.free-tier-title{
+  font-family:'Barlow Semi Condensed',sans-serif;
+  font-weight:800;
+  font-size:clamp(24px,2.6vw,32px);
+  line-height:1.1;
+  letter-spacing:-0.02em;
+  color:#0A1628;
+  margin-bottom:8px;
+}
+.free-tier-desc{
+  color:rgba(10,22,40,0.72);
+  font-size:14.5px;
+  line-height:1.55;
+  max-width:520px;
+}
+.free-tier-cta{
+  flex-shrink:0;
+  display:inline-flex;align-items:center;gap:8px;
+  background:#0A1628;
+  color:#fff;
+  font-family:'Barlow Semi Condensed',sans-serif;
+  font-weight:700;
+  font-size:16px;
+  text-decoration:none;
+  border-radius:12px;
+  padding:14px 24px;
+  transition:transform .2s ease, box-shadow .2s ease;
+  box-shadow:0 8px 24px -8px rgba(10,22,40,0.4);
+}
+.free-tier-cta:hover{ transform:translateY(-2px); box-shadow:0 12px 28px -8px rgba(10,22,40,0.5); }
+@media (max-width:768px){
+  .free-tier-inner{ flex-direction:column; align-items:flex-start; text-align:left; }
+  .free-tier-cta{ width:100%; justify-content:center; }
 }
 
 /* â”€â”€ PRICING SECTION (sticky scroll-pinned scene) â”€â”€ */
@@ -2387,11 +2476,11 @@ a{text-decoration:none;color:inherit}
     <div class="hero-content">
       <a href="#nt-vendor" style="display:inline-flex;align-items:center;gap:9px;text-decoration:none;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);border-radius:100px;padding:6px 14px 6px 8px;margin-bottom:18px">
         <span style="display:inline-flex;align-items:center;justify-content:center;background:#fff;border-radius:5px;padding:3px 7px"><img src="/assets/ninjatrader-logo.png" alt="NinjaTrader" style="height:12px;display:block"></span>
-        <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;color:rgba(255,255,255,0.75)">Official NinjaTrader Ecosystem Vendor</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;color:rgba(255,255,255,0.75)">Approved NinjaTrader Ecosystem Vendor</span>
       </a>
-      <a href="#pricing" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;background:rgba(37,99,235,0.12);border:1px solid rgba(37,99,235,0.35);border-radius:100px;padding:6px 14px;margin-bottom:14px">
-        <span style="width:7px;height:7px;border-radius:50%;background:#2563EB;flex-shrink:0"></span>
-        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.6px;color:#A8C2FF">Free copier — up to 40 accounts →</span>
+      <a href="#pricing" class="hero-free-badge">
+        <span class="dot"></span>
+        <span class="txt">Free copier — up to 40 accounts →</span>
       </a>
       <div class="hero-eyebrow">Trade Copier + AI Journal</div>
       <h1 class="hero-h1">
@@ -2469,6 +2558,18 @@ a{text-decoration:none;color:inherit}
 
 <!-- â”€â”€ PAIN SECTION â”€â”€ -->
 <!-- â”€â”€ PRICING SECTION â”€â”€ -->
+<!-- â”€â”€ FREE TIER BANNER â”€â”€ -->
+<div class="free-tier-banner">
+  <div class="free-tier-inner">
+    <div class="free-tier-copy">
+      <div class="free-tier-tag">Free</div>
+      <div class="free-tier-title">Free copier — up to 40 accounts</div>
+      <div class="free-tier-desc">Trade copier only, no credit card required. Mirror your lead account to up to 40 followers. Upgrade any time for the AI journal, dashboard, and prop-firm tracker.</div>
+    </div>
+    <a class="free-tier-cta" href="https://app.tradecovex.com/signup?tier=free">Get the Free Copier →</a>
+  </div>
+</div>
+
 <section class="pricing" id="pricing">
   <div class="pricing-scene">
     <div class="pricing-sticky">
@@ -2479,14 +2580,6 @@ a{text-decoration:none;color:inherit}
           <h2 class="pricing-headline pricing-headline--dark">
         <span class="line">Pick your plan.</span>
       </h2>
-          <div style="max-width:960px;margin:0 auto clamp(20px,2vw,32px);background:#ffffff;border:1px solid #E8ECF3;border-radius:18px;padding:clamp(20px,2vw,28px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;box-shadow:0 1px 2px rgba(10,22,40,0.04),0 8px 24px -8px rgba(10,22,40,0.08)">
-            <div style="flex:1;min-width:240px">
-              <div style="display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#2563EB;background:rgba(37,99,235,0.10);border-radius:6px;padding:4px 10px;margin-bottom:10px">Free</div>
-              <div style="font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:clamp(20px,2.2vw,26px);color:#0A1628;margin-bottom:6px">Free copier — up to 40 accounts</div>
-              <div style="color:#4B5E7A;font-size:14.5px;line-height:1.5">Trade copier only, no credit card required. Mirror your lead account to up to 40 followers. No AI journal, dashboard insights, or prop-firm tracker &mdash; upgrade any time for those.</div>
-            </div>
-            <a class="pricing-btn pricing-btn-outline" style="flex-shrink:0;white-space:nowrap" href="https://app.tradecovex.com/signup?tier=free">Get the Free Copier</a>
-          </div>
           <div class="pricing-cards-wrap">
             <div class="pricing-grid">
       <div class="pricing-col">
@@ -3014,7 +3107,7 @@ a{text-decoration:none;color:inherit}
 <!-- â”€â”€ FOOTER â”€â”€ -->
 <footer class="footer">
   <div id="nt-vendor" style="max-width:900px;margin:0 auto 48px;padding:44px 32px;text-align:center">
-    <div style="font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;color:#fff;margin-bottom:16px;letter-spacing:.01em">Official NinjaTrader Ecosystem Vendor</div>
+    <div style="font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;color:#fff;margin-bottom:16px;letter-spacing:.01em">Approved NinjaTrader Ecosystem Vendor</div>
     <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(63,214,155,0.08);border:1px solid rgba(63,214,155,0.28);color:#3FD69B;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;letter-spacing:2.2px;text-transform:uppercase;padding:7px 16px;border-radius:100px;margin-bottom:32px">
       <span style="width:6px;height:6px;border-radius:50%;background:#3FD69B;box-shadow:0 0 10px #3FD69B"></span>Verified Partner
     </div>
