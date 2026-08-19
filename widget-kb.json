@@ -95,7 +95,7 @@
         "yearly",
         "what does it cost"
       ],
-      "reply": "We have three plans:<br><br>&bull; <b>Starter &mdash; $19/mo</b> (up to 20 accounts)<br>&bull; <b>Pro &mdash; $39/mo</b> (up to 40 accounts) &mdash; most popular<br>&bull; <b>Elite &mdash; $79/mo</b> (up to 100 accounts)<br><br>Annual saves you around 26%. All plans come with a 14-day free trial, no credit card required."
+      "reply": "We have a free plan plus three paid plans:<br><br>&bull; <b>Free</b> (up to 40 accounts, copier only)<br>&bull; <b>Starter &mdash; $9/mo</b> (up to 60 accounts)<br>&bull; <b>Pro &mdash; $19/mo</b> (up to 80 accounts) &mdash; most popular<br>&bull; <b>Elite &mdash; $29/mo</b> (up to 100 accounts)<br><br>Annual saves you up to 28%. All paid plans come with a 14-day free trial, no credit card required."
     },
     {
       "id": "tier-difference",
@@ -108,7 +108,7 @@
         "what is the difference",
         "compare plans"
       ],
-      "reply": "The only practical difference is the account limit. Starter handles up to 20 accounts, Pro up to 40, Elite up to 100. All three include the full copier, the AI journal, the dashboard, and the prop-firm tracker. If you're running 2-3 prop accounts, Starter is fine. Most active prop traders end up on Pro."
+      "reply": "Free gives you the trade copier only, up to 40 accounts &mdash; no AI journal or dashboard. Starter, Pro, and Elite add the AI journal, dashboard, and prop-firm tracker, with account limits of 60, 80, and 100. If you just need to mirror trades, Free covers most traders. If you want the AI journal insights, Starter is the entry point."
     },
     {
       "id": "pricing-recommend",
@@ -119,7 +119,7 @@
         "what should i pick",
         "which plan for me"
       ],
-      "reply": "Depends on how many accounts you run. Under 20 accounts: Starter. 20-40 accounts: Pro (most active prop traders). 40+: Elite. If you're not sure, start with the 14-day free trial on Pro &mdash; you can change tier any time."
+      "reply": "Depends on what you need. Just want to copy trades, no journal? Free covers up to 40 accounts. Want the AI journal too? Under 60 accounts: Starter. 60-80: Pro (most active prop traders). 80+: Elite. If you're not sure, start with the 14-day free trial on Pro &mdash; you can change tier any time."
     },
     {
       "id": "trial",
