@@ -1967,68 +1967,6 @@ a{text-decoration:none;color:inherit}
    FAQ
    â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 /* Trusted Tools / Partners */
-.partners{
-  position:relative;
-  background:#F7F9FC;
-  padding:clamp(56px,7vh,88px) clamp(20px,4vw,60px);
-}
-.partners-inner{
-  max-width:1000px;
-  margin:0 auto;
-}
-.partners-eyebrow{
-  display:block;
-  text-align:center;
-  font-family:'JetBrains Mono',monospace;
-  font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;
-  color:#2563EB;
-  margin-bottom:28px;
-}
-.partner-card{
-  background:#ffffff;
-  border:1px solid #E8ECF3;
-  border-radius:16px;
-  padding:clamp(22px,2.4vw,30px);
-  display:flex;align-items:center;flex-wrap:wrap;gap:24px;
-  box-shadow:0 1px 2px rgba(10,22,40,0.04);
-}
-.partner-logo{
-  flex-shrink:0;
-  height:36px;width:auto;
-  display:block;
-}
-.partner-body{ flex:1; min-width:240px; }
-.partner-desc{
-  color:#4B5E7A;
-  font-size:14.5px;
-  line-height:1.5;
-}
-.partner-actions{
-  flex-shrink:0;
-  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
-}
-.partner-coupon{
-  font-family:'JetBrains Mono',monospace;
-  font-size:12px;font-weight:600;
-  color:#2563EB;
-  background:rgba(37,99,235,0.08);
-  border:1px dashed rgba(37,99,235,0.35);
-  border-radius:8px;
-  padding:6px 12px;
-  white-space:nowrap;
-}
-.partner-link{
-  color:#2563EB;
-  font-weight:600;
-  font-size:14.5px;
-  text-decoration:none;
-  white-space:nowrap;
-}
-.partner-link:hover{ text-decoration:underline; }
-@media (max-width:768px){
-  .partner-card{ flex-direction:column; align-items:flex-start; text-align:left; }
-  .partner-actions{ width:100%; justify-content:space-between; }
-}
 
 .faq{
   position:relative;
@@ -3030,22 +2968,6 @@ a{text-decoration:none;color:inherit}
 </section>
 
 <!-- â”€â”€ FAQ â”€â”€ -->
-<!-- â”€â”€ TRUSTED TOOLS / PARTNERS â”€â”€ -->
-<section class="partners" id="partners">
-  <div class="partners-inner">
-    <span class="partners-eyebrow">Trusted Tools</span>
-    <div class="partner-card">
-      <img class="partner-logo" src="/ninza-logo.png" alt="ninZa.co logo" width="480" height="111" loading="lazy">
-      <div class="partner-body">
-        <div class="partner-desc">Professional NinjaTrader 8 indicators, automated trading systems, and practical day trading education. Trusted by 60,000+ traders worldwide.</div>
-      </div>
-      <div class="partner-actions">
-        <span class="partner-coupon">NINZA — 10% off</span>
-        <a class="partner-link" href="https://ninza.co/" target="_blank" rel="noopener noreferrer">Visit ninZa.co →</a>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section class="faq" id="faq">
   <div class="faq-head">
@@ -3137,17 +3059,20 @@ a{text-decoration:none;color:inherit}
 
 <!-- ── THIRD-PARTY RESOURCES ── -->
 <style>
+@media (max-width:900px){
+  .third-party-resources .tpr-grid{ grid-template-columns:1fr 1fr !important; }
+}
 @media (max-width:640px){
   .third-party-resources .tpr-grid{ grid-template-columns:1fr !important; }
 }
 </style>
 <section class="third-party-resources" id="resources" style="padding:64px 24px;background:#F7F9FC">
-  <div style="max-width:900px;margin:0 auto">
+  <div style="max-width:1200px;margin:0 auto">
     <div style="text-align:center;margin-bottom:36px">
       <div style="display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#2563EB;border:1.5px solid rgba(37,99,235,0.25);background:rgba(37,99,235,0.06);padding:5px 14px;border-radius:100px;margin-bottom:16px">Third-Party Resources</div>
       <h2 style="font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:clamp(24px,3vw,32px);color:#0A1628;margin:0;letter-spacing:-0.01em">Tools we recommend</h2>
     </div>
-    <div class="tpr-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+    <div class="tpr-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px">
 
       <div style="background:#fff;border:1px solid #E6EAF2;border-radius:16px;padding:28px;display:flex;flex-direction:column;height:100%">
         <div style="display:inline-block;align-self:flex-start;font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#5A6B82;background:#F0F2F6;padding:4px 11px;border-radius:100px;margin-bottom:14px">Recommended Strategies</div>
@@ -3161,6 +3086,14 @@ a{text-decoration:none;color:inherit}
         <h3 style="font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:18px;color:#0A1628;margin:0 0 8px;letter-spacing:-0.01em">Need a trading VPS for NinjaTrader?</h3>
         <p style="font-family:'DM Sans',sans-serif;font-size:14px;line-height:1.65;color:#5A6B82;margin:0 0 20px;flex-grow:1">We recommend <strong style="color:#0A1628">NinjaMobileTrader.com</strong> for low-latency VPS hosting with desktop and mobile access. Not affiliated with or endorsed by Tradecovex.</p>
         <a href="https://ninjamobiletrader.com/" target="_blank" rel="nofollow sponsored noopener" style="align-self:flex-start;display:inline-flex;align-items:center;gap:8px;background:#2563EB;color:#ffffff;font-family:'DM Sans',sans-serif;font-weight:600;font-size:14px;padding:11px 20px;border-radius:10px;text-decoration:none;white-space:nowrap;box-shadow:0 4px 12px rgba(37,99,235,0.2)">Visit site<svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.5h6.5V10M12.5 3.5L3.5 12.5"/></svg></a>
+      </div>
+
+      <div style="background:#fff;border:1px solid #E6EAF2;border-radius:16px;padding:28px;display:flex;flex-direction:column;height:100%">
+        <img src="/ninza-logo.png" alt="ninZa.co logo" width="480" height="111" loading="lazy" style="height:22px;width:auto;align-self:flex-start;margin-bottom:12px">
+        <div style="display:inline-block;align-self:flex-start;font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#5A6B82;background:#F0F2F6;padding:4px 11px;border-radius:100px;margin-bottom:14px">Recommended Indicators</div>
+        <h3 style="font-family:'Barlow Semi Condensed',sans-serif;font-weight:800;font-size:18px;color:#0A1628;margin:0 0 8px;letter-spacing:-0.01em">Want proven NinjaTrader indicators?</h3>
+        <p style="font-family:'DM Sans',sans-serif;font-size:14px;line-height:1.65;color:#5A6B82;margin:0 0 20px;flex-grow:1">We recommend <strong style="color:#0A1628">ninZa.co</strong> for professional indicators, automated systems, and day trading education, trusted by 60,000+ traders. Not affiliated with or endorsed by Tradecovex. Use code <strong style="color:#0A1628">NINZA</strong> for 10% off.</p>
+        <a href="https://ninza.co/" target="_blank" rel="nofollow sponsored noopener" style="align-self:flex-start;display:inline-flex;align-items:center;gap:8px;background:#2563EB;color:#ffffff;font-family:'DM Sans',sans-serif;font-weight:600;font-size:14px;padding:11px 20px;border-radius:10px;text-decoration:none;white-space:nowrap;box-shadow:0 4px 12px rgba(37,99,235,0.2)">Visit site<svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.5h6.5V10M12.5 3.5L3.5 12.5"/></svg></a>
       </div>
 
     </div>
