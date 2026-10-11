@@ -4017,7 +4017,7 @@ document.querySelectorAll('.faq-q').forEach(btn => {
 <script>
 (function () {
   var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign'];
-  var UTM_WINDOW_MS = 30 * 60 * 1000; // 30 minutes
+  var UTM_WINDOW_MS = 30 * 24 * 60 * 60 * 1000; // 30 days
 
   // 1. Capture fresh UTM params from the current URL, if present.
   var params = new URLSearchParams(window.location.search);
