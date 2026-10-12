@@ -4016,55 +4016,83 @@ document.querySelectorAll('.faq-q').forEach(btn => {
 
 <script>
 (function () {
-  var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign'];
-  var UTM_WINDOW_MS = 30 * 24 * 60 * 60 * 1000; // 30 days
+  var KEYS = ['utm_source', 'utm_medium', 'utm_campaign'];
+  var WINDOW_MS = 30 * 24 * 60 * 60 * 1000;
+  var FIRST_KEY = 'tcx_attribution_first_v1';
+  var LATEST_KEY = 'tcx_attribution_latest_v1';
+  var now = Date.now();
 
-  // 1. Capture fresh UTM params from the current URL, if present.
-  var params = new URLSearchParams(window.location.search);
-  var hasFreshUTM = UTM_KEYS.some(function (k) { return params.get(k); });
-
-  if (hasFreshUTM) {
-    UTM_KEYS.forEach(function (k) {
-      var v = params.get(k);
-      if (v) localStorage.setItem(k, v);
+  function valid(record) {
+    if (!record || !Number.isFinite(record.at) ||
+        record.at > now || now - record.at >= WINDOW_MS) return null;
+    var clean = { at: record.at };
+    KEYS.forEach(function (key) {
+      if (typeof record[key] === 'string' && record[key].trim()) {
+        clean[key] = record[key].trim().slice(0, 256);
+      }
     });
-    localStorage.setItem('utm_timestamp', String(Date.now()));
+    return KEYS.some(function (key) { return clean[key]; }) ? clean : null;
+  }
+  function read(key) {
+    try { return valid(JSON.parse(localStorage.getItem(key))); }
+    catch (_) { return null; }
+  }
+  function write(key, value) {
+    try { localStorage.setItem(key, JSON.stringify(value)); } catch (_) {}
   }
 
-  // 2. Only return UTM values if they were set within the trust window.
-  function getValidUTM() {
-    var ts = Number(localStorage.getItem('utm_timestamp') || 0);
-    var age = Date.now() - ts;
-    var result = {};
-    if (ts && age < UTM_WINDOW_MS) {
-      UTM_KEYS.forEach(function (k) {
-        var v = localStorage.getItem(k);
-        if (v) result[k] = v;
+  var params = new URLSearchParams(window.location.search);
+  var fresh = { at: now };
+  KEYS.forEach(function (key) {
+    var value = params.get(key);
+    if (value && value.trim()) fresh[key] = value.trim().slice(0, 256);
+  });
+  fresh = valid(fresh);
+  var first = read(FIRST_KEY);
+  var latest = read(LATEST_KEY);
+
+  // Legacy tags identify a latest touch, not a verified first touch.
+  if (!latest) {
+    try {
+      var legacy = { at: Number(localStorage.getItem('utm_timestamp')) };
+      KEYS.forEach(function (key) { legacy[key] = localStorage.getItem(key); });
+      latest = valid(legacy);
+    } catch (_) {}
+  }
+  if (fresh) {
+    if (!first) first = fresh;
+    latest = fresh;
+    write(FIRST_KEY, first);
+    write(LATEST_KEY, latest);
+    try {
+      KEYS.forEach(function (key) {
+        if (latest[key]) localStorage.setItem(key, latest[key]);
+        else localStorage.removeItem(key);
       });
+      localStorage.setItem('utm_timestamp', String(latest.at));
+    } catch (_) {}
+  }
+
+  function withUTM(base) {
+    var url = new URL(base, window.location.href);
+    // Preserve tags deliberately placed on a specific signup link.
+    if (KEYS.some(function (key) { return url.searchParams.get(key); })) {
+      return base;
     }
-    return result;
+    var current = Date.now();
+    [ [latest, ''], [first, 'first_'] ].forEach(function (entry) {
+      var touch = entry[0], prefix = entry[1];
+      if (!touch || current < touch.at || current - touch.at >= WINDOW_MS) return;
+      KEYS.forEach(function (key) {
+        if (touch[key]) url.searchParams.set(prefix + key, touch[key]);
+      });
+      url.searchParams.set(prefix + 'utm_at', String(touch.at));
+    });
+    return url.toString();
   }
-
-  // 3. Append valid UTM params onto a signup URL, preserving any existing query (e.g. ?tier=pro).
-  function withUTM(url) {
-    var utm = getValidUTM();
-    var keys = Object.keys(utm);
-    if (keys.length === 0) return url;
-    var separator = url.indexOf('?') > -1 ? '&' : '?';
-    var query = keys
-      .map(function (k) { return k + '=' + encodeURIComponent(utm[k]); })
-      .join('&');
-    return url + separator + query;
-  }
-
-  // 4. Rewrite every existing signup <a href> in place, so plain hardcoded
-  //    links (pricing buttons, footer, final CTA) carry UTM automatically.
   document.querySelectorAll('a[href*="app.tradecovex.com/signup"]').forEach(function (link) {
     link.setAttribute('href', withUTM(link.getAttribute('href')));
   });
-
-  // 5. Expose a helper for the one CTA that navigates via onclick/JS
-  //    instead of a plain href (the sticky "Start Free Trial" button).
   window.tcxSignupUrl = function (base) {
     return withUTM(base || 'https://app.tradecovex.com/signup');
   };
