@@ -1,9 +1,40 @@
 # Tradecovex robots.txt
-# Allows all search engine crawlers full access
+# Everything public is open to search engines and AI assistants.
 
 User-agent: *
 Allow: /
 
-# Sitemap locations
+# AI search and assistant crawlers (listed explicitly so there is no ambiguity)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Sitemaps
 Sitemap: https://tradecovex.com/sitemap.xml
 Sitemap: https://tradecovex.com/video-sitemap.xml

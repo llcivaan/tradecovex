@@ -351,6 +351,18 @@ h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08
 .mobile-menu a.demo-link::before{content:'';width:6px;height:6px;border-radius:50%;background:#3FD69B;box-shadow:0 0 10px #3FD69B}
 @media (max-width:768px){.nav{padding:0 16px}.nav-inner{height:60px}.nav-logo{height:50px}.nav-links{display:none}.hamburger{display:flex !important}.mobile-menu{top:60px}}
 </style>
+<script type="text/javascript">
+    /* Microsoft Clarity: production hostnames only, so localhost/preview sessions stay out of the data */
+    if (/^(www\.)?tradecovex\.com$/.test(location.hostname)) {
+      (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "x9jgkip4eb");
+    }
+</script>
+<script>window.lemonSqueezyAffiliateConfig = { store: "tradecovex" };</script>
+<script src="https://lmsqueezy.com/affiliate.js" defer></script>
 </head>
 <body>
 
@@ -383,18 +395,28 @@ h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08
   <p class="breadcrumb"><a href="/">Home</a> › <a href="/guides/">Guides</a> › Best Trade Copier for Topstep 2026</p>
   <h1>The Best Trade Copier for <span class="accent">Topstep</span> in 2026</h1>
   <div class="guide-meta">
-    <span>📅 Updated June 2026</span>
+    <span>📅 Updated October 14, 2026</span>
     <span>⏱ 13 min read</span>
     <span>✍ Tradecovex Team</span>
   </div>
   <div class="answer-box">
     <span class="answer-box-label">Quick Answer</span>
-    <p>Topstep <strong>allows copy trading across your own accounts</strong>, and NinjaTrader is a supported connection — so the best trade copier for Topstep in 2026 is one that runs locally inside NinjaTrader, respects each account's own drawdown state, and doesn't force identical size and exits across every account (which trips the 50% consistency rule on all of them at once). The deciding factor for most multi-account traders is whether the copier <strong>only mirrors trades or also analyses them</strong>. Almost every copier stops at replication. The one capability that actually compounds over a season of trading five accounts is an AI journal that tells you which account is drifting and why.</p>
+    <p>Topstep <strong>allows copy trading across your own accounts</strong>, and NinjaTrader is a supported connection — so the best trade copier for Topstep in 2026 is one that runs locally inside NinjaTrader, respects each account's own drawdown state, and doesn't force identical size and exits across every account (which can trip the consistency tests on all of them at once). The deciding factor for most multi-account traders is whether the copier <strong>only mirrors trades or also analyses them</strong>. Almost every copier stops at replication. The one capability that actually compounds over a season of trading five accounts is an AI journal that tells you which account is drifting and why.</p>
   </div>
 </section>
 
 <section class="section">
   <div class="container prose">
+<div class="video-wrap">
+  <iframe src="https://www.youtube.com/embed/yv4yCiBve4E" title="How to Properly Copy Trade in TopstepX (In Less Than 5 Mins) (Cammy Capital)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
+<p class="video-caption">Cammy Capital shows TopstepX&#x27;s built-in copy trading, the basic option this guide compares with a NinjaTrader copier. It&#x27;s an independent video.</p>
+
+    <div class="callout callout-warn">
+      <div class="callout-title">&#x26A0; Corrected October 14, 2026</div>
+      <div>We checked the rules this page leans on against Topstep's help center. The Combine consistency target is 55%, the Express Funded Consistency Path is 40% and the Standard Path has none, and Topstep's loss limit trails the end-of-day balance on both account types. The "payout auto-disable" behaviour described further down is copied from user reports and we haven't confirmed it in Topstep's documentation. Topstep's parameters page says a trade copier is allowed up to $750K of buying power and that hedging across accounts is prohibited. Check it before you copy. Source: <a href="https://help.topstep.com/en/articles/8284215-express-funded-account-parameters" rel="noopener" target="_blank">Topstep Express Funded Account parameters</a>.</div>
+    </div>
+
 
 <h2><span class="section-num">01</span>First: does Topstep even allow trade copying?</h2>
 
@@ -415,11 +437,11 @@ h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08
 
 <h3>Two different drawdown engines on the same login</h3>
 
-<p>The Combine uses an <strong>intraday trailing</strong> Maximum Loss Limit — it follows your highest live equity in real time, which makes it the harsher of the two. The Express Funded Account uses an <strong>end-of-day trailing</strong> drawdown that locks once profits push the floor up. If you are copying across a mix of Combine and Express Funded accounts, your copier is fanning the same trade into two accounts with genuinely different risk geometry. A naive copier that treats them identically will blow the Combine on an intraday spike that the Express Funded account would have shrugged off. (If trailing drawdown is new to you, read <a href="/guides/trailing-drawdown">how trailing drawdown works</a> first.)</p>
+<p>On both the Combine and the Express Funded Account, Topstep's Maximum Loss Limit trails your <strong>end-of-day</strong> balance upward and never moves down. The difference is what you're trading toward: the Combine ends when you hit the profit target, while an Express Funded Account starts at $0 and resets its limit to $0 after every payout. If you copy across a mix of Combine and Express Funded accounts, the same trade is landing in accounts at very different distances from their floor, so one size rarely suits all of them. For how the limit moves, see <a href="/guides/topstep-combine-rules-2026">the Topstep Combine rules</a> and <a href="/guides/trailing-drawdown">how trailing drawdown works</a>.</p>
 
-<h3>The 50% consistency rule, multiplied</h3>
+<h3>Consistency tests, multiplied</h3>
 
-<p>Topstep's 50% consistency rule means no single day can represent more than half your total profit. On one account that is a discipline problem. Across five copied accounts it is a structural trap: one outsized day produces the same lopsided profit distribution on every account simultaneously, and you trip the rule on all five at once. Now every payout is locked until you grind the ratio back down on each account.</p>
+<p>Topstep has two consistency tests. The Combine's says your best day can't be more than 55% of your total profit when you pass. The Express Funded Account's Consistency Path says 40%. The Standard Path has no test. On one account that is a discipline problem. Across five copied accounts it is a structural one: one outsized day produces the same lopsided profit distribution on every account at once. On the Combine, each account's profit target rises. On a Consistency Path account, each one needs more total profit before a payout can be requested.</p>
 
 <div class="pull-quote">Identical trades on identical accounts is the fastest way to fail five Topstep accounts on the same afternoon instead of one.</div>
 
@@ -576,8 +598,8 @@ h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08
       <div class="faq-a">While an Express Funded Account payout request is being processed, Topstep automatically turns the copy-trading connection off, then turns it back on once the payout clears. Multi-account traders who do not know this are caught out when one account stops receiving copied trades during a payout cycle. It is expected behaviour, not a copier failure.</div>
     </div>
     <div class="faq-item">
-      <button class="faq-q">How does the 50% consistency rule affect copied Topstep trades?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
-      <div class="faq-a">Topstep's 50% consistency rule means no single day can exceed 50% of your total profit. If you copy identical trades across several accounts and have one outsized day, you can trip the rule on every account at once and lock payouts on all of them. Varying size and exit timing per account spreads that exposure instead of concentrating it.</div>
+      <button class="faq-q">How do Topstep's consistency rules affect copied trades?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>
+      <div class="faq-a">Topstep's Combine limits your best day to 55% of your profit when you pass, and the Express Funded Consistency Path limits it to 40% (the Standard Path has none). If you copy identical trades across several accounts and have one outsized day, you can hit that limit on every account at once. Varying size and exit timing per account spreads that exposure instead of concentrating it.</div>
     </div>
     <div class="faq-item">
       <button class="faq-q">Which trade copier is best for Topstep on NinjaTrader in 2026?<span class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button>

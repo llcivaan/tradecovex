@@ -362,6 +362,18 @@ h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08
 .mobile-menu a.demo-link::before{content:'';width:6px;height:6px;border-radius:50%;background:#3FD69B;box-shadow:0 0 10px #3FD69B}
 @media (max-width:768px){.nav{padding:0 16px}.nav-inner{height:60px}.nav-logo{height:50px}.nav-links{display:none}.hamburger{display:flex !important}.mobile-menu{top:60px}}
 </style>
+<script type="text/javascript">
+    /* Microsoft Clarity: production hostnames only, so localhost/preview sessions stay out of the data */
+    if (/^(www\.)?tradecovex\.com$/.test(location.hostname)) {
+      (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "x9jgkip4eb");
+    }
+</script>
+<script>window.lemonSqueezyAffiliateConfig = { store: "tradecovex" };</script>
+<script src="https://lmsqueezy.com/affiliate.js" defer></script>
 </head>
 <body>
 
@@ -393,7 +405,7 @@ h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08
   <p class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/guides/">Guides</a> &rsaquo; Topstep Rule Changes 2026</p>
   <h1>Topstep Rule Changes 2026 &mdash; <span class="accent">Every Update</span> From November 2025 to April 28, 2026</h1>
   <div class="guide-meta">
-    <span>&#x1F4C5; Updated May 1, 2026</span>
+    <span>&#x1F4C5; Updated October 14, 2026</span>
     <span>&#x23F1; 14 min read</span>
     <span>&#x270D; Tradecovex Team</span>
   </div>
@@ -405,6 +417,11 @@ h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08
 
 <section class="section">
   <div class="container prose">
+    <div class="callout callout-warn">
+      <div class="callout-title">&#x26A0; Corrected October 14, 2026</div>
+      <div>We checked this page against Topstep's help center. The February 5 table was wrong: there is no cumulative profit floor, the Standard Path has no consistency test, the Consistency Path test is 40% and a Consistency Path day only needs one trade. Topstep's payout policy page now lists caps of $2,000/$3,000/$5,000 (Standard) and $3,000/$4,000/$6,000 (Consistency) for $50K/$100K/$150K. We couldn't confirm the history of the April 28 cap change or the "previous $5,000/$6,000" figures in the timeline below, so read that entry as reported, not verified. Source: <a href="https://help.topstep.com/en/articles/8284233-express-funded-account-payout-policy" rel="noopener" target="_blank">Topstep payout policy</a>.</div>
+    </div>
+
 
     <h2><span class="section-num">01</span>Why this page exists</h2>
 
@@ -496,16 +513,17 @@ h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08
 
     <h2><span class="section-num">04</span>February 5, 2026 &mdash; Standard Path vs Consistency Path</h2>
 
-    <p>This is the rule change most traders ask about because the naming is confusing. Topstep already had a 50 percent consistency rule on the Trading Combine before February 5. The new <strong>Consistency Path</strong> on the Express Funded Account is something different. It refers to a separate set of payout-eligibility requirements applied at the Express Funded Account stage. Both paths use the same trading rules and the same 50 percent best-day-versus-cycle calculation when computing payout eligibility.</p>
+    <p>This is the rule change most traders ask about because the naming is confusing. Topstep already had a consistency rule on the Trading Combine before February 5 (it is 55% today). The new <strong>Consistency Path</strong> on the Express Funded Account is a different thing: a separate set of payout requirements at the funded stage, with its own 40% test.</p>
 
     <div class="data-table-wrap">
       <table class="data-table">
         <thead><tr><th>Eligibility component</th><th>Standard Path</th><th>Consistency Path</th></tr></thead>
         <tbody>
-          <tr><td class="label">Minimum winning days for first payout</td><td>5 days at $150 net or more</td><td>3 days at $150 net or more</td></tr>
-          <tr><td class="label">Cumulative profit floor (first payout)</td><td>$5,000+</td><td>$6,000+</td></tr>
-          <tr><td class="label">50% concentration rule</td><td>Applies</td><td>Applies</td></tr>
-          <tr><td class="label">Repeat-payout requirement</td><td>Two-rule (winning days + profitability since last payout)</td><td>Two-rule (winning days + profitability since last payout)</td></tr>
+          <tr><td class="label">Days needed per payout</td><td>5 winning days of $150 net or more</td><td>3 trading days, each with at least one trade</td></tr>
+          <tr><td class="label">Consistency test</td><td>None</td><td>Best day can&rsquo;t exceed 40% of total net profit</td></tr>
+          <tr><td class="label">Per-request caps ($50K / $100K / $150K)</td><td>$2,000 / $3,000 / $5,000</td><td>$3,000 / $4,000 / $6,000</td></tr>
+          <tr><td class="label">Request limit</td><td>50% of balance</td><td>50% of balance</td></tr>
+          <tr><td class="label">Repeat payouts</td><td>Earn at least $0.01 since the last payout (first payout exempt)</td><td>3 new trading days and the 40% test restart</td></tr>
           <tr><td class="label">90/10 split (post-Jan-12 traders)</td><td>Applies</td><td>Applies</td></tr>
         </tbody>
       </table>
@@ -513,7 +531,7 @@ h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08
 
     <p>The path is selected per Express Funded Account at activation. Once chosen, you cannot switch mid-cycle. If you fail a Consistency Path account and start a fresh Combine, you can choose Standard on the new account.</p>
 
-    <p>The strategic difference: Standard rewards predictable, paced trading across more sessions; Consistency Path rewards traders who can hit a higher daily P&amp;L for fewer days while still respecting the 50 percent concentration rule. On a $50K Consistency Path with the $6,000 floor, three winning days averaging $2,000 each is the profile, and your largest single day cannot exceed $3,000 (50 percent of $6,000). The math is unforgiving on three-day cycles. For details on the strategy, see <a href="/guides/pass-topstep-combine">how to pass a Topstep Combine in 2026</a>.</p>
+    <p>The practical difference: Standard has no consistency test but needs five days of $150 or more. Consistency needs only three days with a trade, but one big day can sink you. With a $2,000 best day, you need at least $5,000 of total net profit ($2,000 divided by 0.40), which is Topstep's own example. For strategy, see <a href="/guides/pass-topstep-combine">how to pass a Topstep Combine</a>.</p>
 
     <h2><span class="section-num">05</span>January 12, 2026 &mdash; the 90/10 profit split for new sign-ups</h2>
 
@@ -572,7 +590,7 @@ h4{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:1.08
       <li><strong>Verify your account-purchase date before relying on any third-party article.</strong> If your account was opened before April 28, 2026, the older payout caps apply to you. If after, the new caps apply.</li>
       <li><strong>The Standard Path Combine pricing is unchanged on $50K and $100K.</strong> If you want the original $5,000/$6,000 payout caps, the Standard Path is the route. You pay the $149 activation fee after passing, and you keep the higher caps.</li>
       <li><strong>The No Activation Fee Path is now a different value proposition than it was on November 25, 2025.</strong> Lower monthly cost, lower per-payout caps. Run the math for your specific behaviour before picking it.</li>
-      <li><strong>The Consistency Path requires more skill, not less.</strong> Three-day cycles with a $6,000 cumulative floor and a 50 percent concentration cap on $50K force tight daily P&amp;L distribution. Most traders are better suited to Standard.</li>
+      <li><strong>The Consistency Path requires more skill, not less.</strong> Three-day cycles with a 40% best-day limit force an even daily P&amp;L distribution, and the first big day you have can lock you out until the rest catches up. Most traders with lumpy results are better suited to Standard.</li>
       <li><strong>If you run multiple Topstep accounts, the platform-requirement and the per-trader 90/10 grandfather status both matter.</strong> New accounts go on TopstepX. The 90/10 split applies per trader, so opening additional accounts as a post-January-12 trader does not reset anything. For traders managing multiple challenges via a <a href="/guides/trade-copier-for-nt">trade copier</a>, factor the platform shift into your setup.</li>
     </ul>
 

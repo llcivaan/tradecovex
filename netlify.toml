@@ -69,7 +69,7 @@
 # Bing 400-499 fix: redirect old/wrong URLs
 [[redirects]]
   from = "/ninjatrader-trade-copier"
-  to = "/guides/ninjatrader-trade-copier"
+  to = "/guides/trade-copier-for-nt"
   status = 301
   force = true
 
