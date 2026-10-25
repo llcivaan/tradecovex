@@ -22,4 +22,7 @@ export default function shortlink(request) {
   });
 }
 
-export const config = { path: Object.keys(CHANNELS), method: ['GET', 'HEAD'] };
+export const config = {
+  path: ['/yt', '/nt', '/ig', '/discord', '/x', '/li'],
+  method: ['GET'],
+};

@@ -204,6 +204,7 @@ test('live short-link handler keeps incoming query parameters with channel tags'
     '/li': ['linkedin', 'social'],
   };
   assert.deepEqual(config.path, Object.keys(cases));
+  assert.deepEqual(config.method, ['GET'], 'Netlify rejects HEAD in edge manifests');
   for (const [short, [source, medium]] of Object.entries(cases)) {
     const response = await redirect(new Request('https://tradecovex.com' + short +
       '?probe=abc&ref=tcx_0123456789abcdef&utm_source=wrong'));
