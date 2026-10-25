@@ -60,8 +60,8 @@ function visit({ url = 'https://tradecovex.com/guides/copier', ref = '', storage
 
 test('Google deep landing forwards both touches and the landing path', () => {
   const v = visit({ ref: 'https://www.google.com/search?q=copier' });
-  assert.equal(v.params().get('ref'), 'google.com');
-  assert.equal(v.params().get('first_ref'), 'google.com');
+  assert.equal(v.params().get('referrer'), 'google.com');
+  assert.equal(v.params().get('first_referrer'), 'google.com');
   assert.equal(v.params().get('first_lp'), '/guides/copier');
   assert.equal(v.params().get('utm_at'), String(now));
 });
@@ -76,7 +76,7 @@ test('internal navigation keeps the original touch and landing path', () => {
 test('a later campaign changes latest touch without replacing first touch', () => {
   const original = visit({ ref: 'https://google.com/' });
   const next = visit({ storage: original.storage, url: 'https://tradecovex.com/?utm_source=youtube&utm_medium=video&utm_campaign=shortlink', at: now + 1000 });
-  assert.equal(next.params().get('first_ref'), 'google.com');
+  assert.equal(next.params().get('first_referrer'), 'google.com');
   assert.equal(next.params().get('first_lp'), '/guides/copier');
   assert.equal(next.params().get('utm_source'), 'youtube');
 });
@@ -90,23 +90,23 @@ test('pricing tier, fragment and deliberately tagged links survive', () => {
 });
 test('login links receive attribution too', () => {
   const v = visit({ ref: 'https://google.com/', hrefs: ['https://app.tradecovex.com/login?tier=starter'] });
-  assert.equal(v.params().get('first_ref'), 'google.com');
+  assert.equal(v.params().get('first_referrer'), 'google.com');
   assert.equal(v.params().get('tier'), 'starter');
 });
 test('new links and links inside newly inserted containers are decorated', () => {
   const v = visit({ ref: 'https://google.com/', hrefs: [] });
   const link = anchor(signup + '?tier=elite');
   v.mutate([{ type: 'childList', addedNodes: [{ nodeType: 1, matches: () => false, querySelectorAll: () => [link] }] }]);
-  assert.equal(new URL(link.href).searchParams.get('first_ref'), 'google.com');
+  assert.equal(new URL(link.href).searchParams.get('first_referrer'), 'google.com');
   const direct = anchor('https://app.tradecovex.com/login');
   v.mutate([{ type: 'childList', addedNodes: [direct] }]);
-  assert.equal(new URL(direct.href).searchParams.get('first_ref'), 'google.com');
+  assert.equal(new URL(direct.href).searchParams.get('first_referrer'), 'google.com');
 });
 test('href changes are decorated and repeating a mutation is idempotent', () => {
   const v = visit({ ref: 'https://google.com/' });
   v.links[0].href = signup + '?tier=starter';
   v.mutate([{ type: 'attributes', target: v.links[0] }]);
-  assert.equal(v.params().get('ref'), 'google.com');
+  assert.equal(v.params().get('referrer'), 'google.com');
   const decorated = v.links[0].href;
   v.mutate([{ type: 'attributes', target: v.links[0] }]);
   assert.equal(v.links[0].href, decorated);
@@ -116,7 +116,7 @@ test('immediate clicks and middle clicks decorate before navigation', () => {
   for (const event of ['click', 'auxclick']) {
     const link = anchor(signup);
     if (v.events[event]) v.events[event]({ target: link });
-    assert.equal(new URL(link.href).searchParams.get('ref'), 'google.com');
+    assert.equal(new URL(link.href).searchParams.get('referrer'), 'google.com');
   }
 });
 test('lookalike domains and unrelated app routes are never decorated', () => {
@@ -128,12 +128,12 @@ test('lookalike domains and unrelated app routes are never decorated', () => {
 });
 test('blocked storage still forwards the current visit', () => {
   const v = visit({ ref: 'https://google.com/', blocked: true });
-  assert.equal(v.params().get('first_ref'), 'google.com');
+  assert.equal(v.params().get('first_referrer'), 'google.com');
 });
 test('direct and self-referring visits do not invent a source', () => {
   for (const ref of ['', 'https://tradecovex.com/', 'https://app.tradecovex.com/login', 'not a URL']) {
     const v = visit({ ref });
-    assert.equal(v.params().has('ref'), false);
+    assert.equal(v.params().has('referrer'), false);
     assert.equal(v.params().has('utm_at'), false);
   }
 });
@@ -182,4 +182,12 @@ test('six short links have tagged temporary redirects and no conflicting /nt rew
     assert.equal(matches[0].length, 3, 'no query matching restrictions');
   }
   assert.doesNotMatch(fs.readFileSync(path.join(root, 'netlify.toml'), 'utf8'), /from = "\/nt"/);
+});
+
+test('analytics referrer never overwrites an affiliate code', () => {
+  const code = 'tcx_0123456789abcdef';
+  const v = visit({ ref: 'https://google.com/', hrefs: [signup + '?ref=' + code + '&tier=pro'] });
+  assert.equal(v.params().get('ref'), code);
+  assert.equal(v.params().get('referrer'), 'google.com');
+  assert.equal(v.params().get('first_referrer'), 'google.com');
 });
