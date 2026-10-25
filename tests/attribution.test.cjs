@@ -51,7 +51,7 @@ function visit({ url = 'https://tradecovex.com/guides/copier', ref = '', storage
     observe() {}
   }
   vm.runInNewContext(script(), { document, window, localStorage, Date: Clock,
-    URL, URLSearchParams, MutationObserver });
+    URL, URLSearchParams, MutationObserver }, { filename: path.join(root, 'attr.js') });
   return { links, window, storage, events,
     mutate(records) { if (observer) observer(records); },
     params(index = 0) { return new URL(links[index].href).searchParams; },

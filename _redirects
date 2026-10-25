@@ -1,0 +1,8 @@
+# Temporary channel links. Netlify passes through incoming query parameters.
+# https://docs.netlify.com/manage/routing/redirects/redirect-options/#query-parameters
+/yt /?utm_source=youtube&utm_medium=video&utm_campaign=shortlink 302
+/nt /?utm_source=ninjatrader&utm_medium=referral&utm_campaign=shortlink 302
+/ig /?utm_source=instagram&utm_medium=social&utm_campaign=shortlink 302
+/discord /?utm_source=discord&utm_medium=community&utm_campaign=shortlink 302
+/x /?utm_source=x&utm_medium=social&utm_campaign=shortlink 302
+/li /?utm_source=linkedin&utm_medium=social&utm_campaign=shortlink 302
