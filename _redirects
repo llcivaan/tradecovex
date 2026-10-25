@@ -1,5 +1,5 @@
-# Temporary channel links. Netlify passes through incoming query parameters.
-# https://docs.netlify.com/manage/routing/redirects/redirect-options/#query-parameters
+# Fallback 302s if the shortlink edge function is unavailable.
+# The edge function preserves incoming query parameters alongside these channel tags.
 /yt /?utm_source=youtube&utm_medium=video&utm_campaign=shortlink 302
 /nt /?utm_source=ninjatrader&utm_medium=referral&utm_campaign=shortlink 302
 /ig /?utm_source=instagram&utm_medium=social&utm_campaign=shortlink 302
