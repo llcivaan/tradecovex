@@ -191,3 +191,29 @@ test('analytics referrer never overwrites an affiliate code', () => {
   assert.equal(v.params().get('referrer'), 'google.com');
   assert.equal(v.params().get('first_referrer'), 'google.com');
 });
+
+test('live short-link handler keeps incoming query parameters with channel tags', async () => {
+  const { pathToFileURL } = require('node:url');
+  const { default: redirect, config } = await import(pathToFileURL(path.join(root, 'netlify/edge-functions/shortlink.js')).href);
+  const cases = {
+    '/yt': ['youtube', 'video'],
+    '/nt': ['ninjatrader', 'referral'],
+    '/ig': ['instagram', 'social'],
+    '/discord': ['discord', 'community'],
+    '/x': ['x', 'social'],
+    '/li': ['linkedin', 'social'],
+  };
+  assert.deepEqual(config.path, Object.keys(cases));
+  for (const [short, [source, medium]] of Object.entries(cases)) {
+    const response = await redirect(new Request('https://tradecovex.com' + short +
+      '?probe=abc&ref=tcx_0123456789abcdef&utm_source=wrong'));
+    assert.equal(response.status, 302, short);
+    const to = new URL(response.headers.get('location'));
+    assert.equal(to.origin + to.pathname, 'https://tradecovex.com/');
+    assert.equal(to.searchParams.get('probe'), 'abc');
+    assert.equal(to.searchParams.get('ref'), 'tcx_0123456789abcdef');
+    assert.equal(to.searchParams.get('utm_source'), source);
+    assert.equal(to.searchParams.get('utm_medium'), medium);
+    assert.equal(to.searchParams.get('utm_campaign'), 'shortlink');
+  }
+});
