@@ -82,7 +82,9 @@
       var touch = entry[0], prefix = entry[1];
       if (!touch || current < touch.at || current - touch.at >= WINDOW_MS) return;
       ALL.forEach(function (key) {
-        if (touch[key]) url.searchParams.set(prefix + key, touch[key]);
+        // Keep ref reserved for affiliate codes; the app also accepts older traffic links.
+        var param = key === 'ref' ? 'referrer' : key;
+        if (touch[key]) url.searchParams.set(prefix + param, touch[key]);
       });
       url.searchParams.set(prefix + 'utm_at', String(touch.at));
     });
