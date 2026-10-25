@@ -4040,21 +4040,33 @@ document.querySelectorAll('.faq-q').forEach(btn => {
 <script>
 (function () {
   var KEYS = ['utm_source', 'utm_medium', 'utm_campaign'];
+  var ALL = KEYS.concat(['ref', 'lp']);
   var WINDOW_MS = 30 * 24 * 60 * 60 * 1000;
   var FIRST_KEY = 'tcx_attribution_first_v1';
   var LATEST_KEY = 'tcx_attribution_latest_v1';
   var now = Date.now();
 
+  // Our own hostnames are not a traffic source.
+  function externalRef() {
+    try {
+      if (!document.referrer) return null;
+      var host = new URL(document.referrer).hostname.replace(/^www\./, '').toLowerCase();
+      if (!host || /(^|\.)tradecovex\.com$/.test(host)) return null;
+      return host.slice(0, 256);
+    } catch (_) { return null; }
+  }
+
   function valid(record) {
     if (!record || !Number.isFinite(record.at) ||
         record.at > now || now - record.at >= WINDOW_MS) return null;
     var clean = { at: record.at };
-    KEYS.forEach(function (key) {
+    ALL.forEach(function (key) {
       if (typeof record[key] === 'string' && record[key].trim()) {
         clean[key] = record[key].trim().slice(0, 256);
       }
     });
-    return KEYS.some(function (key) { return clean[key]; }) ? clean : null;
+    // A touch counts when it carries a tag OR a real referring site.
+    return (KEYS.some(function (key) { return clean[key]; }) || clean.ref) ? clean : null;
   }
   function read(key) {
     try { return valid(JSON.parse(localStorage.getItem(key))); }
@@ -4070,6 +4082,9 @@ document.querySelectorAll('.faq-q').forEach(btn => {
     var value = params.get(key);
     if (value && value.trim()) fresh[key] = value.trim().slice(0, 256);
   });
+  var ref = externalRef();
+  if (ref) fresh.ref = ref;
+  fresh.lp = (window.location.pathname || '/').slice(0, 256);
   fresh = valid(fresh);
   var first = read(FIRST_KEY);
   var latest = read(LATEST_KEY);
@@ -4106,7 +4121,7 @@ document.querySelectorAll('.faq-q').forEach(btn => {
     [ [latest, ''], [first, 'first_'] ].forEach(function (entry) {
       var touch = entry[0], prefix = entry[1];
       if (!touch || current < touch.at || current - touch.at >= WINDOW_MS) return;
-      KEYS.forEach(function (key) {
+      ALL.forEach(function (key) {
         if (touch[key]) url.searchParams.set(prefix + key, touch[key]);
       });
       url.searchParams.set(prefix + 'utm_at', String(touch.at));
