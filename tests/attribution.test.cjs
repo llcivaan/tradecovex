@@ -231,3 +231,10 @@ test('blocked storage still forwards current source-less landing context', () =>
   const v = visit({blocked:true});
   assert.equal(v.params().get('entry_lp'), '/guides/copier');
 });
+
+test('deliberately tagged signup links also retain the first landing context', () => {
+  const v = visit({ hrefs: [signup + '?utm_source=partner&tier=elite'] });
+  assert.equal(v.params().get('entry_lp'), '/guides/copier');
+  assert.equal(v.params().get('utm_source'), 'partner');
+  assert.equal(v.params().get('tier'), 'elite');
+});
