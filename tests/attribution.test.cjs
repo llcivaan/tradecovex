@@ -218,3 +218,16 @@ test('live short-link handler keeps incoming query parameters with channel tags'
     assert.equal(to.searchParams.get('utm_campaign'), 'shortlink');
   }
 });
+
+
+test('source-less landing context survives navigation and dynamic signup links', () => {
+  const first = visit();
+  const next = visit({ storage: first.storage, url: 'https://tradecovex.com/pricing', at: now + 1000 });
+  assert.equal(next.params().get('entry_lp'), '/guides/copier');
+  assert.equal(next.params().get('entry_at'), String(now));
+  assert.equal(next.params().get('utm_source'), null);
+});
+test('blocked storage still forwards current source-less landing context', () => {
+  const v = visit({blocked:true});
+  assert.equal(v.params().get('entry_lp'), '/guides/copier');
+});
