@@ -85,7 +85,9 @@ test('pricing tier, fragment and deliberately tagged links survive', () => {
   const v = visit({ url: 'https://tradecovex.com/?utm_source=test', hrefs: [signup + '?tier=pro#form', explicit] });
   assert.equal(v.params().get('tier'), 'pro');
   assert.equal(new URL(v.links[0].href).hash, '#form');
-  assert.equal(v.links[1].href, explicit);
+  assert.equal(v.params(1).get('utm_campaign'), 'deliberate');
+  assert.equal(v.params(1).get('tier'), 'elite');
+  assert.equal(new URL(v.links[1].href).hash, '#form');
   assert.equal(new URL(v.window.tcxSignupUrl(signup + '?tier=free')).searchParams.get('tier'), 'free');
 });
 test('login links receive attribution too', () => {

@@ -6,6 +6,15 @@
   var LATEST_KEY = 'tcx_attribution_latest_v1';
   var now = Date.now();
 
+  // Keep source-less landing context separate from attributable touches.
+  var entry = { at: now, lp: (window.location.pathname || '/').slice(0, 256) };
+  try {
+    var savedEntry = JSON.parse(localStorage.getItem('tcx_entry_v1'));
+    if (savedEntry && Number.isFinite(savedEntry.at) && savedEntry.at <= now &&
+        now - savedEntry.at < WINDOW_MS && typeof savedEntry.lp === 'string' && savedEntry.lp.startsWith('/')) entry = savedEntry;
+    localStorage.setItem('tcx_entry_v1', JSON.stringify(entry));
+  } catch (_) {}
+
   // Our own hostnames are not a traffic source.
   function externalRef() {
     try {
@@ -73,9 +82,11 @@
 
   function withUTM(base) {
     var url = new URL(base, window.location.href);
+    url.searchParams.set('entry_lp', entry.lp.split(/[?#]/)[0].slice(0, 256));
+    url.searchParams.set('entry_at', String(entry.at));
     // Preserve tags deliberately placed on a specific signup link.
     if (KEYS.some(function (key) { return url.searchParams.get(key); })) {
-      return base;
+      return url.toString();
     }
     var current = Date.now();
     [ [latest, ''], [first, 'first_'] ].forEach(function (entry) {
