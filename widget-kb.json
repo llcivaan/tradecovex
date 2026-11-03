@@ -192,7 +192,7 @@
         "evaluation",
         "pa account"
       ],
-      "reply": "Tradecovex works with any prop firm that runs on NinjaTrader. That covers Apex, Topstep, MyFundedFutures, Take Profit Trader, Tradeify, Bulenox, and the rest. Eval and funded accounts both work."
+      "reply": "Tradecovex runs inside NinjaTrader 8, so it works with prop firm accounts you can trade in NinjaTrader. Each firm sets its own rules on trade copiers, so check your firm's current policy before you copy. For Topstep, see the Topstep FAQ on the homepage."
     },
     {
       "id": "prop-firm-rules",
